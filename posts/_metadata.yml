@@ -8,20 +8,22 @@ execute:
 # Enable banner style title blocks
 title-block-banner: false
 
-comments: 
-  utterances: 
-    repo: guebin/MP2023
+# comments: 
+#   utterances: 
+#     repo: guebin/AP2025
 
-notebook-links: true
-cap-location: margin
-reference-location: margin
-citation-location: margin
 bibliography: ref.bib
 
 format:
   html:
-    toc: true
-    code-fold: false
-    code-line-numbers: false
-    code-copy: true
-  ipynb: default
+    toc: false
+    format-links: false
+  revealjs:
+    theme: [default, ../styles.scss]
+    incremental: false
+    slide-number: true
+    show-slide-number: all
+    hash-type: number
+    preview-links: auto
+    chalkboard: true
+    multiplex: false

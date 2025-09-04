@@ -3,14 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "MP2023"
+  title: "IAB-BS2025"
   navbar:
     right:
       - icon: github    
-        href: https://github.com/guebin/MP2023
+        href: https://github.com/guebin/IAB-BS2025
       - icon: youtube
         href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&sort=dd&shelf_id=2
 format:
   html:
     theme: cosmo
+    number-sections: false
     css: styles.css
+    toc: true
+    toc-location: right
+    highlight-style: github
+    toc-depth: 3

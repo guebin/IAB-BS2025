@@ -1,12 +1,14 @@
 ---
 title: "IAB기초통계 (2025)"
+format: html
 listing:
-  contents: posts
-  sort: "date desc"
-  type: table
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: listing-html
+    contents: posts
+    sort: "date desc"
+    type: table
+    categories: false
+    sort-ui: false
+    filter-ui: false
 page-layout: full
 title-block-banner: false
 ---
@@ -19,4 +21,19 @@ title-block-banner: false
 - Zoom: *카카오톡이나 이메일로 미리 시간을 정할 것*
 - LMS쪽지: <https://ieilms.jbnu.ac.kr/>
 
-**강의노트** 
+**강의노트**
+
+::: {.panel-tabset}
+
+## HTML
+
+::: {#listing-html}
+:::
+
+## 슬라이드
+
+각 강의노트의 슬라이드 버전을 확인할 수 있습니다.
+
+- [01wk - 확률을 정의하는 것은 쉬운 일인가? (슬라이드)](posts/01wk-slides.html)
+
+::: 
