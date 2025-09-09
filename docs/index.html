@@ -229,7 +229,7 @@ Author
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1757343600000" data-listing-file-modified-sort="1757382029920" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="979" data-listing-title-sort="02wk - 수학과의 표현, 귀류법과 일반화" data-listing-filename-sort="02wk.ipynb">
+<tr data-index="0" data-listing-date-sort="1757343600000" data-listing-file-modified-sort="1757382407219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="979" data-listing-title-sort="02wk - 수학과의 표현, 귀류법과 일반화" data-listing-filename-sort="02wk.ipynb">
 <td>
 <span class="listing-date">Sep 9, 2025</span>
 </td>
@@ -262,42 +262,10 @@ Author
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>각 강의노트의 슬라이드 버전을 확인할 수 있습니다.</p>
-<div id="slides-list">
-
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // HTML listing의 링크들을 가져와서 슬라이드 링크로 변환
-  const htmlTable = document.querySelector('#listing-html table tbody');
-  const slidesDiv = document.querySelector('#slides-list');
-  
-  if (htmlTable && slidesDiv) {
-    const ul = document.createElement('ul');
-    const rows = htmlTable.querySelectorAll('tr');
-    
-    rows.forEach(row => {
-      const linkCell = row.querySelector('td:first-child a');
-      if (linkCell) {
-        const htmlHref = linkCell.getAttribute('href');
-        const title = linkCell.textContent;
-        
-        // HTML 링크를 slides 링크로 변환
-        const slidesHref = htmlHref.replace('.html', '-slides.html');
-        
-        // 슬라이드 파일이 존재하는지 확인 (간단한 방법)
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = slidesHref;
-        a.textContent = title + ' (슬라이드)';
-        li.appendChild(a);
-        ul.appendChild(li);
-      }
-    });
-    
-    slidesDiv.appendChild(ul);
-  }
-});
-</script>
+<ul>
+<li><a href="posts/01wk-slides.html">01wk - 확률을 정의하는 것은 쉬운 일인가?</a></li>
+<li><a href="posts/02wk-slides.html">02wk - 수학과의 표현, 귀류법과 일반화</a></li>
+</ul>
 </div>
 </div>
 </div>
