@@ -74,10 +74,40 @@ $text-color: #555;
 
   /* 인라인 코드 */
   code {
-    background-color: #f0f0f0;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: 0.9em;
+    background-color: rgba(255, 111, 97, 0.05) !important;
+    padding: 0.15em 0.3em !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    color: rgba(255, 111, 97, 0.9) !important;
+    border: 1px solid rgba(255, 111, 97, 0.2) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* 더 강한 선택자로 인라인 코드 스타일링 */
+  p code, li code, div code, span code {
+    background-color: rgba(255, 111, 97, 0.05) !important;
+    padding: 0.15em 0.3em !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    color: rgba(255, 111, 97, 0.9) !important;
+    border: 1px solid rgba(255, 111, 97, 0.2) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* 최강 선택자 - RevealJS 전용 */
+  .reveal .slides section p code,
+  .reveal .slides section li code,
+  .reveal .slides section div code {
+    background-color: rgba(255, 111, 97, 0.05) !important;
+    padding: 0.15em 0.3em !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    color: rgba(255, 111, 97, 0.9) !important;
+    border: 1px solid rgba(255, 111, 97, 0.2) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
   }
 
   /* iframe 비디오 반응형 스타일 */
