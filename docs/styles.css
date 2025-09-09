@@ -20,16 +20,6 @@
     --accent-font: 'NanumMyeongjo', 'Nanum Myeongjo', serif;
 }
 
-/* 블록 수식 크게: $$ ... $$ */
-.math.display {
-  font-size: 1.2em !important;
-  margin: 1em 0 !important;
-}
-
-/* 인라인 수식은 약간 크게: $...$ */
-.math.inline {
-  font-size: 1.15em !important;
-}
 
 /* 기본 스타일 */
 body {
