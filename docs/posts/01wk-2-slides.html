@@ -11,7 +11,7 @@
 
   <meta name="author" content="최규빈">
   <meta name="dcterms.date" content="2025-09-02">
-  <title>IAB-BS2025 – 01wk - 확률을 정의하는 것은 쉬운 일인가?</title>
+  <title>IAB-BS2025 – 01wk-1: 확률을 정의하는 것은 쉬운 일인가?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,7 +130,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">01wk - 확률을 정의하는 것은 쉬운 일인가?</h1>
+  <h1 class="title">01wk-1: 확률을 정의하는 것은 쉬운 일인가?</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -156,7 +156,7 @@
 <li><span class="math inline">\(P(\{H\})=P(\{T\})=\frac{1}{2}\)</span>: prob</li>
 </ul>
 
-<img data-src="01wk_files/figure-revealjs/a046e0dc-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">그림1: 흔하디 흔한 동전던지기 예제</p></section>
+<img data-src="01wk-2_files/figure-revealjs/a046e0dc-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">그림1: 흔하디 흔한 동전던지기 예제</p></section>
 <section class="slide level2">
 
 <p><strong><code>질문1</code></strong></p>
@@ -234,7 +234,7 @@
 <li><span class="math inline">\(\Omega  = [0,2\pi)\)</span></li>
 </ul>
 
-<img data-src="01wk_files/figure-revealjs/01fb1467-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">그림2: 바늘이 하나만 있는 시계 (이런 시계는 없지만 있다고 상상하자)</p></section>
+<img data-src="01wk-2_files/figure-revealjs/01fb1467-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">그림2: 바늘이 하나만 있는 시계 (이런 시계는 없지만 있다고 상상하자)</p></section>
 <section class="slide level2">
 
 <p><code>질문1</code></p>
@@ -344,11 +344,11 @@
 <section class="slide level2">
 
 <p><code>(질문?)</code> 생각해보니까 이런게 있었잖아?</p>
-<p><span class="math display">\[A \subset B \Rightarrow P(A)&lt;P(B)\]</span></p>
-<p>그런데 <span class="math inline">\(\emptyset \subset \{0\}\)</span> 인데 <span class="math inline">\(P(\emptyset)=P(\{0\})\)</span> 이다..? 좀 이상하지 않어?</p>
+<p><span class="math display">\[A \subsetneq B \Rightarrow P(A)&lt;P(B)\]</span></p>
+<p>그런데 <span class="math inline">\(\emptyset \subsetneq \{0\}\)</span> 인데 <span class="math inline">\(P(\emptyset)=P(\{0\})\)</span> 이다..? 좀 이상하지 않어?</p>
 <p>(답변)</p>
 <ul>
-<li>질문이 잘못되었음. <span class="math inline">\(A \subset B \Rightarrow P(A) &lt; P(B)\)</span> 는 성립하지 않음. 원래 <span class="math inline">\(A \subset B \Rightarrow P(A)\leq P(B)\)</span> 이 성립함.</li>
+<li>질문이 잘못되었음. <span class="math inline">\(A \subsetneq B \Rightarrow P(A) &lt; P(B)\)</span> 는 성립하지 않음.</li>
 <li>즉 <span class="math inline">\(A\)</span>가 <span class="math inline">\(B\)</span>의 진 부분집합이더라도 <span class="math inline">\(P(A)=P(B)\)</span>인 경우가 존재함.</li>
 </ul>
 </section>
