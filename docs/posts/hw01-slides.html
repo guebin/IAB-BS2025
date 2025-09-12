@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a37c72dd2dbac68997fcdc15a3622e78.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.24">
 
   <meta name="author" content="최규빈">
   <meta name="dcterms.date" content="2025-09-11">
@@ -146,29 +146,11 @@
 <h2>1. 바늘이 하나 있는 시계</h2>
 <p>우리는 단순한 시계 하나를 생각해볼 수 있다. 이 시계에는 바늘이 하나 있고, 이 바늘을 무작위로 돌렸을 때, 바늘이 시계에서 어떤 위치에 멈추게 될 확률을 계산하는 상황을 상상해보자.</p>
 <p>여기서 시계의 위치를 <strong>각도</strong>로 나타낸다. 시계의 각도는 <span class="math inline">\(0\)</span>에서 <span class="math inline">\(2\pi\)</span> 사이로 표현된다. 즉, 시계바늘이 12시를 가리킬 때는 각도가 <span class="math inline">\(0\)</span>이고, 시계바늘이 시계 방향으로 6시를 가리킬 때는 각도가 <span class="math inline">\(\pi\)</span>이다. 이 문제에서 전체 각도 공간을 <strong>sample space</strong> <span class="math inline">\(\Omega\)</span>로 정의한다. <span class="math inline">\(\Omega = [0, 2\pi)\)</span>는 시계의 모든 각도를 나타내는 구간이다.</p>
-<p>시계바늘이 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(2\pi\)</span> 사이의 각도를 랜덤하게 가리킨다고 가정할 때, 우리는 특정 각도 범위에 바늘이 있을 확률을 계산할 수 있다. 예를들어 바늘이 <strong>12시부터 6시까지</strong>, 즉 각도 범위로 보면 <span class="math inline">\([0, \pi)\)</span> 사이에 바늘이 위치할 확률을 구하는 과정을 살펴보자.</p>
-<ul>
-<li>전체 각도 범위는 <span class="math inline">\(0\)</span>에서 <span class="math inline">\(2\pi\)</span>까지이므로, 전체 가능성의 범위 <span class="math inline">\(\Omega\)</span>의 길이(측도)는 <span class="math inline">\(m(\Omega) = 2\pi\)</span>이다.</li>
-<li>바늘이 12시부터 6시 사이에 있을 각도 구간을 <span class="math inline">\(\Omega^*\)</span>로 정의할 수 있다. <span class="math inline">\(\Omega^* = [0, \pi)\)</span>이며, 이 구간의 길이(측도)는 <span class="math inline">\(m(\Omega^*) = \pi\)</span>이다.</li>
-</ul>
-<p>확률을 구하는 방법은, 우리가 원하는 범위 <span class="math inline">\(\Omega^*\)</span>의 길이를 전체 표본 공간 <span class="math inline">\(\Omega\)</span>의 길이로 나누는 것이다. 즉, 확률 <span class="math inline">\(P(\Omega^*)\)</span>는 다음과 같이 정의된다:</p>
+<p>시계바늘이 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(2\pi\)</span> 사이의 각도를 랜덤하게 가리킨다고 가정할 때, 우리는 특정 각도 범위 <span class="math inline">\(\Omega^*\)</span>에 바늘이 있을 확률을 아래와 같이 계산할 수 있다.</p>
 <p><span class="math display">\[
-P(\Omega^*) = \frac{m(\Omega^*)}{m(\Omega)}
+P(\Omega^*) = \frac{m(\Omega^*)}{2\pi}
 \]</span></p>
-<p>따라서, 바늘이 12시에서 6시 사이에 있을 확률은 다음과 같다:</p>
-<p><span class="math display">\[
-P(\Omega^*) = \frac{\pi}{2\pi} = \frac{1}{2}
-\]</span></p>
-<p>즉, 시계바늘을 무작위로 돌렸을 때 바늘이 12시에서 6시 사이에 있을 확률은 <strong>1/2</strong>이다.</p>
-<p><strong>기호 설명:</strong></p>
-<ul>
-<li><span class="math inline">\(\Omega\)</span>: 전체 표본 공간으로, 시계바늘이 가리킬 수 있는 모든 각도 범위 <span class="math inline">\([0, 2\pi)\)</span>를 나타낸다.</li>
-<li><span class="math inline">\(\Omega^*\)</span>: 바늘이 12시에서 6시까지 있을 각도 범위로, <span class="math inline">\([0, \pi)\)</span> 구간을 나타낸다.</li>
-<li><span class="math inline">\(m(\Omega)\)</span>: 표본 공간 <span class="math inline">\(\Omega\)</span>의 측도로, 전체 각도 구간의 길이를 의미한다. 여기서는 <span class="math inline">\(m(\Omega) = 2\pi\)</span>이다.</li>
-<li><span class="math inline">\(m(\Omega^*)\)</span>: 구간 <span class="math inline">\(\Omega^*\)</span>의 측도로, 바늘이 12시부터 6시까지 있을 각도 구간의 길이를 의미한다. 여기서는 <span class="math inline">\(m(\Omega^*) = \pi\)</span>이다.</li>
-<li><span class="math inline">\(P(\Omega^*)\)</span>: 확률로, 바늘이 12시부터 6시까지 있을 확률을 나타낸다. 이는 <span class="math inline">\(P(\Omega^*) = \frac{m(\Omega^*)}{m(\Omega)}\)</span>로 계산된다.</li>
-</ul>
-<p><code>(2)</code> 길이를 재는 함수 <span class="math inline">\(m\)</span>에 대하여 아래와 같은 약속을 하자.</p>
+<p>여기에서 <span class="math inline">\(m\)</span>는 길이를 재는 함수이다. 길이를 재는 함수 <span class="math inline">\(m\)</span>에 대하여 아래와 같은 약속을 하자.</p>
 <ul>
 <li>약속1: 구간 <span class="math inline">\((a,b)\)</span>의 길이는 <span class="math inline">\(b-a\)</span>이다. 즉 <span class="math inline">\(m((a,b))=b-a\)</span> 이다.</li>
 <li>약속2: 한 점의 길이는 0이다.</li>
@@ -178,27 +160,28 @@ P(\Omega^*) = \frac{\pi}{2\pi} = \frac{1}{2}
 <p>이와 같은 방식으로 길이를 잰다면 확률을 정의함에 있어서 모순이 일어나지 않는가? 모순이 일어나지 않으면 모순이 없다고 답을 쓰고 모순이 일어난다면 모순이 일어나는 이유를 설명하라.</p>
 </section>
 <section class="slide level2">
-<h2>2. 수학과의 표현</h2>
-<p>아래의 명제를 읽고 참 거짓을 판단하라.</p>
+<h2>2. 기호의 표현</h2>
+<p><code>(1)</code> 아래의 명제를 읽고 참 거짓을 판단하라.</p>
 <blockquote>
 <p>단, 이 문제에서 <span class="math inline">\(\mathbb{N}\)</span>는 자연수의 집합 <span class="math inline">\(\mathbb{N}_{even}\)</span>은 짝수의 집합을 의미한다.</p>
 </blockquote>
-<p><code>(1)</code> <span class="math inline">\(a+b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></p>
-<p><code>(2)</code> <span class="math inline">\(a-b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></p>
-<p><code>(3)</code> <span class="math inline">\(k \in \mathbb{N} \Rightarrow 2k \in \mathbb{N}_{even}\)</span></p>
-<p><code>(4)</code> <span class="math inline">\(\forall m \in \mathbb{N}_{even}~ \exists k \in \mathbb{N}\)</span> such that <span class="math inline">\(2k=m\)</span>.</p>
-</section>
-<section class="slide level2">
-<h2>3. 수학과의 표현</h2>
-<p>아래가 의미하는 바를 한국어로 자연스럽게 작성하라.</p>
+<ul>
+<li><span class="math inline">\(a+b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(a-b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></li>
+<li><span class="math inline">\(k \in \mathbb{N} \Rightarrow 2k \in \mathbb{N}_{even}\)</span></li>
+<li><span class="math inline">\(\forall m \in \mathbb{N}_{even}~ \exists k \in \mathbb{N}\)</span> such that <span class="math inline">\(2k=m\)</span>.</li>
+</ul>
+<p><code>(2)</code> 아래가 의미하는 바를 한국어로 자연스럽게 작성하라.</p>
 <blockquote>
 <p>단, 이 문제에서 <span class="math inline">\(\mathbb{N}\)</span>은 자연수의 집합, <span class="math inline">\(\mathbb{N}_{even}\)</span>은 짝수의 집합, <span class="math inline">\(\mathbb{N}_{odd}\)</span>는 홀수의 집합, 그리고 <span class="math inline">\(\mathbb{Q}^+\)</span>는 양의 유리수 집합을 의미한다.</p>
 </blockquote>
-<p><code>(1)</code> <span class="math inline">\(a \in \mathbb{N}_{even}, b \in \mathbb{N}_{odd} \Rightarrow a \times b \in \mathbb{N}_{even}\)</span></p>
-<p><code>(2)</code> <span class="math inline">\(\forall q \in \mathbb{Q}^+~ \exists m, n \in \mathbb{N}\)</span> such that <span class="math inline">\(q = \frac{n}{m}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(a \in \mathbb{N}_{even}, b \in \mathbb{N}_{odd} \Rightarrow a \times b \in \mathbb{N}_{even}\)</span></li>
+<li><span class="math inline">\(\forall q \in \mathbb{Q}^+~ \exists m, n \in \mathbb{N}\)</span> such that <span class="math inline">\(q = \frac{n}{m}\)</span>.</li>
+</ul>
 </section>
 <section class="slide level2">
-<h2>전단사함수</h2>
+<h2>3. 전단사함수</h2>
 <p><code>(1)</code> 함수 <span class="math inline">\(f\)</span>는 <span class="math inline">\(X = \{1,2,3,4\}\)</span> 에서 <span class="math inline">\(Y = \{1,2,3,4\}\)</span> 로 매핑되며, 매핑은 다음과 같다:</p>
 <ul>
 <li><span class="math inline">\(f(1) = 1\)</span></li>
@@ -217,7 +200,7 @@ P(\Omega^*) = \frac{\pi}{2\pi} = \frac{1}{2}
 <p>이 함수가 전사인지 아닌지, 단사인지 아닌지 판단하고 판단의 근거를 설명하라.</p>
 </section>
 <section class="slide level2">
-<h2>카디널리티</h2>
+<h2>4. 카디널리티</h2>
 <p>짝수들의 집합 <span class="math inline">\(\mathbb{N}_{even}\)</span> 와 홀수들의 집합 <span class="math inline">\(\mathbb{N}_{odd}\)</span> 의 카디널리티가 동일함을 보여라.</p>
 
 
