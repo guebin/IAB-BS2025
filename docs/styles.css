@@ -1,0 +1,67 @@
+/* 나눔명조 웹폰트 선언 */
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('./fonts/NanumMyeongjo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('./fonts/NanumMyeongjoBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* CSS 변수 설정 */
+:root {
+    --primary-font: 'NanumMyeongjo', 'Nanum Myeongjo', serif;
+    --heading-font: 'NanumMyeongjo', 'Nanum Myeongjo', serif;
+    --accent-font: 'NanumMyeongjo', 'Nanum Myeongjo', serif;
+}
+
+
+/* 기본 스타일 */
+body {
+    font-family: var(--primary-font);
+    background-color: #fcfcf7;
+    color: #555;
+}
+
+/* 제목 스타일 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: #ff6f61;
+    text-shadow: none;
+}
+
+
+/* 일반 텍스트 스타일 */
+p {
+    color: #333;
+    font-family: var(--primary-font);
+}
+
+/* 목록스타일 */
+li {
+    font-family: var(--primary-font);
+}
+
+/* 링크 스타일 */
+a {
+    text-decoration: none;
+    color: #ff6f61;
+    font-family: var(--accent-font);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #d64b40;
+}
+
+/* 슬라이드 모드에서 비디오 프레임 크기 조정 */
+.reveal video {
+    width: 95% !important;
+    height: auto !important;
+}
