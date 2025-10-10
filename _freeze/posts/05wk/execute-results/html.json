@@ -1,0 +1,17 @@
+{
+  "hash": "bca5564ca8c1e34cb354e37c950ca54d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"05wk-1,2: \"\nauthor: \"최규빈\"\ndate: \"10/10/2025\"\n---\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(gglite)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\n\nAttaching package: 'gglite'\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nThe following objects are masked from 'package:stats':\n\n    density, line, smooth, step\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nThe following object is masked from 'package:graphics':\n\n    boxplot\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nThe following objects are masked from 'package:base':\n\n    col, jitter\n```\n\n\n:::\n:::\n\n\n그림을 그려보면 아래와 같다..\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx= 1:10\ngglite()+point(x)\n```\n\n::: {.cell-output-display}\n![](05wk_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "05wk_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

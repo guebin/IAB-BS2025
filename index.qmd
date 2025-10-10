@@ -34,6 +34,9 @@ title-block-banner: false
 
 각 강의노트의 슬라이드 버전을 확인할 수 있습니다.
 
-- [01wk - 확률을 정의하는 것은 쉬운 일인가? (슬라이드)](posts/01wk-slides.html)
+- [03wk-1: 카디널리티 (2)](posts/03wk-1-slides.html)
+- [02wk-2: 카디널리티 (1)](posts/02wk-2-slides.html)
+- [02wk-1: 수학과의 표현, 귀류법과 일반화](posts/02wk-1-slides.html)
+- [01wk-2: 확률을 정의하는 것은 쉬운 일인가?](posts/01wk-2-slides.html)
 
 ::: 
