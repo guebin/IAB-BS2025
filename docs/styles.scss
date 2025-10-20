@@ -1,0 +1,130 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+$primary-font: 'Nanum Myeongjo', serif;
+$heading-font: 'Nanum Myeongjo', serif;
+$accent-font: 'Nanum Myeongjo', serif;
+$primary-color: #ff6f61;
+$hover-color: #d64b40;
+$background-color: #fcfcf7;
+$text-color: #555;
+
+/*-- scss:rules --*/
+
+/* 블록 수식 크게: $$ ... $$ */
+.math.display {
+  font-size: 1.2em !important;
+  margin: 1em 0 !important;
+}
+
+/* 인라인 수식은 약간 크게: $...$ */
+.math.inline {
+  font-size: 1.15em !important;
+}
+
+/* Reveal.js 슬라이드 전용 스타일 */
+.reveal {
+  font-family: $primary-font;
+  background-color: $background-color;
+  color: $text-color;
+
+  /* 슬라이드 제목 스타일 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+    color: $primary-color;
+    text-shadow: none;
+    margin-bottom: 0.5em;
+  }
+
+  /* 일반 텍스트 */
+  p {
+    color: #333;
+    font-family: $primary-font;
+    margin-bottom: 0.5em;
+  }
+
+  /* 목록 스타일 */
+  li {
+    font-family: $primary-font;
+    margin-bottom: 0.3em;
+  }
+
+  /* 링크 스타일 */
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    font-family: $accent-font;
+    transition: color 0.3s ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: $hover-color;
+    }
+  }
+
+  /* 최강 선택자 - RevealJS 전용 */
+  .reveal .slides section p code,
+  .reveal .slides section li code,
+  .reveal .slides section div code {
+    background-color: rgba(255, 111, 97, 0.05) !important;
+    padding: 0.15em 0.3em !important;
+    border-radius: 4px !important;
+    font-size: 0.85em !important;
+    color: rgba(255, 111, 97, 0.9) !important;
+    border: 1px solid rgba(255, 111, 97, 0.2) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* iframe 비디오 반응형 스타일 */
+  iframe {
+    max-width: 95% !important;
+    width: 95% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+    border: none !important;
+    margin: 0.5em 0 !important;
+  }
+
+  /* 비디오 컨테이너 스타일 */
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 1em 0;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* 슬라이드 번호 스타일 - 우측 하단에 명확하게 표시 */
+.reveal .slide-number {
+  color: $primary-color !important;
+  font-family: $accent-font;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  bottom: 12px !important;
+  right: 12px !important;
+  position: fixed !important;
+  z-index: 1000 !important;
+}
+
+/* 진행 바 스타일 */
+.reveal .progress {
+  color: $primary-color;
+}
+
+/* 네비게이션 화살표 스타일 */
+.reveal .controls {
+  color: $primary-color;
+}

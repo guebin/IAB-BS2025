@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "IAB기초통계 (2025)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n강의노트\n\nHTML슬라이드\n\n\n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nSep 16, 2025\n\n\n03wk-1: 카디널리티 (2)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\nHW-1 (2024.09.11)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\n02wk-2: 카디널리티 (1)\n\n\n최규빈 \n\n\n\n\n\n\nSep 9, 2025\n\n\n02wk-1: 수학과의 표현, 귀류법과 일반화\n\n\n최규빈 \n\n\n\n\n\n\nSep 2, 2025\n\n\n01wk-1: 확률을 정의하는 것은 쉬운 일인가?\n\n\n최규빈 \n\n\n\n\n\n\nNo matching items\n\n\n\n각 강의노트의 슬라이드 버전을 확인할 수 있습니다.\n\n03wk-1: 카디널리티 (2)\n02wk-2: 카디널리티 (1)\n02wk-1: 수학과의 표현, 귀류법과 일반화\n01wk-2: 확률을 정의하는 것은 쉬운 일인가?"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n강의노트\n\nHTML슬라이드\n\n\n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nOct 20, 2025\n\n\n08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계\n\n\n최규빈 \n\n\n\n\n\n\nSep 16, 2025\n\n\n03wk-1: 카디널리티 (2)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\nHW-1 (2024.09.11)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\n02wk-2: 카디널리티 (1)\n\n\n최규빈 \n\n\n\n\n\n\nSep 9, 2025\n\n\n02wk-1: 수학과의 표현, 귀류법과 일반화\n\n\n최규빈 \n\n\n\n\n\n\nSep 2, 2025\n\n\n01wk-1: 확률을 정의하는 것은 쉬운 일인가?\n\n\n최규빈 \n\n\n\n\n\n\nNo matching items\n\n\n\n각 강의노트의 슬라이드 버전을 확인할 수 있습니다.\n\n03wk-1: 카디널리티 (2)\n02wk-2: 카디널리티 (1)\n02wk-1: 수학과의 표현, 귀류법과 일반화\n01wk-2: 확률을 정의하는 것은 쉬운 일인가?"
   },
   {
     "objectID": "posts/01wk-2.html#footnotes",
@@ -54,6 +54,20 @@
     "title": "03wk-1: 카디널리티 (2)",
     "section": "Footnotes",
     "text": "Footnotes\n\n\n\\(\\mathbb{R}\\)은 커녕 \\([0,1]\\)도 꽉 채우지 못한다는 의미니까..↩︎"
+  },
+  {
+    "objectID": "posts/08wk-1.html",
+    "href": "posts/08wk-1.html",
+    "title": "08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계",
+    "section": "",
+    "text": "예제1 – 엑스노트\n\n\n\n그림1: 엑스노트 X300의 광고\n\n\n\nreference: 201x년 김용대 교수님 수업을 들으며 착안한 예제..\n\n\n앞의 그림을 가장 적절히 설명한 진술이 무엇이라고 생각하는가?\n\n신민아가 고층빌딩에서 엑스노트를 활용해 프리젠테이션을 하고 있다.\n젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.\n여성이 프리젠테이션을 하고 있다.\n\n\n이제 아래의 진술이 맞을 “확률”을 생각해보자. 1,2,3중에 어떠한 문장이 참일 확률이 가장 높은가?\n\n신민아가 고층빌딩에서 엑스노트를 활용해 프리젠테이션을 하고 있다.\n젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.\n여성이 프리젠테이션을 하고 있다.\n\n\n예제2 – 아래의 그림을 관찰하자.\n\n\n\n\n\n그림2: 3000개의 점으로 구성된 산점도\n\n\n\n\n\n다음 중 그림을 가장 잘 묘사한 것은?\n\n\\(x\\)축의 평균은 2이다.\n\\(y\\)축의 평균은 3이다.\n평균은 \\((2,3)\\)이다.\n평균은 어딘가에 있다. 즉 평균은 \\((x_0,y_0)\\) 인데 \\(x_0 \\in \\mathbb{R}, y_0 \\in \\mathbb{R}\\).\n\n진술 1-4가 맞을 확률은?\n\n왜 이러한 혼란이 생기는가? 피셔는 1922년 그의 논문 “On the Mathematical Foundations of Theoretical Statistics”에서 혼란이 발생하는 원인을 아래와 같이 주장하였다.\n\n용어가 불분명해서 그렇다. (즉 순전히 언어적인 혼란이다)\n“확률”이라는 개념을 너무 남발해서 그렇다. (역확률)"
+  },
+  {
+    "objectID": "posts/08wk-1.html#footnotes",
+    "href": "posts/08wk-1.html#footnotes",
+    "title": "08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n공평한 동전을 던진다고 가정하자.↩︎\n동전을 던저서 나오는 앞면이 나오면 \\(X=0\\)이라고 하고 뒷면이 나오면 \\(X=1\\)이라고 하자. \\(X\\)의 평균은 얼마인가?↩︎\n베이지안 미안해요..↩︎"
   },
   {
     "objectID": "posts/hw01.html",

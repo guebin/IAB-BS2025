@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="최규빈">
-  <meta name="dcterms.date" content="2025-09-11">
-  <title>IAB-BS2025 – HW-1 (2024.09.11)</title>
+  <meta name="dcterms.date" content="2025-10-11">
+  <title>IAB-BS2025 – 05wk: 심슨의 역설, 상관성과 인과성</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -130,7 +130,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">HW-1 (2024.09.11)</h1>
+  <h1 class="title">05wk: 심슨의 역설, 상관성과 인과성</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -140,71 +140,187 @@
 </div>
 </div>
 
-  <p class="date">2025-09-11</p>
+  <p class="date">2025-10-11</p>
 </section>
 <section class="slide level2">
-<h2>1. 바늘이 하나 있는 시계</h2>
-<p>우리는 단순한 시계 하나를 생각해볼 수 있다. 이 시계에는 바늘이 하나 있고, 이 바늘을 무작위로 돌렸을 때, 바늘이 시계에서 어떤 위치에 멈추게 될 확률을 계산하는 상황을 상상해보자.</p>
-<p>여기서 시계의 위치를 <strong>각도</strong>로 나타낸다. 시계의 각도는 <span class="math inline">\(0\)</span>에서 <span class="math inline">\(2\pi\)</span> 사이로 표현된다. 즉, 시계바늘이 12시를 가리킬 때는 각도가 <span class="math inline">\(0\)</span>이고, 시계바늘이 시계 방향으로 6시를 가리킬 때는 각도가 <span class="math inline">\(\pi\)</span>이다. 이 문제에서 전체 각도 공간을 <strong>sample space</strong> <span class="math inline">\(\Omega\)</span>로 정의한다. <span class="math inline">\(\Omega = [0, 2\pi)\)</span>는 시계의 모든 각도를 나타내는 구간이다.</p>
-<p>시계바늘이 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(2\pi\)</span> 사이의 각도를 랜덤하게 가리킨다고 가정할 때, 우리는 특정 각도 범위 <span class="math inline">\(\Omega^*\)</span>에 바늘이 있을 확률을 아래와 같이 계산할 수 있다.</p>
-<p><span class="math display">\[
-P(\Omega^*) = \frac{m(\Omega^*)}{2\pi}
-\]</span></p>
-<p>여기에서 <span class="math inline">\(m\)</span>는 길이를 재는 함수이다. 길이를 재는 함수 <span class="math inline">\(m\)</span>에 대하여 아래와 같은 약속을 하자.</p>
-<ul>
-<li>약속1: 구간 <span class="math inline">\((a,b)\)</span>의 길이는 <span class="math inline">\(b-a\)</span>이다. 즉 <span class="math inline">\(m((a,b))=b-a\)</span> 이다.</li>
-<li>약속2: 한 점의 길이는 0이다.</li>
-<li>약속3: 점을 무한히 합치면 선이 되는것 처럼, 점의 길이를 무한히 합치면 0이 아니라 0보다 큰 어떠한 수가 된다.</li>
-<li>약속4: 구간 <span class="math inline">\((a,b)\)</span>사이의 모든 유리수의 길이는 <span class="math inline">\(\frac{b-a}{2}\)</span> 이다.</li>
-</ul>
-<p>이와 같은 방식으로 길이를 잰다면 확률을 정의함에 있어서 모순이 일어나지 않는가? 모순이 일어나지 않으면 모순이 없다고 답을 쓰고 모순이 일어난다면 모순이 일어나는 이유를 설명하라.</p>
+
+<h3>심슨의 역설</h3>
+<p><code>-</code> 두 농구 선수 A와 B의 자유투 성공률을 비교한다고 가정해보자. 각 시즌마다 선수 B가 선수 A보다 높은 성공률을 기록했다고 가정하자.</p>
+<p><code>-</code> 그럼에도 불구하고, 두 시즌의 데이터를 합쳤을 때 선수 A가 더 높은 전체 성공률을 기록하는 것이 가능할까?</p>
 </section>
 <section class="slide level2">
-<h2>2. 기호의 표현</h2>
-<p><code>(1)</code> 아래의 명제를 읽고 참 거짓을 판단하라.</p>
-<blockquote>
-<p>단, 이 문제에서 <span class="math inline">\(\mathbb{N}\)</span>는 자연수의 집합 <span class="math inline">\(\mathbb{N}_{even}\)</span>은 짝수의 집합을 의미한다.</p>
-</blockquote>
+
+<p><code>예제1</code> – 농구선수</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>선수</th>
+<th>시즌 1</th>
+<th>시즌 2</th>
+<th>전체</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>70% (7/10)</td>
+<td>95% (950/1000)</td>
+<td><strong>94.8%</strong></td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td><strong>80%</strong> (8/10)</td>
+<td><strong>100%</strong> (4/4)</td>
+<td>85.7%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>국소적 관점 (시즌별)</strong></p>
 <ul>
-<li><span class="math inline">\(a+b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></li>
-<li><span class="math inline">\(a-b \in \mathbb{N}, \forall a,b \in \mathbb{N}\)</span></li>
-<li><span class="math inline">\(k \in \mathbb{N} \Rightarrow 2k \in \mathbb{N}_{even}\)</span></li>
-<li><span class="math inline">\(\forall m \in \mathbb{N}_{even}~ \exists k \in \mathbb{N}\)</span> such that <span class="math inline">\(2k=m\)</span>.</li>
+<li>각 시즌마다 선수 B가 더 우수하다.</li>
 </ul>
-<p><code>(2)</code> 아래가 의미하는 바를 한국어로 자연스럽게 작성하라.</p>
-<blockquote>
-<p>단, 이 문제에서 <span class="math inline">\(\mathbb{N}\)</span>은 자연수의 집합, <span class="math inline">\(\mathbb{N}_{even}\)</span>은 짝수의 집합, <span class="math inline">\(\mathbb{N}_{odd}\)</span>는 홀수의 집합, 그리고 <span class="math inline">\(\mathbb{Q}^+\)</span>는 양의 유리수 집합을 의미한다.</p>
-</blockquote>
+<p><strong>전역적 관점 (전체)</strong></p>
 <ul>
-<li><span class="math inline">\(a \in \mathbb{N}_{even}, b \in \mathbb{N}_{odd} \Rightarrow a \times b \in \mathbb{N}_{even}\)</span></li>
-<li><span class="math inline">\(\forall q \in \mathbb{Q}^+~ \exists m, n \in \mathbb{N}\)</span> such that <span class="math inline">\(q = \frac{n}{m}\)</span>.</li>
+<li>선수 A가 전체적으로 승리한다. (선수 A는 특히 시즌 2에서 훨씬 많은 슛을 시도했으며, 높은 성공률을 유지했다)</li>
+</ul>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<p><code>에제2</code> – 입학자료</p>
+<p><strong>UC 버클리 입학 데이터 (전체)</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>그룹</th>
+<th>지원자 수</th>
+<th>합격률 (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>남성</td>
+<td>2,691</td>
+<td>51.90%</td>
+</tr>
+<tr class="even">
+<td>여성</td>
+<td>1,835</td>
+<td>42.07%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<p><strong>UC 버클리 입학 데이터 (학과별)</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>학과</th>
+<th>합격률 (남성)</th>
+<th>합격률 (여성)</th>
+<th>지원자 수 (남성)</th>
+<th>지원자 수 (여성)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>62%</td>
+<td><strong>82%</strong> 🟩</td>
+<td><strong>825</strong> 🟨</td>
+<td>108</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>63%</td>
+<td><strong>68%</strong> 🟩</td>
+<td><strong>560</strong> 🟨</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td><strong>37%</strong> 🟩</td>
+<td>34%</td>
+<td>325</td>
+<td><strong>593</strong> 🟨</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>33%</td>
+<td><strong>35%</strong> 🟩</td>
+<td><strong>417</strong> 🟨</td>
+<td>375</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td><strong>28%</strong> 🟩</td>
+<td>24%</td>
+<td>191</td>
+<td><strong>393</strong> 🟨</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>6%</td>
+<td><strong>7%</strong> 🟩</td>
+<td><strong>373</strong> 🟨</td>
+<td>341</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>🟩: 상대 성별보다 높은 합격률</li>
+<li>🟨: 상대 성별보다 많은 지원자 수</li>
 </ul>
 </section>
 <section class="slide level2">
-<h2>3. 전단사함수</h2>
-<p><code>(1)</code> 함수 <span class="math inline">\(f\)</span>는 <span class="math inline">\(X = \{1,2,3,4\}\)</span> 에서 <span class="math inline">\(Y = \{1,2,3,4\}\)</span> 로 매핑되며, 매핑은 다음과 같다:</p>
+
+<p><code>-</code> 결론</p>
 <ul>
-<li><span class="math inline">\(f(1) = 1\)</span></li>
-<li><span class="math inline">\(f(2) = 1\)</span></li>
-<li><span class="math inline">\(f(3) = 2\)</span></li>
-<li><span class="math inline">\(f(4) = 2\)</span></li>
+<li>UC 버클리가 남성 지원자를 선호했다고 보기는 어렵다.</li>
+<li>왜 그렇게 많은 여성 지원자들이 합격률이 낮은 학과에 지원했는지를 진지하게 고민해봐야 한다.<sup>1</sup></li>
 </ul>
-<p>이 함수가 전사인지 아닌지, 단사인지 아닌지 판단하고 판단의 근거를 설명하라.</p>
-<p><code>(2)</code> 함수 <span class="math inline">\(f\)</span>는 <span class="math inline">\(X = \{1,2,3,4\}\)</span> 에서 <span class="math inline">\(Y = \{1,2\}\)</span> 로 매핑되며, 매핑은 다음과 같다:</p>
+<p><code>#</code></p>
+<p>일반적으로 확률은 원인(모수)에서 결과(데이터)를 생각하며 얻은 숫자들이다. 예를들면 아래와 같다.</p>
 <ul>
-<li><span class="math inline">\(f(1) = 1\)</span></li>
-<li><span class="math inline">\(f(2) = 1\)</span></li>
-<li><span class="math inline">\(f(3) = 2\)</span></li>
-<li><span class="math inline">\(f(4) = 2\)</span></li>
+<li>공평한 동전을 두번 던질떄, 연속 두번 앞면이 나올 확률은?</li>
+<li>…</li>
 </ul>
-<p>이 함수가 전사인지 아닌지, 단사인지 아닌지 판단하고 판단의 근거를 설명하라.</p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="김용대2021데이터">(<a href="" role="doc-biblioref" onclick="return false;"><strong>김용대2021데이터?</strong></a>)</span></p></li></ol></aside></section>
+<section class="slide level2">
+
+<p>그런데 우리가 data를 관측한 상황에서는 결과(데이터)에서 원인을 생각하며 얻은 숫자들이다. 이것을 추론이라고 한다.</p>
+<ul>
+<li>예시…</li>
+</ul>
 </section>
 <section class="slide level2">
-<h2>4. 카디널리티</h2>
-<p>짝수들의 집합 <span class="math inline">\(\mathbb{N}_{even}\)</span> 와 홀수들의 집합 <span class="math inline">\(\mathbb{N}_{odd}\)</span> 의 카디널리티가 동일함을 보여라.</p>
+
+<p>피셔의 주장: 추론의 과정에서는 확률을 고려하면 안된다. 대신 가능도를 고려해야한다.</p>
+</section>
+<section class="slide level2">
+
+<h3>가능도</h3>
+<p>가능도가 무엇인가?</p>
+<!-- > 우리는 뭘해야하는가? 데이터 압축
+> 통계학의 문제: (1) 명시의 문제 -- 분포가정 (2) 추정의문제 -- 분포를 가정했다면, 분포의 특성을 나타내는 모수를 어떻게 계산할것이냐? 어떤 통계량을 써야하는가? (3) 분포의 문제, 표본을 다시 뽑으면 추정치가 달라지는데 그게 어떻게 달라지는디.. 
+> 추정의 문제에 집중
+> 좋은 추정을 고르는 기준 1. 일치성, 2. 효율성 3. 충분성 
+> 기존의 추정법 -- 모멘트 MOM // 어떤분포에서는 완전히 이상하게 나옴. 예시는 코시분포. 
+> 가능도, 최대가능도법. 
+>  -->
 
 
 </section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
