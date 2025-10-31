@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7eda2101a7a109d5067cba531cf9672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-45a984b55c978f8c4117b5b9aec951d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -70,12 +70,41 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../styles.scss">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -113,9 +142,10 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -148,7 +178,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="바늘이-하나-있는-시계-20점" class="level2">
+<h2 class="anchored" data-anchor-id="바늘이-하나-있는-시계-20점">1. 바늘이 하나 있는 시계 – 20점</h2>
+<p>우리는 단순한 시계 하나를 생각해볼 수 있다. 이 시계에는 바늘이 하나 있고, 이 바늘을 무작위로 돌렸을 때, 바늘이 시계에서 어떤 위치에 멈추게 될 확률을 계산하는 상황을 상상해보자.</p>
+<p>여기서 시계의 위치를 <strong>각도</strong>로 나타낸다. 시계의 각도는 <span class="math inline">\(0\)</span>에서 <span class="math inline">\(2\pi\)</span> 사이로 표현된다. 즉, 시계바늘이 12시를 가리킬 때는 각도가 <span class="math inline">\(0\)</span>이고, 시계바늘이 시계 방향으로 6시를 가리킬 때는 각도가 <span class="math inline">\(\pi\)</span>이다. 이 문제에서 전체 각도 공간을 <strong>sample space</strong> <span class="math inline">\(\Omega\)</span>로 정의한다. <span class="math inline">\(\Omega = [0, 2\pi)\)</span>는 시계의 모든 각도를 나타내는 구간이다.</p>
+<p>시계바늘이 <span class="math inline">\(0\)</span>부터 <span class="math inline">\(2\pi\)</span> 사이의 각도를 랜덤하게 가리킨다고 가정할 때, 우리는 특정 각도 범위 <span class="math inline">\(\Omega^*\)</span>에 바늘이 있을 확률을 아래와 같이 계산할 수 있다.</p>
+<p><span class="math display">\[
+P(\Omega^*) = \frac{m(\Omega^*)}{2\pi}
+\]</span></p>
+<p>여기에서 <span class="math inline">\(m\)</span>는 길이를 재는 함수이다. 길이를 재는 함수 <span class="math inline">\(m\)</span>에 대하여 아래와 같은 약속을 하자.</p>
+<ul>
+<li>약속1: 구간 <span class="math inline">\((a,b)\)</span>의 길이는 <span class="math inline">\(b-a\)</span>이다. 즉 <span class="math inline">\(m((a,b))=b-a\)</span> 이다.</li>
+<li>약속2: 한 점의 길이는 0이다.</li>
+<li>약속3: 점을 무한히 합치면 선이 되는것 처럼, 점의 길이를 무한히 합치면 0이 아니라 0보다 큰 어떠한 수가 된다.</li>
+<li>약속4: 구간 <span class="math inline">\((a,b)\)</span>사이의 모든 무리수의 길이는 <span class="math inline">\(b-a\)</span>이다.</li>
+</ul>
+<p>이와 같은 방식으로 길이를 잰다면 확률을 정의함에 있어서 모순이 일어나지 않는가? 모순이 일어나지 않으면 모순이 없다고 답을 쓰고 모순이 일어난다면 모순이 일어나는 이유를 설명하라.</p>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="수학과의-표현-20점" class="level2">
+<h2 class="anchored" data-anchor-id="수학과의-표현-20점">2. 수학과의 표현 – 20점</h2>
+<p>아래가 의미하는 바를 한국어로 풀어 작성하라. (의역도 정답으로 인정)</p>
+<p><code>(1)</code> <span class="math inline">\(\forall n,m \in \mathbb{N}: n+m \in \mathbb{N}\)</span>.</p>
+<p><code>(2)</code> <span class="math inline">\(\forall a \in \mathbb{N}: \exists b \in \mathbb{Z}\)</span> such that <span class="math inline">\(a+b=0\)</span>.</p>
+<hr>
+<p>아래를 만족하는 함수 <span class="math inline">\(f:X \to Y\)</span>가 어떠한 함수인지 판단하라.</p>
+<blockquote class="blockquote">
+<p>전사, 단사, 전단사중 하나를 답으로 쓰면 됩니다.</p>
+</blockquote>
+<p><code>(3)</code> <span class="math inline">\(\forall x, x' \in X, f(x)=f(x') \Longrightarrow x=x'\)</span></p>
+<p><code>(4)</code> <span class="math inline">\(\forall y \in Y, \exists x \in X\)</span> such that <span class="math inline">\(y=f(x)\)</span></p>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="유리수의-카디널리티-20점" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="유리수의-카디널리티-20점">3. 유리수의 카디널리티 – 20점</h2>
+<p>자연수와 <span class="math inline">\([0,1]\cap \mathbb{Q}\)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>의 카디널리티가 동일함을 보여라. (단, 이 문제에서 <span class="math inline">\(|\mathbb{Q}|=\aleph_0\)</span> 임은 모른다고 가정)</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;구간 <span class="math inline">\([0,1]\)</span>사이의 유리수</p></div></div><p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="실수의-카디널리티-20점" class="level2">
+<h2 class="anchored" data-anchor-id="실수의-카디널리티-20점">4. 실수의 카디널리티 – 20점</h2>
+<p>자연수집합 <span class="math inline">\(\mathbb{N}\)</span>에서 <span class="math inline">\([0,1]\)</span>로의 전사함수가 존재하지 않음을 보여라.</p>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
+</section>
+<section id="카디널리티와-전단사함수-20점" class="level2">
+<h2 class="anchored" data-anchor-id="카디널리티와-전단사함수-20점">5. 카디널리티와 전단사함수 – 20점</h2>
+<p><code>(1)</code> 자연수집합 <span class="math inline">\(\mathbb{N}\)</span>과 3의배수의 집합 <span class="math inline">\(\{3,6,9,\dots\}\)</span>의 카디널리티를 비교하고, 두 집합의 카디널리티가 서로 다른지 또는 같은지를 판단한 뒤, 그 이유를 설명하라.</p>
+<p><code>(2)</code> 구간 <span class="math inline">\([0,1]\)</span>과 <span class="math inline">\([0,2]\)</span>의 카디널리티를 비교하고, 두 집합의 카디널리티가 서로 다른지 또는 같은지를 판단한 뒤, 그 이유를 설명하라.</p>
+<p><code>(3)</code> 함수 <span class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span>가 <span class="math inline">\(f(x)=x^2\)</span>로 정의되어 있을 때, 이 함수가 전사함수인지 아닌지 단사함수인지 아닌지 판단하고 그 근거를 설명하라.</p>
+<p><code>(4)</code> 함수 <span class="math inline">\(f:\mathbb{R}^+\to \mathbb{R}^+\)</span>가 <span class="math inline">\(f(x)=\sqrt{x}\)</span>로 정의되어 있을 때, 이 함수가 전사함수인지 아닌지 단사함수인지 아닌지 판단하고 그 근거를 설명하라. (단, <span class="math inline">\(\mathbb{R}^+\)</span>는 양의실수의 집합이다)</p>
+<p><br> <br> <br> <br> <br> <br> <br> <br> <br> <br></p>
 
+
+</section>
 
 
 </main> <!-- /main -->
