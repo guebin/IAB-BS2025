@@ -234,14 +234,14 @@
 <p><a href="https://www.youtube.com/watch?v=3uCi1g_aV-g" class="uri">https://www.youtube.com/watch?v=3uCi1g_aV-g</a></p>
 </section>
 <section class="slide level2">
-<h2>The Story of Titanic</h2>
+
 <p><strong>Chapter 2. They Fall in Love</strong></p>
 <p>Jack and Rose meet on the ship. Jack saves Rose when she is in danger. They talk, laugh, and spend time together. Soon, they fall in love.</p>
 <p><a href="https://www.youtube.com/watch?v=erAQ9LkftwA" class="uri">https://www.youtube.com/watch?v=erAQ9LkftwA</a></p>
 <p><a href="https://www.youtube.com/watch?v=oklPl95DC8c" class="uri">https://www.youtube.com/watch?v=oklPl95DC8c</a></p>
 </section>
 <section class="slide level2">
-<h2>The Story of Titanic</h2>
+
 <p><strong>Chapter 3. The Sinking and the Divided Paths</strong></p>
 <p>When the Titanic strikes the iceberg, chaos begins to unfold. But this chaos is not delivered equally to everyone on board.</p>
 <p>In the film, a clear difference is shown between first-class and third-class passengers. First-class passengers are quickly and politely informed by crew members. They receive calm explanations, are given life jackets, and are carefully guided toward the lifeboats. They are seen dressing in formal clothes and preparing for evacuation in an orderly manner.</p>
@@ -250,7 +250,7 @@
 <p><a href="https://www.youtube.com/watch?v=Gmw1q0CprEA" class="uri">https://www.youtube.com/watch?v=Gmw1q0CprEA</a></p>
 </section>
 <section class="slide level2">
-<h2>The Story of Titanic</h2>
+
 <p><strong>Chapter 4. The Lifeboat Scene</strong></p>
 <p>Cal tells Rose to get on a lifeboat. She agrees at first and is lowered away from Jack.</p>
 <p>But as the boat goes down, Rose looks up at him. She suddenly jumps back onto the ship. She chooses to stay with Jack, even if it means risking her life.</p>
@@ -258,7 +258,7 @@
 <p><a href="https://www.youtube.com/watch?v=_qTZRD1_ybQ" class="uri">https://www.youtube.com/watch?v=_qTZRD1_ybQ</a></p>
 </section>
 <section class="slide level2">
-<h2>The Story of Titanic</h2>
+
 <p><strong>Chapter 5. The End and the Memory</strong></p>
 <p>As the Titanic sinks deeper into the sea, Jack and Rose struggle to survive together until the very end. They cling to a broken piece of wood, floating in the freezing ocean.</p>
 <p>Jack protects Rose and says, “Never give up. Never let go.” Rose holds his promise deep in her heart.</p>
@@ -272,9 +272,9 @@
 <p>The Titanic dataset is commonly provided as a CSV file named titanic.csv, and can be obtained from various sources such as Kaggle, the seaborn package, or scikit-learn. We can load this data using the pandas library in Python.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Dataset</h2>
+
 <p>The Titanic data can be loaded as follows:</p>
-<div id="bfc1c9ed" class="cell" data-execution_count="3">
+<div id="bfc1c9ed" class="cell" data-execution_count="56">
 <div class="cell-output cell-output-display">
 <div>
 <style scoped="">
@@ -330,7 +330,7 @@
 <td>2</td>
 <td>1</td>
 <td>1</td>
-<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Thayer)</td>
 <td>female</td>
 <td>38.0</td>
 <td>1</td>
@@ -484,7 +484,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic Dataset</h2>
+
 <p>In this code, <code>pd.read_csv("titanic.csv")</code> means reading the file <code>titanic.csv</code> from the current working directory, and storing its contents into a variable named df as a DataFrame object.</p>
 <ul>
 <li><code>pd</code> is a commonly used alias for the pandas package, which is typically imported using import pandas as pd.</li>
@@ -493,7 +493,7 @@
 <p>This allows users to import structured data in table format and perform various kinds of analysis on it.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Dataset</h2>
+
 <p>When working with data in pandas,the very first thing to check after loading a dataset is its overall structure. The most basic command used for this purpose is:</p>
 <div id="b0482b4d" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
@@ -511,7 +511,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic Dataset</h2>
+
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -535,7 +535,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic Dataset</h2>
+
 <p>Understanding this basic structure is an essential first step in any data analysis process. If there are too few rows, statistical results may not be reliable. On the other hand, if there are too many columns or if the data contains many missing values, preprocessing and feature selection may become more complex.</p>
 <p>From this output, we can see that the Titanic dataset includes 891 passengers and 12 variables, making it well-suited for analysis and practice in tasks such as classification, exploration, and visualization.</p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -732,7 +732,7 @@
 <p>By separating our data this way, we can simulate how our model would behave in real-world scenarios — predicting survival outcomes for passengers it hasn’t seen before. In practice, we can use the <code>train_test_split()</code> function from <code>sklearn</code>.</p>
 </section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 <p>In our case, we used <code>train_test_split(df, test_size=0.3, random_state=42)</code> to split the Titanic dataset. This means that 70% of the data (712 passengers) is used for training, while the remaining 30% (179 passengers) is reserved for testing.</p>
 <p>After splitting, we removed the Survived column from the test set using <code>df_test = df_test.drop(["Survived"], axis=1)</code> to simulate real-world prediction, where the correct answer is unknown.</p>
 <div title="Code Explanation">
@@ -758,7 +758,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 <p>To confirm that the data has been properly split, we can check the shape of each DataFrame using the following command:</p>
 <div id="0af82bad" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
@@ -773,7 +773,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 <p>After splitting the data using <code>train_test_split()</code>, we can check the first few rows of each subset to verify how the data was divided.</p>
 <p>For instance, when we look at <code>df_train[:2]</code>, we can see that the first two rows of the training set correspond to rows with original indices 331 and 733 from the full dataset df.</p>
 <div id="4b983c61" class="cell" data-execution_count="9">
@@ -921,11 +921,11 @@
 <p>Note that the Survived column has been removed.</p>
 </section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 
 <img data-src="figs/48d01a20-ff40-45ae-8ac6-4a64e02f8b1f.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: This illustration visually explains the structure of df_train and df_test for easier understanding. The training set (<code>df_train</code>) includes the Survived information, while the test set (<code>df_test</code>) does not. This image was generated using Perplexity.</p></section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 <p>We assume that the observed data consists of <code>df_train</code> and <code>df_test</code>. We use df_train for training. The goal of training is to correctly predict the survival status when given new data like <code>df_test</code>. If we have studied <code>df_train</code> carefully, we should be able to guess whether the following two passengers survived or not.</p>
 <div id="66c14c52" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
@@ -1040,7 +1040,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Training Set vs Test Set</h2>
+
 <p>Answer revealed… (Though in practice, we wouldn’t actually know the answer)</p>
 <div id="723cb010" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
@@ -1187,12 +1187,12 @@
 
 <img data-src="A2_files/figure-revealjs/743d7de0-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: Rose is leaving the ship aboard a lifeboat, while Jack and Cal watch her from the deck.</p></section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>From her place in the lifeboat, Rose gazes up at the deck. Her expression is filled with uncertainty and longing as she looks toward Jack. The moment captures the emotional weight of her decision. Soon after, driven by love and instinct, Rose jumps out of the lifeboat and runs back to the sinking ship—a choice that defines one of the most iconic scenes in the film.</p>
 
 <img data-src="A2_files/figure-revealjs/3ff570ac-1-image.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: Rose looks up at Jack from the lifeboat, feeling sad and not wanting to say goodbye.</p></section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>These scenes may be emotionally powerful, but let’s set aside the emotion for a moment and look at them objectively.</p>
 <p>Who is on the lifeboat? We see Rose and several other women being rescued.</p>
 <p>Who remains on the deck? Jack and other men are watching the lifeboats leave from the sinking ship.</p>
@@ -1203,7 +1203,7 @@
 <p>Let’s turn to the data to explore this further.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>To analyze the impact of gender on survival outcomes, we use the following code to compute survival rates by sex.</p>
 <div id="1c299573" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
@@ -1233,7 +1233,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>This output shows the average survival rate by gender.</p>
 <ul>
 <li>For females, the survival rate is approximately 73.9%.</li>
@@ -1242,7 +1242,7 @@
 <p>In other words, just knowing the passenger’s gender already gives us a strong signal about their likelihood of survival. A variable like this, with a clear split in outcomes, can be very useful in building predictive models. Based on this result, we can try a simple rule-based prediction: Predict that all females survived (1), and all males did not survive (0). Let’s test how accurate this strategy actually is.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>In this analysis, the goal is to predict survival status. The variable we are trying to predict is called the response variable (or dependent variable), which in this case is:</p>
 <p>This gives us a vector of length 179 containing actual survival outcomes from the test set: 0 means the passenger did not survive, and 1 means they did. On the other hand, the variable we use to make predictions is called the explanatory variable (or independent variable). Here, we use the Sex column and apply a simple rule:</p>
 <p>This creates a Boolean vector that predicts survival based on whether the passenger is female. So in summary:</p>
@@ -1252,7 +1252,7 @@
 </ul>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>By comparing <code>yhat_test</code> and <code>y_test</code> using <code>(yhat_test == y_test).mean()</code>, we calculate the accuracy of our prediction, which tells us how informative the Sex variable is for predicting survival.</p>
 <div id="6d1f5a46" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
@@ -1262,7 +1262,7 @@
 <p>The result shows an accuracy of approximately 78.2%, which is a significant improvement over random guessing (which would yield about 50% accuracy). This demonstrates that even a simple rule based solely on the “Sex” variable can produce surprisingly strong predictions — all without using any machine learning.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>Let’s go back to the movie for a moment. Was it really just</p>
 <blockquote>
 <p>“women first”?</p>
@@ -1271,7 +1271,7 @@
 <p><a href="https://www.youtube.com/watch?v=W0kURU_2H3c" class="uri">https://www.youtube.com/watch?v=W0kURU_2H3c</a></p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>The overall survival rate among all passengers was only about 37.6%, meaning that less than half of the people on board survived the disaster.</p>
 <div id="eb740031" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-display">
@@ -1287,7 +1287,7 @@
 <p>When we look specifically at passengers under the age of 10, their survival rate rises significantly to about 60.4%. This suggests that younger passengers were indeed given some level of priority during evacuation, supporting the idea portrayed in the film — that the principle of “women and children first” may have been reflected in real-life decisions during the sinking.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <div title="Code Explanation">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1313,9 +1313,8 @@
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2 scrollable">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+<div class="scrollable">
+<hr>
 <p>The plot below visualizes the age distribution of passengers based on their survival status. The blue area shows the age distribution of those who survived, while the red area represents those who did not. Notably, children under the age of 10 show a relatively higher survival rate, supporting the idea that the “women and children first” principle may have been applied during the evacuation.</p>
 <div id="8bad45f6" class="cell" data-code-scroll="true" data-execution_count="19">
 <details class="code-fold">
@@ -1338,11 +1337,19 @@
 <span id="cb11-16"><a></a>plt.tight_layout()</span>
 <span id="cb11-17"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="A2_files/figure-revealjs/cell-20-output-1.png"></p>
+<figcaption>Figure: Survival Rate by Age Distribution</figcaption>
+</figure>
 </div>
-<img data-src="A2_files/figure-revealjs/cell-20-output-1.png" class="r-stretch quarto-figure-center"><p class="caption">Figure: Survival Rate by Age Distribution</p></section>
+</div>
+</div>
+</div>
+</section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>Now let’s try a new prediction strategy:</p>
 <ul>
 <li>If the passenger is female, predict that they survived.</li>
@@ -1357,7 +1364,7 @@
 <p>This strategy yields an accuracy of 0.787709, or about 78.8%. That’s a slight improvement over using only the sex variable, which gave an accuracy of 78.2%.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic Predictor: No ML, Just Guess</h2>
+
 <p>The improvement isn’t as dramatic as one might expect. Why is that?</p>
 <p>It turns out that there aren’t many passengers under the age of 10 in the test set. The only time our prediction rule changes (compared to using gender alone) is when a passenger is male and under 10 — but such cases are rare. If we check the data:</p>
 <div id="738e719d" class="cell" data-execution_count="22">
@@ -1455,7 +1462,7 @@
 <p>Let’s explore the data further to find out.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>This code calculates the average survival rate by passenger class (Pclass):</p>
 <div id="c1906d2e" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-display">
@@ -1513,7 +1520,7 @@
 <p>In other words, passengers in higher classes had a much better chance of survival. This aligns with scenes from the movie, where first-class passengers were often prioritized during evacuation. The data suggests that passenger class (Pclass) is a strong explanatory variable when predicting survival on the Titanic.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>The prediction based solely on passenger class (predicting survival if Pclass == 1) achieves an accuracy of approximately 70.4%.</p>
 <div id="7f2b69a8" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-display">
@@ -1524,7 +1531,7 @@
 <p>This suggests that gender is a stronger explanatory variable than passenger class when it comes to predicting survival on the Titanic. In other words, knowing someone’s gender gives us more predictive power than knowing their ticket class alone.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Could we consider both gender and passenger class together? Doing so may reveal more detailed and accurate survival patterns.</p>
 <div id="32d8dfb7" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
@@ -1598,7 +1605,7 @@
 <p>For example, female passengers in 1st class had a survival rate of about 95.7%, while male passengers in 3rd class had a survival rate of only 14.1%. These stark contrasts show that the combination of gender and class provides a much stronger signal than either variable alone. In short, considering both Sex and Pclass together gives us a more powerful strategy for predicting survival.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>So, let’s design a prediction rule based on the survival rates we just observed. We saw that:</p>
 <ul>
 <li>Women in 1st and 2nd class had very high survival rates.</li>
@@ -1611,7 +1618,7 @@
 </blockquote>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Here’s how we can implement this in code:</p>
 <div id="02f4b542" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
@@ -1622,7 +1629,7 @@
 <p>That’s surprising! Despite using more detailed information (both gender and class), the performance actually drops. It turns out that this added complexity doesn’t always translate to better predictions — and sometimes, simpler is better.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>This result contradicts what we saw earlier.</p>
 <p>Previously, when we combined Sex and Age in our prediction rule, the accuracy improved — even if only slightly. That experience reinforced a common belief in data modeling:</p>
 <blockquote>
@@ -1631,7 +1638,7 @@
 <p>But now we’re seeing the opposite — adding another meaningful variable (Pclass) actually decreased our accuracy. How can this be?</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Could it be that we made a mistake somewhere? Let’s take a step back and carefully consider how we’ve been approaching the problem:</p>
 <ol type="1">
 <li>We learn a rule from the training set.</li>
@@ -1644,7 +1651,7 @@
 <p>That’s a real possibility — and it’s a fundamental challenge in any kind of predictive modeling. If a rule seems effective in training but doesn’t generalize well, then applying it to unseen data may lead to worse performance, not better.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Let’s revisit the training environment — specifically, the df_train dataset. Previously, we applied a simple rule based only on gender, which gave us the following result:</p>
 <div id="dee934f3" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
@@ -1660,7 +1667,7 @@
 <p>This gives a slightly higher accuracy of 0.792135. So in the training set, it was better to predict that only 1st- and 2nd-class women survived, rather than all women.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>The key difference between these two strategies lies in how we handle 3rd-class female passengers:</p>
 <ul>
 <li>The older rule predicts they survived.</li>
@@ -1675,7 +1682,7 @@
 <p>That result — 0.486957 — should make us a little uneasy. What if that number had been something like 0.499999? Can we confidently say that 3rd-class females were more likely to die than survive?</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>To help us better understand the issue, let’s create a hypothetical DataFrame called <code>df_test_full</code>:</p>
 <div id="6b42f879" class="cell" data-execution_count="30">
 <div class="cell-output cell-output-display">
@@ -1850,7 +1857,7 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Let’s take a look at how the survival rates break down by gender and passenger class in the test set using <code>df_test_full</code></p>
 <div id="06bbb306" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
@@ -1924,12 +1931,12 @@
 <p>Focus especially on the survival rate of 3rd-class females. Does this test set result align with what we saw in the training set? Can we still be confident that the rule we learned — that only 1st- and 2nd-class women survived — generalizes well?</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>Sometimes, a rule that works well on the training data fails to perform equally well on the test data. This situation reflects a failure to generalize — the idea that patterns found in one dataset (training) do not always hold in another (test).</p>
 <p>Improving generalization means ensuring that the rules we discover in training remain effective when applied to new, unseen data. One of the most straightforward ways to enhance generalization is to increase the amount of data. With more observations, we can estimate probabilities and patterns more accurately, leading to more reliable decision-making.</p>
 </section>
 <section class="slide level2">
-<h2>Generalization</h2>
+
 <p>In addition, including too many variables or rules can actually reduce generalization performance. At first glance, adding more rules might seem helpful, but in practice, some rules may only appear useful due to random patterns in the training data — and fail to apply to other datasets.</p>
 <p>To summarize, we can improve generalization by:</p>
 <ul>
@@ -1951,7 +1958,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>As a first step, we’ll introduce a powerful yet intuitive model called the <strong>Decision Tree</strong>, which can discover complex patterns on its own — no human-designed rules required.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>To move beyond manual rule-making, we now turn to decision trees — a model that can automatically learn patterns from data. To maintain continuity with our previous approach, we will again use Sex and Pclass as our explanatory variables.</p>
 <p>However, since machine learning algorithms cannot directly handle text or categorical variables, we must first preprocess the data into a numeric format that the model can understand. For this, we use the <code>get_dummies()</code> function from the pandas library:</p>
 <div id="56343bc3" class="cell" data-execution_count="33">
@@ -2019,7 +2026,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>This output is the result of using <code>pd.get_dummies(df_train[['Sex','Pclass']])</code>, which transforms the selected features into a format suitable for machine learning models. Here’s what each column represents:</p>
 <ul>
 <li>Pclass: Indicates the passenger’s ticket class. Lower numbers represent higher-class cabins (e.g., 1st class is better than 3rd class).</li>
@@ -2029,7 +2036,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>By converting the categorical Sex column into binary features, the model can handle this data numerically. The Pclass column remains unchanged since it is already numeric.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now let’s prepare the rest of the data for training and evaluation:</p>
 <p>Here’s what each line does:</p>
 <ul>
@@ -2039,7 +2046,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </ul>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now that we’ve finished preparing the data, it’s time to choose a model. As mentioned earlier, we’ll start with a Decision Tree. But before we dive in, let’s take a moment to briefly introduce what a decision tree actually is.</p>
 <p>A Decision Tree is a machine learning model that works much like the game of 20 Questions. In that game, one person thinks of an object (like an animal or a job), and the other person tries to guess it by asking a series of yes/no questions such as: “Can it fly?”, “Does it have four legs?”, or “Is it a human?” Each question helps narrow down the possibilities, and with enough well-chosen questions, the answer eventually becomes clear.</p>
 <p>A decision tree follows the same idea. Given some data, it makes a prediction by asking a series of simple, binary questions. In the Titanic survival prediction task, for example, a decision tree might ask:</p>
@@ -2050,18 +2057,18 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </ul>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Each question divides the data into two branches — those that meet the condition and those that don’t. By following these branches step by step, the tree gradually narrows down the group of passengers and finally reaches a prediction, such as “Survived” or “Did not survive.” This final prediction is stored in what’s called a leaf node of the tree.</p>
 <p>What makes decision trees especially useful is their simplicity and interpretability. They don’t require complex math or feature transformations, and the decision path for each prediction can be traced back in plain language. This makes them easy to understand and explain — even to someone without a background in machine learning.</p>
 <p>In summary, a decision tree is like a smart version of 20 Questions: it figures out what questions to ask based on the data, and uses the answers to make accurate predictions.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now let’s take a look at how to use a decision tree in Python. The code below creates a decision tree model with default settings:</p>
 <p>The DecisionTreeClassifier model object works primarily through two key methods: <code>fit()</code> and <code>predict()</code>. The <code>.fit(X, y)</code> method is used to train the model by learning patterns in the data. It takes the input features X and the corresponding target labels y, and builds a tree structure that splits the data based on conditions like “Is the passenger female?” or “Is the ticket class 1st class?” The goal is to find the best questions (or splits) that help classify the target variable as accurately as possible. Once the model is trained, the <code>.predict(X_test)</code> method can be used to make predictions on new data. For each row in X_test, the model follows the learned decision rules down the tree to arrive at a prediction, such as whether a passenger survived or not. In short, <code>.fit()</code> builds the decision rules from training data, and <code>.predict()</code> applies those rules to make predictions.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Let’s now take a look at the code below. It is used to train the model and make predictions on the test data:</p>
 <p>The first line, <code>model.fit(X, y)</code>, trains the DecisionTreeClassifier model using the training data. The second line, <code>model.predict(X_test)</code>, uses the trained model to predict survival for each passenger in the test set. By running this code, we get the model’s predictions automatically based on the patterns it learned from the training data.</p>
 <p>Let’s now take a look at the accuracy of the survival predictions made by the Decision Tree model:</p>
@@ -2072,7 +2079,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>The result is 0.765363 — and interestingly, it’s exactly the same as the accuracy from this simple rule-based prediction:</p>
 <div id="6d7fb5a2" class="cell" data-execution_count="38">
 <div class="cell-output cell-output-display">
@@ -2087,7 +2094,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>In other words, instead of inventing new rules through complex computation, the model is making good use of meaningful patterns already present in the data.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now, let’s take things a step further and consider all available features. We can inspect the column names using:</p>
 <div id="d72c8152" class="cell" data-execution_count="39">
 <div class="cell-output cell-output-display">
@@ -2099,7 +2106,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>This gives us a list of variables such as “PassengerId”, “Pclass”, “Name”, “Sex”, “Age”, “SibSp”, “Parch”, “Ticket”, “Fare”, “Cabin”, and “Embarked”. Since “Survived” is the target variable we’re trying to predict, we’ll exclude it from the list of features used for training. So, our final list of features will be:</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now let’s include all these features in the model. Because some of them are categorical variables, we need to preprocess them using one-hot encoding. We can do this with the following code:</p>
 <p>Let’s now try training a model using all available features. But… an error occurs! Why did this happen?</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>model <span class="op">=</span> DecisionTreeClassifier()</span>
@@ -2108,7 +2115,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 
 <img data-src="A2_files/figure-revealjs/9d568372-1-image.png" class="r-stretch"></section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Let’s look into what caused the error. To debug this, we examine a small portion of the preprocessed data:</p>
 <div id="91806e95" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-display">
@@ -2193,7 +2200,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Now, here’s the problem: these exact names appear only in the training set. They don’t exist in the test set, so when we apply the same code to <code>df_test</code>, those columns are missing — which causes a mismatch in the number of features between training and test data.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Let’s look at the result of our preprocessing:</p>
 <div id="62e4121d" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-display">
@@ -2203,7 +2210,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>See the problem? The training set ended up with 1398 columns, while the test set has only 401 columns. This is because the <code>get_dummies()</code> function creates columns based on the unique values present in each dataset. For example, if a name or ticket appears only in the training set, <code>get_dummies()</code> will create a column for it — but that column will be missing in the test set, leading to a mismatch. As a result, the model cannot be trained and tested on data with different structures, which is why the error occurs. To fix this, we’ll need to ensure that both <code>X</code> and <code>X_test</code> have the same columns.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now, we’ll select the features to use as follows:</p>
 <p>The excluded features are Name, Ticket, and Cabin. These columns typically contain highly unique or overly specific values. If we apply <code>get_dummies()</code> to them, the resulting feature sets in the training and test data may end up with mismatched columns. This mismatch would cause errors during model training or prediction, so we exclude them.</p>
 <p>Now let’s apply one-hot encoding using the code below:</p>
@@ -2215,7 +2222,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>As you can see, both datasets now have exactly 11 columns. With the data properly aligned, we’re finally ready to train the model!</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Now it’s time to apply a machine learning model.</p>
 <div id="899af85f" class="cell" data-execution_count="46">
 <div class="cell-output cell-output-display">
@@ -2231,7 +2238,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Just predicting survival for all female passengers results in a higher accuracy.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>Why did this happen?</p>
 <p>It reminds us of an earlier observation: adding more variables to the model doesn’t always lead to better performance, especially when we started from the “Sex” variable alone.</p>
 <div id="88e17bf2" class="cell" data-execution_count="48">
@@ -2245,7 +2252,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Therefore, it’s reasonable to remove the PassengerId feature before retraining the model.</p>
 </section>
 <section class="slide level2">
-<h2>Titanic: From Intuition to ML</h2>
+
 <p>We revised the feature list to exclude PassengerId and focused on more meaningful variables:</p>
 <div id="d1ee7fce" class="cell" data-execution_count="49">
 <div class="cell-output cell-output-display">
@@ -2269,7 +2276,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Let’s take a look at AutoML.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>AutoML stands for Automated Machine Learning. It refers to the process of automating the end-to-end pipeline of building a machine learning model. This includes:</p>
 <ul>
 <li>Preprocessing the data</li>
@@ -2280,7 +2287,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>AutoML is designed to make machine learning accessible, efficient, and robust, even for those without deep expertise.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>There are several well-known AutoML tools available today:</p>
 <ul>
 <li>Google AutoML (Cloud-based, integrates with Google Cloud services)</li>
@@ -2290,7 +2297,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </ul>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>In this course, we’ll use AutoGluon, a powerful AutoML framework developed by Amazon.</p>
 <p>AutoGluon is:</p>
 <ul>
@@ -2302,7 +2309,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>It’s a great tool for quickly building high-quality models — and ideal for learners who want to focus on insights rather than low-level implementation.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>Prediction with AutoGluon begins with the following line of code:</p>
 <p>What does TabularPredictor mean?</p>
 <p>The term “tabular” refers to data organized in rows and columns — like spreadsheets or pandas DataFrames. This format is typical for structured datasets such as Titanic passenger records.</p>
@@ -2310,7 +2317,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>In short, TabularPredictor manages the entire process for tabular datasets — from training multiple models to picking the most effective strategy — with minimal code required.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>The next step is to train the model using AutoGluon:</p>
 <div id="53c434bb" class="cell" data-execution_count="51">
 <div class="cell-output cell-output-display">
@@ -2324,7 +2331,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>It’s like launching an entire machine learning pipeline with just one command.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>Let’s take a look at the model leaderboard results:</p>
 <div id="23f7e3da" class="cell" data-execution_count="52">
 <div class="cell-output cell-output-display">
@@ -2550,7 +2557,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>At the top of the leaderboard, we see models like:</p>
 <ul>
 <li>LightGBMXT, LightGBM, XGBoost, CatBoost, LightGBMLarge, ExtraTreesEntr, ExtraTreesGini, RandomForestEntr, RandomForestGini</li>
@@ -2564,7 +2571,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>That’s why we consistently see tree-based models dominating AutoML leaderboards — they are fast, accurate, and robust for most practical applications in tabular data analysis.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>Now let’s check the final prediction result:</p>
 <div id="2b6b7fe8" class="cell" data-execution_count="53">
 <div class="cell-output cell-output-display">
@@ -2575,7 +2582,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>That’s a strong result — especially considering the minimal effort required.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>This time, we apply a bit of preprocessing by removing a few variables. We simply exclude PassengerId, Ticket, and Cabin, and retrain the model.</p>
 <div id="45ffcfdd" class="cell" data-execution_count="54">
 <div class="cell-output cell-output-display">
@@ -2585,7 +2592,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>The result is 0.810056. This is the best performance among all the models we’ve used so far. Even with the removal of just a few columns, we observe a noticeable improvement in predictive performance.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>Has anyone here wondered something like this?</p>
 <blockquote>
 <p>“Why didn’t we drop the ‘Name’ column? Was it just a mistake?”</p>
@@ -2594,7 +2601,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Do you remember the final scene of the movie Titanic? When Rose is asked for her name, she replies with a different last name. That moment isn’t just about identity—it’s a statement of her choices and transformation. In the same way, a person’s name in data isn’t just a label. It often carries hidden signals about age, gender, and social status.</p>
 </section>
 <section class="slide level2">
-<h2>AutoML</h2>
+
 <p>AutoGluon understands this. It doesn’t treat the Name column as a meaningless string. Instead, without any manual feature engineering, it applies simple natural language processing techniques under the hood to extract valuable features.</p>
 <p>For example, look at the following:</p>
 <div id="08408203" class="cell" data-execution_count="55">
