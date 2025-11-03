@@ -1,0 +1,3366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2025-09-25">
+
+<title>A2 - AI 기반 데이터 사이언스 – IAB-BS2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-251ce1ae7a9effd692ba97c003cecf85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.scss">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IAB-BS2025</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/IAB-BS2025"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A2 - AI 기반 데이터 사이언스</h1>
+            <p class="subtitle lead">데이터사이언스 실습 중심의 접근</p>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">최규빈 </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              전북대학교 통계학과
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">Imports</h2>
+<div id="82147635" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> autogluon.tabular <span class="im">import</span> TabularPredictor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f2f7b89a" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<pre><code>&lt;function IPython.core.formatters.PlainTextFormatter._type_printers_default.&lt;locals&gt;.&lt;lambda&gt;(obj, p, cycle)&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="titanic" class="level2">
+<h2 class="anchored" data-anchor-id="titanic">Titanic</h2>
+<p>The Titanic was a large passenger ship that departed from England in 1912. During its maiden voyage, the ship tragically collided with an iceberg and sank, resulting in the deaths of approximately 1,500 people. The film Titanic, directed by James Cameron in 1997, is a romance-disaster movie that tells a fictional love story set against the backdrop of this historical event. The movie portrays the grandeur of the ship, the social divide between the upper and lower classes, and the emotional turmoil of the characters as the disaster unfolds. It blends historical facts with imaginative storytelling to depict both the tragedy of the sinking and the intimate, human experiences that could have occurred during that fateful voyage.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="A2_files/figure-html/9bc89973-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: Poster image from Titanic (1997), depicting the iconic scene of Jack and Rose at the ship’s bow.</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-story-of-titanic" class="level2">
+<h2 class="anchored" data-anchor-id="the-story-of-titanic">The Story of Titanic</h2>
+<p><strong>Chapter 1. Jack and Rose Board the Ship</strong></p>
+<p>The movie Titanic starts with two people from very different lives. Jack Dawson gets a Titanic ticket by chance when he plays a card game with his friend on the day the ship leaves. He runs to the dock and gets on the ship just before it leaves. His ticket is for third class, which is the cheapest.</p>
+<p><a href="https://www.youtube.com/watch?v=tEM0I3ltp7M" class="uri">https://www.youtube.com/watch?v=tEM0I3ltp7M</a></p>
+<p>Rose DeWitt Bukater is already on the ship at the beginning of the movie. She gets on the Titanic with her boyfriend Cal and her mother. They are rich and get special treatment. Rose wears fancy clothes, eats expensive food, and stays in a beautiful room. But she feels trapped and unhappy.</p>
+<p><a href="https://www.youtube.com/watch?v=3uCi1g_aV-g" class="uri">https://www.youtube.com/watch?v=3uCi1g_aV-g</a></p>
+</section>
+<section id="the-story-of-titanic-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-story-of-titanic-1">The Story of Titanic</h2>
+<p><strong>Chapter 2. They Fall in Love</strong></p>
+<p>Jack and Rose meet on the ship. Jack saves Rose when she is in danger. They talk, laugh, and spend time together. Soon, they fall in love.</p>
+<p><a href="https://www.youtube.com/watch?v=erAQ9LkftwA" class="uri">https://www.youtube.com/watch?v=erAQ9LkftwA</a></p>
+<p><a href="https://www.youtube.com/watch?v=oklPl95DC8c" class="uri">https://www.youtube.com/watch?v=oklPl95DC8c</a></p>
+</section>
+<section id="the-story-of-titanic-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-story-of-titanic-2">The Story of Titanic</h2>
+<p><strong>Chapter 3. The Sinking and the Divided Paths</strong></p>
+<p>When the Titanic strikes the iceberg, chaos begins to unfold. But this chaos is not delivered equally to everyone on board.</p>
+<p>In the film, a clear difference is shown between first-class and third-class passengers. First-class passengers are quickly and politely informed by crew members. They receive calm explanations, are given life jackets, and are carefully guided toward the lifeboats. They are seen dressing in formal clothes and preparing for evacuation in an orderly manner.</p>
+<p>Meanwhile, third-class passengers go a long time without any information about the accident. Many find the stairways and corridors blocked, unable to reach the upper decks. Families wander the ship in confusion, and others wait helplessly behind locked gates— a powerful image of the class-based gap in access to survival.</p>
+<p>Amid the growing panic, Rose’s fiancé, Cal, begins to search for her. As a wealthy gentleman, he urges Rose to get on a lifeboat and escape with him.</p>
+<p><a href="https://www.youtube.com/watch?v=Gmw1q0CprEA" class="uri">https://www.youtube.com/watch?v=Gmw1q0CprEA</a></p>
+</section>
+<section id="the-story-of-titanic-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-story-of-titanic-3">The Story of Titanic</h2>
+<p><strong>Chapter 4. The Lifeboat Scene</strong></p>
+<p>Cal tells Rose to get on a lifeboat. She agrees at first and is lowered away from Jack.</p>
+<p>But as the boat goes down, Rose looks up at him. She suddenly jumps back onto the ship. She chooses to stay with Jack, even if it means risking her life.</p>
+<p>Jack and Rose run through the sinking ship together. They try to find a way out as water floods the halls. Their love becomes stronger in the face of fear.</p>
+<p><a href="https://www.youtube.com/watch?v=_qTZRD1_ybQ" class="uri">https://www.youtube.com/watch?v=_qTZRD1_ybQ</a></p>
+</section>
+<section id="the-story-of-titanic-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-story-of-titanic-4">The Story of Titanic</h2>
+<p><strong>Chapter 5. The End and the Memory</strong></p>
+<p>As the Titanic sinks deeper into the sea, Jack and Rose struggle to survive together until the very end. They cling to a broken piece of wood, floating in the freezing ocean.</p>
+<p>Jack protects Rose and says, “Never give up. Never let go.” Rose holds his promise deep in her heart.</p>
+<p>When a lifeboat finally arrives, Rose is rescued. But Jack quietly slips into the cold water and disappears.</p>
+<p>Later, on the lifeboat, a rescuer asks for her name. She answers, “Rose Dawson.”</p>
+<p><a href="https://www.youtube.com/watch?v=D7_SqyWiPOg" class="uri">https://www.youtube.com/watch?v=D7_SqyWiPOg</a></p>
+</section>
+<section id="titanic-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset">Titanic Dataset</h2>
+<p>The Titanic dataset is a standard, real-world dataset that contains information about the passengers aboard the RMS Titanic, which sank in 1912. It is widely used as a classic resource for practicing machine learning, statistical analysis, and data visualization.</p>
+<p>The Titanic dataset is commonly provided as a CSV file named titanic.csv, and can be obtained from various sources such as Kaggle, the seaborn package, or scikit-learn. We can load this data using the pandas library in Python.</p>
+</section>
+<section id="titanic-dataset-1" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset-1">Titanic Dataset</h2>
+<p>The Titanic data can be loaded as follows:</p>
+<div id="bfc1c9ed" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"titanic.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">886</td>
+<td>887</td>
+<td>0</td>
+<td>2</td>
+<td>Montvila, Rev. Juozas</td>
+<td>male</td>
+<td>27.0</td>
+<td>0</td>
+<td>0</td>
+<td>211536</td>
+<td>13.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">887</td>
+<td>888</td>
+<td>1</td>
+<td>1</td>
+<td>Graham, Miss. Margaret Edith</td>
+<td>female</td>
+<td>19.0</td>
+<td>0</td>
+<td>0</td>
+<td>112053</td>
+<td>30.0000</td>
+<td>B42</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">888</td>
+<td>889</td>
+<td>0</td>
+<td>3</td>
+<td>Johnston, Miss. Catherine Helen "Carrie"</td>
+<td>female</td>
+<td>NaN</td>
+<td>1</td>
+<td>2</td>
+<td>W./C. 6607</td>
+<td>23.4500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">889</td>
+<td>890</td>
+<td>1</td>
+<td>1</td>
+<td>Behr, Mr. Karl Howell</td>
+<td>male</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>111369</td>
+<td>30.0000</td>
+<td>C148</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">890</td>
+<td>891</td>
+<td>0</td>
+<td>3</td>
+<td>Dooley, Mr. Patrick</td>
+<td>male</td>
+<td>32.0</td>
+<td>0</td>
+<td>0</td>
+<td>370376</td>
+<td>7.7500</td>
+<td>NaN</td>
+<td>Q</td>
+</tr>
+</tbody>
+</table>
+
+<p>891 rows × 12 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="titanic-dataset-2" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset-2">Titanic Dataset</h2>
+<p>In this code, <code>pd.read_csv("titanic.csv")</code> means reading the file <code>titanic.csv</code> from the current working directory, and storing its contents into a variable named df as a DataFrame object.</p>
+<ul>
+<li><code>pd</code> is a commonly used alias for the pandas package, which is typically imported using import pandas as pd.</li>
+<li><code>read_csv()</code> is a function that reads data from a CSV (Comma-Separated Values) file and converts it into a pandas DataFrame, a tabular data structure.</li>
+</ul>
+<p>This allows users to import structured data in table format and perform various kinds of analysis on it.</p>
+</section>
+<section id="titanic-dataset-3" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset-3">Titanic Dataset</h2>
+<p>When working with data in pandas,the very first thing to check after loading a dataset is its overall structure. The most basic command used for this purpose is:</p>
+<div id="b0482b4d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(891, 12)</code></pre>
+</div>
+</div>
+<p>Running this code returns the output (891, 12), which indicates that the DataFrame contains 891 rows and 12 columns. In this context, each row represents a single observation — in this case, an individual passenger on the Titanic. Each column represents a variable that describes a certain feature of the passenger, such as Age, Sex, Pclass, or Survived.</p>
+<p>To explicitly show what variables are included in the dataset, it is helpful to inspect the column names directly. This can be done using the following command:</p>
+<div id="ace9364c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
+       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],
+      dtype='object')</code></pre>
+</div>
+</div>
+</section>
+<section id="titanic-dataset-4" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset-4">Titanic Dataset</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Useful pandas Commands for Exploring Data Structure</strong></p>
+<p>Using commands like <code>df.shape</code> or <code>df.columns</code> to explore the structure of a dataset is a fundamental first step in any data analysis workflow. These commands help you understand what the data looks like, how many variables it contains, and how it’s organized. Below are some of the most useful pandas functions for this purpose:</p>
+<ul>
+<li><code>df.shape</code>: Returns the overall dimensions of the DataFrame as a tuple (rows, columns). This helps you quickly understand how many observations (rows) and variables (columns) the dataset contains.</li>
+<li><code>df.columns</code>: Displays a list of all column names in the DataFrame. This allows you to explicitly check what variables are included.</li>
+<li><code>df.info()</code>: Provides a concise summary of the DataFrame, including data types of each column, the number of non-null entries, and memory usage. It is especially useful for detecting missing values and distinguishing between numeric and categorical variables.</li>
+<li><code>df.head()</code> / <code>df.tail()</code>: Shows the first (or last) few rows of the dataset. This gives you a quick preview of actual values, formatting, and data units, making it easier to get a sense of how the data is structured.</li>
+<li><code>df.describe()</code>: Generates summary statistics for numeric columns, including mean, standard deviation, minimum, maximum, and quartiles. It helps in identifying variable scales, distributions, and potential outliers early in the analysis.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="titanic-dataset-5" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-dataset-5">Titanic Dataset</h2>
+<p>Understanding this basic structure is an essential first step in any data analysis process. If there are too few rows, statistical results may not be reliable. On the other hand, if there are too many columns or if the data contains many missing values, preprocessing and feature selection may become more complex.</p>
+<p>From this output, we can see that the Titanic dataset includes 891 passengers and 12 variables, making it well-suited for analysis and practice in tasks such as classification, exploration, and visualization.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Conventional meaning of rows and columns</strong></p>
+<ul>
+<li>Row: Represents a single observation or instance. For example, in the Titanic dataset, each row corresponds to one passenger.</li>
+<li>Column: Represents a variable or feature that describes a specific aspect of each observation. For example, Age, Sex, and Survived are variables that describe the characteristics of each passenger.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="variables-in-the-titanic-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="variables-in-the-titanic-dataset">Variables in the Titanic Dataset</h2>
+<div class="small" style="font-size: 0.9em;">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 88%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PassengerId</code></td>
+<td>Unique ID for each passenger.</td>
+</tr>
+<tr class="even">
+<td><code>Survived</code></td>
+<td>Survival status (0 = No, 1 = Yes).</td>
+</tr>
+<tr class="odd">
+<td><code>Pclass</code></td>
+<td>Ticket class (1 = 1st, 2 = 2nd, 3 = 3rd).</td>
+</tr>
+<tr class="even">
+<td><code>Name</code></td>
+<td>Full name, includes title.</td>
+</tr>
+<tr class="odd">
+<td><code>Sex</code></td>
+<td>Gender (<code>male</code> or <code>female</code>).</td>
+</tr>
+<tr class="even">
+<td><code>Age</code></td>
+<td>Age in years (may have missing values).</td>
+</tr>
+<tr class="odd">
+<td><code>SibSp</code></td>
+<td>Number of siblings or spouses aboard.</td>
+</tr>
+<tr class="even">
+<td><code>Parch</code></td>
+<td>Number of parents or children aboard.</td>
+</tr>
+<tr class="odd">
+<td><code>Ticket</code></td>
+<td>Ticket number.</td>
+</tr>
+<tr class="even">
+<td><code>Fare</code></td>
+<td>Ticket fare (in pounds).</td>
+</tr>
+<tr class="odd">
+<td><code>Cabin</code></td>
+<td>Cabin number (many missing).</td>
+</tr>
+<tr class="even">
+<td><code>Embarked</code></td>
+<td>Embarked shows boarding port: C (Cherbourg), Q (Queenstown), S (Southampton).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sample-observations-from-the-titanic-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="sample-observations-from-the-titanic-dataset">Sample Observations from the Titanic Dataset</h2>
+<p>After loading the data, it is a good practice to print a few rows to understand how the dataset is structured.</p>
+<div id="d89b1356" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Using the command <code>df[:3]</code>, we can view the first three observations in the Titanic DataFrame.</p>
+<p>For example, the first passenger is a 22-year-old male in 3rd class who boarded at Southampton and did not survive. The second passenger is a 38-year-old female in 1st class with cabin C85. She boarded at Cherbourg and survived. The third passenger is a 26-year-old female in 3rd class who also boarded at Southampton and survived.</p>
+</section>
+<section id="supervised-vs.-unsupervised-choosing-a-path" class="level2">
+<h2 class="anchored" data-anchor-id="supervised-vs.-unsupervised-choosing-a-path">Supervised vs.&nbsp;Unsupervised: Choosing a Path</h2>
+<p>Now that we’ve reviewed a few sample observations and understood the structure of the dataset, it’s time to consider what we can actually do with this data.</p>
+<p>The Titanic dataset allows for various types of analysis. For example, one could explore relationships between variables and discover hidden patterns using unsupervised learning. Alternatively, since the dataset includes a clear outcome variable (Survived), we can apply supervised learning to build predictive models.</p>
+<p>In today’s lecture, we will focus on supervised learning. Our goal is to use features like gender, age, passenger class, and port of embarkation to predict whether a passenger survived the Titanic disaster.</p>
+</section>
+<section id="training-set-vs-test-set" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set">Training Set vs Test Set</h2>
+<p>Before building any predictive model, we first need to split our dataset into two parts: a training set and a test set.</p>
+<ul>
+<li>The training set (<code>df_train</code>) is used to train the model. It learns patterns from this data, including how certain features relate to survival.</li>
+<li>The test set (<code>df_test</code>) is used to evaluate how well the model performs on new, unseen data. This helps us assess generalization, not just memorization.</li>
+</ul>
+<p>By separating our data this way, we can simulate how our model would behave in real-world scenarios — predicting survival outcomes for passengers it hasn’t seen before. In practice, we can use the <code>train_test_split()</code> function from <code>sklearn</code>.</p>
+</section>
+<section id="training-set-vs-test-set-1" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-1">Training Set vs Test Set</h2>
+<p>In our case, we used <code>train_test_split(df, test_size=0.3, random_state=42)</code> to split the Titanic dataset. This means that 70% of the data (712 passengers) is used for training, while the remaining 30% (179 passengers) is reserved for testing.</p>
+<div id="ff0ad940" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_train, df_test <span class="op">=</span> train_test_split(df, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df_test.drop([<span class="st">"Survived"</span>],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After splitting, we removed the Survived column from the test set using <code>df_test = df_test.drop(["Survived"], axis=1)</code> to simulate real-world prediction, where the correct answer is unknown.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Code Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here’s a quick explanation of the main options used.</p>
+<ul>
+<li><code>test_size=0.2</code>: 20% of the data goes into the test set, and 80% into the training set.</li>
+<li><code>random_state=42</code>: Ensures that the random split is reproducible every time.</li>
+<li><code>.drop(["Survived"], axis=1)</code>: Removes the <code>Survived</code> column from <code>df_test</code>.<br>
+<code>axis=1</code> means “drop a column” (not a row).</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="training-set-vs-test-set-2" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-2">Training Set vs Test Set</h2>
+<p>To confirm that the data has been properly split, we can check the shape of each DataFrame using the following command:</p>
+<div id="0af82bad" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.shape, df_train.shape, df_test.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>((891, 12), (712, 12), (179, 11))</code></pre>
+</div>
+</div>
+<p>This result can be interpreted as follows:</p>
+<ul>
+<li>(891, 12): The full DataFrame df contains 891 observations (rows) and 12 variables (columns).</li>
+<li>(712, 12): After using train_test_split(), 80% of the data — 712 rows — was assigned to the training set df_train, which still contains all 12 columns.</li>
+<li>(179, 11): The test set df_test contains the remaining 20% — 179 rows — but since we explicitly dropped the Survived column, the number of columns is reduced to 11.</li>
+</ul>
+</section>
+<section id="training-set-vs-test-set-3" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-3">Training Set vs Test Set</h2>
+<p>After splitting the data using <code>train_test_split()</code>, we can check the first few rows of each subset to verify how the data was divided.</p>
+<p>For instance, when we look at <code>df_train[:2]</code>, we can see that the first two rows of the training set correspond to rows with original indices 331 and 733 from the full dataset df.</p>
+<div id="4b983c61" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_train[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">331</td>
+<td>332</td>
+<td>0</td>
+<td>1</td>
+<td>Partner, Mr. Austen</td>
+<td>male</td>
+<td>45.5</td>
+<td>0</td>
+<td>0</td>
+<td>113043</td>
+<td>28.5</td>
+<td>C124</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">733</td>
+<td>734</td>
+<td>0</td>
+<td>2</td>
+<td>Berriman, Mr. William John</td>
+<td>male</td>
+<td>23.0</td>
+<td>0</td>
+<td>0</td>
+<td>28425</td>
+<td>13.0</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Similarly, <code>df_test[:2]</code> shows rows from the original dataset with indices 709 and 439.</p>
+<div id="d5c01dfe" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note that the Survived column has been removed.</p>
+</section>
+<section id="training-set-vs-test-set-4" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-4">Training Set vs Test Set</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/48d01a20-ff40-45ae-8ac6-4a64e02f8b1f.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: This illustration visually explains the structure of df_train and df_test for easier understanding. The training set (<code>df_train</code>) includes the Survived information, while the test set (<code>df_test</code>) does not. This image was generated using Perplexity.</figcaption>
+</figure>
+</div>
+</section>
+<section id="training-set-vs-test-set-5" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-5">Training Set vs Test Set</h2>
+<p>We assume that the observed data consists of <code>df_train</code> and <code>df_test</code>. We use df_train for training. The goal of training is to correctly predict the survival status when given new data like <code>df_test</code>. If we have studied <code>df_train</code> carefully, we should be able to guess whether the following two passengers survived or not.</p>
+<div id="66c14c52" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">840</td>
+<td>841</td>
+<td>3</td>
+<td>Alhomaki, Mr. Ilmari Rudolf</td>
+<td>male</td>
+<td>20.0</td>
+<td>0</td>
+<td>0</td>
+<td>SOTON/O2 3101287</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">720</td>
+<td>721</td>
+<td>2</td>
+<td>Harper, Miss. Annie Jessie "Nina"</td>
+<td>female</td>
+<td>6.0</td>
+<td>0</td>
+<td>1</td>
+<td>248727</td>
+<td>33.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">39</td>
+<td>40</td>
+<td>3</td>
+<td>Nicola-Yarred, Miss. Jamila</td>
+<td>female</td>
+<td>14.0</td>
+<td>1</td>
+<td>0</td>
+<td>2651</td>
+<td>11.2417</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="training-set-vs-test-set-6" class="level2">
+<h2 class="anchored" data-anchor-id="training-set-vs-test-set-6">Training Set vs Test Set</h2>
+<p>Answer revealed… (Though in practice, we wouldn’t actually know the answer)</p>
+<div id="723cb010" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.iloc[df_test[:<span class="dv">5</span>].index]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>1</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>0</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">840</td>
+<td>841</td>
+<td>0</td>
+<td>3</td>
+<td>Alhomaki, Mr. Ilmari Rudolf</td>
+<td>male</td>
+<td>20.0</td>
+<td>0</td>
+<td>0</td>
+<td>SOTON/O2 3101287</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">720</td>
+<td>721</td>
+<td>1</td>
+<td>2</td>
+<td>Harper, Miss. Annie Jessie "Nina"</td>
+<td>female</td>
+<td>6.0</td>
+<td>0</td>
+<td>1</td>
+<td>248727</td>
+<td>33.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">39</td>
+<td>40</td>
+<td>1</td>
+<td>3</td>
+<td>Nicola-Yarred, Miss. Jamila</td>
+<td>female</td>
+<td>14.0</td>
+<td>1</td>
+<td>0</td>
+<td>2651</td>
+<td>11.2417</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Code Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The code <code>df.iloc[df_test[:2].index]</code> retrieves the original rows (including the Survived column) for the first two passengers in <code>df_test</code>.</p>
+<ul>
+<li><code>df_test[:2]</code> selects the first two rows from the test set.</li>
+<li><code>.index</code> extracts their original row positions from the full DataFrame <code>df</code>.</li>
+<li><code>df.iloc[...]</code> uses these positions to return the corresponding rows from <code>df</code>, including the true labels.</li>
+</ul>
+</div>
+</div>
+<p>Let’s play a game: try to guess who survived the Titanic!</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess">Titanic Predictor: No ML, Just Guess</h2>
+<p>Do you remember that iconic scene from Titanic—when Rose boards the lifeboat? Rose is seated in the lifeboat, looking up at Jack and Cal who are still on the ship’s deck. Jack stands silently, watching her leave, while other passengers around them reflect the chaos of the moment. Though no words are spoken, their eyes are locked, full of emotion.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="A2_files/figure-html/743d7de0-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: Rose is leaving the ship aboard a lifeboat, while Jack and Cal watch her from the deck.</figcaption>
+</figure>
+</div>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-1" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-1">Titanic Predictor: No ML, Just Guess</h2>
+<p>From her place in the lifeboat, Rose gazes up at the deck. Her expression is filled with uncertainty and longing as she looks toward Jack. The moment captures the emotional weight of her decision. Soon after, driven by love and instinct, Rose jumps out of the lifeboat and runs back to the sinking ship—a choice that defines one of the most iconic scenes in the film.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="A2_files/figure-html/3ff570ac-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: Rose looks up at Jack from the lifeboat, feeling sad and not wanting to say goodbye.</figcaption>
+</figure>
+</div>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-2" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-2">Titanic Predictor: No ML, Just Guess</h2>
+<p>These scenes may be emotionally powerful, but let’s set aside the emotion for a moment and look at them objectively.</p>
+<p>Who is on the lifeboat? We see Rose and several other women being rescued.</p>
+<p>Who remains on the deck? Jack and other men are watching the lifeboats leave from the sinking ship.</p>
+<p>This contrast raises an important question:</p>
+<blockquote class="blockquote">
+<p>Was gender a factor in determining who had a better chance of survival?</p>
+</blockquote>
+<p>Let’s turn to the data to explore this further.</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-3" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-3">Titanic Predictor: No ML, Just Guess</h2>
+<p>To analyze the impact of gender on survival outcomes, we use the following code to compute survival rates by sex.</p>
+<div id="1c299573" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby(<span class="st">"Sex"</span>)[<span class="st">'Survived'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x730eecb44210&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Code Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This command does the following:</p>
+<ul>
+<li><code>groupby("Sex")</code>: groups the passengers by their gender (male or female)</li>
+<li><code>['Survived'].mean()</code>: calculates the average survival rate for each group (since 1 = survived, 0 = did not survive, the mean gives the survival proportion)</li>
+<li><code>.reset_index()</code>: turns the grouped result back into a clean DataFrame</li>
+</ul>
+<p>The result shows how survival rates differ dramatically between males and females. Let’s look at the numbers.</p>
+</div>
+</div>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-4" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-4">Titanic Predictor: No ML, Just Guess</h2>
+<p>This output shows the average survival rate by gender.</p>
+<ul>
+<li>For females, the survival rate is approximately 73.9%.</li>
+<li>For males, it’s about 18.6%.</li>
+</ul>
+<p>In other words, just knowing the passenger’s gender already gives us a strong signal about their likelihood of survival. A variable like this, with a clear split in outcomes, can be very useful in building predictive models. Based on this result, we can try a simple rule-based prediction: Predict that all females survived (1), and all males did not survive (0). Let’s test how accurate this strategy actually is.</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-5" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-5">Titanic Predictor: No ML, Just Guess</h2>
+<p>In this analysis, the goal is to predict survival status. The variable we are trying to predict is called the response variable (or dependent variable), which in this case is:</p>
+<div id="b9aa2818" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This gives us a vector of length 179 containing actual survival outcomes from the test set: 0 means the passenger did not survive, and 1 means they did. On the other hand, the variable we use to make predictions is called the explanatory variable (or independent variable). Here, we use the Sex column and apply a simple rule:</p>
+<div id="5e8c38ca" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This creates a Boolean vector that predicts survival based on whether the passenger is female. So in summary:</p>
+<ul>
+<li><code>y_test</code> is the response variable — the true survival outcomes.</li>
+<li><code>yhat_test</code> is based on an explanatory variable — a simple prediction using gender.</li>
+</ul>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-6" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-6">Titanic Predictor: No ML, Just Guess</h2>
+<p>By comparing <code>yhat_test</code> and <code>y_test</code> using <code>(yhat_test == y_test).mean()</code>, we calculate the accuracy of our prediction, which tells us how informative the Sex variable is for predicting survival.</p>
+<div id="6d1f5a46" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.782123</code></pre>
+</div>
+</div>
+<p>The result shows an accuracy of approximately 78.2%, which is a significant improvement over random guessing (which would yield about 50% accuracy). This demonstrates that even a simple rule based solely on the “Sex” variable can produce surprisingly strong predictions — all without using any machine learning.</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-7" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-7">Titanic Predictor: No ML, Just Guess</h2>
+<p>Let’s go back to the movie for a moment. Was it really just</p>
+<blockquote class="blockquote">
+<p>“women first”?</p>
+</blockquote>
+<p>In situations like this, we often expect the most vulnerable — women and children — to be given priority. Even the film hints at this principle. Now let’s take a closer look at the data to see whether younger passengers were also more likely to survive.</p>
+<p><a href="https://www.youtube.com/watch?v=W0kURU_2H3c" class="uri">https://www.youtube.com/watch?v=W0kURU_2H3c</a></p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-8" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-8">Titanic Predictor: No ML, Just Guess</h2>
+<p>The overall survival rate among all passengers was only about 37.6%, meaning that less than half of the people on board survived the disaster.</p>
+<div id="eb740031" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.376404</code></pre>
+</div>
+</div>
+<p>But what about children?</p>
+<div id="13e4684c" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_train.query(<span class="st">"Age &lt;10"</span>)[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.603774</code></pre>
+</div>
+</div>
+<p>When we look specifically at passengers under the age of 10, their survival rate rises significantly to about 60.4%. This suggests that younger passengers were indeed given some level of priority during evacuation, supporting the idea portrayed in the film — that the principle of “women and children first” may have been reflected in real-life decisions during the sinking.</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-9" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-9">Titanic Predictor: No ML, Just Guess</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Code Explanation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code Explanation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following code filters the DataFrame to include only rows where the Age column is less than 10.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_train.query(<span class="st">"Age &lt; 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>query()</code> method allows you to write filtering conditions as strings, making the code clean and easy to read.</p>
+<p>For example:</p>
+<ul>
+<li><code>df.query("Fare &gt; 100")</code> → selects passengers who paid more than 100</li>
+<li><code>df.query("Sex == 'female'")</code> → selects female passengers</li>
+</ul>
+<p>You can also combine multiple conditions:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">"Pclass == 1 and Sex == 'female'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>query()</code> is a convenient and readable way to filter data based on conditions.</p>
+</div>
+</div>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-10" class="level2 scrollable">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-10">Titanic Predictor: No ML, Just Guess</h2>
+<p>The plot below visualizes the age distribution of passengers based on their survival status. The blue area shows the age distribution of those who survived, while the red area represents those who did not. Notably, children under the age of 10 show a relatively higher survival rate, supporting the idea that the “women and children first” principle may have been applied during the evacuation.</p>
+<div id="8bad45f6" class="cell" data-code-scroll="true" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 공통 X축 범위 설정</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">80</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># KDE plot for survived == 0 and 1</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>df_train[df_train.Survived <span class="op">==</span> <span class="dv">0</span>], x<span class="op">=</span><span class="st">"Age"</span>, fill<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"Did Not Survive"</span>, color<span class="op">=</span><span class="st">"salmon"</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>df_train[df_train.Survived <span class="op">==</span> <span class="dv">1</span>], x<span class="op">=</span><span class="st">"Age"</span>, fill<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">"Survived"</span>, color<span class="op">=</span><span class="st">"skyblue"</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(x_range)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Age Distribution by Survival Status"</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Age"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Density"</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="A2_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: Survival Rate by Age Distribution</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-11" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-11">Titanic Predictor: No ML, Just Guess</h2>
+<p>Now let’s try a new prediction strategy:</p>
+<ul>
+<li>If the passenger is female, predict that they survived.</li>
+<li>If the passenger is under 10 years old, also predict that they survived.</li>
+</ul>
+<div id="40fadd35" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">|</span> (df_test[<span class="st">'Age'</span>] <span class="op">&lt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s compare <code>y_test</code> and <code>yhat_test</code> to evaluate the prediction accuracy:</p>
+<div id="d0ee1ef9" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.787709</code></pre>
+</div>
+</div>
+<p>This strategy yields an accuracy of 0.787709, or about 78.8%. That’s a slight improvement over using only the sex variable, which gave an accuracy of 78.2%.</p>
+</section>
+<section id="titanic-predictor-no-ml-just-guess-12" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-predictor-no-ml-just-guess-12">Titanic Predictor: No ML, Just Guess</h2>
+<p>The improvement isn’t as dramatic as one might expect. Why is that?</p>
+<p>It turns out that there aren’t many passengers under the age of 10 in the test set. The only time our prediction rule changes (compared to using gender alone) is when a passenger is male and under 10 — but such cases are rare. If we check the data:</p>
+<div id="738e719d" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_test.query(<span class="st">"Sex == 'male' and Age &lt; 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">63</td>
+<td>64</td>
+<td>3</td>
+<td>Skoog, Master. Harald</td>
+<td>male</td>
+<td>4.00</td>
+<td>3</td>
+<td>2</td>
+<td>347088</td>
+<td>27.900</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">165</td>
+<td>166</td>
+<td>3</td>
+<td>Goldsmith, Master. Frank John William "Frankie"</td>
+<td>male</td>
+<td>9.00</td>
+<td>0</td>
+<td>2</td>
+<td>363291</td>
+<td>20.525</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">78</td>
+<td>79</td>
+<td>2</td>
+<td>Caldwell, Master. Alden Gates</td>
+<td>male</td>
+<td>0.83</td>
+<td>0</td>
+<td>2</td>
+<td>248738</td>
+<td>29.000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We find that there are only 3 such passengers in the test set. That’s why the gain is modest. It’s a bit disappointing, but even so, we can be reasonably satisfied with the small improvement that age provides.</p>
+</section>
+<section id="generalization" class="level2">
+<h2 class="anchored" data-anchor-id="generalization">Generalization</h2>
+<p>So far, we’ve seen that gender and age played an important role in survival. But are those the only factors that mattered?</p>
+<p>Think back to that unforgettable scene from the film: First-class passengers are calmly escorted to the lifeboats by the crew, while third-class passengers remain behind locked gates, confused and unable to escape. This isn’t just cinematic drama — it raises an important question:</p>
+<blockquote class="blockquote">
+<p>Did survival also depend on ticket class or fare price?</p>
+</blockquote>
+<p>Let’s explore the data further to find out.</p>
+</section>
+<section id="generalization-1" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-1">Generalization</h2>
+<p>This code calculates the average survival rate by passenger class (Pclass):</p>
+<div id="c1906d2e" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby(<span class="st">"Pclass"</span>)[<span class="st">'Survived'</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0.607362</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>0.483444</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>0.241206</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The output shows the following survival rates:</p>
+<ul>
+<li>1st class (Pclass = 1): approximately 60.7%</li>
+<li>2nd class (Pclass = 2): approximately 48.3%</li>
+<li>3rd class (Pclass = 3): approximately 24.1%</li>
+</ul>
+<p>In other words, passengers in higher classes had a much better chance of survival. This aligns with scenes from the movie, where first-class passengers were often prioritized during evacuation. The data suggests that passenger class (Pclass) is a strong explanatory variable when predicting survival on the Titanic.</p>
+</section>
+<section id="generalization-2" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-2">Generalization</h2>
+<p>The prediction based solely on passenger class (predicting survival if Pclass == 1) achieves an accuracy of approximately 70.4%.</p>
+<div id="7f2b69a8" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">1</span>) </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.703911</code></pre>
+</div>
+</div>
+<p>While this result is quite good, it falls short of the 78.2% accuracy obtained when predicting based solely on gender (predicting survival if Sex == “female”).</p>
+<p>This suggests that gender is a stronger explanatory variable than passenger class when it comes to predicting survival on the Titanic. In other words, knowing someone’s gender gives us more predictive power than knowing their ticket class alone.</p>
+</section>
+<section id="generalization-3" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-3">Generalization</h2>
+<p>Could we consider both gender and passenger class together? Doing so may reveal more detailed and accurate survival patterns.</p>
+<div id="32d8dfb7" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby([<span class="st">"Sex"</span>,<span class="st">"Pclass"</span>])[<span class="st">"Survived"</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>1</td>
+<td>0.957143</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>female</td>
+<td>2</td>
+<td>0.966667</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>female</td>
+<td>3</td>
+<td>0.486957</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>male</td>
+<td>1</td>
+<td>0.344086</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>male</td>
+<td>2</td>
+<td>0.164835</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>male</td>
+<td>3</td>
+<td>0.141343</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>For example, female passengers in 1st class had a survival rate of about 95.7%, while male passengers in 3rd class had a survival rate of only 14.1%. These stark contrasts show that the combination of gender and class provides a much stronger signal than either variable alone. In short, considering both Sex and Pclass together gives us a more powerful strategy for predicting survival.</p>
+</section>
+<section id="generalization-4" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-4">Generalization</h2>
+<p>So, let’s design a prediction rule based on the survival rates we just observed. We saw that:</p>
+<ul>
+<li>Women in 1st and 2nd class had very high survival rates.</li>
+<li>Men in 2nd and 3rd class had very low survival rates.</li>
+<li>The more ambiguous cases were female passengers in 3rd class and male passengers in 1st class, but even those had survival rates below 50%.</li>
+</ul>
+<p>Given this, a reasonable strategy would be:</p>
+<blockquote class="blockquote">
+<p>Predict survived only if the passenger is female and in 1st or 2nd class. Otherwise, predict not survived.</p>
+</blockquote>
+</section>
+<section id="generalization-5" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-5">Generalization</h2>
+<p>Here’s how we can implement this in code:</p>
+<div id="02f4b542" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> ((df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">&amp;</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">&lt;</span><span class="dv">3</span>))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>(y_test<span class="op">==</span>yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.765363</code></pre>
+</div>
+</div>
+<p>But wait — the result is unexpected! The accuracy turns out to be 0.765, which is lower than the simpler rule of just predicting that all women survived, which gave an accuracy of 0.782.</p>
+<p>That’s surprising! Despite using more detailed information (both gender and class), the performance actually drops. It turns out that this added complexity doesn’t always translate to better predictions — and sometimes, simpler is better.</p>
+</section>
+<section id="generalization-6" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-6">Generalization</h2>
+<p>This result contradicts what we saw earlier.</p>
+<p>Previously, when we combined Sex and Age in our prediction rule, the accuracy improved — even if only slightly. That experience reinforced a common belief in data modeling:</p>
+<blockquote class="blockquote">
+<p>“Adding more explanatory variables will naturally improve model performance.”</p>
+</blockquote>
+<p>But now we’re seeing the opposite — adding another meaningful variable (Pclass) actually decreased our accuracy. How can this be?</p>
+</section>
+<section id="generalization-7" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-7">Generalization</h2>
+<p>Could it be that we made a mistake somewhere? Let’s take a step back and carefully consider how we’ve been approaching the problem:</p>
+<ol type="1">
+<li>We learn a rule from the training set.</li>
+<li>Then we apply that rule to the test set.</li>
+</ol>
+<p>But here’s something to think about:</p>
+<blockquote class="blockquote">
+<p>What if the patterns we discovered in the training data don’t hold in the test data?</p>
+</blockquote>
+<p>That’s a real possibility — and it’s a fundamental challenge in any kind of predictive modeling. If a rule seems effective in training but doesn’t generalize well, then applying it to unseen data may lead to worse performance, not better.</p>
+</section>
+<section id="generalization-8" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-8">Generalization</h2>
+<p>Let’s revisit the training environment — specifically, the df_train dataset. Previously, we applied a simple rule based only on gender, which gave us the following result:</p>
+<div id="dee934f3" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_train[<span class="st">'Survived'</span>]</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>yhat <span class="op">=</span> (df_train[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>(y <span class="op">==</span> yhat ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.787921</code></pre>
+</div>
+</div>
+<p>This gave an accuracy of 0.787921. Now, what happens when we consider both gender and class?</p>
+<div id="8107ad9a" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="op">=</span> ((df_train[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">&amp;</span> (df_train[<span class="st">'Pclass'</span>] <span class="op">&lt;</span><span class="dv">3</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>(y <span class="op">==</span> yhat ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.792135</code></pre>
+</div>
+</div>
+<p>This gives a slightly higher accuracy of 0.792135. So in the training set, it was better to predict that only 1st- and 2nd-class women survived, rather than all women.</p>
+</section>
+<section id="generalization-9" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-9">Generalization</h2>
+<p>The key difference between these two strategies lies in how we handle 3rd-class female passengers:</p>
+<ul>
+<li>The older rule predicts they survived.</li>
+<li>The newer rule predicts they did not survive.</li>
+</ul>
+<p>And the justification for the new rule comes from this survival rate:</p>
+<div id="b7620e9e" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_train.query(<span class="st">"Sex == 'female' and Pclass ==3"</span>)[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.486957</code></pre>
+</div>
+</div>
+<p>That result — 0.486957 — should make us a little uneasy. What if that number had been something like 0.499999? Can we confidently say that 3rd-class females were more likely to die than survive?</p>
+</section>
+<section id="generalization-10" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-10">Generalization</h2>
+<p>To help us better understand the issue, let’s create a hypothetical DataFrame called <code>df_test_full</code>:</p>
+<div id="6b42f879" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_test_full <span class="op">=</span> df.iloc[df_test.index]</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df_test_full[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>1</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>0</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">840</td>
+<td>841</td>
+<td>0</td>
+<td>3</td>
+<td>Alhomaki, Mr. Ilmari Rudolf</td>
+<td>male</td>
+<td>20.0</td>
+<td>0</td>
+<td>0</td>
+<td>SOTON/O2 3101287</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>This dataset contains the same passengers as df_test, in the same order — but with one key difference: it also includes the actual Survived values for each passenger.</p>
+<div id="f9b35ff8" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">840</td>
+<td>841</td>
+<td>3</td>
+<td>Alhomaki, Mr. Ilmari Rudolf</td>
+<td>male</td>
+<td>20.0</td>
+<td>0</td>
+<td>0</td>
+<td>SOTON/O2 3101287</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="generalization-11" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-11">Generalization</h2>
+<p>Let’s take a look at how the survival rates break down by gender and passenger class in the test set using <code>df_test_full</code></p>
+<div id="06bbb306" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_test_full.groupby([<span class="st">"Sex"</span>,<span class="st">"Pclass"</span>])[<span class="st">"Survived"</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>female</td>
+<td>1</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>female</td>
+<td>2</td>
+<td>0.750000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>female</td>
+<td>3</td>
+<td>0.551724</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>male</td>
+<td>1</td>
+<td>0.448276</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>male</td>
+<td>2</td>
+<td>0.117647</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>male</td>
+<td>3</td>
+<td>0.109375</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Focus especially on the survival rate of 3rd-class females. Does this test set result align with what we saw in the training set? Can we still be confident that the rule we learned — that only 1st- and 2nd-class women survived — generalizes well?</p>
+</section>
+<section id="generalization-12" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-12">Generalization</h2>
+<p>Sometimes, a rule that works well on the training data fails to perform equally well on the test data. This situation reflects a failure to generalize — the idea that patterns found in one dataset (training) do not always hold in another (test).</p>
+<p>Improving generalization means ensuring that the rules we discover in training remain effective when applied to new, unseen data. One of the most straightforward ways to enhance generalization is to increase the amount of data. With more observations, we can estimate probabilities and patterns more accurately, leading to more reliable decision-making.</p>
+</section>
+<section id="generalization-13" class="level2">
+<h2 class="anchored" data-anchor-id="generalization-13">Generalization</h2>
+<p>In addition, including too many variables or rules can actually reduce generalization performance. At first glance, adding more rules might seem helpful, but in practice, some rules may only appear useful due to random patterns in the training data — and fail to apply to other datasets.</p>
+<p>To summarize, we can improve generalization by:</p>
+<ul>
+<li>Increasing the number of observations, or</li>
+<li>Reducing the number of rules or features used for prediction.</li>
+</ul>
+<p>Since collecting more data is often difficult in real-world settings, much of the research in modeling focuses on how to control model complexity and select only the most meaningful predictors.</p>
+</section>
+<section id="titanic-from-intuition-to-ml" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml">Titanic: From Intuition to ML</h2>
+<p>So far, we’ve predicted Titanic survival outcomes using simple, rule-based intuition.<br>
+We started with rules like “predict survival for females and non-survival for males,” and then gradually incorporated variables like age and class to refine our predictions.</p>
+<p>However, as the number of variables increases and their relationships grow more complex, crafting reliable rules manually becomes extremely difficult.</p>
+<blockquote class="blockquote">
+<p>It’s time to move beyond human intuition — and turn to machine learning.</p>
+</blockquote>
+<p>From here on, we’ll stop defining rules ourselves.<br>
+Instead, we’ll use automated tools and machine learning algorithms to train models directly from the data.</p>
+<p>As a first step, we’ll introduce a powerful yet intuitive model called the <strong>Decision Tree</strong>, which can discover complex patterns on its own — no human-designed rules required.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-1" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-1">Titanic: From Intuition to ML</h2>
+<p>To move beyond manual rule-making, we now turn to decision trees — a model that can automatically learn patterns from data. To maintain continuity with our previous approach, we will again use Sex and Pclass as our explanatory variables.</p>
+<p>However, since machine learning algorithms cannot directly handle text or categorical variables, we must first preprocess the data into a numeric format that the model can understand. For this, we use the <code>get_dummies()</code> function from the pandas library:</p>
+<div id="56343bc3" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[[<span class="st">'Sex'</span>,<span class="st">'Pclass'</span>]])</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>X[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Sex_female</th>
+<th data-quarto-table-cell-role="th">Sex_male</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">331</td>
+<td>1</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">733</td>
+<td>2</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">382</td>
+<td>3</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">704</td>
+<td>3</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">813</td>
+<td>3</td>
+<td>True</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="titanic-from-intuition-to-ml-2" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-2">Titanic: From Intuition to ML</h2>
+<p>This output is the result of using <code>pd.get_dummies(df_train[['Sex','Pclass']])</code>, which transforms the selected features into a format suitable for machine learning models. Here’s what each column represents:</p>
+<ul>
+<li>Pclass: Indicates the passenger’s ticket class. Lower numbers represent higher-class cabins (e.g., 1st class is better than 3rd class).</li>
+<li>Sex_female: A boolean column where True means the passenger is female, and False otherwise. This is created through one-hot encoding of the Sex variable.</li>
+<li>Sex_male: Similarly, True means the passenger is male. This is the complement of Sex_female.</li>
+</ul>
+<p>By converting the categorical Sex column into binary features, the model can handle this data numerically. The Pclass column remains unchanged since it is already numeric.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-3" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-3">Titanic: From Intuition to ML</h2>
+<p>Now let’s prepare the rest of the data for training and evaluation:</p>
+<div id="50f75d15" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[[<span class="st">'Sex'</span>,<span class="st">'Pclass'</span>]])</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_train[<span class="st">'Survived'</span>]</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df[<span class="st">'Survived'</span>][df_test.index]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here’s what each line does:</p>
+<ul>
+<li><code>X_test = pd.get_dummies(df_test[['Sex','Pclass']])</code>: Performs one-hot encoding on the test set to match the format of the training data (X).</li>
+<li><code>y = df_train['Survived']</code>: Sets the target variable (whether a passenger survived) for the training data.</li>
+<li><code>y_test = df['Survived'][df_test.index]</code>: Retrieves the actual survival labels for the test set using their index from the original dataset. These values will be used to evaluate the model’s predictions.</li>
+</ul>
+</section>
+<section id="titanic-from-intuition-to-ml-4" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-4">Titanic: From Intuition to ML</h2>
+<p>Now that we’ve finished preparing the data, it’s time to choose a model. As mentioned earlier, we’ll start with a Decision Tree. But before we dive in, let’s take a moment to briefly introduce what a decision tree actually is.</p>
+<p>A Decision Tree is a machine learning model that works much like the game of 20 Questions. In that game, one person thinks of an object (like an animal or a job), and the other person tries to guess it by asking a series of yes/no questions such as: “Can it fly?”, “Does it have four legs?”, or “Is it a human?” Each question helps narrow down the possibilities, and with enough well-chosen questions, the answer eventually becomes clear.</p>
+<p>A decision tree follows the same idea. Given some data, it makes a prediction by asking a series of simple, binary questions. In the Titanic survival prediction task, for example, a decision tree might ask:</p>
+<ul>
+<li>“Is the passenger female?”</li>
+<li>“Is the ticket class 1st class?”</li>
+<li>“Is the passenger under 10 years old?”</li>
+</ul>
+</section>
+<section id="titanic-from-intuition-to-ml-5" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-5">Titanic: From Intuition to ML</h2>
+<p>Each question divides the data into two branches — those that meet the condition and those that don’t. By following these branches step by step, the tree gradually narrows down the group of passengers and finally reaches a prediction, such as “Survived” or “Did not survive.” This final prediction is stored in what’s called a leaf node of the tree.</p>
+<p>What makes decision trees especially useful is their simplicity and interpretability. They don’t require complex math or feature transformations, and the decision path for each prediction can be traced back in plain language. This makes them easy to understand and explain — even to someone without a background in machine learning.</p>
+<p>In summary, a decision tree is like a smart version of 20 Questions: it figures out what questions to ask based on the data, and uses the answers to make accurate predictions.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-6" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-6">Titanic: From Intuition to ML</h2>
+<p>Now let’s take a look at how to use a decision tree in Python. The code below creates a decision tree model with default settings:</p>
+<div id="0a4aea56" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The DecisionTreeClassifier model object works primarily through two key methods: <code>fit()</code> and <code>predict()</code>. The <code>.fit(X, y)</code> method is used to train the model by learning patterns in the data. It takes the input features X and the corresponding target labels y, and builds a tree structure that splits the data based on conditions like “Is the passenger female?” or “Is the ticket class 1st class?” The goal is to find the best questions (or splits) that help classify the target variable as accurately as possible. Once the model is trained, the <code>.predict(X_test)</code> method can be used to make predictions on new data. For each row in X_test, the model follows the learned decision rules down the tree to arrive at a prediction, such as whether a passenger survived or not. In short, <code>.fit()</code> builds the decision rules from training data, and <code>.predict()</code> applies those rules to make predictions.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-7" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-7">Titanic: From Intuition to ML</h2>
+<p>Let’s now take a look at the code below. It is used to train the model and make predictions on the test data:</p>
+<div id="c61a11df" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>model.fit(X,y) </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The first line, <code>model.fit(X, y)</code>, trains the DecisionTreeClassifier model using the training data. The second line, <code>model.predict(X_test)</code>, uses the trained model to predict survival for each passenger in the test set. By running this code, we get the model’s predictions automatically based on the patterns it learned from the training data.</p>
+<p>Let’s now take a look at the accuracy of the survival predictions made by the Decision Tree model:</p>
+<div id="3ad7d873" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.765363</code></pre>
+</div>
+</div>
+</section>
+<section id="titanic-from-intuition-to-ml-8" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-8">Titanic: From Intuition to ML</h2>
+<p>The result is 0.765363 — and interestingly, it’s exactly the same as the accuracy from this simple rule-based prediction:</p>
+<div id="6d7fb5a2" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>] <span class="op">==</span> <span class="st">'female'</span>) <span class="op">&amp;</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">&lt;</span> <span class="dv">3</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.765363</code></pre>
+</div>
+</div>
+<p>Disappointed? You shouldn’t be.</p>
+<p>In fact, this result is reassuring: it shows that the Decision Tree isn’t performing some mysterious magic, but rather confirming patterns we already identified — such as</p>
+<blockquote class="blockquote">
+<p>“1st- and 2nd-class females were more likely to survive.”</p>
+</blockquote>
+<p>In other words, instead of inventing new rules through complex computation, the model is making good use of meaningful patterns already present in the data.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-9" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-9">Titanic: From Intuition to ML</h2>
+<p>Now, let’s take things a step further and consider all available features. We can inspect the column names using:</p>
+<div id="d72c8152" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
+       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>This gives us a list of variables such as “PassengerId”, “Pclass”, “Name”, “Sex”, “Age”, “SibSp”, “Parch”, “Ticket”, “Fare”, “Cabin”, and “Embarked”. Since “Survived” is the target variable we’re trying to predict, we’ll exclude it from the list of features used for training. So, our final list of features will be:</p>
+<div id="ba960c96" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"PassengerId"</span>, <span class="st">"Pclass"</span>, <span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Ticket"</span>, <span class="st">"Fare"</span>, <span class="st">"Cabin"</span>, <span class="st">"Embarked"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="titanic-from-intuition-to-ml-10" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-10">Titanic: From Intuition to ML</h2>
+<p>Now let’s include all these features in the model. Because some of them are categorical variables, we need to preprocess them using one-hot encoding. We can do this with the following code:</p>
+<div id="eb4cd6b0" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s now try training a model using all available features. But… an error occurs! Why did this happen?</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="A2_files/figure-html/9d568372-1-image.png" class="img-fluid"></p>
+</section>
+<section id="titanic-from-intuition-to-ml-11" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-11">Titanic: From Intuition to ML</h2>
+<p>Let’s look into what caused the error. To debug this, we examine a small portion of the preprocessed data:</p>
+<div id="91806e95" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>pd.get_dummies(df_train[<span class="dv">2</span>:<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Name_Hansen, Mr. Henrik Juul</th>
+<th data-quarto-table-cell-role="th">Name_Tikkanen, Mr. Juho</th>
+<th data-quarto-table-cell-role="th">Sex_male</th>
+<th data-quarto-table-cell-role="th">Ticket_350025</th>
+<th data-quarto-table-cell-role="th">Ticket_STON/O 2. 3101293</th>
+<th data-quarto-table-cell-role="th">Embarked_S</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">382</td>
+<td>383</td>
+<td>0</td>
+<td>3</td>
+<td>32.0</td>
+<td>0</td>
+<td>0</td>
+<td>7.9250</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">704</td>
+<td>705</td>
+<td>0</td>
+<td>3</td>
+<td>26.0</td>
+<td>1</td>
+<td>0</td>
+<td>7.8542</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Did you catch the issue? Look closely — the Name column has been one-hot encoded into columns like:</p>
+<ul>
+<li>Name_Hansen, Mr.&nbsp;Henrik Juul</li>
+<li>Name_Tikkanen, Mr.&nbsp;Juho</li>
+</ul>
+<p>Now, here’s the problem: these exact names appear only in the training set. They don’t exist in the test set, so when we apply the same code to <code>df_test</code>, those columns are missing — which causes a mismatch in the number of features between training and test data.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-12" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-12">Titanic: From Intuition to ML</h2>
+<p>Let’s look at the result of our preprocessing:</p>
+<div id="62e4121d" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(X.columns), <span class="bu">len</span>(X_test.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(1398, 401)</code></pre>
+</div>
+</div>
+<p>See the problem? The training set ended up with 1398 columns, while the test set has only 401 columns. This is because the <code>get_dummies()</code> function creates columns based on the unique values present in each dataset. For example, if a name or ticket appears only in the training set, <code>get_dummies()</code> will create a column for it — but that column will be missing in the test set, leading to a mismatch. As a result, the model cannot be trained and tested on data with different structures, which is why the error occurs. To fix this, we’ll need to ensure that both <code>X</code> and <code>X_test</code> have the same columns.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-13" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-13">Titanic: From Intuition to ML</h2>
+<p>Now, we’ll select the features to use as follows:</p>
+<div id="8efa0d0d" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"PassengerId"</span>, <span class="st">"Pclass"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Fare"</span>, <span class="st">"Embarked"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The excluded features are Name, Ticket, and Cabin. These columns typically contain highly unique or overly specific values. If we apply <code>get_dummies()</code> to them, the resulting feature sets in the training and test data may end up with mismatched columns. This mismatch would cause errors during model training or prediction, so we exclude them.</p>
+<p>Now let’s apply one-hot encoding using the code below:</p>
+<div id="cb972606" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(X.columns), <span class="bu">len</span>(X_test.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(11, 11)</code></pre>
+</div>
+</div>
+<p>As you can see, both datasets now have exactly 11 columns. With the data properly aligned, we’re finally ready to train the model!</p>
+</section>
+<section id="titanic-from-intuition-to-ml-14" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-14">Titanic: From Intuition to ML</h2>
+<p>Now it’s time to apply a machine learning model.</p>
+<div id="899af85f" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.731844</code></pre>
+</div>
+</div>
+<p>The result is in — the model yields an accuracy of 0.73. But the outcome feels disappointing. Despite considering all available variables, the model fails to outperform the following simple rule:</p>
+<div id="9581278e" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> (df_test[<span class="st">'Sex'</span>]<span class="op">==</span><span class="st">"female"</span>)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.782123</code></pre>
+</div>
+</div>
+<p>Just predicting survival for all female passengers results in a higher accuracy.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-15" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-15">Titanic: From Intuition to ML</h2>
+<p>Why did this happen?</p>
+<p>It reminds us of an earlier observation: adding more variables to the model doesn’t always lead to better performance, especially when we started from the “Sex” variable alone.</p>
+<div id="88e17bf2" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>['PassengerId', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']</code></pre>
+</div>
+</div>
+<p>Let’s take a closer look at the current set of features.</p>
+<p>Some splits in the decision tree may be unnecessary and harm generalization. Is there any variable we can reasonably remove?</p>
+<p>One variable that stands out is PassengerId. This is merely an identifier — it doesn’t carry any semantic meaning related to survival. Would it make sense to create a rule like: “If PassengerId &gt; 600, then the passenger survived”? That clearly makes no logical sense and would likely not generalize beyond this dataset.</p>
+<p>Therefore, it’s reasonable to remove the PassengerId feature before retraining the model.</p>
+</section>
+<section id="titanic-from-intuition-to-ml-16" class="level2">
+<h2 class="anchored" data-anchor-id="titanic-from-intuition-to-ml-16">Titanic: From Intuition to ML</h2>
+<p>We revised the feature list to exclude PassengerId and focused on more meaningful variables:</p>
+<div id="d1ee7fce" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Fare"</span>, <span class="st">"Embarked"</span>]</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.804469</code></pre>
+</div>
+</div>
+<p>The result?</p>
+<blockquote class="blockquote">
+<p>0.804469!!</p>
+</blockquote>
+<p>Finally, we achieved a decent-performing model. Removing the irrelevant PassengerId feature appears to have improved generalization and accuracy.</p>
+</section>
+<section id="automl" class="level2">
+<h2 class="anchored" data-anchor-id="automl">AutoML</h2>
+<p>Traditional machine learning comes with several limitations:</p>
+<ul>
+<li>You need to study and understand the model before using it.</li>
+<li>You must carefully transform the data into a suitable format.</li>
+<li>Honestly, wouldn’t it be great if someone else just analyzed everything for us?</li>
+</ul>
+<p>Let’s take a look at AutoML.</p>
+</section>
+<section id="automl-1" class="level2">
+<h2 class="anchored" data-anchor-id="automl-1">AutoML</h2>
+<p>AutoML stands for Automated Machine Learning. It refers to the process of automating the end-to-end pipeline of building a machine learning model. This includes:</p>
+<ul>
+<li>Preprocessing the data</li>
+<li>Selecting and tuning models</li>
+<li>Evaluating performance</li>
+<li>Making final predictions</li>
+</ul>
+<p>AutoML is designed to make machine learning accessible, efficient, and robust, even for those without deep expertise.</p>
+</section>
+<section id="automl-2" class="level2">
+<h2 class="anchored" data-anchor-id="automl-2">AutoML</h2>
+<p>There are several well-known AutoML tools available today:</p>
+<ul>
+<li>Google AutoML (Cloud-based, integrates with Google Cloud services)</li>
+<li>Auto-sklearn (based on scikit-learn, focuses on pipelines)</li>
+<li>H2O AutoML (supports both ML and deep learning)</li>
+<li>AutoGluon (from Amazon, designed for ease and flexibility)</li>
+</ul>
+</section>
+<section id="automl-3" class="level2">
+<h2 class="anchored" data-anchor-id="automl-3">AutoML</h2>
+<p>In this course, we’ll use AutoGluon, a powerful AutoML framework developed by Amazon.</p>
+<p>AutoGluon is:</p>
+<ul>
+<li>Easy to use with minimal code</li>
+<li>Well-suited for tabular data</li>
+<li>Capable of trying many models and combining them automatically</li>
+<li>Surprisingly accurate even without manual tuning</li>
+</ul>
+<p>It’s a great tool for quickly building high-quality models — and ideal for learners who want to focus on insights rather than low-level implementation.</p>
+</section>
+<section id="automl-4" class="level2">
+<h2 class="anchored" data-anchor-id="automl-4">AutoML</h2>
+<p>Prediction with AutoGluon begins with the following line of code:</p>
+<div id="db19b644" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>predictor <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20251103_124336"</code></pre>
+</div>
+</div>
+<p>What does TabularPredictor mean?</p>
+<p>The term “tabular” refers to data organized in rows and columns — like spreadsheets or pandas DataFrames. This format is typical for structured datasets such as Titanic passenger records.</p>
+<p>Unlike traditional approaches where a single model (e.g., decision tree) is manually selected, AutoGluon automatically trains and compares a variety of powerful algorithms — such as gradient boosting, random forests, and neural networks. It then selects or combines the top-performing ones to generate robust predictions.</p>
+<p>In short, TabularPredictor manages the entire process for tabular datasets — from training multiple models to picking the most effective strategy — with minimal code required.</p>
+</section>
+<section id="automl-5" class="level2">
+<h2 class="anchored" data-anchor-id="automl-5">AutoML</h2>
+<p>The next step is to train the model using AutoGluon:</p>
+<div id="53c434bb" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>predictor.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Verbosity: 2 (Standard Logging)
+=================== System Info ===================
+AutoGluon Version:  1.3.1
+Python Version:     3.11.13
+Operating System:   Linux
+Platform Machine:   x86_64
+Platform Version:   #33~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19 17:02:30 UTC 2
+CPU Count:          16
+Memory Avail:       120.61 GB / 125.71 GB (95.9%)
+Disk Space Avail:   201.34 GB / 457.38 GB (44.0%)
+===================================================
+No presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets. Defaulting to `'medium'`...
+    Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):
+    presets='experimental' : New in v1.2: Pre-trained foundation model + parallel fits. The absolute best accuracy without consideration for inference speed. Does not support GPU.
+    presets='best'         : Maximize accuracy. Recommended for most users. Use in competitions and benchmarks.
+    presets='high'         : Strong accuracy with fast inference speed.
+    presets='good'         : Good accuracy with very fast inference speed.
+    presets='medium'       : Fast training time, ideal for initial prototyping.
+Beginning AutoGluon training ...
+AutoGluon will save models to "/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124336"
+Train Data Rows:    712
+Train Data Columns: 11
+Label Column:       Survived
+AutoGluon infers your prediction problem is: 'binary' (because only two unique label-values observed).
+    2 unique label values:  [np.int64(0), np.int64(1)]
+    If 'binary' is not the correct problem_type, please manually specify the problem_type parameter during Predictor init (You may specify problem_type as one of: ['binary', 'multiclass', 'regression', 'quantile'])
+Problem Type:       binary
+Preprocessing data ...
+Selected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+    Available Memory:                    123507.08 MB
+    Train Data (Original)  Memory Usage: 0.24 MB (0.0% of available memory)
+    Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+    Stage 1 Generators:
+        Fitting AsTypeFeatureGenerator...
+            Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+    Stage 2 Generators:
+        Fitting FillNaFeatureGenerator...
+    Stage 3 Generators:
+        Fitting IdentityFeatureGenerator...
+        Fitting CategoryFeatureGenerator...
+            Fitting CategoryMemoryMinimizeFeatureGenerator...
+        Fitting TextSpecialFeatureGenerator...
+            Fitting BinnedFeatureGenerator...
+            Fitting DropDuplicatesFeatureGenerator...
+        Fitting TextNgramFeatureGenerator...
+            Fitting CountVectorizer for text features: ['Name']
+            CountVectorizer fit with vocabulary size = 7
+    Stage 4 Generators:
+        Fitting DropUniqueFeatureGenerator...
+    Stage 5 Generators:
+        Fitting DropDuplicatesFeatureGenerator...
+    Types of features in original data (raw dtype, special dtypes):
+        ('float', [])        : 2 | ['Age', 'Fare']
+        ('int', [])          : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']
+        ('object', [])       : 4 | ['Sex', 'Ticket', 'Cabin', 'Embarked']
+        ('object', ['text']) : 1 | ['Name']
+    Types of features in processed data (raw dtype, special dtypes):
+        ('category', [])                    : 3 | ['Ticket', 'Cabin', 'Embarked']
+        ('float', [])                       : 2 | ['Age', 'Fare']
+        ('int', [])                         : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']
+        ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]
+        ('int', ['bool'])                   : 1 | ['Sex']
+        ('int', ['text_ngram'])             : 8 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]
+    0.1s = Fit runtime
+    11 features in original data used to generate 27 features in processed data.
+    Train Data (Processed) Memory Usage: 0.05 MB (0.0% of available memory)
+Data preprocessing and feature engineering runtime = 0.14s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
+    To change this, specify the eval_metric parameter of Predictor()
+Automatically generating train/validation split with holdout_frac=0.2, Train Rows: 569, Val Rows: 143
+User-specified model hyperparameters to be fit:
+{
+    'NN_TORCH': [{}],
+    'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+    'CAT': [{}],
+    'XGB': [{}],
+    'FASTAI': [{}],
+    'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+    'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+    'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
+}
+Fitting 13 L1 models, fit_strategy="sequential" ...
+Fitting model: KNeighborsUnif ...
+/home/cgb2/anaconda3/envs/yechan/lib/python3.11/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() &gt; 0
+    0.5874   = Validation score   (accuracy)
+    2.42s    = Training   runtime
+    0.02s    = Validation runtime
+Fitting model: KNeighborsDist ...
+    0.5944   = Validation score   (accuracy)
+    0.01s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: LightGBMXT ...
+    0.8392   = Validation score   (accuracy)
+    0.36s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: LightGBM ...
+    0.8322   = Validation score   (accuracy)
+    0.2s     = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: RandomForestGini ...
+    0.7972   = Validation score   (accuracy)
+    0.7s     = Training   runtime
+    0.04s    = Validation runtime
+Fitting model: RandomForestEntr ...
+    0.7972   = Validation score   (accuracy)
+    0.39s    = Training   runtime
+    0.04s    = Validation runtime
+Fitting model: CatBoost ...
+    0.8182   = Validation score   (accuracy)
+    0.54s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: ExtraTreesGini ...
+    0.8042   = Validation score   (accuracy)
+    0.63s    = Training   runtime
+    0.11s    = Validation runtime
+Fitting model: ExtraTreesEntr ...
+    0.8182   = Validation score   (accuracy)
+    0.58s    = Training   runtime
+    0.21s    = Validation runtime
+Fitting model: NeuralNetFastAI ...
+No improvement since epoch 4: early stopping
+    0.8112   = Validation score   (accuracy)
+    0.92s    = Training   runtime
+    0.01s    = Validation runtime
+Fitting model: XGBoost ...
+    0.8252   = Validation score   (accuracy)
+    0.25s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: NeuralNetTorch ...
+    0.8322   = Validation score   (accuracy)
+    3.86s    = Training   runtime
+    0.01s    = Validation runtime
+Fitting model: LightGBMLarge ...
+    0.8182   = Validation score   (accuracy)
+    0.48s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: WeightedEnsemble_L2 ...
+    Ensemble Weights: {'LightGBMXT': 1.0}
+    0.8392   = Validation score   (accuracy)
+    0.06s    = Training   runtime
+    0.0s     = Validation runtime
+AutoGluon training complete, total runtime = 12.18s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 65629.2 rows/s (143 batch size)
+Disabling decision threshold calibration for metric `accuracy` due to having fewer than 10000 rows of validation data for calibration, to avoid overfitting (143 rows).
+    `accuracy` is generally not improved through threshold calibration. Force calibration via specifying `calibrate_decision_threshold=True`.
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124336")</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;autogluon.tabular.predictor.predictor.TabularPredictor at 0x730eeca5fbd0&gt;</code></pre>
+</div>
+</div>
+<p>What makes this step powerful is its simplicity.</p>
+<p>You don’t need to perform any manual preprocessing — AutoGluon automatically detects categorical variables and applies one-hot encoding or other suitable transformations for you.</p>
+<p>Moreover, you don’t even need to drop potentially problematic columns like “Name” or “Ticket” — AutoGluon handles them gracefully without breaking the model. It’s incredibly convenient.</p>
+<p>Running this single line of code is essentially equivalent to performing multiple rounds of <code>model.fit(...)</code> using different algorithms, hyperparameter settings, and preprocessing strategies — all done automatically.</p>
+<p>It’s like launching an entire machine learning pipeline with just one command.</p>
+</section>
+<section id="automl-6" class="level2">
+<h2 class="anchored" data-anchor-id="automl-6">AutoML</h2>
+<p>Let’s take a look at the model leaderboard results:</p>
+<div id="23f7e3da" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>predictor.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">score_val</th>
+<th data-quarto-table-cell-role="th">eval_metric</th>
+<th data-quarto-table-cell-role="th">pred_time_val</th>
+<th data-quarto-table-cell-role="th">fit_time</th>
+<th data-quarto-table-cell-role="th">pred_time_val_marginal</th>
+<th data-quarto-table-cell-role="th">fit_time_marginal</th>
+<th data-quarto-table-cell-role="th">stack_level</th>
+<th data-quarto-table-cell-role="th">can_infer</th>
+<th data-quarto-table-cell-role="th">fit_order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>LightGBMXT</td>
+<td>0.839161</td>
+<td>accuracy</td>
+<td>0.001683</td>
+<td>0.361428</td>
+<td>0.001683</td>
+<td>0.361428</td>
+<td>1</td>
+<td>True</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>WeightedEnsemble_L2</td>
+<td>0.839161</td>
+<td>accuracy</td>
+<td>0.002179</td>
+<td>0.426323</td>
+<td>0.000496</td>
+<td>0.064895</td>
+<td>2</td>
+<td>True</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>LightGBM</td>
+<td>0.832168</td>
+<td>accuracy</td>
+<td>0.001752</td>
+<td>0.196912</td>
+<td>0.001752</td>
+<td>0.196912</td>
+<td>1</td>
+<td>True</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>NeuralNetTorch</td>
+<td>0.832168</td>
+<td>accuracy</td>
+<td>0.008308</td>
+<td>3.860216</td>
+<td>0.008308</td>
+<td>3.860216</td>
+<td>1</td>
+<td>True</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>XGBoost</td>
+<td>0.825175</td>
+<td>accuracy</td>
+<td>0.003324</td>
+<td>0.246637</td>
+<td>0.003324</td>
+<td>0.246637</td>
+<td>1</td>
+<td>True</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>LightGBMLarge</td>
+<td>0.818182</td>
+<td>accuracy</td>
+<td>0.001849</td>
+<td>0.476456</td>
+<td>0.001849</td>
+<td>0.476456</td>
+<td>1</td>
+<td>True</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>CatBoost</td>
+<td>0.818182</td>
+<td>accuracy</td>
+<td>0.002558</td>
+<td>0.542075</td>
+<td>0.002558</td>
+<td>0.542075</td>
+<td>1</td>
+<td>True</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>ExtraTreesEntr</td>
+<td>0.818182</td>
+<td>accuracy</td>
+<td>0.209955</td>
+<td>0.583069</td>
+<td>0.209955</td>
+<td>0.583069</td>
+<td>1</td>
+<td>True</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>NeuralNetFastAI</td>
+<td>0.811189</td>
+<td>accuracy</td>
+<td>0.009792</td>
+<td>0.916195</td>
+<td>0.009792</td>
+<td>0.916195</td>
+<td>1</td>
+<td>True</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>ExtraTreesGini</td>
+<td>0.804196</td>
+<td>accuracy</td>
+<td>0.105650</td>
+<td>0.625215</td>
+<td>0.105650</td>
+<td>0.625215</td>
+<td>1</td>
+<td>True</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>RandomForestGini</td>
+<td>0.797203</td>
+<td>accuracy</td>
+<td>0.035587</td>
+<td>0.703275</td>
+<td>0.035587</td>
+<td>0.703275</td>
+<td>1</td>
+<td>True</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>RandomForestEntr</td>
+<td>0.797203</td>
+<td>accuracy</td>
+<td>0.036217</td>
+<td>0.389625</td>
+<td>0.036217</td>
+<td>0.389625</td>
+<td>1</td>
+<td>True</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>KNeighborsDist</td>
+<td>0.594406</td>
+<td>accuracy</td>
+<td>0.002013</td>
+<td>0.006331</td>
+<td>0.002013</td>
+<td>0.006331</td>
+<td>1</td>
+<td>True</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>KNeighborsUnif</td>
+<td>0.587413</td>
+<td>accuracy</td>
+<td>0.019140</td>
+<td>2.423033</td>
+<td>0.019140</td>
+<td>2.423033</td>
+<td>1</td>
+<td>True</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="automl-7" class="level2">
+<h2 class="anchored" data-anchor-id="automl-7">AutoML</h2>
+<p>At the top of the leaderboard, we see models like:</p>
+<ul>
+<li>LightGBMXT, LightGBM, XGBoost, CatBoost, LightGBMLarge, ExtraTreesEntr, ExtraTreesGini, RandomForestEntr, RandomForestGini</li>
+</ul>
+<p>These are all tree-based models — an evolution of decision tree algorithms. They combine multiple decision trees to improve prediction performance and reduce overfitting. In the domain of tabular data, tree-based models (especially gradient boosting methods) are widely regarded as the state-of-the-art (SOTA). They:</p>
+<ul>
+<li>Handle missing values and mixed data types well</li>
+<li>Capture non-linear patterns without requiring complex preprocessing</li>
+<li>Often outperform deep learning models on structured datasets</li>
+</ul>
+<p>That’s why we consistently see tree-based models dominating AutoML leaderboards — they are fast, accurate, and robust for most practical applications in tabular data analysis.</p>
+</section>
+<section id="automl-8" class="level2">
+<h2 class="anchored" data-anchor-id="automl-8">AutoML</h2>
+<p>Now let’s check the final prediction result:</p>
+<div id="2b6b7fe8" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> predictor.predict(df_test)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>0.804469</code></pre>
+</div>
+</div>
+<p>Even though we didn’t perform any manual preprocessing on the variables, AutoGluon ran without errors and produced a respectable accuracy of 0.804469.</p>
+<p>That’s a strong result — especially considering the minimal effort required.</p>
+</section>
+<section id="automl-9" class="level2">
+<h2 class="anchored" data-anchor-id="automl-9">AutoML</h2>
+<p>This time, we apply a bit of preprocessing by removing a few variables. We simply exclude PassengerId, Ticket, and Cabin, and retrain the model.</p>
+<div id="45ffcfdd" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>df_train_preprocessed <span class="op">=</span> df_train.drop([<span class="st">'PassengerId'</span>,<span class="st">'Ticket'</span>,<span class="st">'Cabin'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>df_test_preprocessed <span class="op">=</span> df_test.drop([<span class="st">'PassengerId'</span>,<span class="st">'Ticket'</span>,<span class="st">'Cabin'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>predictor <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>predictor.fit(df_train_preprocessed)</span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> predictor.predict(df_test_preprocessed)</span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20251103_124350"
+Verbosity: 2 (Standard Logging)
+=================== System Info ===================
+AutoGluon Version:  1.3.1
+Python Version:     3.11.13
+Operating System:   Linux
+Platform Machine:   x86_64
+Platform Version:   #33~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19 17:02:30 UTC 2
+CPU Count:          16
+Memory Avail:       119.91 GB / 125.71 GB (95.4%)
+Disk Space Avail:   201.26 GB / 457.38 GB (44.0%)
+===================================================
+No presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets. Defaulting to `'medium'`...
+    Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):
+    presets='experimental' : New in v1.2: Pre-trained foundation model + parallel fits. The absolute best accuracy without consideration for inference speed. Does not support GPU.
+    presets='best'         : Maximize accuracy. Recommended for most users. Use in competitions and benchmarks.
+    presets='high'         : Strong accuracy with fast inference speed.
+    presets='good'         : Good accuracy with very fast inference speed.
+    presets='medium'       : Fast training time, ideal for initial prototyping.
+Beginning AutoGluon training ...
+AutoGluon will save models to "/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124350"
+Train Data Rows:    712
+Train Data Columns: 8
+Label Column:       Survived
+AutoGluon infers your prediction problem is: 'binary' (because only two unique label-values observed).
+    2 unique label values:  [np.int64(0), np.int64(1)]
+    If 'binary' is not the correct problem_type, please manually specify the problem_type parameter during Predictor init (You may specify problem_type as one of: ['binary', 'multiclass', 'regression', 'quantile'])
+Problem Type:       binary
+Preprocessing data ...
+Selected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0
+Using Feature Generators to preprocess the data ...
+Fitting AutoMLPipelineFeatureGenerator...
+    Available Memory:                    122785.18 MB
+    Train Data (Original)  Memory Usage: 0.17 MB (0.0% of available memory)
+    Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
+    Stage 1 Generators:
+        Fitting AsTypeFeatureGenerator...
+            Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
+    Stage 2 Generators:
+        Fitting FillNaFeatureGenerator...
+    Stage 3 Generators:
+        Fitting IdentityFeatureGenerator...
+        Fitting CategoryFeatureGenerator...
+            Fitting CategoryMemoryMinimizeFeatureGenerator...
+        Fitting TextSpecialFeatureGenerator...
+            Fitting BinnedFeatureGenerator...
+            Fitting DropDuplicatesFeatureGenerator...
+        Fitting TextNgramFeatureGenerator...
+            Fitting CountVectorizer for text features: ['Name']
+            CountVectorizer fit with vocabulary size = 7
+    Stage 4 Generators:
+        Fitting DropUniqueFeatureGenerator...
+    Stage 5 Generators:
+        Fitting DropDuplicatesFeatureGenerator...
+    Types of features in original data (raw dtype, special dtypes):
+        ('float', [])        : 2 | ['Age', 'Fare']
+        ('int', [])          : 3 | ['Pclass', 'SibSp', 'Parch']
+        ('object', [])       : 2 | ['Sex', 'Embarked']
+        ('object', ['text']) : 1 | ['Name']
+    Types of features in processed data (raw dtype, special dtypes):
+        ('category', [])                    : 1 | ['Embarked']
+        ('float', [])                       : 2 | ['Age', 'Fare']
+        ('int', [])                         : 3 | ['Pclass', 'SibSp', 'Parch']
+        ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]
+        ('int', ['bool'])                   : 1 | ['Sex']
+        ('int', ['text_ngram'])             : 8 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]
+    0.1s = Fit runtime
+    8 features in original data used to generate 24 features in processed data.
+    Train Data (Processed) Memory Usage: 0.05 MB (0.0% of available memory)
+Data preprocessing and feature engineering runtime = 0.13s ...
+AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
+    To change this, specify the eval_metric parameter of Predictor()
+Automatically generating train/validation split with holdout_frac=0.2, Train Rows: 569, Val Rows: 143
+User-specified model hyperparameters to be fit:
+{
+    'NN_TORCH': [{}],
+    'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],
+    'CAT': [{}],
+    'XGB': [{}],
+    'FASTAI': [{}],
+    'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+    'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],
+    'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
+}
+Fitting 13 L1 models, fit_strategy="sequential" ...
+Fitting model: KNeighborsUnif ...
+    0.6643   = Validation score   (accuracy)
+    0.01s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: KNeighborsDist ...
+    0.6364   = Validation score   (accuracy)
+    0.01s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: LightGBMXT ...
+    0.8182   = Validation score   (accuracy)
+    0.22s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: LightGBM ...
+    0.8462   = Validation score   (accuracy)
+    0.23s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: RandomForestGini ...
+    0.8042   = Validation score   (accuracy)
+    0.87s    = Training   runtime
+    0.15s    = Validation runtime
+Fitting model: RandomForestEntr ...
+    0.8042   = Validation score   (accuracy)
+    0.42s    = Training   runtime
+    0.16s    = Validation runtime
+Fitting model: CatBoost ...
+    0.8252   = Validation score   (accuracy)
+    0.31s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: ExtraTreesGini ...
+    0.8042   = Validation score   (accuracy)
+    0.96s    = Training   runtime
+    0.2s     = Validation runtime
+Fitting model: ExtraTreesEntr ...
+    0.8042   = Validation score   (accuracy)
+    0.41s    = Training   runtime
+    0.22s    = Validation runtime
+Fitting model: NeuralNetFastAI ...
+No improvement since epoch 8: early stopping
+    0.8392   = Validation score   (accuracy)
+    0.39s    = Training   runtime
+    0.01s    = Validation runtime
+Fitting model: XGBoost ...
+    0.8252   = Validation score   (accuracy)
+    0.11s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: NeuralNetTorch ...
+    0.8182   = Validation score   (accuracy)
+    1.31s    = Training   runtime
+    0.01s    = Validation runtime
+Fitting model: LightGBMLarge ...
+    0.8112   = Validation score   (accuracy)
+    0.46s    = Training   runtime
+    0.0s     = Validation runtime
+Fitting model: WeightedEnsemble_L2 ...
+    Ensemble Weights: {'LightGBM': 1.0}
+    0.8462   = Validation score   (accuracy)
+    0.07s    = Training   runtime
+    0.0s     = Validation runtime
+AutoGluon training complete, total runtime = 6.93s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 78127.6 rows/s (143 batch size)
+Disabling decision threshold calibration for metric `accuracy` due to having fewer than 10000 rows of validation data for calibration, to avoid overfitting (143 rows).
+    `accuracy` is generally not improved through threshold calibration. Force calibration via specifying `calibrate_decision_threshold=True`.
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124350")</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>0.810056</code></pre>
+</div>
+</div>
+<p>The result is 0.810056. This is the best performance among all the models we’ve used so far. Even with the removal of just a few columns, we observe a noticeable improvement in predictive performance.</p>
+</section>
+<section id="automl-10" class="level2">
+<h2 class="anchored" data-anchor-id="automl-10">AutoML</h2>
+<p>Has anyone here wondered something like this?</p>
+<blockquote class="blockquote">
+<p>“Why didn’t we drop the ‘Name’ column? Was it just a mistake?”</p>
+</blockquote>
+<p>Actually, it wasn’t a mistake at all.</p>
+<p>Do you remember the final scene of the movie Titanic? When Rose is asked for her name, she replies with a different last name. That moment isn’t just about identity—it’s a statement of her choices and transformation. In the same way, a person’s name in data isn’t just a label. It often carries hidden signals about age, gender, and social status.</p>
+</section>
+<section id="automl-11" class="level2">
+<h2 class="anchored" data-anchor-id="automl-11">AutoML</h2>
+<p>AutoGluon understands this. It doesn’t treat the Name column as a meaningless string. Instead, without any manual feature engineering, it applies simple natural language processing techniques under the hood to extract valuable features.</p>
+<p>For example, look at the following:</p>
+<div id="08408203" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">709</td>
+<td>710</td>
+<td>3</td>
+<td>Moubarek, Master. Halim Gonios ("William George")</td>
+<td>male</td>
+<td>NaN</td>
+<td>1</td>
+<td>1</td>
+<td>2661</td>
+<td>15.2458</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">439</td>
+<td>440</td>
+<td>2</td>
+<td>Kvillner, Mr. Johan Henrik Johannesson</td>
+<td>male</td>
+<td>31.0</td>
+<td>0</td>
+<td>0</td>
+<td>C.A. 18723</td>
+<td>10.5000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">840</td>
+<td>841</td>
+<td>3</td>
+<td>Alhomaki, Mr. Ilmari Rudolf</td>
+<td>male</td>
+<td>20.0</td>
+<td>0</td>
+<td>0</td>
+<td>SOTON/O2 3101287</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">720</td>
+<td>721</td>
+<td>2</td>
+<td>Harper, Miss. Annie Jessie "Nina"</td>
+<td>female</td>
+<td>6.0</td>
+<td>0</td>
+<td>1</td>
+<td>248727</td>
+<td>33.0000</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">39</td>
+<td>40</td>
+<td>3</td>
+<td>Nicola-Yarred, Miss. Jamila</td>
+<td>female</td>
+<td>14.0</td>
+<td>1</td>
+<td>0</td>
+<td>2651</td>
+<td>11.2417</td>
+<td>NaN</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>When I saw the first observation, I predicted that the passenger would survive. Why? Because their name contained the word “Master”, which usually refers to young boys—typically under the age of 10. And as we know, young children had a much higher chance of survival.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

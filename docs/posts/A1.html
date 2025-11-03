@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2025-09-18">
+
+<title>A1 - Chat GPT를 이용한 파이썬 실무 – IAB-BS2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-251ce1ae7a9effd692ba97c003cecf85.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.scss">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IAB-BS2025</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/IAB-BS2025"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A1 - Chat GPT를 이용한 파이썬 실무</h1>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">최규빈 </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              전북대학교 통계학과
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 18, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="intro-도구의-진화" class="level1">
+<h1>Intro: 도구의 진화</h1>
+<hr>
+<section id="hidden-figures" class="level2">
+<h2 class="anchored" data-anchor-id="hidden-figures">Hidden Figures</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/1022_files/figure-revealjs/4faf5302-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: Hidden Figures, An incredible &amp; inspiring untold true story about three women at NASA who were instrumental in one of history’s greatest operations – the launch of astronaut John Glenn into orbit. <span class="citation" data-cites="disneyplus_hiddenfigures"><a href="#ref-disneyplus_hiddenfigures" role="doc-biblioref">[1]</a></span></figcaption>
+</figure>
+</div>
+<hr>
+<p>영화리뷰: <a href="https://www.youtube.com/watch?v=6EFhm1mONX8" class="uri">https://www.youtube.com/watch?v=6EFhm1mONX8</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/figs/comments.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 히든피겨스에 달린 댓글들</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="주산" class="level2">
+<h2 class="anchored" data-anchor-id="주산">주산</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/figs/%EC%A3%BC%ED%8C%90.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 주판 (이미지출처: 구글 제미나이)</figcaption>
+</figure>
+</div>
+<hr>
+<ul>
+<li>전설의 암산왕: <a href="https://www.youtube.com/watch?v=RQnn_vOwmNU" class="uri">https://www.youtube.com/watch?v=RQnn_vOwmNU</a></li>
+<li>1950년 6·25 전쟁 이후 국가 정책 차원에서 주산 교육이 상업교육 과정에 도입되었으며, 1960년대에는 초등학교로까지 확대 보급되었다. 이 시기에는 7급부터 1급까지의 주산 급수 제도가 운영되었고, 교육부와 대한상공회의소가 주관하는 주산능력검정시험이 시행되면서 주산의 위상은 더욱 강화되었다. 그러나 1980년대 후반 전자계산기가 빠르게 보급되면서 주산 교육은 급속히 쇠퇴하였다. 결국 1991년에는 주산능력검정시험마저 폐지되었고, 이후 7차 교육과정부터는 수학 교과서에서 주산 교육이 완전히 사라지게 되었다. <span class="citation" data-cites="김정옥2017주산의"><a href="#ref-김정옥2017주산의" role="doc-biblioref">[2]</a></span></li>
+</ul>
+<hr>
+</section>
+<section id="기술은-인재의-기준을-바꾼다" class="level2">
+<h2 class="anchored" data-anchor-id="기술은-인재의-기준을-바꾼다">기술은 인재의 기준을 바꾼다</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 36%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>기술 등장 전 인재 정의</th>
+<th>기술 등장 후 인재 정의</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>수학</strong></td>
+<td>계산을 정확하고 빠르게 하는 사람</td>
+<td>계산도구(=컴퓨터)를 활용한 문제해결과 응용에 강한 사람</td>
+</tr>
+<tr class="even">
+<td><strong>프로그래밍</strong></td>
+<td>코드를 직접 작성하고 디버깅할 수 있는 사람</td>
+<td>AI를 활용해 아이디어를 빠르게 구현·검증하고 창의적 문제 해결에 집중하는 사람<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>새로운 기술은 인재의 기준을 바꾼다. 계산기의 등장은 암산 능력을 최고라 여기던 시대를 끝냈다.</li>
+<li>GPT의 등장은 코더에게 어떤 의미일까?</li>
+</ul>
+<hr>
+</section>
+<section id="코딩공부를-꼭-해야할까" class="level2">
+<h2 class="anchored" data-anchor-id="코딩공부를-꼭-해야할까">코딩공부를 꼭 해야할까?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/figs/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EA%B3%B5%EB%B6%80%EA%B0%80%ED%95%84%EC%9A%94%ED%95%A0%EA%B9%8C.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 우리는 왼쪽으로 가야하는가? 아니면 오른쪽으로 가야하는가? (이미지출처: 구글 제미나이)</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="오른쪽-길" class="level1">
+<h1>오른쪽 길</h1>
+<hr>
+<section id="생성형-ai-혁명-타임라인" class="level2">
+<h2 class="anchored" data-anchor-id="생성형-ai-혁명-타임라인">생성형 AI 혁명 타임라인</h2>
+<p><strong><em>2022년: 혁명의 시작</em></strong></p>
+<ul>
+<li>2022년 11월
+<ul>
+<li>ChatGPT 출시</li>
+</ul></li>
+<li>2022년 12월
+<ul>
+<li>Perplexity 출시
+<ul>
+<li>인용 정보를 제공 <span class="citation" data-cites="towardsai_perplexity"><a href="#ref-towardsai_perplexity" role="doc-biblioref">[3]</a></span></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong><em>2023년: 경쟁과 다양화</em></strong></p>
+<ul>
+<li>2023년 2월
+<ul>
+<li>Google Bard 발표 <span class="citation" data-cites="nytimes_google_bard"><a href="#ref-nytimes_google_bard" role="doc-biblioref">[4]</a></span>
+<ul>
+<li>ChatGPT 대항마로 발표</li>
+<li>오류로 주가 급락 <span class="citation" data-cites="seoul_news_20230210"><a href="#ref-seoul_news_20230210" role="doc-biblioref">[5]</a></span>, <span class="citation" data-cites="chosun_google_bard_stock_drop_2023"><a href="#ref-chosun_google_bard_stock_drop_2023" role="doc-biblioref">[6]</a></span></li>
+</ul></li>
+</ul></li>
+<li>2023년 3월
+<ul>
+<li>GPT-4 출시 <span class="citation" data-cites="wikipedia_gpt4"><a href="#ref-wikipedia_gpt4" role="doc-biblioref">[7]</a></span>
+<ul>
+<li>멀티모달 능력 (텍스트+이미지) 첫 도입</li>
+</ul></li>
+<li>Claude 1.0 출시 <span class="citation" data-cites="wikipedia_claude_language_model"><a href="#ref-wikipedia_claude_language_model" role="doc-biblioref">[8]</a></span></li>
+<li>Cursor AI 출시 <span class="citation" data-cites="bytebytego_cursor_billions"><a href="#ref-bytebytego_cursor_billions" role="doc-biblioref">[9]</a></span>
+<ul>
+<li>VS Code 기반 AI 코딩 어시스턴트</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>2023년 7월
+<ul>
+<li>DeepSeek 설립 <span class="citation" data-cites="wikipedia_deepseek"><a href="#ref-wikipedia_deepseek" role="doc-biblioref">[10]</a></span>
+<ul>
+<li>중국 항저우, High-Flyer 헤지펀드가 창립</li>
+</ul></li>
+<li>Claude 2 출시 <span class="citation" data-cites="wikipedia_claude_language_model"><a href="#ref-wikipedia_claude_language_model" role="doc-biblioref">[8]</a></span></li>
+</ul></li>
+<li>2023년 12월
+<ul>
+<li>Google Gemini 1.0 발표 <span class="citation" data-cites="cnn_google_gemini_launch_2023"><a href="#ref-cnn_google_gemini_launch_2023" role="doc-biblioref">[11]</a></span></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong><em>2024년: 멀티모달과 도구의 폭발</em></strong></p>
+<ul>
+<li>2024년 2월
+<ul>
+<li>OpenAI Sora 데모 공개 <span class="citation" data-cites="retrofuturista_sora"><a href="#ref-retrofuturista_sora" role="doc-biblioref">[12]</a></span></li>
+</ul></li>
+<li>2024년 3월
+<ul>
+<li>Google Gemini 1.5 Pro 발표 <span class="citation" data-cites="google_gemini25_thinking_model"><a href="#ref-google_gemini25_thinking_model" role="doc-biblioref">[13]</a></span></li>
+<li>Claude 3 (Opus, Sonnet, Haiku) 출시 <span class="citation" data-cites="wikipedia_claude_language_model"><a href="#ref-wikipedia_claude_language_model" role="doc-biblioref">[8]</a></span></li>
+</ul></li>
+<li>2024년 5월
+<ul>
+<li>GPT-4o 출시 <span class="citation" data-cites="wikipedia_gpt4o"><a href="#ref-wikipedia_gpt4o" role="doc-biblioref">[14]</a></span>
+<ul>
+<li>텍스트 + 이미지 + 비디오 지원</li>
+</ul></li>
+</ul></li>
+<li>2024년 6월
+<ul>
+<li>Claude 3.5 Sonnet + Artifacts 출시 <span class="citation" data-cites="wikipedia_claude_language_model"><a href="#ref-wikipedia_claude_language_model" role="doc-biblioref">[8]</a></span></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>2024년 7월
+<ul>
+<li>SearchGPT (ChatGPT Search) <span class="citation" data-cites="wikipedia_chatgpt_search"><a href="#ref-wikipedia_chatgpt_search" role="doc-biblioref">[15]</a></span>
+<ul>
+<li>이제 ChatGPT 역시 RAG 도입!</li>
+</ul></li>
+</ul></li>
+<li>2024년 9월
+<ul>
+<li>OpenAI o1 추론 모델 출시 <span class="citation" data-cites="wikipedia_openai_o1"><a href="#ref-wikipedia_openai_o1" role="doc-biblioref">[16]</a></span>
+<ul>
+<li>“생각하는 AI”, 수학에서 PhD 수준</li>
+</ul></li>
+</ul></li>
+<li>2024년 11월
+<ul>
+<li>Windsurf 출시 (Cursor AI와 경쟁) <span class="citation" data-cites="webwire_windsurf_editor_launch"><a href="#ref-webwire_windsurf_editor_launch" role="doc-biblioref">[17]</a></span></li>
+<li>MCP 출시 (Anthropic이 오픈소스로 공개) <span class="citation" data-cites="anthropic_mcp_open_source"><a href="#ref-anthropic_mcp_open_source" role="doc-biblioref">[18]</a></span>
+<ul>
+<li>AI 시스템과 외부 데이터 소스 연결의 표준 프로토콜</li>
+<li>“AI의 USB-C” - 통합 인터페이스로 N×M 통합 문제 해결</li>
+<li>Claude Desktop에서 첫 지원, Google Drive, Slack, GitHub 등 서버 제공</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong><em>2025년: 에이전트 시대와 글로벌 경쟁</em></strong></p>
+<ul>
+<li>2025년 1월
+<ul>
+<li>DeepSeek-R1 출시 - “AI의 스푸트니크 순간” <span class="citation" data-cites="fortune_deepseek_sputnik"><a href="#ref-fortune_deepseek_sputnik" role="doc-biblioref">[19]</a></span>
+<ul>
+<li>600만 달러로 OpenAI o1과 동등 성능 달성 <span class="citation" data-cites="guo2025deepseek"><a href="#ref-guo2025deepseek" role="doc-biblioref">[20]</a></span> <span class="citation" data-cites="huggingface_deepseek_r1"><a href="#ref-huggingface_deepseek_r1" role="doc-biblioref">[21]</a></span></li>
+<li>앱이 며칠 만에 ChatGPT 제치고 미국 App Store 1위</li>
+<li>MIT 라이선스 완전 오픈소스, API 96% 저렴 <span class="citation" data-cites="techcrunch_deepseek_o1_benchmarks_2025"><a href="#ref-techcrunch_deepseek_o1_benchmarks_2025" role="doc-biblioref">[22]</a></span></li>
+<li>Nvidia 주가 18% 급락, 미국 빅테크 동반 하락 <span class="citation" data-cites="bi_deepseek_nvidia_selloff_2025"><a href="#ref-bi_deepseek_nvidia_selloff_2025" role="doc-biblioref">[23]</a></span></li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>2025년 2월
+<ul>
+<li>NotebookLM 출시 <span class="citation" data-cites="wikipedia_notebooklm"><a href="#ref-wikipedia_notebooklm" role="doc-biblioref">[24]</a></span>
+<ul>
+<li>문서를 팟캐스트로 변환, 대학생들에게 인기 <span class="citation" data-cites="joongang_notebooklm_2025"><a href="#ref-joongang_notebooklm_2025" role="doc-biblioref">[25]</a></span></li>
+</ul></li>
+<li>Claude 3.7 Sonnet + Claude Code 연구 프리뷰 <span class="citation" data-cites="anthropic_claude_code_preview"><a href="#ref-anthropic_claude_code_preview" role="doc-biblioref">[26]</a></span></li>
+<li>바이브코딩(Vibe Coding 용어 등장) <span class="citation" data-cites="wikipedia_vibe_coding"><a href="#ref-wikipedia_vibe_coding" role="doc-biblioref">[27]</a></span>
+<ul>
+<li>AI와의 직관적이고 대화형 협업 방식을 지창하는 개념 최초 제시</li>
+<li>전통적 코딩에서 자연어 기반 창작으로의 패러다임 전환 정의</li>
+<li>세간에서 꽤나 화제를 모으며 개발자 커뮤니티 전반에 확산</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>2025년 5월
+<ul>
+<li>Claude Code 정식 출시 <span class="citation" data-cites="anthropic_claude_code_overview"><a href="#ref-anthropic_claude_code_overview" role="doc-biblioref">[28]</a></span>
+<ul>
+<li>터미널 기반 AI 에이전트 프로그래밍</li>
+<li>에이전트형 코딩의 시대 본격화</li>
+</ul></li>
+</ul></li>
+<li>2025년 7월
+<ul>
+<li>Google Gemini CLI 출시 <span class="citation" data-cites="scienceinsight_gemini_cli_intro"><a href="#ref-scienceinsight_gemini_cli_intro" role="doc-biblioref">[29]</a></span>
+<ul>
+<li>에이전트형 코딩 진영 강화: 자율적 다단계 작업 수행</li>
+<li>Google의 Claude Code 대항마</li>
+</ul></li>
+<li>Perplexity Comet 브라우저 출시 <span class="citation" data-cites="perplexity_comet_launch"><a href="#ref-perplexity_comet_launch" role="doc-biblioref">[30]</a></span></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong><em>주관적으로 정리해본 주요 사건</em></strong></p>
+<ul>
+<li>2022.11: ChatGPT로 생성형 AI 대중화 시작</li>
+<li>2022.12: Perplexity, RAG 기술 활용</li>
+<li>2023.02: Google Bard 발표</li>
+<li>2024.09: o1 추론 모델 출시</li>
+<li>2024.11: MCP의 등장</li>
+<li>2025.01: DeepSeek-R1 출시</li>
+<li>2025.02: “바이브코딩” 등장 (카파시)</li>
+<li>2025.05: 클로드코드 출시</li>
+<li>2025.07: GeminiCLI 출시</li>
+</ul>
+<hr>
+<p><strong><em>주요 경쟁 구도</em></strong></p>
+<ul>
+<li>모델: OpenAI (ChatGPT) vs Anthropic (Claude) vs Google (Gemini)</li>
+<li>개발도구: Cursor vs Windsurf vs Claude Code vs Gemini CLI</li>
+</ul>
+<hr>
+</section>
+<section id="주요개념---rag" class="level2">
+<h2 class="anchored" data-anchor-id="주요개념---rag">주요개념 - RAG</h2>
+<ul>
+<li>Retrieval-Augmented Generation, 줄여서 RAG는 AI 언어 모델이 외부 지식 기반을 참조하여 답변을 생성하는 구조</li>
+<li>전통적인 LLM은 학습된 데이터만을 기반으로 응답하지만 RAG는 (1) 질의에 관련된 정보를 외부 문서나 데이터베이스에서 가져오고 (2) 검색된 정보를 바탕으로 답변을 생성.</li>
+<li>효과: 정확도 향상 (외부사실에 기반하므로 환각문제 최소화), 최신성 확보 (학습 이후 업데이트된 정보도 실시간 반영가능), 특정분야 대응성 강화 (기업문서나 전문 도메인자료를 응답에 활용할 수 있음.)</li>
+</ul>
+<hr>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RAG 이전</strong></td>
+<td>- 모델은 학습된 파라미터 안에서만 답변 가능<br>- 최신 정보 반영 어려움 <br>- 특정 도메인 전문 지식 부족<br>- “죄송하지만 2021년 9월 이후의 데이터는 모릅니다.”라는 한계</td>
+</tr>
+<tr class="even">
+<td><strong>RAG 이후</strong></td>
+<td>- “내가 올린 문서에서 관련 부분 찾아 요약해줘”<br>→ 벡터DB에서 검색 후 LLM이 결합해 답변<br><br>- “최신 논문 내용을 반영해 설명해줘”<br>→ 외부 지식베이스 + 모델 결합으로 최신성 확보<br><br>- “우리 회사 데이터 기준으로 리포트 작성해줘”<br>→ 사내 문서/DB 연동해 맞춤형 응답 생성</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/figs/%EB%B0%94%EC%9D%B4%EB%B8%8C%EC%BD%94%EB%94%A9.jpg" class="img-fluid figure-img"></p>
+<figcaption>Figure: 바이브코딩이 탄생한 첫 트윗 <span class="citation" data-cites="lees_designinsight_2025"><a href="#ref-lees_designinsight_2025" role="doc-biblioref">[31]</a></span></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="주요개념---바이브코딩" class="level2">
+<h2 class="anchored" data-anchor-id="주요개념---바이브코딩">주요개념 - 바이브코딩</h2>
+<ul>
+<li>Andrej Karpathy가 2025년 2월에 대중화한 인공 지능 지원 소프트웨어 개발 기술</li>
+<li>개발자가 프로젝트나 작업을 대규모 언어 모델 (LLM)에 설명하면, LLM은 프롬프트 를 기반으로 코드를 생성</li>
+<li>개발자는 코드를 검토하거나 수정하지 않고, 도구와 실행 결과만을 사용하여 코드를 평가하고 LLM에 개선 사항을 요청</li>
+<li>바이브 코딩 옹호자들은 이를 통해 아마추어 프로그래머 조차도 소프트웨어 엔지니어링에 필요한 광범위한 교육과 기술 없이 소프트웨어를 생산할 수 있다고 말함 <em>Examples</em></li>
+<li><a href="https://www.youtube.com/shorts/cOM_iR1wsQ8" class="uri">https://www.youtube.com/shorts/cOM_iR1wsQ8</a></li>
+<li><a href="https://www.youtube.com/shorts/CFvpagumlv0" class="uri">https://www.youtube.com/shorts/CFvpagumlv0</a></li>
+</ul>
+<hr>
+</section>
+<section id="주요개념---mcp" class="level2">
+<h2 class="anchored" data-anchor-id="주요개념---mcp">주요개념 - MCP</h2>
+<ul>
+<li>Model Context Protocol (MCP)은 AI 어시스턴트가 외부 데이터 소스와 도구에 안전하고 통제된 방식으로 접근할 수 있도록 하는 개방형 표준 프로토콜을 의미.</li>
+<li>MCP는 AI 모델과 외부 시스템 간의 표준화된 인터페이스를 제공. 이를 통해 AI는 파일 시스템, 데이터베이스, 웹 API, 비즈니스 시스템 등 다양한 컨텍스트 소스에 접근할 수 있음.</li>
+</ul>
+<p><em>Examples</em></p>
+<p><a href="https://www.youtube.com/shorts/XPACEy2JlOk" class="uri">https://www.youtube.com/shorts/XPACEy2JlOk</a></p>
+<hr>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCP 이전</strong></td>
+<td>- ChatGPT: “저는 당신의 이메일을 볼 수 없어서…”<br>- Claude: “제가 당신의 캘린더에 접근할 수 없어서…”<br>- Gemini: “죄송하지만 개인 파일은 확인할 수 없습니다…”</td>
+</tr>
+<tr class="even">
+<td><strong>MCP 이후</strong></td>
+<td>- “지난 3개월간 가장 중요했던 이메일 10개 요약해줘”<br>→ Gmail MCP 서버가 실제 이메일 데이터 분석<br><br>- “내일 회의 준비를 위해 관련 문서들 정리해줘”<br>→ Calendar + Drive + Slack MCP가 연동되어 완벽한 브리핑 생성<br><br>- “이번 프로젝트 진행상황을 팀에게 보고서로 만들어줘”<br>→ Jira + GitHub + 내 작업 로그를 종합한 자동 리포트</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="주요개념---agentic-coding" class="level2">
+<h2 class="anchored" data-anchor-id="주요개념---agentic-coding">주요개념 - Agentic Coding</h2>
+<ul>
+<li>에이전틱 코딩은 AI 에이전트가 자율적으로 코딩 작업을 수행하는 패러다임. 단순히 코드 생성을 넘어서, 계획 수립부터 실행, 테스트, 디버깅까지 전체 개발 과정을 AI가 주도적으로 처리.</li>
+<li>ChatCPT에게는 답을 물어볼 수 있고, Claude Code에게는 일을 시킬 수 있다.</li>
+</ul>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/figs/AgenticCoding.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 바이브코딩과 에이전틱 코딩의 차이점 <span class="citation" data-cites="sapkota2025vibe"><a href="#ref-sapkota2025vibe" role="doc-biblioref">[32]</a></span></figcaption>
+</figure>
+</div>
+</section>
+<section id="오른쪽-길을-마치며" class="level2">
+<h2 class="anchored" data-anchor-id="오른쪽-길을-마치며">오른쪽 길을 마치며</h2>
+<ul>
+<li>가장 인기 있는 새로운 프로그래밍 언어는 영어 (Andrej Karpathy)</li>
+</ul>
+</section>
+</section>
+<section id="왼쪽-길" class="level1">
+<h1>왼쪽 길</h1>
+<section id="바이브코딩에-대한-비판" class="level2">
+<h2 class="anchored" data-anchor-id="바이브코딩에-대한-비판">바이브코딩에 대한 비판</h2>
+<ul>
+<li>Programmer Simon Willison said:</li>
+</ul>
+<blockquote class="blockquote">
+<p>“If an LLM wrote every line of your code, but you’ve reviewed, tested, and understood it all, that’s not vibe coding in my book—that’s using an LLM as a typing assistant.”</p>
+</blockquote>
+<ul>
+<li>저의 생각: 좀 과하지 않나?</li>
+</ul>
+<hr>
+<p><em>Examples</em></p>
+<ul>
+<li><a href="https://www.youtube.com/shorts/NXIIqHXWsTk" class="uri">https://www.youtube.com/shorts/NXIIqHXWsTk</a></li>
+<li><a href="https://www.youtube.com/shorts/KzewB6tX8p8" class="uri">https://www.youtube.com/shorts/KzewB6tX8p8</a></li>
+</ul>
+<hr>
+</section>
+<section id="francis-geng의-연구" class="level2">
+<h2 class="anchored" data-anchor-id="francis-geng의-연구">Francis Geng의 연구</h2>
+<ul>
+<li><p>Francis Geng 연구팀은 “바이브 코딩(Vibe Coding)”이라는 새로운 프로그래밍 워크플로우에서 학생들이 AI 도구와 어떻게 상호작용하는지, 그리고 이러한 상호작용이 프로그래밍 경험 수준에 따라 어떻게 다른지 조사하였음 <span class="citation" data-cites="geng2025exploring"><a href="#ref-geng2025exploring" role="doc-biblioref">[33]</a></span></p></li>
+<li><p>실험설계: 연구에는 <strong>북미 연구 중심 대학의 두 컴퓨터 과학 강좌에서 모집된 총 19명의 학생</strong>이 참여했음: 초급 프로그래밍(CS1) 과정 학생 9명과 고급 소프트웨어 공학(SWE) 과정 학생 10명. 모든 참가자는 브라우저 기반 AI 통합 IDE인 <strong>Replit 플랫폼을 사용하여 개인 예산 관리 웹 애플리케이션을 구축하는 개방형 과제</strong>를 수행.</p></li>
+</ul>
+<hr>
+<p><strong>발견1</strong>: 학생들은 대부분의 시간을 AI가 만든 프로토타입을 테스트하는데 사용함.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://guebin.github.io/rda251022/1022_files/figure-revealjs/dcb28e3e-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Figure: 학생들의 사용시간을 시각화한 도넛 차트</figcaption>
+</figure>
+</div>
+<hr>
+<ul>
+<li>학생들이 가장 많이 한 활동은 프로토타입 상호작용임. (64%) 즉, “내가 만든 앱이 제대로 돌아가는가?” 확인하는데 쓰였음.</li>
+<li>두번째로 많이 한 행동은 프롬프트 작성 (21%):
+<ul>
+<li>심지어 프롬프트를 작성한 이유 중 가장 많은것은 새기능 요청이 아니라 디버깅 요청임 (61%)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul></li>
+<li>실제 코드를 짜거나 들여다보고 고치는데 쓴 시간은 거의 없었음. (7%)
+<ul>
+<li>이마저도 90.37%는 단순 코드 해석에 투자하였으며,</li>
+<li>직접적인 코드 수정은 9.63%에 불과했음.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ul></li>
+</ul>
+<hr>
+<p><strong>발견2</strong>: 초보자와 숙력자의 차이 (프로프트 작성 능력의 차이) <img src="https://guebin.github.io/rda251022/1022_files/figure-revealjs/62c3fca1-1-image.png" class="img-fluid" alt="Figure: 초보자의 숙련자의 프롬프트 차이"></p>
+<hr>
+<section id="왼쪽길을-지지하는-사람들의-의견" class="level3">
+<h3 class="anchored" data-anchor-id="왼쪽길을-지지하는-사람들의-의견">왼쪽길을 지지하는 사람들의 의견</h3>
+<ul>
+<li>AI시대 코딩에 필요한 역량을 요약하면 아래와 같음:
+<ul>
+<li>테스트 &amp; 디버깅</li>
+<li>풍부한 맥락의 프롬프팅: 기술적 정확성으로 문제를 설명하는 능력</li>
+<li>코드 이해력: AI 결과물을 이해하는 기술</li>
+</ul></li>
+<li>쉽게 말하면, 코딩 할 줄 알아야 한다는 의미.</li>
+</ul>
+<hr>
+</section>
+<section id="reference" class="level3">
+
+
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Reference</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-disneyplus_hiddenfigures" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline"><span>“Hidden figures.”</span> <a href="https://www.disneyplus.com/en-kr/browse/entity-bd9d3f07-aefe-4e45-b421-ad2a745c3bb0" class="uri">https://www.disneyplus.com/en-kr/browse/entity-bd9d3f07-aefe-4e45-b421-ad2a745c3bb0</a>; Disney+, 2017.</div>
+</div>
+<div id="ref-김정옥2017주산의" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">김정옥 and 김영옥, <span>“주산의 역사와 우리나라 학교 주산교육 동향,”</span> <em>East Asian Mathematical Journal</em>, vol. 33, no. 4, pp. 453–465, 2017.</div>
+</div>
+<div id="ref-towardsai_perplexity" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><span>“Perplexity ask: A game-changing search tool powered by AI.”</span> <a href="https://towardsai.net/p/l/perplexity-ask-a-game-changing-search-tool-powered-by-ai" class="uri">https://towardsai.net/p/l/perplexity-ask-a-game-changing-search-tool-powered-by-ai</a>.</div>
+</div>
+<div id="ref-nytimes_google_bard" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline"><span>“Google introduces bard, an AI chatbot.”</span> <a href="https://www.nytimes.com/2023/02/06/technology/google-bard-ai-chatbot.html" class="uri">https://www.nytimes.com/2023/02/06/technology/google-bard-ai-chatbot.html</a>.</div>
+</div>
+<div id="ref-seoul_news_20230210" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline"><span>“구글 AI챗봇 <span>‘바드’</span> 오답에 시총 126조원 증발.”</span> <a href="https://www.seoul.co.kr/news/international/2023/02/10/20230210021001" class="uri">https://www.seoul.co.kr/news/international/2023/02/10/20230210021001</a>.</div>
+</div>
+<div id="ref-chosun_google_bard_stock_drop_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline"><span>“자존심 구긴 구글…새로 내놓은 챗봇AI 기대 못 미쳐 주가 폭락.”</span> <a href="https://www.chosun.com/economy/tech_it/2023/02/09/MWRHL6L67READLOMI2HWOVDRPA/" class="uri">https://www.chosun.com/economy/tech_it/2023/02/09/MWRHL6L67READLOMI2HWOVDRPA/</a>.</div>
+</div>
+<div id="ref-wikipedia_gpt4" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline"><span>“GPT-4.”</span> <a href="https://en.wikipedia.org/wiki/GPT-4" class="uri">https://en.wikipedia.org/wiki/GPT-4</a>.</div>
+</div>
+<div id="ref-wikipedia_claude_language_model" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline"><span>“Claude (language model).”</span> <a href="https://en.wikipedia.org/wiki/Claude_(language_model)" class="uri">https://en.wikipedia.org/wiki/Claude_(language_model)</a>.</div>
+</div>
+<div id="ref-bytebytego_cursor_billions" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline"><span>“How cursor serves billions of AI code completions every day.”</span> <a href="https://blog.bytebytego.com/p/how-cursor-serves-billions-of-ai" class="uri">https://blog.bytebytego.com/p/how-cursor-serves-billions-of-ai</a>.</div>
+</div>
+<div id="ref-wikipedia_deepseek" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline"><span>“DeepSeek.”</span> <a href="https://en.wikipedia.org/wiki/DeepSeek" class="uri">https://en.wikipedia.org/wiki/DeepSeek</a>.</div>
+</div>
+<div id="ref-cnn_google_gemini_launch_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">CNN, <span>“Google launches gemini, its most-advanced AI model yet, as it races to compete with ChatGPT.”</span></div>
+</div>
+<div id="ref-retrofuturista_sora" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">RetroFuturista, <span>“OpenAI unveils sora: A revolutionary AI that transforms text into video.”</span> <a href="https://retrofuturista.com/openai-sora/" class="uri">https://retrofuturista.com/openai-sora/</a>.</div>
+</div>
+<div id="ref-google_gemini25_thinking_model" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">Google DeepMind, <span>“Gemini 2.5: Our newest gemini model with thinking.”</span> <a href="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/" class="uri">https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/</a>.</div>
+</div>
+<div id="ref-wikipedia_gpt4o" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline"><span>“GPT-4o.”</span> <a href="https://en.wikipedia.org/wiki/GPT-4o" class="uri">https://en.wikipedia.org/wiki/GPT-4o</a>.</div>
+</div>
+<div id="ref-wikipedia_chatgpt_search" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline"><span>“ChatGPT search.”</span> <a href="https://en.wikipedia.org/wiki/ChatGPT_Search" class="uri">https://en.wikipedia.org/wiki/ChatGPT_Search</a>.</div>
+</div>
+<div id="ref-wikipedia_openai_o1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline"><span>“OpenAI o1.”</span> <a href="https://en.wikipedia.org/wiki/OpenAI_o1" class="uri">https://en.wikipedia.org/wiki/OpenAI_o1</a>.</div>
+</div>
+<div id="ref-webwire_windsurf_editor_launch" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline"><span>“Codeium introduces the windsurf editor, enabling developers to work with <span>‘AI flows’</span>.”</span> <a href="https://www.webwire.com/ViewPressRel.asp?aId=329485" class="uri">https://www.webwire.com/ViewPressRel.asp?aId=329485</a>.</div>
+</div>
+<div id="ref-anthropic_mcp_open_source" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">Anthropic, <span>“Model context protocol (MCP) open-source release.”</span> <a href="https://www.anthropic.com/news/model-context-protocol" class="uri">https://www.anthropic.com/news/model-context-protocol</a>.</div>
+</div>
+<div id="ref-fortune_deepseek_sputnik" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">V. capitalist Marc Andreessen / Fortune, <span>“Marc andreessen warns DeepSeek is <span>‘AI’s sputnik moment’</span>,”</span> <em>Fortune</em>, Jan. 2025.</div>
+</div>
+<div id="ref-guo2025deepseek" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">D. Guo <em>et al.</em>, <span>“Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning,”</span> <em>arXiv preprint arXiv:2501.12948</em>, 2025.</div>
+</div>
+<div id="ref-huggingface_deepseek_r1" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">DeepSeek, <span>“DeepSeek-R1 (hugging face model hub).”</span> <a href="https://huggingface.co/deepseek-ai/DeepSeek-R1" class="uri">https://huggingface.co/deepseek-ai/DeepSeek-R1</a>.</div>
+</div>
+<div id="ref-techcrunch_deepseek_o1_benchmarks_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">K. Wiggers, <span>“DeepSeek claims its ’reasoning’ model beats OpenAI’s o1 on certain benchmarks,”</span> <em>TechCrunch</em>, Jan. 2025.</div>
+</div>
+<div id="ref-bi_deepseek_nvidia_selloff_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">J. S. / Markets Insider, <span>“Tech stock sell-off: Nvidia, microsoft, others hit by DeepSeek debut,”</span> <em>Markets Insider (Business Insider)</em>, Jan. 2025.</div>
+</div>
+<div id="ref-wikipedia_notebooklm" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline"><span>“NotebookLM.”</span> <a href="https://en.wikipedia.org/wiki/NotebookLM" class="uri">https://en.wikipedia.org/wiki/NotebookLM</a>.</div>
+</div>
+<div id="ref-joongang_notebooklm_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[25] </div><div class="csl-right-inline">김민정, <span>“<span>‘챗GPT, 거짓말해서 안 써요’</span> 대학생 쓰는 <span>‘노트북LM’</span> 뭐길래.”</span> 중앙일보 (요약 제공 via ZUM News), Jun. 10, 2025.</div>
+</div>
+<div id="ref-anthropic_claude_code_preview" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[26] </div><div class="csl-right-inline">Anthropic, <span>“Claude code research preview.”</span> <a href="https://www.anthropic.com/news/claude-3-7-sonnet" class="uri">https://www.anthropic.com/news/claude-3-7-sonnet</a>.</div>
+</div>
+<div id="ref-wikipedia_vibe_coding" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[27] </div><div class="csl-right-inline"><span>“Vibe coding.”</span> <a href="https://en.wikipedia.org/wiki/Vibe_coding" class="uri">https://en.wikipedia.org/wiki/Vibe_coding</a>.</div>
+</div>
+<div id="ref-anthropic_claude_code_overview" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[28] </div><div class="csl-right-inline">Anthropic, <span>“Claude code: Deep coding at terminal velocity.”</span> <a href="https://www.anthropic.com/claude-code" class="uri">https://www.anthropic.com/claude-code</a>.</div>
+</div>
+<div id="ref-scienceinsight_gemini_cli_intro" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[29] </div><div class="csl-right-inline"><span>“Google’s gemini CLI: What is it and why it matters?”</span> <em>Science Insight</em>.</div>
+</div>
+<div id="ref-perplexity_comet_launch" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[30] </div><div class="csl-right-inline">P. Team, <span>“Introducing comet: Browse at the speed of thought.”</span> <a href="https://www.perplexity.ai/hub/blog/introducing-comet" class="uri">https://www.perplexity.ai/hub/blog/introducing-comet</a>.</div>
+</div>
+<div id="ref-lees_designinsight_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[31] </div><div class="csl-right-inline">J. 이종원 (Lee, <span>“이종원의 디자인 인사이트.”</span> <a href="https://idesignexp.com/main" class="uri">https://idesignexp.com/main</a>, 2025.</div>
+</div>
+<div id="ref-sapkota2025vibe" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[32] </div><div class="csl-right-inline">R. Sapkota, K. I. Roumeliotis, and M. Karkee, <span>“Vibe coding vs. Agentic coding: Fundamentals and practical implications of agentic ai,”</span> <em>arXiv preprint arXiv:2505.19443</em>, 2025.</div>
+</div>
+<div id="ref-geng2025exploring" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[33] </div><div class="csl-right-inline">F. Geng <em>et al.</em>, <span>“Exploring student-AI interactions in vibe coding,”</span> <em>arXiv preprint arXiv:2507.22614</em>, 2025.</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>이라고 하는데 사실 저도 잘 모르겠습니다<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>결국 AI를 이용하여, AI가 만든 버그를 고치는 일을 하는것에 더 많은 시간을 쓰는 셈, 한마디로 바이브코딩이 아니라 바이브디버깅<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>당연한 이야기이긴한데, 바이브코딩 환경이 학습자와 코드를 멀어지게 만드는 효과가 있음<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

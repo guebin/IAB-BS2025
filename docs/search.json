@@ -4,7 +4,567 @@
     "href": "index.html",
     "title": "IAB기초통계 (2025)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n강의노트\n\nHTML슬라이드\n\n\n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nOct 28, 2025\n\n\n중간고사 (2025.10.28)\n\n\n최규빈 \n\n\n\n\n\n\nOct 23, 2025\n\n\n08wk-2: 가능도 (2) – 확률변수와 분포\n\n\n최규빈 \n\n\n\n\n\n\nOct 20, 2025\n\n\n08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계\n\n\n최규빈 \n\n\n\n\n\n\nSep 16, 2025\n\n\n03wk-1: 카디널리티 (2)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\nHW-1 (2024.09.11)\n\n\n최규빈 \n\n\n\n\n\n\nSep 11, 2025\n\n\n02wk-2: 카디널리티 (1)\n\n\n최규빈 \n\n\n\n\n\n\nSep 9, 2025\n\n\n02wk-1: 수학과의 표현, 귀류법과 일반화\n\n\n최규빈 \n\n\n\n\n\n\nSep 2, 2025\n\n\n01wk-1: 확률을 정의하는 것은 쉬운 일인가?\n\n\n최규빈 \n\n\n\n\n\n\nNo matching items\n\n\n\n각 강의노트의 슬라이드 버전을 확인할 수 있습니다.\n\n08wk-2: 가능도 (2) – 확률변수와 분포\n08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계\n03wk-1: 카디널리티 (2)\n02wk-2: 카디널리티 (1)\n02wk-1: 수학과의 표현, 귀류법과 일반화\n01wk-2: 확률을 정의하는 것은 쉬운 일인가?"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n강의노트\n\nHTML슬라이드\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 28, 2025\n\n\n중간고사 (2025.10.28)\n\n\n최규빈 \n\n\n\n\nOct 23, 2025\n\n\n08wk-2: 가능도 (2) – 확률변수와 분포\n\n\n최규빈 \n\n\n\n\nOct 20, 2025\n\n\n08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계\n\n\n최규빈 \n\n\n\n\nSep 25, 2025\n\n\nA2 - AI 기반 데이터 사이언스\n\n\n최규빈 \n\n\n\n\nSep 18, 2025\n\n\nA1 - Chat GPT를 이용한 파이썬 실무\n\n\n최규빈 \n\n\n\n\nSep 16, 2025\n\n\n03wk-1: 카디널리티 (2)\n\n\n최규빈 \n\n\n\n\nSep 11, 2025\n\n\n02wk-2: 카디널리티 (1)\n\n\n최규빈 \n\n\n\n\nSep 11, 2025\n\n\nHW-1 (2024.09.11)\n\n\n최규빈 \n\n\n\n\nSep 9, 2025\n\n\n02wk-1: 수학과의 표현, 귀류법과 일반화\n\n\n최규빈 \n\n\n\n\nSep 2, 2025\n\n\n01wk-1: 확률을 정의하는 것은 쉬운 일인가?\n\n\n최규빈 \n\n\n\n\n\nNo matching items\n\n\n\n\n각 강의노트의 슬라이드 버전을 확인할 수 있습니다.\n\n08wk-2: 가능도 (2) – 확률변수와 분포\n08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계\n03wk-1: 카디널리티 (2)\n02wk-2: 카디널리티 (1)\n02wk-1: 수학과의 표현, 귀류법과 일반화\n01wk-2: 확률을 정의하는 것은 쉬운 일인가?"
+  },
+  {
+    "objectID": "posts/A2.html",
+    "href": "posts/A2.html",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "",
+    "text": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import DecisionTreeClassifier\nfrom autogluon.tabular import TabularPredictor\n\n\n\n&lt;function IPython.core.formatters.PlainTextFormatter._type_printers_default.&lt;locals&gt;.&lt;lambda&gt;(obj, p, cycle)&gt;"
+  },
+  {
+    "objectID": "posts/A2.html#imports",
+    "href": "posts/A2.html#imports",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "",
+    "text": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.tree import DecisionTreeClassifier\nfrom autogluon.tabular import TabularPredictor\n\n\n\n&lt;function IPython.core.formatters.PlainTextFormatter._type_printers_default.&lt;locals&gt;.&lt;lambda&gt;(obj, p, cycle)&gt;"
+  },
+  {
+    "objectID": "posts/A2.html#titanic",
+    "href": "posts/A2.html#titanic",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic",
+    "text": "Titanic\nThe Titanic was a large passenger ship that departed from England in 1912. During its maiden voyage, the ship tragically collided with an iceberg and sank, resulting in the deaths of approximately 1,500 people. The film Titanic, directed by James Cameron in 1997, is a romance-disaster movie that tells a fictional love story set against the backdrop of this historical event. The movie portrays the grandeur of the ship, the social divide between the upper and lower classes, and the emotional turmoil of the characters as the disaster unfolds. It blends historical facts with imaginative storytelling to depict both the tragedy of the sinking and the intimate, human experiences that could have occurred during that fateful voyage.\n\n\n\nFigure: Poster image from Titanic (1997), depicting the iconic scene of Jack and Rose at the ship’s bow."
+  },
+  {
+    "objectID": "posts/A2.html#the-story-of-titanic",
+    "href": "posts/A2.html#the-story-of-titanic",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "The Story of Titanic",
+    "text": "The Story of Titanic\nChapter 1. Jack and Rose Board the Ship\nThe movie Titanic starts with two people from very different lives. Jack Dawson gets a Titanic ticket by chance when he plays a card game with his friend on the day the ship leaves. He runs to the dock and gets on the ship just before it leaves. His ticket is for third class, which is the cheapest.\nhttps://www.youtube.com/watch?v=tEM0I3ltp7M\nRose DeWitt Bukater is already on the ship at the beginning of the movie. She gets on the Titanic with her boyfriend Cal and her mother. They are rich and get special treatment. Rose wears fancy clothes, eats expensive food, and stays in a beautiful room. But she feels trapped and unhappy.\nhttps://www.youtube.com/watch?v=3uCi1g_aV-g"
+  },
+  {
+    "objectID": "posts/A2.html#the-story-of-titanic-1",
+    "href": "posts/A2.html#the-story-of-titanic-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "The Story of Titanic",
+    "text": "The Story of Titanic\nChapter 2. They Fall in Love\nJack and Rose meet on the ship. Jack saves Rose when she is in danger. They talk, laugh, and spend time together. Soon, they fall in love.\nhttps://www.youtube.com/watch?v=erAQ9LkftwA\nhttps://www.youtube.com/watch?v=oklPl95DC8c"
+  },
+  {
+    "objectID": "posts/A2.html#the-story-of-titanic-2",
+    "href": "posts/A2.html#the-story-of-titanic-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "The Story of Titanic",
+    "text": "The Story of Titanic\nChapter 3. The Sinking and the Divided Paths\nWhen the Titanic strikes the iceberg, chaos begins to unfold. But this chaos is not delivered equally to everyone on board.\nIn the film, a clear difference is shown between first-class and third-class passengers. First-class passengers are quickly and politely informed by crew members. They receive calm explanations, are given life jackets, and are carefully guided toward the lifeboats. They are seen dressing in formal clothes and preparing for evacuation in an orderly manner.\nMeanwhile, third-class passengers go a long time without any information about the accident. Many find the stairways and corridors blocked, unable to reach the upper decks. Families wander the ship in confusion, and others wait helplessly behind locked gates— a powerful image of the class-based gap in access to survival.\nAmid the growing panic, Rose’s fiancé, Cal, begins to search for her. As a wealthy gentleman, he urges Rose to get on a lifeboat and escape with him.\nhttps://www.youtube.com/watch?v=Gmw1q0CprEA"
+  },
+  {
+    "objectID": "posts/A2.html#the-story-of-titanic-3",
+    "href": "posts/A2.html#the-story-of-titanic-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "The Story of Titanic",
+    "text": "The Story of Titanic\nChapter 4. The Lifeboat Scene\nCal tells Rose to get on a lifeboat. She agrees at first and is lowered away from Jack.\nBut as the boat goes down, Rose looks up at him. She suddenly jumps back onto the ship. She chooses to stay with Jack, even if it means risking her life.\nJack and Rose run through the sinking ship together. They try to find a way out as water floods the halls. Their love becomes stronger in the face of fear.\nhttps://www.youtube.com/watch?v=_qTZRD1_ybQ"
+  },
+  {
+    "objectID": "posts/A2.html#the-story-of-titanic-4",
+    "href": "posts/A2.html#the-story-of-titanic-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "The Story of Titanic",
+    "text": "The Story of Titanic\nChapter 5. The End and the Memory\nAs the Titanic sinks deeper into the sea, Jack and Rose struggle to survive together until the very end. They cling to a broken piece of wood, floating in the freezing ocean.\nJack protects Rose and says, “Never give up. Never let go.” Rose holds his promise deep in her heart.\nWhen a lifeboat finally arrives, Rose is rescued. But Jack quietly slips into the cold water and disappears.\nLater, on the lifeboat, a rescuer asks for her name. She answers, “Rose Dawson.”\nhttps://www.youtube.com/watch?v=D7_SqyWiPOg"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset",
+    "href": "posts/A2.html#titanic-dataset",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\nThe Titanic dataset is a standard, real-world dataset that contains information about the passengers aboard the RMS Titanic, which sank in 1912. It is widely used as a classic resource for practicing machine learning, statistical analysis, and data visualization.\nThe Titanic dataset is commonly provided as a CSV file named titanic.csv, and can be obtained from various sources such as Kaggle, the seaborn package, or scikit-learn. We can load this data using the pandas library in Python."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset-1",
+    "href": "posts/A2.html#titanic-dataset-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\nThe Titanic data can be loaded as follows:\n\ndf = pd.read_csv(\"titanic.csv\")\ndf\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n886\n887\n0\n2\nMontvila, Rev. Juozas\nmale\n27.0\n0\n0\n211536\n13.0000\nNaN\nS\n\n\n887\n888\n1\n1\nGraham, Miss. Margaret Edith\nfemale\n19.0\n0\n0\n112053\n30.0000\nB42\nS\n\n\n888\n889\n0\n3\nJohnston, Miss. Catherine Helen \"Carrie\"\nfemale\nNaN\n1\n2\nW./C. 6607\n23.4500\nNaN\nS\n\n\n889\n890\n1\n1\nBehr, Mr. Karl Howell\nmale\n26.0\n0\n0\n111369\n30.0000\nC148\nC\n\n\n890\n891\n0\n3\nDooley, Mr. Patrick\nmale\n32.0\n0\n0\n370376\n7.7500\nNaN\nQ\n\n\n\n\n891 rows × 12 columns"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset-2",
+    "href": "posts/A2.html#titanic-dataset-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\nIn this code, pd.read_csv(\"titanic.csv\") means reading the file titanic.csv from the current working directory, and storing its contents into a variable named df as a DataFrame object.\n\npd is a commonly used alias for the pandas package, which is typically imported using import pandas as pd.\nread_csv() is a function that reads data from a CSV (Comma-Separated Values) file and converts it into a pandas DataFrame, a tabular data structure.\n\nThis allows users to import structured data in table format and perform various kinds of analysis on it."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset-3",
+    "href": "posts/A2.html#titanic-dataset-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\nWhen working with data in pandas,the very first thing to check after loading a dataset is its overall structure. The most basic command used for this purpose is:\n\ndf.shape\n\n(891, 12)\n\n\nRunning this code returns the output (891, 12), which indicates that the DataFrame contains 891 rows and 12 columns. In this context, each row represents a single observation — in this case, an individual passenger on the Titanic. Each column represents a variable that describes a certain feature of the passenger, such as Age, Sex, Pclass, or Survived.\nTo explicitly show what variables are included in the dataset, it is helpful to inspect the column names directly. This can be done using the following command:\n\ndf.columns\n\nIndex(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',\n       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],\n      dtype='object')"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset-4",
+    "href": "posts/A2.html#titanic-dataset-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\n\n\n\n\n\n\nTip\n\n\n\nUseful pandas Commands for Exploring Data Structure\nUsing commands like df.shape or df.columns to explore the structure of a dataset is a fundamental first step in any data analysis workflow. These commands help you understand what the data looks like, how many variables it contains, and how it’s organized. Below are some of the most useful pandas functions for this purpose:\n\ndf.shape: Returns the overall dimensions of the DataFrame as a tuple (rows, columns). This helps you quickly understand how many observations (rows) and variables (columns) the dataset contains.\ndf.columns: Displays a list of all column names in the DataFrame. This allows you to explicitly check what variables are included.\ndf.info(): Provides a concise summary of the DataFrame, including data types of each column, the number of non-null entries, and memory usage. It is especially useful for detecting missing values and distinguishing between numeric and categorical variables.\ndf.head() / df.tail(): Shows the first (or last) few rows of the dataset. This gives you a quick preview of actual values, formatting, and data units, making it easier to get a sense of how the data is structured.\ndf.describe(): Generates summary statistics for numeric columns, including mean, standard deviation, minimum, maximum, and quartiles. It helps in identifying variable scales, distributions, and potential outliers early in the analysis."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-dataset-5",
+    "href": "posts/A2.html#titanic-dataset-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Dataset",
+    "text": "Titanic Dataset\nUnderstanding this basic structure is an essential first step in any data analysis process. If there are too few rows, statistical results may not be reliable. On the other hand, if there are too many columns or if the data contains many missing values, preprocessing and feature selection may become more complex.\nFrom this output, we can see that the Titanic dataset includes 891 passengers and 12 variables, making it well-suited for analysis and practice in tasks such as classification, exploration, and visualization.\n\n\n\n\n\n\nNote\n\n\n\nConventional meaning of rows and columns\n\nRow: Represents a single observation or instance. For example, in the Titanic dataset, each row corresponds to one passenger.\nColumn: Represents a variable or feature that describes a specific aspect of each observation. For example, Age, Sex, and Survived are variables that describe the characteristics of each passenger."
+  },
+  {
+    "objectID": "posts/A2.html#variables-in-the-titanic-dataset",
+    "href": "posts/A2.html#variables-in-the-titanic-dataset",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Variables in the Titanic Dataset",
+    "text": "Variables in the Titanic Dataset\n\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nPassengerId\nUnique ID for each passenger.\n\n\nSurvived\nSurvival status (0 = No, 1 = Yes).\n\n\nPclass\nTicket class (1 = 1st, 2 = 2nd, 3 = 3rd).\n\n\nName\nFull name, includes title.\n\n\nSex\nGender (male or female).\n\n\nAge\nAge in years (may have missing values).\n\n\nSibSp\nNumber of siblings or spouses aboard.\n\n\nParch\nNumber of parents or children aboard.\n\n\nTicket\nTicket number.\n\n\nFare\nTicket fare (in pounds).\n\n\nCabin\nCabin number (many missing).\n\n\nEmbarked\nEmbarked shows boarding port: C (Cherbourg), Q (Queenstown), S (Southampton)."
+  },
+  {
+    "objectID": "posts/A2.html#sample-observations-from-the-titanic-dataset",
+    "href": "posts/A2.html#sample-observations-from-the-titanic-dataset",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Sample Observations from the Titanic Dataset",
+    "text": "Sample Observations from the Titanic Dataset\nAfter loading the data, it is a good practice to print a few rows to understand how the dataset is structured.\n\ndf[:3]\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n\n\n\n\n\nUsing the command df[:3], we can view the first three observations in the Titanic DataFrame.\nFor example, the first passenger is a 22-year-old male in 3rd class who boarded at Southampton and did not survive. The second passenger is a 38-year-old female in 1st class with cabin C85. She boarded at Cherbourg and survived. The third passenger is a 26-year-old female in 3rd class who also boarded at Southampton and survived."
+  },
+  {
+    "objectID": "posts/A2.html#supervised-vs.-unsupervised-choosing-a-path",
+    "href": "posts/A2.html#supervised-vs.-unsupervised-choosing-a-path",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Supervised vs. Unsupervised: Choosing a Path",
+    "text": "Supervised vs. Unsupervised: Choosing a Path\nNow that we’ve reviewed a few sample observations and understood the structure of the dataset, it’s time to consider what we can actually do with this data.\nThe Titanic dataset allows for various types of analysis. For example, one could explore relationships between variables and discover hidden patterns using unsupervised learning. Alternatively, since the dataset includes a clear outcome variable (Survived), we can apply supervised learning to build predictive models.\nIn today’s lecture, we will focus on supervised learning. Our goal is to use features like gender, age, passenger class, and port of embarkation to predict whether a passenger survived the Titanic disaster."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set",
+    "href": "posts/A2.html#training-set-vs-test-set",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nBefore building any predictive model, we first need to split our dataset into two parts: a training set and a test set.\n\nThe training set (df_train) is used to train the model. It learns patterns from this data, including how certain features relate to survival.\nThe test set (df_test) is used to evaluate how well the model performs on new, unseen data. This helps us assess generalization, not just memorization.\n\nBy separating our data this way, we can simulate how our model would behave in real-world scenarios — predicting survival outcomes for passengers it hasn’t seen before. In practice, we can use the train_test_split() function from sklearn."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-1",
+    "href": "posts/A2.html#training-set-vs-test-set-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nIn our case, we used train_test_split(df, test_size=0.3, random_state=42) to split the Titanic dataset. This means that 70% of the data (712 passengers) is used for training, while the remaining 30% (179 passengers) is reserved for testing.\n\ndf_train, df_test = train_test_split(df, test_size=0.2, random_state=42)\ndf_test = df_test.drop([\"Survived\"],axis=1)\n\nAfter splitting, we removed the Survived column from the test set using df_test = df_test.drop([\"Survived\"], axis=1) to simulate real-world prediction, where the correct answer is unknown.\n\n\n\n\n\n\nCode Explanation\n\n\n\nHere’s a quick explanation of the main options used.\n\ntest_size=0.2: 20% of the data goes into the test set, and 80% into the training set.\nrandom_state=42: Ensures that the random split is reproducible every time.\n.drop([\"Survived\"], axis=1): Removes the Survived column from df_test.\naxis=1 means “drop a column” (not a row)."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-2",
+    "href": "posts/A2.html#training-set-vs-test-set-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nTo confirm that the data has been properly split, we can check the shape of each DataFrame using the following command:\n\ndf.shape, df_train.shape, df_test.shape\n\n((891, 12), (712, 12), (179, 11))\n\n\nThis result can be interpreted as follows:\n\n(891, 12): The full DataFrame df contains 891 observations (rows) and 12 variables (columns).\n(712, 12): After using train_test_split(), 80% of the data — 712 rows — was assigned to the training set df_train, which still contains all 12 columns.\n(179, 11): The test set df_test contains the remaining 20% — 179 rows — but since we explicitly dropped the Survived column, the number of columns is reduced to 11."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-3",
+    "href": "posts/A2.html#training-set-vs-test-set-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nAfter splitting the data using train_test_split(), we can check the first few rows of each subset to verify how the data was divided.\nFor instance, when we look at df_train[:2], we can see that the first two rows of the training set correspond to rows with original indices 331 and 733 from the full dataset df.\n\ndf_train[:2]\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n331\n332\n0\n1\nPartner, Mr. Austen\nmale\n45.5\n0\n0\n113043\n28.5\nC124\nS\n\n\n733\n734\n0\n2\nBerriman, Mr. William John\nmale\n23.0\n0\n0\n28425\n13.0\nNaN\nS\n\n\n\n\n\n\n\nSimilarly, df_test[:2] shows rows from the original dataset with indices 709 and 439.\n\ndf_test[:2]\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n\n\n\n\n\nNote that the Survived column has been removed."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-4",
+    "href": "posts/A2.html#training-set-vs-test-set-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\n\n\n\nFigure: This illustration visually explains the structure of df_train and df_test for easier understanding. The training set (df_train) includes the Survived information, while the test set (df_test) does not. This image was generated using Perplexity."
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-5",
+    "href": "posts/A2.html#training-set-vs-test-set-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nWe assume that the observed data consists of df_train and df_test. We use df_train for training. The goal of training is to correctly predict the survival status when given new data like df_test. If we have studied df_train carefully, we should be able to guess whether the following two passengers survived or not.\n\ndf_test[:5]\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n840\n841\n3\nAlhomaki, Mr. Ilmari Rudolf\nmale\n20.0\n0\n0\nSOTON/O2 3101287\n7.9250\nNaN\nS\n\n\n720\n721\n2\nHarper, Miss. Annie Jessie \"Nina\"\nfemale\n6.0\n0\n1\n248727\n33.0000\nNaN\nS\n\n\n39\n40\n3\nNicola-Yarred, Miss. Jamila\nfemale\n14.0\n1\n0\n2651\n11.2417\nNaN\nC"
+  },
+  {
+    "objectID": "posts/A2.html#training-set-vs-test-set-6",
+    "href": "posts/A2.html#training-set-vs-test-set-6",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Training Set vs Test Set",
+    "text": "Training Set vs Test Set\nAnswer revealed… (Though in practice, we wouldn’t actually know the answer)\n\ndf.iloc[df_test[:5].index]\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n1\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n0\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n840\n841\n0\n3\nAlhomaki, Mr. Ilmari Rudolf\nmale\n20.0\n0\n0\nSOTON/O2 3101287\n7.9250\nNaN\nS\n\n\n720\n721\n1\n2\nHarper, Miss. Annie Jessie \"Nina\"\nfemale\n6.0\n0\n1\n248727\n33.0000\nNaN\nS\n\n\n39\n40\n1\n3\nNicola-Yarred, Miss. Jamila\nfemale\n14.0\n1\n0\n2651\n11.2417\nNaN\nC\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode Explanation\n\n\n\nThe code df.iloc[df_test[:2].index] retrieves the original rows (including the Survived column) for the first two passengers in df_test.\n\ndf_test[:2] selects the first two rows from the test set.\n.index extracts their original row positions from the full DataFrame df.\ndf.iloc[...] uses these positions to return the corresponding rows from df, including the true labels.\n\n\n\nLet’s play a game: try to guess who survived the Titanic!"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nDo you remember that iconic scene from Titanic—when Rose boards the lifeboat? Rose is seated in the lifeboat, looking up at Jack and Cal who are still on the ship’s deck. Jack stands silently, watching her leave, while other passengers around them reflect the chaos of the moment. Though no words are spoken, their eyes are locked, full of emotion.\n\n\n\nFigure: Rose is leaving the ship aboard a lifeboat, while Jack and Cal watch her from the deck."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-1",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nFrom her place in the lifeboat, Rose gazes up at the deck. Her expression is filled with uncertainty and longing as she looks toward Jack. The moment captures the emotional weight of her decision. Soon after, driven by love and instinct, Rose jumps out of the lifeboat and runs back to the sinking ship—a choice that defines one of the most iconic scenes in the film.\n\n\n\nFigure: Rose looks up at Jack from the lifeboat, feeling sad and not wanting to say goodbye."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-2",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nThese scenes may be emotionally powerful, but let’s set aside the emotion for a moment and look at them objectively.\nWho is on the lifeboat? We see Rose and several other women being rescued.\nWho remains on the deck? Jack and other men are watching the lifeboats leave from the sinking ship.\nThis contrast raises an important question:\n\nWas gender a factor in determining who had a better chance of survival?\n\nLet’s turn to the data to explore this further."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-3",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nTo analyze the impact of gender on survival outcomes, we use the following code to compute survival rates by sex.\n\ndf_train.groupby(\"Sex\")['Survived']\n\n&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x730eecb44210&gt;\n\n\n\n\n\n\n\n\nCode Explanation\n\n\n\nThis command does the following:\n\ngroupby(\"Sex\"): groups the passengers by their gender (male or female)\n['Survived'].mean(): calculates the average survival rate for each group (since 1 = survived, 0 = did not survive, the mean gives the survival proportion)\n.reset_index(): turns the grouped result back into a clean DataFrame\n\nThe result shows how survival rates differ dramatically between males and females. Let’s look at the numbers."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-4",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nThis output shows the average survival rate by gender.\n\nFor females, the survival rate is approximately 73.9%.\nFor males, it’s about 18.6%.\n\nIn other words, just knowing the passenger’s gender already gives us a strong signal about their likelihood of survival. A variable like this, with a clear split in outcomes, can be very useful in building predictive models. Based on this result, we can try a simple rule-based prediction: Predict that all females survived (1), and all males did not survive (0). Let’s test how accurate this strategy actually is."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-5",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nIn this analysis, the goal is to predict survival status. The variable we are trying to predict is called the response variable (or dependent variable), which in this case is:\n\ny_test = df.iloc[df_test.index]['Survived']\n\nThis gives us a vector of length 179 containing actual survival outcomes from the test set: 0 means the passenger did not survive, and 1 means they did. On the other hand, the variable we use to make predictions is called the explanatory variable (or independent variable). Here, we use the Sex column and apply a simple rule:\n\nyhat_test = (df_test['Sex']  == \"female\")\n\nThis creates a Boolean vector that predicts survival based on whether the passenger is female. So in summary:\n\ny_test is the response variable — the true survival outcomes.\nyhat_test is based on an explanatory variable — a simple prediction using gender."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-6",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-6",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nBy comparing yhat_test and y_test using (yhat_test == y_test).mean(), we calculate the accuracy of our prediction, which tells us how informative the Sex variable is for predicting survival.\n\n(yhat_test == y_test).mean()\n\n0.782123\n\n\nThe result shows an accuracy of approximately 78.2%, which is a significant improvement over random guessing (which would yield about 50% accuracy). This demonstrates that even a simple rule based solely on the “Sex” variable can produce surprisingly strong predictions — all without using any machine learning."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-7",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-7",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nLet’s go back to the movie for a moment. Was it really just\n\n“women first”?\n\nIn situations like this, we often expect the most vulnerable — women and children — to be given priority. Even the film hints at this principle. Now let’s take a closer look at the data to see whether younger passengers were also more likely to survive.\nhttps://www.youtube.com/watch?v=W0kURU_2H3c"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-8",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-8",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nThe overall survival rate among all passengers was only about 37.6%, meaning that less than half of the people on board survived the disaster.\n\ndf_train['Survived'].mean()\n\n0.376404\n\n\nBut what about children?\n\ndf_train.query(\"Age &lt;10\")['Survived'].mean()\n\n0.603774\n\n\nWhen we look specifically at passengers under the age of 10, their survival rate rises significantly to about 60.4%. This suggests that younger passengers were indeed given some level of priority during evacuation, supporting the idea portrayed in the film — that the principle of “women and children first” may have been reflected in real-life decisions during the sinking."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-9",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-9",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\n\n\n\n\n\n\nCode Explanation\n\n\n\nThe following code filters the DataFrame to include only rows where the Age column is less than 10.\ndf_train.query(\"Age &lt; 10\")\nThe query() method allows you to write filtering conditions as strings, making the code clean and easy to read.\nFor example:\n\ndf.query(\"Fare &gt; 100\") → selects passengers who paid more than 100\ndf.query(\"Sex == 'female'\") → selects female passengers\n\nYou can also combine multiple conditions:\ndf.query(\"Pclass == 1 and Sex == 'female'\")\nquery() is a convenient and readable way to filter data based on conditions."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-10",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-10",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nThe plot below visualizes the age distribution of passengers based on their survival status. The blue area shows the age distribution of those who survived, while the red area represents those who did not. Notably, children under the age of 10 show a relatively higher survival rate, supporting the idea that the “women and children first” principle may have been applied during the evacuation.\n\n\nCode\nfig, ax = plt.subplots(figsize=(10, 5))\n\n# 공통 X축 범위 설정\nx_range = (0, 80)\n\n# KDE plot for survived == 0 and 1\nsns.kdeplot(data=df_train[df_train.Survived == 0], x=\"Age\", fill=True, label=\"Did Not Survive\", color=\"salmon\")\nsns.kdeplot(data=df_train[df_train.Survived == 1], x=\"Age\", fill=True, label=\"Survived\", color=\"skyblue\")\n\nax.set_xlim(x_range)\nax.set_title(\"Age Distribution by Survival Status\")\nax.set_xlabel(\"Age\")\nax.set_ylabel(\"Density\")\nax.legend()\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\nFigure: Survival Rate by Age Distribution"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-11",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-11",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nNow let’s try a new prediction strategy:\n\nIf the passenger is female, predict that they survived.\nIf the passenger is under 10 years old, also predict that they survived.\n\n\ny_test = df.iloc[df_test.index]['Survived']\nyhat_test = (df_test['Sex']  == \"female\") | (df_test['Age'] &lt; 10)\n\nNow let’s compare y_test and yhat_test to evaluate the prediction accuracy:\n\n(y_test == yhat_test).mean()\n\n0.787709\n\n\nThis strategy yields an accuracy of 0.787709, or about 78.8%. That’s a slight improvement over using only the sex variable, which gave an accuracy of 78.2%."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-predictor-no-ml-just-guess-12",
+    "href": "posts/A2.html#titanic-predictor-no-ml-just-guess-12",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic Predictor: No ML, Just Guess",
+    "text": "Titanic Predictor: No ML, Just Guess\nThe improvement isn’t as dramatic as one might expect. Why is that?\nIt turns out that there aren’t many passengers under the age of 10 in the test set. The only time our prediction rule changes (compared to using gender alone) is when a passenger is male and under 10 — but such cases are rare. If we check the data:\n\ndf_test.query(\"Sex == 'male' and Age &lt; 10\")\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n63\n64\n3\nSkoog, Master. Harald\nmale\n4.00\n3\n2\n347088\n27.900\nNaN\nS\n\n\n165\n166\n3\nGoldsmith, Master. Frank John William \"Frankie\"\nmale\n9.00\n0\n2\n363291\n20.525\nNaN\nS\n\n\n78\n79\n2\nCaldwell, Master. Alden Gates\nmale\n0.83\n0\n2\n248738\n29.000\nNaN\nS\n\n\n\n\n\n\n\nWe find that there are only 3 such passengers in the test set. That’s why the gain is modest. It’s a bit disappointing, but even so, we can be reasonably satisfied with the small improvement that age provides."
+  },
+  {
+    "objectID": "posts/A2.html#generalization",
+    "href": "posts/A2.html#generalization",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nSo far, we’ve seen that gender and age played an important role in survival. But are those the only factors that mattered?\nThink back to that unforgettable scene from the film: First-class passengers are calmly escorted to the lifeboats by the crew, while third-class passengers remain behind locked gates, confused and unable to escape. This isn’t just cinematic drama — it raises an important question:\n\nDid survival also depend on ticket class or fare price?\n\nLet’s explore the data further to find out."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-1",
+    "href": "posts/A2.html#generalization-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nThis code calculates the average survival rate by passenger class (Pclass):\n\ndf_train.groupby(\"Pclass\")['Survived'].mean().reset_index()\n\n\n\n\n\n\n\n\nPclass\nSurvived\n\n\n\n\n0\n1\n0.607362\n\n\n1\n2\n0.483444\n\n\n2\n3\n0.241206\n\n\n\n\n\n\n\nThe output shows the following survival rates:\n\n1st class (Pclass = 1): approximately 60.7%\n2nd class (Pclass = 2): approximately 48.3%\n3rd class (Pclass = 3): approximately 24.1%\n\nIn other words, passengers in higher classes had a much better chance of survival. This aligns with scenes from the movie, where first-class passengers were often prioritized during evacuation. The data suggests that passenger class (Pclass) is a strong explanatory variable when predicting survival on the Titanic."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-2",
+    "href": "posts/A2.html#generalization-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nThe prediction based solely on passenger class (predicting survival if Pclass == 1) achieves an accuracy of approximately 70.4%.\n\ny_test = df.iloc[df_test.index]['Survived']\nyhat_test = (df_test['Pclass'] == 1) \n(yhat_test == y_test).mean()\n\n0.703911\n\n\nWhile this result is quite good, it falls short of the 78.2% accuracy obtained when predicting based solely on gender (predicting survival if Sex == “female”).\nThis suggests that gender is a stronger explanatory variable than passenger class when it comes to predicting survival on the Titanic. In other words, knowing someone’s gender gives us more predictive power than knowing their ticket class alone."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-3",
+    "href": "posts/A2.html#generalization-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nCould we consider both gender and passenger class together? Doing so may reveal more detailed and accurate survival patterns.\n\ndf_train.groupby([\"Sex\",\"Pclass\"])[\"Survived\"].mean().reset_index()\n\n\n\n\n\n\n\n\nSex\nPclass\nSurvived\n\n\n\n\n0\nfemale\n1\n0.957143\n\n\n1\nfemale\n2\n0.966667\n\n\n2\nfemale\n3\n0.486957\n\n\n3\nmale\n1\n0.344086\n\n\n4\nmale\n2\n0.164835\n\n\n5\nmale\n3\n0.141343\n\n\n\n\n\n\n\nFor example, female passengers in 1st class had a survival rate of about 95.7%, while male passengers in 3rd class had a survival rate of only 14.1%. These stark contrasts show that the combination of gender and class provides a much stronger signal than either variable alone. In short, considering both Sex and Pclass together gives us a more powerful strategy for predicting survival."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-4",
+    "href": "posts/A2.html#generalization-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nSo, let’s design a prediction rule based on the survival rates we just observed. We saw that:\n\nWomen in 1st and 2nd class had very high survival rates.\nMen in 2nd and 3rd class had very low survival rates.\nThe more ambiguous cases were female passengers in 3rd class and male passengers in 1st class, but even those had survival rates below 50%.\n\nGiven this, a reasonable strategy would be:\n\nPredict survived only if the passenger is female and in 1st or 2nd class. Otherwise, predict not survived."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-5",
+    "href": "posts/A2.html#generalization-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nHere’s how we can implement this in code:\n\nyhat_test = ((df_test['Sex']  == \"female\") & (df_test['Pclass'] &lt;3))\n(y_test==yhat_test).mean()\n\n0.765363\n\n\nBut wait — the result is unexpected! The accuracy turns out to be 0.765, which is lower than the simpler rule of just predicting that all women survived, which gave an accuracy of 0.782.\nThat’s surprising! Despite using more detailed information (both gender and class), the performance actually drops. It turns out that this added complexity doesn’t always translate to better predictions — and sometimes, simpler is better."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-6",
+    "href": "posts/A2.html#generalization-6",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nThis result contradicts what we saw earlier.\nPreviously, when we combined Sex and Age in our prediction rule, the accuracy improved — even if only slightly. That experience reinforced a common belief in data modeling:\n\n“Adding more explanatory variables will naturally improve model performance.”\n\nBut now we’re seeing the opposite — adding another meaningful variable (Pclass) actually decreased our accuracy. How can this be?"
+  },
+  {
+    "objectID": "posts/A2.html#generalization-7",
+    "href": "posts/A2.html#generalization-7",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nCould it be that we made a mistake somewhere? Let’s take a step back and carefully consider how we’ve been approaching the problem:\n\nWe learn a rule from the training set.\nThen we apply that rule to the test set.\n\nBut here’s something to think about:\n\nWhat if the patterns we discovered in the training data don’t hold in the test data?\n\nThat’s a real possibility — and it’s a fundamental challenge in any kind of predictive modeling. If a rule seems effective in training but doesn’t generalize well, then applying it to unseen data may lead to worse performance, not better."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-8",
+    "href": "posts/A2.html#generalization-8",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nLet’s revisit the training environment — specifically, the df_train dataset. Previously, we applied a simple rule based only on gender, which gave us the following result:\n\ny = df_train['Survived']\nyhat = (df_train['Sex']  == \"female\") \n(y == yhat ).mean()\n\n0.787921\n\n\nThis gave an accuracy of 0.787921. Now, what happens when we consider both gender and class?\n\nyhat = ((df_train['Sex']  == \"female\") & (df_train['Pclass'] &lt;3))\n(y == yhat ).mean()\n\n0.792135\n\n\nThis gives a slightly higher accuracy of 0.792135. So in the training set, it was better to predict that only 1st- and 2nd-class women survived, rather than all women."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-9",
+    "href": "posts/A2.html#generalization-9",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nThe key difference between these two strategies lies in how we handle 3rd-class female passengers:\n\nThe older rule predicts they survived.\nThe newer rule predicts they did not survive.\n\nAnd the justification for the new rule comes from this survival rate:\n\ndf_train.query(\"Sex == 'female' and Pclass ==3\")['Survived'].mean()\n\n0.486957\n\n\nThat result — 0.486957 — should make us a little uneasy. What if that number had been something like 0.499999? Can we confidently say that 3rd-class females were more likely to die than survive?"
+  },
+  {
+    "objectID": "posts/A2.html#generalization-10",
+    "href": "posts/A2.html#generalization-10",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nTo help us better understand the issue, let’s create a hypothetical DataFrame called df_test_full:\n\ndf_test_full = df.iloc[df_test.index]\ndf_test_full[:3]\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n1\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n0\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n840\n841\n0\n3\nAlhomaki, Mr. Ilmari Rudolf\nmale\n20.0\n0\n0\nSOTON/O2 3101287\n7.9250\nNaN\nS\n\n\n\n\n\n\n\nThis dataset contains the same passengers as df_test, in the same order — but with one key difference: it also includes the actual Survived values for each passenger.\n\ndf_test[:3]\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n840\n841\n3\nAlhomaki, Mr. Ilmari Rudolf\nmale\n20.0\n0\n0\nSOTON/O2 3101287\n7.9250\nNaN\nS"
+  },
+  {
+    "objectID": "posts/A2.html#generalization-11",
+    "href": "posts/A2.html#generalization-11",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nLet’s take a look at how the survival rates break down by gender and passenger class in the test set using df_test_full\n\ndf_test_full.groupby([\"Sex\",\"Pclass\"])[\"Survived\"].mean().reset_index()\n\n\n\n\n\n\n\n\nSex\nPclass\nSurvived\n\n\n\n\n0\nfemale\n1\n1.000000\n\n\n1\nfemale\n2\n0.750000\n\n\n2\nfemale\n3\n0.551724\n\n\n3\nmale\n1\n0.448276\n\n\n4\nmale\n2\n0.117647\n\n\n5\nmale\n3\n0.109375\n\n\n\n\n\n\n\nFocus especially on the survival rate of 3rd-class females. Does this test set result align with what we saw in the training set? Can we still be confident that the rule we learned — that only 1st- and 2nd-class women survived — generalizes well?"
+  },
+  {
+    "objectID": "posts/A2.html#generalization-12",
+    "href": "posts/A2.html#generalization-12",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nSometimes, a rule that works well on the training data fails to perform equally well on the test data. This situation reflects a failure to generalize — the idea that patterns found in one dataset (training) do not always hold in another (test).\nImproving generalization means ensuring that the rules we discover in training remain effective when applied to new, unseen data. One of the most straightforward ways to enhance generalization is to increase the amount of data. With more observations, we can estimate probabilities and patterns more accurately, leading to more reliable decision-making."
+  },
+  {
+    "objectID": "posts/A2.html#generalization-13",
+    "href": "posts/A2.html#generalization-13",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Generalization",
+    "text": "Generalization\nIn addition, including too many variables or rules can actually reduce generalization performance. At first glance, adding more rules might seem helpful, but in practice, some rules may only appear useful due to random patterns in the training data — and fail to apply to other datasets.\nTo summarize, we can improve generalization by:\n\nIncreasing the number of observations, or\nReducing the number of rules or features used for prediction.\n\nSince collecting more data is often difficult in real-world settings, much of the research in modeling focuses on how to control model complexity and select only the most meaningful predictors."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nSo far, we’ve predicted Titanic survival outcomes using simple, rule-based intuition.\nWe started with rules like “predict survival for females and non-survival for males,” and then gradually incorporated variables like age and class to refine our predictions.\nHowever, as the number of variables increases and their relationships grow more complex, crafting reliable rules manually becomes extremely difficult.\n\nIt’s time to move beyond human intuition — and turn to machine learning.\n\nFrom here on, we’ll stop defining rules ourselves.\nInstead, we’ll use automated tools and machine learning algorithms to train models directly from the data.\nAs a first step, we’ll introduce a powerful yet intuitive model called the Decision Tree, which can discover complex patterns on its own — no human-designed rules required."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-1",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nTo move beyond manual rule-making, we now turn to decision trees — a model that can automatically learn patterns from data. To maintain continuity with our previous approach, we will again use Sex and Pclass as our explanatory variables.\nHowever, since machine learning algorithms cannot directly handle text or categorical variables, we must first preprocess the data into a numeric format that the model can understand. For this, we use the get_dummies() function from the pandas library:\n\nX = pd.get_dummies(df_train[['Sex','Pclass']])\nX[:5]\n\n\n\n\n\n\n\n\nPclass\nSex_female\nSex_male\n\n\n\n\n331\n1\nFalse\nTrue\n\n\n733\n2\nFalse\nTrue\n\n\n382\n3\nFalse\nTrue\n\n\n704\n3\nFalse\nTrue\n\n\n813\n3\nTrue\nFalse"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-2",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nThis output is the result of using pd.get_dummies(df_train[['Sex','Pclass']]), which transforms the selected features into a format suitable for machine learning models. Here’s what each column represents:\n\nPclass: Indicates the passenger’s ticket class. Lower numbers represent higher-class cabins (e.g., 1st class is better than 3rd class).\nSex_female: A boolean column where True means the passenger is female, and False otherwise. This is created through one-hot encoding of the Sex variable.\nSex_male: Similarly, True means the passenger is male. This is the complement of Sex_female.\n\nBy converting the categorical Sex column into binary features, the model can handle this data numerically. The Pclass column remains unchanged since it is already numeric."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-3",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow let’s prepare the rest of the data for training and evaluation:\n\nX_test = pd.get_dummies(df_test[['Sex','Pclass']])\ny = df_train['Survived']\ny_test = df['Survived'][df_test.index]\n\nHere’s what each line does:\n\nX_test = pd.get_dummies(df_test[['Sex','Pclass']]): Performs one-hot encoding on the test set to match the format of the training data (X).\ny = df_train['Survived']: Sets the target variable (whether a passenger survived) for the training data.\ny_test = df['Survived'][df_test.index]: Retrieves the actual survival labels for the test set using their index from the original dataset. These values will be used to evaluate the model’s predictions."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-4",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow that we’ve finished preparing the data, it’s time to choose a model. As mentioned earlier, we’ll start with a Decision Tree. But before we dive in, let’s take a moment to briefly introduce what a decision tree actually is.\nA Decision Tree is a machine learning model that works much like the game of 20 Questions. In that game, one person thinks of an object (like an animal or a job), and the other person tries to guess it by asking a series of yes/no questions such as: “Can it fly?”, “Does it have four legs?”, or “Is it a human?” Each question helps narrow down the possibilities, and with enough well-chosen questions, the answer eventually becomes clear.\nA decision tree follows the same idea. Given some data, it makes a prediction by asking a series of simple, binary questions. In the Titanic survival prediction task, for example, a decision tree might ask:\n\n“Is the passenger female?”\n“Is the ticket class 1st class?”\n“Is the passenger under 10 years old?”"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-5",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nEach question divides the data into two branches — those that meet the condition and those that don’t. By following these branches step by step, the tree gradually narrows down the group of passengers and finally reaches a prediction, such as “Survived” or “Did not survive.” This final prediction is stored in what’s called a leaf node of the tree.\nWhat makes decision trees especially useful is their simplicity and interpretability. They don’t require complex math or feature transformations, and the decision path for each prediction can be traced back in plain language. This makes them easy to understand and explain — even to someone without a background in machine learning.\nIn summary, a decision tree is like a smart version of 20 Questions: it figures out what questions to ask based on the data, and uses the answers to make accurate predictions."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-6",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-6",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow let’s take a look at how to use a decision tree in Python. The code below creates a decision tree model with default settings:\n\nmodel = DecisionTreeClassifier(random_state=0)\n\nThe DecisionTreeClassifier model object works primarily through two key methods: fit() and predict(). The .fit(X, y) method is used to train the model by learning patterns in the data. It takes the input features X and the corresponding target labels y, and builds a tree structure that splits the data based on conditions like “Is the passenger female?” or “Is the ticket class 1st class?” The goal is to find the best questions (or splits) that help classify the target variable as accurately as possible. Once the model is trained, the .predict(X_test) method can be used to make predictions on new data. For each row in X_test, the model follows the learned decision rules down the tree to arrive at a prediction, such as whether a passenger survived or not. In short, .fit() builds the decision rules from training data, and .predict() applies those rules to make predictions."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-7",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-7",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nLet’s now take a look at the code below. It is used to train the model and make predictions on the test data:\n\nmodel.fit(X,y) \nyhat_test = model.predict(X_test)\n\nThe first line, model.fit(X, y), trains the DecisionTreeClassifier model using the training data. The second line, model.predict(X_test), uses the trained model to predict survival for each passenger in the test set. By running this code, we get the model’s predictions automatically based on the patterns it learned from the training data.\nLet’s now take a look at the accuracy of the survival predictions made by the Decision Tree model:\n\n(yhat_test == y_test).mean()\n\n0.765363"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-8",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-8",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nThe result is 0.765363 — and interestingly, it’s exactly the same as the accuracy from this simple rule-based prediction:\n\nyhat_test = (df_test['Sex'] == 'female') & (df_test['Pclass'] &lt; 3)\n(y_test == yhat_test).mean()\n\n0.765363\n\n\nDisappointed? You shouldn’t be.\nIn fact, this result is reassuring: it shows that the Decision Tree isn’t performing some mysterious magic, but rather confirming patterns we already identified — such as\n\n“1st- and 2nd-class females were more likely to survive.”\n\nIn other words, instead of inventing new rules through complex computation, the model is making good use of meaningful patterns already present in the data."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-9",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-9",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow, let’s take things a step further and consider all available features. We can inspect the column names using:\n\ndf.columns\n\nIndex(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',\n       'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked'],\n      dtype='object')\n\n\nThis gives us a list of variables such as “PassengerId”, “Pclass”, “Name”, “Sex”, “Age”, “SibSp”, “Parch”, “Ticket”, “Fare”, “Cabin”, and “Embarked”. Since “Survived” is the target variable we’re trying to predict, we’ll exclude it from the list of features used for training. So, our final list of features will be:\n\nfeatures = [\"PassengerId\", \"Pclass\", \"Name\", \"Sex\", \"Age\", \"SibSp\", \"Parch\", \"Ticket\", \"Fare\", \"Cabin\", \"Embarked\"]"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-10",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-10",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow let’s include all these features in the model. Because some of them are categorical variables, we need to preprocess them using one-hot encoding. We can do this with the following code:\n\nX = pd.get_dummies(df_train[features])\nX_test = pd.get_dummies(df_test[features])\n\nLet’s now try training a model using all available features. But… an error occurs! Why did this happen?\nmodel = DecisionTreeClassifier()\nmodel.fit(X, y)\nyhat_test = model.predict(X_test)"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-11",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-11",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nLet’s look into what caused the error. To debug this, we examine a small portion of the preprocessed data:\n\npd.get_dummies(df_train[2:4])\n\n\n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nAge\nSibSp\nParch\nFare\nName_Hansen, Mr. Henrik Juul\nName_Tikkanen, Mr. Juho\nSex_male\nTicket_350025\nTicket_STON/O 2. 3101293\nEmbarked_S\n\n\n\n\n382\n383\n0\n3\n32.0\n0\n0\n7.9250\nFalse\nTrue\nTrue\nFalse\nTrue\nTrue\n\n\n704\n705\n0\n3\n26.0\n1\n0\n7.8542\nTrue\nFalse\nTrue\nTrue\nFalse\nTrue\n\n\n\n\n\n\n\nDid you catch the issue? Look closely — the Name column has been one-hot encoded into columns like:\n\nName_Hansen, Mr. Henrik Juul\nName_Tikkanen, Mr. Juho\n\nNow, here’s the problem: these exact names appear only in the training set. They don’t exist in the test set, so when we apply the same code to df_test, those columns are missing — which causes a mismatch in the number of features between training and test data."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-12",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-12",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nLet’s look at the result of our preprocessing:\n\nX = pd.get_dummies(df_train[features])\nX_test = pd.get_dummies(df_test[features])\nlen(X.columns), len(X_test.columns)\n\n(1398, 401)\n\n\nSee the problem? The training set ended up with 1398 columns, while the test set has only 401 columns. This is because the get_dummies() function creates columns based on the unique values present in each dataset. For example, if a name or ticket appears only in the training set, get_dummies() will create a column for it — but that column will be missing in the test set, leading to a mismatch. As a result, the model cannot be trained and tested on data with different structures, which is why the error occurs. To fix this, we’ll need to ensure that both X and X_test have the same columns."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-13",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-13",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow, we’ll select the features to use as follows:\n\nfeatures = [\"PassengerId\", \"Pclass\", \"Sex\", \"Age\", \"SibSp\", \"Parch\", \"Fare\", \"Embarked\"]\n\nThe excluded features are Name, Ticket, and Cabin. These columns typically contain highly unique or overly specific values. If we apply get_dummies() to them, the resulting feature sets in the training and test data may end up with mismatched columns. This mismatch would cause errors during model training or prediction, so we exclude them.\nNow let’s apply one-hot encoding using the code below:\n\nX = pd.get_dummies(df_train[features])\nX_test = pd.get_dummies(df_test[features])\nlen(X.columns), len(X_test.columns)\n\n(11, 11)\n\n\nAs you can see, both datasets now have exactly 11 columns. With the data properly aligned, we’re finally ready to train the model!"
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-14",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-14",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nNow it’s time to apply a machine learning model.\n\nmodel = DecisionTreeClassifier(random_state=0)\nmodel.fit(X, y)\nyhat_test = model.predict(X_test)\n(y_test == yhat_test).mean()\n\n0.731844\n\n\nThe result is in — the model yields an accuracy of 0.73. But the outcome feels disappointing. Despite considering all available variables, the model fails to outperform the following simple rule:\n\n(y_test == (df_test['Sex']==\"female\")).mean()\n\n0.782123\n\n\nJust predicting survival for all female passengers results in a higher accuracy."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-15",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-15",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nWhy did this happen?\nIt reminds us of an earlier observation: adding more variables to the model doesn’t always lead to better performance, especially when we started from the “Sex” variable alone.\n\nfeatures\n\n['PassengerId', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']\n\n\nLet’s take a closer look at the current set of features.\nSome splits in the decision tree may be unnecessary and harm generalization. Is there any variable we can reasonably remove?\nOne variable that stands out is PassengerId. This is merely an identifier — it doesn’t carry any semantic meaning related to survival. Would it make sense to create a rule like: “If PassengerId &gt; 600, then the passenger survived”? That clearly makes no logical sense and would likely not generalize beyond this dataset.\nTherefore, it’s reasonable to remove the PassengerId feature before retraining the model."
+  },
+  {
+    "objectID": "posts/A2.html#titanic-from-intuition-to-ml-16",
+    "href": "posts/A2.html#titanic-from-intuition-to-ml-16",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "Titanic: From Intuition to ML",
+    "text": "Titanic: From Intuition to ML\nWe revised the feature list to exclude PassengerId and focused on more meaningful variables:\n\nfeatures = [\"Pclass\", \"Sex\", \"Age\", \"SibSp\", \"Parch\", \"Fare\", \"Embarked\"]\nX = pd.get_dummies(df_train[features])\nX_test = pd.get_dummies(df_test[features])\nmodel = DecisionTreeClassifier(random_state=0)\nmodel.fit(X, y)\nyhat_test = model.predict(X_test)\n(y_test == yhat_test).mean()\n\n0.804469\n\n\nThe result?\n\n0.804469!!\n\nFinally, we achieved a decent-performing model. Removing the irrelevant PassengerId feature appears to have improved generalization and accuracy."
+  },
+  {
+    "objectID": "posts/A2.html#automl",
+    "href": "posts/A2.html#automl",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nTraditional machine learning comes with several limitations:\n\nYou need to study and understand the model before using it.\nYou must carefully transform the data into a suitable format.\nHonestly, wouldn’t it be great if someone else just analyzed everything for us?\n\nLet’s take a look at AutoML."
+  },
+  {
+    "objectID": "posts/A2.html#automl-1",
+    "href": "posts/A2.html#automl-1",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nAutoML stands for Automated Machine Learning. It refers to the process of automating the end-to-end pipeline of building a machine learning model. This includes:\n\nPreprocessing the data\nSelecting and tuning models\nEvaluating performance\nMaking final predictions\n\nAutoML is designed to make machine learning accessible, efficient, and robust, even for those without deep expertise."
+  },
+  {
+    "objectID": "posts/A2.html#automl-2",
+    "href": "posts/A2.html#automl-2",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nThere are several well-known AutoML tools available today:\n\nGoogle AutoML (Cloud-based, integrates with Google Cloud services)\nAuto-sklearn (based on scikit-learn, focuses on pipelines)\nH2O AutoML (supports both ML and deep learning)\nAutoGluon (from Amazon, designed for ease and flexibility)"
+  },
+  {
+    "objectID": "posts/A2.html#automl-3",
+    "href": "posts/A2.html#automl-3",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nIn this course, we’ll use AutoGluon, a powerful AutoML framework developed by Amazon.\nAutoGluon is:\n\nEasy to use with minimal code\nWell-suited for tabular data\nCapable of trying many models and combining them automatically\nSurprisingly accurate even without manual tuning\n\nIt’s a great tool for quickly building high-quality models — and ideal for learners who want to focus on insights rather than low-level implementation."
+  },
+  {
+    "objectID": "posts/A2.html#automl-4",
+    "href": "posts/A2.html#automl-4",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nPrediction with AutoGluon begins with the following line of code:\n\npredictor = TabularPredictor(\"Survived\")\n\nNo path specified. Models will be saved in: \"AutogluonModels/ag-20251103_124336\"\n\n\nWhat does TabularPredictor mean?\nThe term “tabular” refers to data organized in rows and columns — like spreadsheets or pandas DataFrames. This format is typical for structured datasets such as Titanic passenger records.\nUnlike traditional approaches where a single model (e.g., decision tree) is manually selected, AutoGluon automatically trains and compares a variety of powerful algorithms — such as gradient boosting, random forests, and neural networks. It then selects or combines the top-performing ones to generate robust predictions.\nIn short, TabularPredictor manages the entire process for tabular datasets — from training multiple models to picking the most effective strategy — with minimal code required."
+  },
+  {
+    "objectID": "posts/A2.html#automl-5",
+    "href": "posts/A2.html#automl-5",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nThe next step is to train the model using AutoGluon:\n\npredictor.fit(df_train)\n\nVerbosity: 2 (Standard Logging)\n=================== System Info ===================\nAutoGluon Version:  1.3.1\nPython Version:     3.11.13\nOperating System:   Linux\nPlatform Machine:   x86_64\nPlatform Version:   #33~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19 17:02:30 UTC 2\nCPU Count:          16\nMemory Avail:       120.61 GB / 125.71 GB (95.9%)\nDisk Space Avail:   201.34 GB / 457.38 GB (44.0%)\n===================================================\nNo presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets. Defaulting to `'medium'`...\n    Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):\n    presets='experimental' : New in v1.2: Pre-trained foundation model + parallel fits. The absolute best accuracy without consideration for inference speed. Does not support GPU.\n    presets='best'         : Maximize accuracy. Recommended for most users. Use in competitions and benchmarks.\n    presets='high'         : Strong accuracy with fast inference speed.\n    presets='good'         : Good accuracy with very fast inference speed.\n    presets='medium'       : Fast training time, ideal for initial prototyping.\nBeginning AutoGluon training ...\nAutoGluon will save models to \"/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124336\"\nTrain Data Rows:    712\nTrain Data Columns: 11\nLabel Column:       Survived\nAutoGluon infers your prediction problem is: 'binary' (because only two unique label-values observed).\n    2 unique label values:  [np.int64(0), np.int64(1)]\n    If 'binary' is not the correct problem_type, please manually specify the problem_type parameter during Predictor init (You may specify problem_type as one of: ['binary', 'multiclass', 'regression', 'quantile'])\nProblem Type:       binary\nPreprocessing data ...\nSelected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0\nUsing Feature Generators to preprocess the data ...\nFitting AutoMLPipelineFeatureGenerator...\n    Available Memory:                    123507.08 MB\n    Train Data (Original)  Memory Usage: 0.24 MB (0.0% of available memory)\n    Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.\n    Stage 1 Generators:\n        Fitting AsTypeFeatureGenerator...\n            Note: Converting 1 features to boolean dtype as they only contain 2 unique values.\n    Stage 2 Generators:\n        Fitting FillNaFeatureGenerator...\n    Stage 3 Generators:\n        Fitting IdentityFeatureGenerator...\n        Fitting CategoryFeatureGenerator...\n            Fitting CategoryMemoryMinimizeFeatureGenerator...\n        Fitting TextSpecialFeatureGenerator...\n            Fitting BinnedFeatureGenerator...\n            Fitting DropDuplicatesFeatureGenerator...\n        Fitting TextNgramFeatureGenerator...\n            Fitting CountVectorizer for text features: ['Name']\n            CountVectorizer fit with vocabulary size = 7\n    Stage 4 Generators:\n        Fitting DropUniqueFeatureGenerator...\n    Stage 5 Generators:\n        Fitting DropDuplicatesFeatureGenerator...\n    Types of features in original data (raw dtype, special dtypes):\n        ('float', [])        : 2 | ['Age', 'Fare']\n        ('int', [])          : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']\n        ('object', [])       : 4 | ['Sex', 'Ticket', 'Cabin', 'Embarked']\n        ('object', ['text']) : 1 | ['Name']\n    Types of features in processed data (raw dtype, special dtypes):\n        ('category', [])                    : 3 | ['Ticket', 'Cabin', 'Embarked']\n        ('float', [])                       : 2 | ['Age', 'Fare']\n        ('int', [])                         : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']\n        ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]\n        ('int', ['bool'])                   : 1 | ['Sex']\n        ('int', ['text_ngram'])             : 8 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]\n    0.1s = Fit runtime\n    11 features in original data used to generate 27 features in processed data.\n    Train Data (Processed) Memory Usage: 0.05 MB (0.0% of available memory)\nData preprocessing and feature engineering runtime = 0.14s ...\nAutoGluon will gauge predictive performance using evaluation metric: 'accuracy'\n    To change this, specify the eval_metric parameter of Predictor()\nAutomatically generating train/validation split with holdout_frac=0.2, Train Rows: 569, Val Rows: 143\nUser-specified model hyperparameters to be fit:\n{\n    'NN_TORCH': [{}],\n    'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],\n    'CAT': [{}],\n    'XGB': [{}],\n    'FASTAI': [{}],\n    'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],\n    'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],\n    'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],\n}\nFitting 13 L1 models, fit_strategy=\"sequential\" ...\nFitting model: KNeighborsUnif ...\n/home/cgb2/anaconda3/envs/yechan/lib/python3.11/site-packages/torch/cuda/__init__.py:129: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:109.)\n  return torch._C._cuda_getDeviceCount() &gt; 0\n    0.5874   = Validation score   (accuracy)\n    2.42s    = Training   runtime\n    0.02s    = Validation runtime\nFitting model: KNeighborsDist ...\n    0.5944   = Validation score   (accuracy)\n    0.01s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: LightGBMXT ...\n    0.8392   = Validation score   (accuracy)\n    0.36s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: LightGBM ...\n    0.8322   = Validation score   (accuracy)\n    0.2s     = Training   runtime\n    0.0s     = Validation runtime\nFitting model: RandomForestGini ...\n    0.7972   = Validation score   (accuracy)\n    0.7s     = Training   runtime\n    0.04s    = Validation runtime\nFitting model: RandomForestEntr ...\n    0.7972   = Validation score   (accuracy)\n    0.39s    = Training   runtime\n    0.04s    = Validation runtime\nFitting model: CatBoost ...\n    0.8182   = Validation score   (accuracy)\n    0.54s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: ExtraTreesGini ...\n    0.8042   = Validation score   (accuracy)\n    0.63s    = Training   runtime\n    0.11s    = Validation runtime\nFitting model: ExtraTreesEntr ...\n    0.8182   = Validation score   (accuracy)\n    0.58s    = Training   runtime\n    0.21s    = Validation runtime\nFitting model: NeuralNetFastAI ...\nNo improvement since epoch 4: early stopping\n    0.8112   = Validation score   (accuracy)\n    0.92s    = Training   runtime\n    0.01s    = Validation runtime\nFitting model: XGBoost ...\n    0.8252   = Validation score   (accuracy)\n    0.25s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: NeuralNetTorch ...\n    0.8322   = Validation score   (accuracy)\n    3.86s    = Training   runtime\n    0.01s    = Validation runtime\nFitting model: LightGBMLarge ...\n    0.8182   = Validation score   (accuracy)\n    0.48s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: WeightedEnsemble_L2 ...\n    Ensemble Weights: {'LightGBMXT': 1.0}\n    0.8392   = Validation score   (accuracy)\n    0.06s    = Training   runtime\n    0.0s     = Validation runtime\nAutoGluon training complete, total runtime = 12.18s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 65629.2 rows/s (143 batch size)\nDisabling decision threshold calibration for metric `accuracy` due to having fewer than 10000 rows of validation data for calibration, to avoid overfitting (143 rows).\n    `accuracy` is generally not improved through threshold calibration. Force calibration via specifying `calibrate_decision_threshold=True`.\nTabularPredictor saved. To load, use: predictor = TabularPredictor.load(\"/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124336\")\n\n\n&lt;autogluon.tabular.predictor.predictor.TabularPredictor at 0x730eeca5fbd0&gt;\n\n\nWhat makes this step powerful is its simplicity.\nYou don’t need to perform any manual preprocessing — AutoGluon automatically detects categorical variables and applies one-hot encoding or other suitable transformations for you.\nMoreover, you don’t even need to drop potentially problematic columns like “Name” or “Ticket” — AutoGluon handles them gracefully without breaking the model. It’s incredibly convenient.\nRunning this single line of code is essentially equivalent to performing multiple rounds of model.fit(...) using different algorithms, hyperparameter settings, and preprocessing strategies — all done automatically.\nIt’s like launching an entire machine learning pipeline with just one command."
+  },
+  {
+    "objectID": "posts/A2.html#automl-6",
+    "href": "posts/A2.html#automl-6",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nLet’s take a look at the model leaderboard results:\n\npredictor.leaderboard()\n\n\n\n\n\n\n\n\nmodel\nscore_val\neval_metric\npred_time_val\nfit_time\npred_time_val_marginal\nfit_time_marginal\nstack_level\ncan_infer\nfit_order\n\n\n\n\n0\nLightGBMXT\n0.839161\naccuracy\n0.001683\n0.361428\n0.001683\n0.361428\n1\nTrue\n3\n\n\n1\nWeightedEnsemble_L2\n0.839161\naccuracy\n0.002179\n0.426323\n0.000496\n0.064895\n2\nTrue\n14\n\n\n2\nLightGBM\n0.832168\naccuracy\n0.001752\n0.196912\n0.001752\n0.196912\n1\nTrue\n4\n\n\n3\nNeuralNetTorch\n0.832168\naccuracy\n0.008308\n3.860216\n0.008308\n3.860216\n1\nTrue\n12\n\n\n4\nXGBoost\n0.825175\naccuracy\n0.003324\n0.246637\n0.003324\n0.246637\n1\nTrue\n11\n\n\n5\nLightGBMLarge\n0.818182\naccuracy\n0.001849\n0.476456\n0.001849\n0.476456\n1\nTrue\n13\n\n\n6\nCatBoost\n0.818182\naccuracy\n0.002558\n0.542075\n0.002558\n0.542075\n1\nTrue\n7\n\n\n7\nExtraTreesEntr\n0.818182\naccuracy\n0.209955\n0.583069\n0.209955\n0.583069\n1\nTrue\n9\n\n\n8\nNeuralNetFastAI\n0.811189\naccuracy\n0.009792\n0.916195\n0.009792\n0.916195\n1\nTrue\n10\n\n\n9\nExtraTreesGini\n0.804196\naccuracy\n0.105650\n0.625215\n0.105650\n0.625215\n1\nTrue\n8\n\n\n10\nRandomForestGini\n0.797203\naccuracy\n0.035587\n0.703275\n0.035587\n0.703275\n1\nTrue\n5\n\n\n11\nRandomForestEntr\n0.797203\naccuracy\n0.036217\n0.389625\n0.036217\n0.389625\n1\nTrue\n6\n\n\n12\nKNeighborsDist\n0.594406\naccuracy\n0.002013\n0.006331\n0.002013\n0.006331\n1\nTrue\n2\n\n\n13\nKNeighborsUnif\n0.587413\naccuracy\n0.019140\n2.423033\n0.019140\n2.423033\n1\nTrue\n1"
+  },
+  {
+    "objectID": "posts/A2.html#automl-7",
+    "href": "posts/A2.html#automl-7",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nAt the top of the leaderboard, we see models like:\n\nLightGBMXT, LightGBM, XGBoost, CatBoost, LightGBMLarge, ExtraTreesEntr, ExtraTreesGini, RandomForestEntr, RandomForestGini\n\nThese are all tree-based models — an evolution of decision tree algorithms. They combine multiple decision trees to improve prediction performance and reduce overfitting. In the domain of tabular data, tree-based models (especially gradient boosting methods) are widely regarded as the state-of-the-art (SOTA). They:\n\nHandle missing values and mixed data types well\nCapture non-linear patterns without requiring complex preprocessing\nOften outperform deep learning models on structured datasets\n\nThat’s why we consistently see tree-based models dominating AutoML leaderboards — they are fast, accurate, and robust for most practical applications in tabular data analysis."
+  },
+  {
+    "objectID": "posts/A2.html#automl-8",
+    "href": "posts/A2.html#automl-8",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nNow let’s check the final prediction result:\n\n(y_test == predictor.predict(df_test)).mean()\n\n0.804469\n\n\nEven though we didn’t perform any manual preprocessing on the variables, AutoGluon ran without errors and produced a respectable accuracy of 0.804469.\nThat’s a strong result — especially considering the minimal effort required."
+  },
+  {
+    "objectID": "posts/A2.html#automl-9",
+    "href": "posts/A2.html#automl-9",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nThis time, we apply a bit of preprocessing by removing a few variables. We simply exclude PassengerId, Ticket, and Cabin, and retrain the model.\n\ndf_train_preprocessed = df_train.drop(['PassengerId','Ticket','Cabin'],axis=1)\ndf_test_preprocessed = df_test.drop(['PassengerId','Ticket','Cabin'],axis=1)\npredictor = TabularPredictor(\"Survived\")\npredictor.fit(df_train_preprocessed)\nyhat_test = predictor.predict(df_test_preprocessed)\n(y_test == yhat_test).mean()\n\nNo path specified. Models will be saved in: \"AutogluonModels/ag-20251103_124350\"\nVerbosity: 2 (Standard Logging)\n=================== System Info ===================\nAutoGluon Version:  1.3.1\nPython Version:     3.11.13\nOperating System:   Linux\nPlatform Machine:   x86_64\nPlatform Version:   #33~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19 17:02:30 UTC 2\nCPU Count:          16\nMemory Avail:       119.91 GB / 125.71 GB (95.4%)\nDisk Space Avail:   201.26 GB / 457.38 GB (44.0%)\n===================================================\nNo presets specified! To achieve strong results with AutoGluon, it is recommended to use the available presets. Defaulting to `'medium'`...\n    Recommended Presets (For more details refer to https://auto.gluon.ai/stable/tutorials/tabular/tabular-essentials.html#presets):\n    presets='experimental' : New in v1.2: Pre-trained foundation model + parallel fits. The absolute best accuracy without consideration for inference speed. Does not support GPU.\n    presets='best'         : Maximize accuracy. Recommended for most users. Use in competitions and benchmarks.\n    presets='high'         : Strong accuracy with fast inference speed.\n    presets='good'         : Good accuracy with very fast inference speed.\n    presets='medium'       : Fast training time, ideal for initial prototyping.\nBeginning AutoGluon training ...\nAutoGluon will save models to \"/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124350\"\nTrain Data Rows:    712\nTrain Data Columns: 8\nLabel Column:       Survived\nAutoGluon infers your prediction problem is: 'binary' (because only two unique label-values observed).\n    2 unique label values:  [np.int64(0), np.int64(1)]\n    If 'binary' is not the correct problem_type, please manually specify the problem_type parameter during Predictor init (You may specify problem_type as one of: ['binary', 'multiclass', 'regression', 'quantile'])\nProblem Type:       binary\nPreprocessing data ...\nSelected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0\nUsing Feature Generators to preprocess the data ...\nFitting AutoMLPipelineFeatureGenerator...\n    Available Memory:                    122785.18 MB\n    Train Data (Original)  Memory Usage: 0.17 MB (0.0% of available memory)\n    Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.\n    Stage 1 Generators:\n        Fitting AsTypeFeatureGenerator...\n            Note: Converting 1 features to boolean dtype as they only contain 2 unique values.\n    Stage 2 Generators:\n        Fitting FillNaFeatureGenerator...\n    Stage 3 Generators:\n        Fitting IdentityFeatureGenerator...\n        Fitting CategoryFeatureGenerator...\n            Fitting CategoryMemoryMinimizeFeatureGenerator...\n        Fitting TextSpecialFeatureGenerator...\n            Fitting BinnedFeatureGenerator...\n            Fitting DropDuplicatesFeatureGenerator...\n        Fitting TextNgramFeatureGenerator...\n            Fitting CountVectorizer for text features: ['Name']\n            CountVectorizer fit with vocabulary size = 7\n    Stage 4 Generators:\n        Fitting DropUniqueFeatureGenerator...\n    Stage 5 Generators:\n        Fitting DropDuplicatesFeatureGenerator...\n    Types of features in original data (raw dtype, special dtypes):\n        ('float', [])        : 2 | ['Age', 'Fare']\n        ('int', [])          : 3 | ['Pclass', 'SibSp', 'Parch']\n        ('object', [])       : 2 | ['Sex', 'Embarked']\n        ('object', ['text']) : 1 | ['Name']\n    Types of features in processed data (raw dtype, special dtypes):\n        ('category', [])                    : 1 | ['Embarked']\n        ('float', [])                       : 2 | ['Age', 'Fare']\n        ('int', [])                         : 3 | ['Pclass', 'SibSp', 'Parch']\n        ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]\n        ('int', ['bool'])                   : 1 | ['Sex']\n        ('int', ['text_ngram'])             : 8 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]\n    0.1s = Fit runtime\n    8 features in original data used to generate 24 features in processed data.\n    Train Data (Processed) Memory Usage: 0.05 MB (0.0% of available memory)\nData preprocessing and feature engineering runtime = 0.13s ...\nAutoGluon will gauge predictive performance using evaluation metric: 'accuracy'\n    To change this, specify the eval_metric parameter of Predictor()\nAutomatically generating train/validation split with holdout_frac=0.2, Train Rows: 569, Val Rows: 143\nUser-specified model hyperparameters to be fit:\n{\n    'NN_TORCH': [{}],\n    'GBM': [{'extra_trees': True, 'ag_args': {'name_suffix': 'XT'}}, {}, {'learning_rate': 0.03, 'num_leaves': 128, 'feature_fraction': 0.9, 'min_data_in_leaf': 3, 'ag_args': {'name_suffix': 'Large', 'priority': 0, 'hyperparameter_tune_kwargs': None}}],\n    'CAT': [{}],\n    'XGB': [{}],\n    'FASTAI': [{}],\n    'RF': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],\n    'XT': [{'criterion': 'gini', 'ag_args': {'name_suffix': 'Gini', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'entropy', 'ag_args': {'name_suffix': 'Entr', 'problem_types': ['binary', 'multiclass']}}, {'criterion': 'squared_error', 'ag_args': {'name_suffix': 'MSE', 'problem_types': ['regression', 'quantile']}}],\n    'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],\n}\nFitting 13 L1 models, fit_strategy=\"sequential\" ...\nFitting model: KNeighborsUnif ...\n    0.6643   = Validation score   (accuracy)\n    0.01s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: KNeighborsDist ...\n    0.6364   = Validation score   (accuracy)\n    0.01s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: LightGBMXT ...\n    0.8182   = Validation score   (accuracy)\n    0.22s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: LightGBM ...\n    0.8462   = Validation score   (accuracy)\n    0.23s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: RandomForestGini ...\n    0.8042   = Validation score   (accuracy)\n    0.87s    = Training   runtime\n    0.15s    = Validation runtime\nFitting model: RandomForestEntr ...\n    0.8042   = Validation score   (accuracy)\n    0.42s    = Training   runtime\n    0.16s    = Validation runtime\nFitting model: CatBoost ...\n    0.8252   = Validation score   (accuracy)\n    0.31s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: ExtraTreesGini ...\n    0.8042   = Validation score   (accuracy)\n    0.96s    = Training   runtime\n    0.2s     = Validation runtime\nFitting model: ExtraTreesEntr ...\n    0.8042   = Validation score   (accuracy)\n    0.41s    = Training   runtime\n    0.22s    = Validation runtime\nFitting model: NeuralNetFastAI ...\nNo improvement since epoch 8: early stopping\n    0.8392   = Validation score   (accuracy)\n    0.39s    = Training   runtime\n    0.01s    = Validation runtime\nFitting model: XGBoost ...\n    0.8252   = Validation score   (accuracy)\n    0.11s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: NeuralNetTorch ...\n    0.8182   = Validation score   (accuracy)\n    1.31s    = Training   runtime\n    0.01s    = Validation runtime\nFitting model: LightGBMLarge ...\n    0.8112   = Validation score   (accuracy)\n    0.46s    = Training   runtime\n    0.0s     = Validation runtime\nFitting model: WeightedEnsemble_L2 ...\n    Ensemble Weights: {'LightGBM': 1.0}\n    0.8462   = Validation score   (accuracy)\n    0.07s    = Training   runtime\n    0.0s     = Validation runtime\nAutoGluon training complete, total runtime = 6.93s ... Best model: WeightedEnsemble_L2 | Estimated inference throughput: 78127.6 rows/s (143 batch size)\nDisabling decision threshold calibration for metric `accuracy` due to having fewer than 10000 rows of validation data for calibration, to avoid overfitting (143 rows).\n    `accuracy` is generally not improved through threshold calibration. Force calibration via specifying `calibrate_decision_threshold=True`.\nTabularPredictor saved. To load, use: predictor = TabularPredictor.load(\"/home/cgb2/Dropbox/07-sld/2025-07-13-농진청/AutogluonModels/ag-20251103_124350\")\n\n\n0.810056\n\n\nThe result is 0.810056. This is the best performance among all the models we’ve used so far. Even with the removal of just a few columns, we observe a noticeable improvement in predictive performance."
+  },
+  {
+    "objectID": "posts/A2.html#automl-10",
+    "href": "posts/A2.html#automl-10",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nHas anyone here wondered something like this?\n\n“Why didn’t we drop the ‘Name’ column? Was it just a mistake?”\n\nActually, it wasn’t a mistake at all.\nDo you remember the final scene of the movie Titanic? When Rose is asked for her name, she replies with a different last name. That moment isn’t just about identity—it’s a statement of her choices and transformation. In the same way, a person’s name in data isn’t just a label. It often carries hidden signals about age, gender, and social status."
+  },
+  {
+    "objectID": "posts/A2.html#automl-11",
+    "href": "posts/A2.html#automl-11",
+    "title": "A2 - AI 기반 데이터 사이언스",
+    "section": "AutoML",
+    "text": "AutoML\nAutoGluon understands this. It doesn’t treat the Name column as a meaningless string. Instead, without any manual feature engineering, it applies simple natural language processing techniques under the hood to extract valuable features.\nFor example, look at the following:\n\ndf_test[:5]\n\n\n\n\n\n\n\n\nPassengerId\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n709\n710\n3\nMoubarek, Master. Halim Gonios (\"William George\")\nmale\nNaN\n1\n1\n2661\n15.2458\nNaN\nC\n\n\n439\n440\n2\nKvillner, Mr. Johan Henrik Johannesson\nmale\n31.0\n0\n0\nC.A. 18723\n10.5000\nNaN\nS\n\n\n840\n841\n3\nAlhomaki, Mr. Ilmari Rudolf\nmale\n20.0\n0\n0\nSOTON/O2 3101287\n7.9250\nNaN\nS\n\n\n720\n721\n2\nHarper, Miss. Annie Jessie \"Nina\"\nfemale\n6.0\n0\n1\n248727\n33.0000\nNaN\nS\n\n\n39\n40\n3\nNicola-Yarred, Miss. Jamila\nfemale\n14.0\n1\n0\n2651\n11.2417\nNaN\nC\n\n\n\n\n\n\n\nWhen I saw the first observation, I predicted that the passenger would survive. Why? Because their name contained the word “Master”, which usually refers to young boys—typically under the age of 10. And as we know, young children had a much higher chance of survival."
   },
   {
     "objectID": "posts/01wk-2.html#footnotes",
@@ -68,6 +628,111 @@
     "title": "08wk-2: 가능도 (2) – 확률변수와 분포",
     "section": "Footnotes",
     "text": "Footnotes\n\n\n반면 특정한 숫자만을 이용하여 \\(P\\)를 알 수 없다면 \\(X \\sim P\\) 라고만 간단히 표현하면 된다. 이러한 경우는 비모수적 모델링(nonparametric modeling)이라고 부른다.↩︎"
+  },
+  {
+    "objectID": "posts/A1.html",
+    "href": "posts/A1.html",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "Figure: Hidden Figures, An incredible & inspiring untold true story about three women at NASA who were instrumental in one of history’s greatest operations – the launch of astronaut John Glenn into orbit. [1]\n\n\n\n영화리뷰: https://www.youtube.com/watch?v=6EFhm1mONX8\n\n\n\nFigure: 히든피겨스에 달린 댓글들\n\n\n\n\n\n\n\n\n\nFigure: 주판 (이미지출처: 구글 제미나이)\n\n\n\n\n전설의 암산왕: https://www.youtube.com/watch?v=RQnn_vOwmNU\n1950년 6·25 전쟁 이후 국가 정책 차원에서 주산 교육이 상업교육 과정에 도입되었으며, 1960년대에는 초등학교로까지 확대 보급되었다. 이 시기에는 7급부터 1급까지의 주산 급수 제도가 운영되었고, 교육부와 대한상공회의소가 주관하는 주산능력검정시험이 시행되면서 주산의 위상은 더욱 강화되었다. 그러나 1980년대 후반 전자계산기가 빠르게 보급되면서 주산 교육은 급속히 쇠퇴하였다. 결국 1991년에는 주산능력검정시험마저 폐지되었고, 이후 7차 교육과정부터는 수학 교과서에서 주산 교육이 완전히 사라지게 되었다. [2]\n\n\n\n\n\n\n\n\n\n\n\n\n\n구분\n기술 등장 전 인재 정의\n기술 등장 후 인재 정의\n\n\n\n\n수학\n계산을 정확하고 빠르게 하는 사람\n계산도구(=컴퓨터)를 활용한 문제해결과 응용에 강한 사람\n\n\n프로그래밍\n코드를 직접 작성하고 디버깅할 수 있는 사람\nAI를 활용해 아이디어를 빠르게 구현·검증하고 창의적 문제 해결에 집중하는 사람1\n\n\n\n\n새로운 기술은 인재의 기준을 바꾼다. 계산기의 등장은 암산 능력을 최고라 여기던 시대를 끝냈다.\nGPT의 등장은 코더에게 어떤 의미일까?\n\n\n\n\n\n\n\n\nFigure: 우리는 왼쪽으로 가야하는가? 아니면 오른쪽으로 가야하는가? (이미지출처: 구글 제미나이)"
+  },
+  {
+    "objectID": "posts/A1.html#hidden-figures",
+    "href": "posts/A1.html#hidden-figures",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "Figure: Hidden Figures, An incredible & inspiring untold true story about three women at NASA who were instrumental in one of history’s greatest operations – the launch of astronaut John Glenn into orbit. [1]\n\n\n\n영화리뷰: https://www.youtube.com/watch?v=6EFhm1mONX8\n\n\n\nFigure: 히든피겨스에 달린 댓글들"
+  },
+  {
+    "objectID": "posts/A1.html#주산",
+    "href": "posts/A1.html#주산",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "Figure: 주판 (이미지출처: 구글 제미나이)\n\n\n\n\n전설의 암산왕: https://www.youtube.com/watch?v=RQnn_vOwmNU\n1950년 6·25 전쟁 이후 국가 정책 차원에서 주산 교육이 상업교육 과정에 도입되었으며, 1960년대에는 초등학교로까지 확대 보급되었다. 이 시기에는 7급부터 1급까지의 주산 급수 제도가 운영되었고, 교육부와 대한상공회의소가 주관하는 주산능력검정시험이 시행되면서 주산의 위상은 더욱 강화되었다. 그러나 1980년대 후반 전자계산기가 빠르게 보급되면서 주산 교육은 급속히 쇠퇴하였다. 결국 1991년에는 주산능력검정시험마저 폐지되었고, 이후 7차 교육과정부터는 수학 교과서에서 주산 교육이 완전히 사라지게 되었다. [2]"
+  },
+  {
+    "objectID": "posts/A1.html#기술은-인재의-기준을-바꾼다",
+    "href": "posts/A1.html#기술은-인재의-기준을-바꾼다",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "구분\n기술 등장 전 인재 정의\n기술 등장 후 인재 정의\n\n\n\n\n수학\n계산을 정확하고 빠르게 하는 사람\n계산도구(=컴퓨터)를 활용한 문제해결과 응용에 강한 사람\n\n\n프로그래밍\n코드를 직접 작성하고 디버깅할 수 있는 사람\nAI를 활용해 아이디어를 빠르게 구현·검증하고 창의적 문제 해결에 집중하는 사람1\n\n\n\n\n새로운 기술은 인재의 기준을 바꾼다. 계산기의 등장은 암산 능력을 최고라 여기던 시대를 끝냈다.\nGPT의 등장은 코더에게 어떤 의미일까?"
+  },
+  {
+    "objectID": "posts/A1.html#코딩공부를-꼭-해야할까",
+    "href": "posts/A1.html#코딩공부를-꼭-해야할까",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "Figure: 우리는 왼쪽으로 가야하는가? 아니면 오른쪽으로 가야하는가? (이미지출처: 구글 제미나이)"
+  },
+  {
+    "objectID": "posts/A1.html#생성형-ai-혁명-타임라인",
+    "href": "posts/A1.html#생성형-ai-혁명-타임라인",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "생성형 AI 혁명 타임라인",
+    "text": "생성형 AI 혁명 타임라인\n2022년: 혁명의 시작\n\n2022년 11월\n\nChatGPT 출시\n\n2022년 12월\n\nPerplexity 출시\n\n인용 정보를 제공 [3]\n\n\n\n\n2023년: 경쟁과 다양화\n\n2023년 2월\n\nGoogle Bard 발표 [4]\n\nChatGPT 대항마로 발표\n오류로 주가 급락 [5], [6]\n\n\n2023년 3월\n\nGPT-4 출시 [7]\n\n멀티모달 능력 (텍스트+이미지) 첫 도입\n\nClaude 1.0 출시 [8]\nCursor AI 출시 [9]\n\nVS Code 기반 AI 코딩 어시스턴트\n\n\n\n\n\n2023년 7월\n\nDeepSeek 설립 [10]\n\n중국 항저우, High-Flyer 헤지펀드가 창립\n\nClaude 2 출시 [8]\n\n2023년 12월\n\nGoogle Gemini 1.0 발표 [11]\n\n\n\n2024년: 멀티모달과 도구의 폭발\n\n2024년 2월\n\nOpenAI Sora 데모 공개 [12]\n\n2024년 3월\n\nGoogle Gemini 1.5 Pro 발표 [13]\nClaude 3 (Opus, Sonnet, Haiku) 출시 [8]\n\n2024년 5월\n\nGPT-4o 출시 [14]\n\n텍스트 + 이미지 + 비디오 지원\n\n\n2024년 6월\n\nClaude 3.5 Sonnet + Artifacts 출시 [8]\n\n\n\n\n2024년 7월\n\nSearchGPT (ChatGPT Search) [15]\n\n이제 ChatGPT 역시 RAG 도입!\n\n\n2024년 9월\n\nOpenAI o1 추론 모델 출시 [16]\n\n“생각하는 AI”, 수학에서 PhD 수준\n\n\n2024년 11월\n\nWindsurf 출시 (Cursor AI와 경쟁) [17]\nMCP 출시 (Anthropic이 오픈소스로 공개) [18]\n\nAI 시스템과 외부 데이터 소스 연결의 표준 프로토콜\n“AI의 USB-C” - 통합 인터페이스로 N×M 통합 문제 해결\nClaude Desktop에서 첫 지원, Google Drive, Slack, GitHub 등 서버 제공\n\n\n\n\n2025년: 에이전트 시대와 글로벌 경쟁\n\n2025년 1월\n\nDeepSeek-R1 출시 - “AI의 스푸트니크 순간” [19]\n\n600만 달러로 OpenAI o1과 동등 성능 달성 [20] [21]\n앱이 며칠 만에 ChatGPT 제치고 미국 App Store 1위\nMIT 라이선스 완전 오픈소스, API 96% 저렴 [22]\nNvidia 주가 18% 급락, 미국 빅테크 동반 하락 [23]\n\n\n\n\n\n2025년 2월\n\nNotebookLM 출시 [24]\n\n문서를 팟캐스트로 변환, 대학생들에게 인기 [25]\n\nClaude 3.7 Sonnet + Claude Code 연구 프리뷰 [26]\n바이브코딩(Vibe Coding 용어 등장) [27]\n\nAI와의 직관적이고 대화형 협업 방식을 지창하는 개념 최초 제시\n전통적 코딩에서 자연어 기반 창작으로의 패러다임 전환 정의\n세간에서 꽤나 화제를 모으며 개발자 커뮤니티 전반에 확산\n\n\n\n\n\n2025년 5월\n\nClaude Code 정식 출시 [28]\n\n터미널 기반 AI 에이전트 프로그래밍\n에이전트형 코딩의 시대 본격화\n\n\n2025년 7월\n\nGoogle Gemini CLI 출시 [29]\n\n에이전트형 코딩 진영 강화: 자율적 다단계 작업 수행\nGoogle의 Claude Code 대항마\n\nPerplexity Comet 브라우저 출시 [30]\n\n\n\n주관적으로 정리해본 주요 사건\n\n2022.11: ChatGPT로 생성형 AI 대중화 시작\n2022.12: Perplexity, RAG 기술 활용\n2023.02: Google Bard 발표\n2024.09: o1 추론 모델 출시\n2024.11: MCP의 등장\n2025.01: DeepSeek-R1 출시\n2025.02: “바이브코딩” 등장 (카파시)\n2025.05: 클로드코드 출시\n2025.07: GeminiCLI 출시\n\n\n주요 경쟁 구도\n\n모델: OpenAI (ChatGPT) vs Anthropic (Claude) vs Google (Gemini)\n개발도구: Cursor vs Windsurf vs Claude Code vs Gemini CLI"
+  },
+  {
+    "objectID": "posts/A1.html#주요개념---rag",
+    "href": "posts/A1.html#주요개념---rag",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "주요개념 - RAG",
+    "text": "주요개념 - RAG\n\nRetrieval-Augmented Generation, 줄여서 RAG는 AI 언어 모델이 외부 지식 기반을 참조하여 답변을 생성하는 구조\n전통적인 LLM은 학습된 데이터만을 기반으로 응답하지만 RAG는 (1) 질의에 관련된 정보를 외부 문서나 데이터베이스에서 가져오고 (2) 검색된 정보를 바탕으로 답변을 생성.\n효과: 정확도 향상 (외부사실에 기반하므로 환각문제 최소화), 최신성 확보 (학습 이후 업데이트된 정보도 실시간 반영가능), 특정분야 대응성 강화 (기업문서나 전문 도메인자료를 응답에 활용할 수 있음.)\n\n\n\n\n\n\n\n\n\n구분\n내용\n\n\n\n\nRAG 이전\n- 모델은 학습된 파라미터 안에서만 답변 가능- 최신 정보 반영 어려움 - 특정 도메인 전문 지식 부족- “죄송하지만 2021년 9월 이후의 데이터는 모릅니다.”라는 한계\n\n\nRAG 이후\n- “내가 올린 문서에서 관련 부분 찾아 요약해줘”→ 벡터DB에서 검색 후 LLM이 결합해 답변- “최신 논문 내용을 반영해 설명해줘”→ 외부 지식베이스 + 모델 결합으로 최신성 확보- “우리 회사 데이터 기준으로 리포트 작성해줘”→ 사내 문서/DB 연동해 맞춤형 응답 생성\n\n\n\n\n\n\n\nFigure: 바이브코딩이 탄생한 첫 트윗 [31]"
+  },
+  {
+    "objectID": "posts/A1.html#주요개념---바이브코딩",
+    "href": "posts/A1.html#주요개념---바이브코딩",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "주요개념 - 바이브코딩",
+    "text": "주요개념 - 바이브코딩\n\nAndrej Karpathy가 2025년 2월에 대중화한 인공 지능 지원 소프트웨어 개발 기술\n개발자가 프로젝트나 작업을 대규모 언어 모델 (LLM)에 설명하면, LLM은 프롬프트 를 기반으로 코드를 생성\n개발자는 코드를 검토하거나 수정하지 않고, 도구와 실행 결과만을 사용하여 코드를 평가하고 LLM에 개선 사항을 요청\n바이브 코딩 옹호자들은 이를 통해 아마추어 프로그래머 조차도 소프트웨어 엔지니어링에 필요한 광범위한 교육과 기술 없이 소프트웨어를 생산할 수 있다고 말함 Examples\nhttps://www.youtube.com/shorts/cOM_iR1wsQ8\nhttps://www.youtube.com/shorts/CFvpagumlv0"
+  },
+  {
+    "objectID": "posts/A1.html#주요개념---mcp",
+    "href": "posts/A1.html#주요개념---mcp",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "주요개념 - MCP",
+    "text": "주요개념 - MCP\n\nModel Context Protocol (MCP)은 AI 어시스턴트가 외부 데이터 소스와 도구에 안전하고 통제된 방식으로 접근할 수 있도록 하는 개방형 표준 프로토콜을 의미.\nMCP는 AI 모델과 외부 시스템 간의 표준화된 인터페이스를 제공. 이를 통해 AI는 파일 시스템, 데이터베이스, 웹 API, 비즈니스 시스템 등 다양한 컨텍스트 소스에 접근할 수 있음.\n\nExamples\nhttps://www.youtube.com/shorts/XPACEy2JlOk\n\n\n\n\n\n\n\n\n구분\n내용\n\n\n\n\nMCP 이전\n- ChatGPT: “저는 당신의 이메일을 볼 수 없어서…”- Claude: “제가 당신의 캘린더에 접근할 수 없어서…”- Gemini: “죄송하지만 개인 파일은 확인할 수 없습니다…”\n\n\nMCP 이후\n- “지난 3개월간 가장 중요했던 이메일 10개 요약해줘”→ Gmail MCP 서버가 실제 이메일 데이터 분석- “내일 회의 준비를 위해 관련 문서들 정리해줘”→ Calendar + Drive + Slack MCP가 연동되어 완벽한 브리핑 생성- “이번 프로젝트 진행상황을 팀에게 보고서로 만들어줘”→ Jira + GitHub + 내 작업 로그를 종합한 자동 리포트"
+  },
+  {
+    "objectID": "posts/A1.html#주요개념---agentic-coding",
+    "href": "posts/A1.html#주요개념---agentic-coding",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "주요개념 - Agentic Coding",
+    "text": "주요개념 - Agentic Coding\n\n에이전틱 코딩은 AI 에이전트가 자율적으로 코딩 작업을 수행하는 패러다임. 단순히 코드 생성을 넘어서, 계획 수립부터 실행, 테스트, 디버깅까지 전체 개발 과정을 AI가 주도적으로 처리.\nChatCPT에게는 답을 물어볼 수 있고, Claude Code에게는 일을 시킬 수 있다.\n\n\n\n\n\nFigure: 바이브코딩과 에이전틱 코딩의 차이점 [32]"
+  },
+  {
+    "objectID": "posts/A1.html#오른쪽-길을-마치며",
+    "href": "posts/A1.html#오른쪽-길을-마치며",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "오른쪽 길을 마치며",
+    "text": "오른쪽 길을 마치며\n\n가장 인기 있는 새로운 프로그래밍 언어는 영어 (Andrej Karpathy)"
+  },
+  {
+    "objectID": "posts/A1.html#바이브코딩에-대한-비판",
+    "href": "posts/A1.html#바이브코딩에-대한-비판",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "바이브코딩에 대한 비판",
+    "text": "바이브코딩에 대한 비판\n\nProgrammer Simon Willison said:\n\n\n“If an LLM wrote every line of your code, but you’ve reviewed, tested, and understood it all, that’s not vibe coding in my book—that’s using an LLM as a typing assistant.”\n\n\n저의 생각: 좀 과하지 않나?\n\n\nExamples\n\nhttps://www.youtube.com/shorts/NXIIqHXWsTk\nhttps://www.youtube.com/shorts/KzewB6tX8p8"
+  },
+  {
+    "objectID": "posts/A1.html#francis-geng의-연구",
+    "href": "posts/A1.html#francis-geng의-연구",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "Francis Geng의 연구",
+    "text": "Francis Geng의 연구\n\nFrancis Geng 연구팀은 “바이브 코딩(Vibe Coding)”이라는 새로운 프로그래밍 워크플로우에서 학생들이 AI 도구와 어떻게 상호작용하는지, 그리고 이러한 상호작용이 프로그래밍 경험 수준에 따라 어떻게 다른지 조사하였음 [33]\n실험설계: 연구에는 북미 연구 중심 대학의 두 컴퓨터 과학 강좌에서 모집된 총 19명의 학생이 참여했음: 초급 프로그래밍(CS1) 과정 학생 9명과 고급 소프트웨어 공학(SWE) 과정 학생 10명. 모든 참가자는 브라우저 기반 AI 통합 IDE인 Replit 플랫폼을 사용하여 개인 예산 관리 웹 애플리케이션을 구축하는 개방형 과제를 수행.\n\n\n발견1: 학생들은 대부분의 시간을 AI가 만든 프로토타입을 테스트하는데 사용함.\n\n\n\nFigure: 학생들의 사용시간을 시각화한 도넛 차트\n\n\n\n\n학생들이 가장 많이 한 활동은 프로토타입 상호작용임. (64%) 즉, “내가 만든 앱이 제대로 돌아가는가?” 확인하는데 쓰였음.\n두번째로 많이 한 행동은 프롬프트 작성 (21%):\n\n심지어 프롬프트를 작성한 이유 중 가장 많은것은 새기능 요청이 아니라 디버깅 요청임 (61%)2\n\n실제 코드를 짜거나 들여다보고 고치는데 쓴 시간은 거의 없었음. (7%)\n\n이마저도 90.37%는 단순 코드 해석에 투자하였으며,\n직접적인 코드 수정은 9.63%에 불과했음.3\n\n\n\n발견2: 초보자와 숙력자의 차이 (프로프트 작성 능력의 차이) \n\n\n왼쪽길을 지지하는 사람들의 의견\n\nAI시대 코딩에 필요한 역량을 요약하면 아래와 같음:\n\n테스트 & 디버깅\n풍부한 맥락의 프롬프팅: 기술적 정확성으로 문제를 설명하는 능력\n코드 이해력: AI 결과물을 이해하는 기술\n\n쉽게 말하면, 코딩 할 줄 알아야 한다는 의미."
+  },
+  {
+    "objectID": "posts/A1.html#footnotes",
+    "href": "posts/A1.html#footnotes",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n이라고 하는데 사실 저도 잘 모르겠습니다↩︎\n결국 AI를 이용하여, AI가 만든 버그를 고치는 일을 하는것에 더 많은 시간을 쓰는 셈, 한마디로 바이브코딩이 아니라 바이브디버깅↩︎\n당연한 이야기이긴한데, 바이브코딩 환경이 학습자와 코드를 멀어지게 만드는 효과가 있음↩︎"
+  },
+  {
+    "objectID": "posts/A1.html#references",
+    "href": "posts/A1.html#references",
+    "title": "A1 - Chat GPT를 이용한 파이썬 실무",
+    "section": "",
+    "text": "Reference\n\n\n\n\n[1] “Hidden figures.” https://www.disneyplus.com/en-kr/browse/entity-bd9d3f07-aefe-4e45-b421-ad2a745c3bb0; Disney+, 2017.\n\n\n[2] 김정옥 and 김영옥, “주산의 역사와 우리나라 학교 주산교육 동향,” East Asian Mathematical Journal, vol. 33, no. 4, pp. 453–465, 2017.\n\n\n[3] “Perplexity ask: A game-changing search tool powered by AI.” https://towardsai.net/p/l/perplexity-ask-a-game-changing-search-tool-powered-by-ai.\n\n\n[4] “Google introduces bard, an AI chatbot.” https://www.nytimes.com/2023/02/06/technology/google-bard-ai-chatbot.html.\n\n\n[5] “구글 AI챗봇 ‘바드’ 오답에 시총 126조원 증발.” https://www.seoul.co.kr/news/international/2023/02/10/20230210021001.\n\n\n[6] “자존심 구긴 구글…새로 내놓은 챗봇AI 기대 못 미쳐 주가 폭락.” https://www.chosun.com/economy/tech_it/2023/02/09/MWRHL6L67READLOMI2HWOVDRPA/.\n\n\n[7] “GPT-4.” https://en.wikipedia.org/wiki/GPT-4.\n\n\n[8] “Claude (language model).” https://en.wikipedia.org/wiki/Claude_(language_model).\n\n\n[9] “How cursor serves billions of AI code completions every day.” https://blog.bytebytego.com/p/how-cursor-serves-billions-of-ai.\n\n\n[10] “DeepSeek.” https://en.wikipedia.org/wiki/DeepSeek.\n\n\n[11] CNN, “Google launches gemini, its most-advanced AI model yet, as it races to compete with ChatGPT.”\n\n\n[12] RetroFuturista, “OpenAI unveils sora: A revolutionary AI that transforms text into video.” https://retrofuturista.com/openai-sora/.\n\n\n[13] Google DeepMind, “Gemini 2.5: Our newest gemini model with thinking.” https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/.\n\n\n[14] “GPT-4o.” https://en.wikipedia.org/wiki/GPT-4o.\n\n\n[15] “ChatGPT search.” https://en.wikipedia.org/wiki/ChatGPT_Search.\n\n\n[16] “OpenAI o1.” https://en.wikipedia.org/wiki/OpenAI_o1.\n\n\n[17] “Codeium introduces the windsurf editor, enabling developers to work with ‘AI flows’.” https://www.webwire.com/ViewPressRel.asp?aId=329485.\n\n\n[18] Anthropic, “Model context protocol (MCP) open-source release.” https://www.anthropic.com/news/model-context-protocol.\n\n\n[19] V. capitalist Marc Andreessen / Fortune, “Marc andreessen warns DeepSeek is ‘AI’s sputnik moment’,” Fortune, Jan. 2025.\n\n\n[20] D. Guo et al., “Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning,” arXiv preprint arXiv:2501.12948, 2025.\n\n\n[21] DeepSeek, “DeepSeek-R1 (hugging face model hub).” https://huggingface.co/deepseek-ai/DeepSeek-R1.\n\n\n[22] K. Wiggers, “DeepSeek claims its ’reasoning’ model beats OpenAI’s o1 on certain benchmarks,” TechCrunch, Jan. 2025.\n\n\n[23] J. S. / Markets Insider, “Tech stock sell-off: Nvidia, microsoft, others hit by DeepSeek debut,” Markets Insider (Business Insider), Jan. 2025.\n\n\n[24] “NotebookLM.” https://en.wikipedia.org/wiki/NotebookLM.\n\n\n[25] 김민정, “‘챗GPT, 거짓말해서 안 써요’ 대학생 쓰는 ‘노트북LM’ 뭐길래.” 중앙일보 (요약 제공 via ZUM News), Jun. 10, 2025.\n\n\n[26] Anthropic, “Claude code research preview.” https://www.anthropic.com/news/claude-3-7-sonnet.\n\n\n[27] “Vibe coding.” https://en.wikipedia.org/wiki/Vibe_coding.\n\n\n[28] Anthropic, “Claude code: Deep coding at terminal velocity.” https://www.anthropic.com/claude-code.\n\n\n[29] “Google’s gemini CLI: What is it and why it matters?” Science Insight.\n\n\n[30] P. Team, “Introducing comet: Browse at the speed of thought.” https://www.perplexity.ai/hub/blog/introducing-comet.\n\n\n[31] J. 이종원 (Lee, “이종원의 디자인 인사이트.” https://idesignexp.com/main, 2025.\n\n\n[32] R. Sapkota, K. I. Roumeliotis, and M. Karkee, “Vibe coding vs. Agentic coding: Fundamentals and practical implications of agentic ai,” arXiv preprint arXiv:2505.19443, 2025.\n\n\n[33] F. Geng et al., “Exploring student-AI interactions in vibe coding,” arXiv preprint arXiv:2507.22614, 2025."
   },
   {
     "objectID": "posts/hw01.html",
