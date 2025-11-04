@@ -351,15 +351,15 @@ window.Quarto = {
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0 1
+[1] 1 1
 [1] 0 0
+[1] 0 0
+[1] 0 0
+[1] 1 0
+[1] 1 0
 [1] 0 1
-[1] 1 1
 [1] 1 0
-[1] 1 1
-[1] 1 0
-[1] 1 1
-[1] 1 0
-[1] 1 0</code></pre>
+[1] 0 1</code></pre>
 </div>
 </div>
 <hr>
@@ -473,20 +473,103 @@ window.Quarto = {
 <p>사실 “<span class="math inline">\(\theta=0.5\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.25\)</span>”라는 표현은 정확하긴 하지만 길고 복잡하다. 그래서 적당한 용어 <code>OOO</code>를 정의해서</p>
 <ul>
 <li><span class="math inline">\(\theta=0.5\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.25\)</span>이고</li>
-<li><span class="math inline">\(\theta=0.5\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.25\)</span>이고</li>
+<li><span class="math inline">\(\theta=0.1\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.09\)</span>이고</li>
 </ul>
 <p>와 같이 표현하고 싶다. 여기에서 <code>OOO</code>에 해당하는 용어가 “가능도(likelihood)”이다. 가능도의 일반적인 정의는 아래와 같다.</p>
-<p><code>정의1</code> –</p>
-<p>가능도 <span class="math inline">\(L(\theta|x)\)</span>는 관측된 데이터 <span class="math inline">\(x\)</span>가 주어졌을 때, 모수 <span class="math inline">\(\theta\)</span>의 그럴듯한 정도를 수치화 한 것으로, 다음과 같이 정의된다:</p>
+<p><code>정의1</code> – 가능도와 가능도함수</p>
+<p>가능도 <span class="math inline">\(L(\theta|x)\)</span>는 관측된 데이터 <span class="math inline">\(x\)</span>가 주어졌을 때, 모수 <span class="math inline">\(\theta\)</span>의 그럴듯한 정도를 수치화 하여 측정한 것으로, 다음과 같이 정의된다:</p>
 <ul>
 <li>이산형 확률변수: <span class="math inline">\(L(\theta|x) = P(X=x|\theta)\)</span></li>
 <li>연속형 확률변수: <span class="math inline">\(L(\theta|x) = f_X(x|\theta)\)</span></li>
 </ul>
+<p>여기에서 <span class="math inline">\(L(\theta|x)\)</span>는 간단히 <span class="math inline">\(L(\theta)\)</span>라고 표현하기도 하며 이를 <span class="math inline">\(\theta\)</span>에 대한 가능도함수라고 한다.</p>
+<hr>
+<p>가능도라는 용어에 익숙해지기 위해서 아래의 문제를 풀어보자.</p>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 라고 하자.</p>
+<ol type="1">
+<li><span class="math inline">\(L(0.5 | x_1=0, x_2=1)=???\)</span></li>
+<li><span class="math inline">\(L(0.3 | x_1=0, x_2=1)=???\)</span></li>
+<li><span class="math inline">\(L(0.5 | x_1+x_2=1)=???\)</span></li>
+<li><span class="math inline">\(L(0.5 | \bar{x}=0.5)=???\)</span></li>
+<li><span class="math inline">\(L(0.5 | \bar{x}=0.4)=???\)</span></li>
+<li><span class="math inline">\(L(0.5 | \bar{x}=0)=???\)</span></li>
+<li><span class="math inline">\(L(\theta | \bar{x}=0.5)=???\)</span></li>
+<li><span class="math inline">\(L(\theta | \bar{x}=0.4)=???\)</span></li>
+<li><span class="math inline">\(L(\theta | \bar{x}=0)=???\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="가능도와-확률의-차이" class="level3">
+<h3 class="anchored" data-anchor-id="가능도와-확률의-차이">가능도와 확률의 차이</h3>
+<ol type="1">
+<li>총합이 1이라는 보장이 없다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>서로소인 집합 <span class="math inline">\(A,B\)</span>에 대한 확률의 공리 <span class="math display">\[P(A \cup B)=P(A)+P(B)\]</span>가 성립하지 않는다. (가능도는 점 단위로만 정의가능하다)</li>
+</ol>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 에서 관측치 <span class="math inline">\(x_1=0, x_2=1\)</span>을 얻었다고 하자. 아래와 같은 표현은 불가능하다.</p>
+<ul>
+<li><span class="math inline">\(L(\theta \in \{0.5, 0.49\}) = L(0.5) + L(0.49)\)</span></li>
+<li><span class="math inline">\(L(\theta \in [0,1]) &gt; L(0.5)\)</span></li>
+<li><span class="math inline">\(L(\theta &lt; 0) = 0\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="그-예제들" class="level3">
+<h3 class="anchored" data-anchor-id="그-예제들">그 예제들</h3>
+<p><code>08wk-1 예제</code> – 아래를 관찰하자.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10wk-1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>그림2: 3000개의 점으로 구성된 산점도</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>다음 중 그림을 아래와 같이 묘사했다고 하자. (<span class="math inline">\(\sigma_x=\sigma_y=1\)</span>로 알려져있다고 가정하자.)</p>
+<ol type="1">
+<li><span class="math inline">\(x\)</span>축의 평균은 2이다.</li>
+<li><span class="math inline">\(y\)</span>축의 평균은 3이다.</li>
+<li>평균은 <span class="math inline">\((2,3)\)</span>이다.</li>
+<li>평균은 어딘가에 있다. 즉 평균은 <span class="math inline">\((x_0,y_0)\)</span> 인데 <span class="math inline">\(x_0 \in \mathbb{R}, y_0 \in \mathbb{R}\)</span>.</li>
+</ol>
+<p>이는 아래와 같이 서술한것과 같다.</p>
+<ol type="1">
+<li><span class="math inline">\(L(\mu_x=2,\mu_y \in \mathbb{R})\)</span></li>
+<li><span class="math inline">\(L(\mu_x\in \mathbb{R} ,\mu_y=3)\)</span></li>
+<li><span class="math inline">\(L(\mu_x=2,\mu_y=3)\)</span></li>
+<li><span class="math inline">\(L(\mu_x\in \mathbb{R} ,\mu_y \in \mathbb{R})\)</span></li>
+</ol>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="math inline">\(\int L(\theta|x) d\theta \neq 1\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
