@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4316db4c1240a31b308baee98bed705c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -144,6 +209,278 @@
 </section>
 <section class="slide level2">
 
+<h3>강의영상</h3>
+</section>
+<section class="slide level2">
+
+<h3>복습: 피셔의 문제의식</h3>
+<p>피셔는 1922년 그의 논문 “On the Mathematical Foundations of Theoretical Statistics”에서 혼란이 발생하는 원인을 아래와 같이 주장하였다.</p>
+<ol type="1">
+<li>용어가 불분명해서 그렇다. (즉 순전히 언어적인 혼란이다)</li>
+<li>“확률”이라는 개념을 너무 남발해서 그렇다. (역확률)</li>
+</ol>
+</section>
+<section class="slide level2">
+
+<h3>확률과 가능도</h3>
+<p><code># 예제1</code></p>
+<p>앞면이 나오는 확률을 알 수 없는 동전을 2번 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<ul>
+<li><span class="math inline">\(x_1=0\)</span></li>
+<li><span class="math inline">\(x_2=1\)</span></li>
+</ul>
+<p>앞면이 나오는 확률이 0.5였다고 생각하는 것이 타당한가? 아니면 앞면이 나오는 확률이 0.1이었다고 생각하는 것이 타당한가?</p>
+</section>
+<section class="slide level2">
+
+<p>(풀이)</p>
+<p><span class="math inline">\(x_1=0,x_2=1\)</span>는 <span class="math inline">\(Ber(\theta)\)</span>에서 얻은 실현치라고 가정하자. 만약에 <span class="math inline">\(\theta=0.5\)</span>였다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.25</code></pre>
+</div>
+</div>
+<p>만약에 <span class="math inline">\(\theta=0.1\)</span>이었다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fl">0.9</span><span class="sc">*</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.09</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(0.25&gt;0.09\)</span> 이므로 <span class="math inline">\(\theta=0.5\)</span>라고 생각하는 것이 더 타당해보인다.</p>
+<blockquote>
+<p>질문: <span class="math inline">\(0.25\)</span>를 <span class="math inline">\(\theta=0.5\)</span>일 확률, <span class="math inline">\(0.09\)</span>를 <span class="math inline">\(\theta=0.1\)</span>일 확률로 해석하는건 어떨까? 타당한 용어일까?</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>퀴즈</strong></p>
+</div>
+<div class="callout-content">
+<p><code>1</code>. <span class="math inline">\(x_1=0\)</span>, <span class="math inline">\(x_2=1\)</span>은 진실세계의 정보인가? 아니면 데이터세계의 정보인가?</p>
+<p><code>2</code>. <span class="math inline">\(\bar{x}=\frac{x_1+x_2}{2}=0.5\)</span>를 표현할 수 있는 용어는 (1) 표본평균 (2) 모평균 (3) 평균</p>
+<p><code>3</code>. 문제를 보고 <span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span>를 떠올렸다. 이러한 과정을 무엇이라고 하는가?</p>
+<p><code>4</code>. <span class="math inline">\(\theta\)</span>를 표현할 수 있는 용어는? (a) 모평균 (b) 표본평균 (c) 평균 (d) 모수</p>
+<p><code>5</code>. <span class="math inline">\(x_1,x_2\)</span>의 값을 바탕으로 <span class="math inline">\(\theta\)</span>의 구체적인 값을 산정하는 과정을 무엇이라고 하나? (a) 추정 (b) 모수추정 (c) 모평균의 추정</p>
+</div>
+</div>
+</div>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제2</code> – 예제1과 같은상황</p>
+<p>앞면이 나오는 확률을 알 수 없는 동전을 2번 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<ul>
+<li><span class="math inline">\(x_1=0\)</span></li>
+<li><span class="math inline">\(x_2=1\)</span></li>
+</ul>
+<p>아래와 같은 용어가 성립가능할까?</p>
+<ul>
+<li><span class="math inline">\(P(\theta=0.5)=0.5 \times 0.5 = 0.25\)</span></li>
+<li><span class="math inline">\(P(\theta=0.1)=0.1 \times 0.9 = 0.09\)</span></li>
+</ul>
+<p><code>(풀이1)</code></p>
+<p>성립한다고 치자. 그렇다면 아래와 같은 확률들도 정의할 수 있어야 한다.</p>
+<ul>
+<li><span class="math inline">\(P(\theta=0.51)\)</span>, <span class="math inline">\(P(\theta=0.52)\)</span>, <span class="math inline">\(P(\theta=0.53)\)</span>, <span class="math inline">\(P(\theta=0.54)\)</span>, <span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(P(\theta=0.49)\)</span>, <span class="math inline">\(P(\theta=0.48)\)</span>, <span class="math inline">\(P(\theta=0.47)\)</span>, <span class="math inline">\(P(\theta=0.46)\)</span>, <span class="math inline">\(\dots\)</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(<span class="fl">0.51</span><span class="sc">*</span><span class="fl">0.49</span>); <span class="fu">print</span>(<span class="fl">0.52</span><span class="sc">*</span><span class="fl">0.48</span>); <span class="fu">print</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span>); <span class="fu">print</span>(<span class="fl">0.54</span><span class="sc">*</span><span class="fl">0.46</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2499</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2496</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2491</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2484</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">print</span>(<span class="fl">0.49</span><span class="sc">*</span><span class="fl">0.51</span>); <span class="fu">print</span>(<span class="fl">0.48</span><span class="sc">*</span><span class="fl">0.52</span>); <span class="fu">print</span>(<span class="fl">0.47</span><span class="sc">*</span><span class="fl">0.53</span>); <span class="fu">print</span>(<span class="fl">0.46</span><span class="sc">*</span><span class="fl">0.54</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2499</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2496</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2491</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2484</code></pre>
+</div>
+</div>
+<p>저 위의 숫자들을 모두 더하면 아래와 같음.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(<span class="fl">0.2499</span> <span class="sc">+</span> <span class="fl">0.2496</span> <span class="sc">+</span> <span class="fl">0.2491</span> <span class="sc">+</span> <span class="fl">0.2484</span>)<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.994</code></pre>
+</div>
+</div>
+<p>1이 넘네? (모순)</p>
+</section>
+<section class="slide level2">
+
+<p><code>(피셔의생각1)</code></p>
+<p>진실의 세계에서 데이터의 세계로 넘어갈때만 “확률”이라는 개념이 적용된다. 즉 확률은 반드시 아래와 같은 개념으로만 사용되어야 한다.</p>
+<p><span class="math display">\[\text{진실의 세계} \overset{P}{\Longrightarrow} \text{데이터의 세계}\]</span></p>
+<p>즉 우리는 <span class="math inline">\(\theta=0.5\)</span>를 고정한뒤</p>
+<p><span class="math display">\[P(X_1=x_1, X_2=x_2)=P(X_1=0, X_2=1)=0.25\]</span></p>
+<p>라고 쓰는 것은 허용할 수 있지만 <span class="math inline">\(x_1=0, x_2=1\)</span>을 고정한 뒤</p>
+<p><span class="math display">\[P(\theta=0.5)=0.25\]</span></p>
+<p>라고 쓰는 건 용납불가능하다.</p>
+</section>
+<section class="slide level2">
+
+<p><code>(피셔의생각2)</code></p>
+<p>확률은 반복가능한 대상에 대해서만 적용가능하다. 왜냐하면 확률은 상대빈도의 극한이기 때문이다. 예를들어 <span class="math inline">\(x_1, x_2\)</span>은 반복적으로 관찰가능한 대상이므로 <span class="math display">\[P(X_1=x_1, X_2=x_2)\]</span>와 같은 표현은 성립한다. 예를들어 <span class="math inline">\(P(X_1=0, X_2=1)=0.25\)</span>라는 의미는 아래와 같은 관측을 많이하면 대충 <span class="math inline">\(x_1=0, x_2=1\)</span>이 나올 상대빈도가 <span class="math inline">\(0.25\)</span>정도 된다는 뜻이다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
+<span id="cb17-2"><a></a>  <span class="fu">print</span>(<span class="fu">rbinom</span>(<span class="dv">2</span>, <span class="dv">1</span>,<span class="fl">0.5</span>))</span>
+<span id="cb17-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0
+[1] 0 0
+[1] 0 0
+[1] 0 0
+[1] 1 0
+[1] 1 1
+[1] 0 1
+[1] 0 1
+[1] 1 0
+[1] 0 0</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>그렇디만 <span class="math inline">\(P(\theta=0.5)=0.25\)</span>는 다르다. 이는 상대빈도의 극한으로 해석할 수 없다. <span class="math inline">\(\theta=0.5\)</span>는 추정해야할 대상이지 (진실공간의 정보이지) 반복관측가능한 대상이 아니다 (데이터공간의 정보가 아니다).</p>
+<blockquote>
+<p>빈도주의: 확률은 상대빈도의 극한으로 해석할 때 의미가 있다. <span class="math inline">\((\star\star\star)\)</span></p>
+</blockquote>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<h3>Notation: <span class="math inline">\(P(X=x | \theta=\theta_0), f(x|\theta=\theta_0)\)</span></h3>
+<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(0.5)\)</span> 일때 <span class="math inline">\(P(X_1=x_1,X_2=x_2)\)</span>는 좀 더 명확하게 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[P(X_1=x_1, X_2=x_2 | \theta= 0.5)\]</span></p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>원래 <span class="math inline">\(P\)</span>가 <span class="math inline">\(\theta\)</span>에 의존함을 강조하고 싶을때는 “<span class="math inline">\(P\)</span>” 대신에 “<span class="math inline">\(P_{\theta}\)</span>”와 같이 쓰기도 한다고 했잖아요? 그 연장선에서</p>
+<ol type="1">
+<li><span class="math inline">\(P(X_1=0, X_2=1)\)</span></li>
+<li><span class="math inline">\(P_{\theta}(X_1=0, X_2=1)\)</span></li>
+</ol>
+<p>와 같은 표현은 사실 혼용해서 사용합니다. 만약에 <span class="math inline">\(\theta=0.5\)</span>일 경우는 1은 그대로 <span class="math inline">\(P(X_1=0, X_2=1)\)</span>로 쓰면되지만 2의 경우는 <span class="math inline">\(P_{0.5}(X_1=0,X_2=1)\)</span>와 같이 쓰기 좀 어색하죠? 그래서 아래와 같이 사용합니다.</p>
+<ul>
+<li><span class="math inline">\(P_{\theta}(X_1=0, X_2=1)\)</span>. 단, <span class="math inline">\(\theta=0.5\)</span>.</li>
+<li><span class="math inline">\(P(X_1=0, X_2=1 | \theta = 0.5)\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>이를 좀 더 일반화하면 아래와 같은 기호약속을 할 수 있다.</p>
+<p><code># 약속1</code> – <span class="math inline">\(X \sim P_{\theta}\)</span> 일때 <span class="math inline">\(P(X=x|\theta=\theta_0)\)</span>은 모수가 <span class="math inline">\(\theta_0\)</span> 라고 가정하였을 경우 관측치 <span class="math inline">\(X=x\)</span>를 얻을 확률을 의미한다.</p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math inline">\(X_1,X_2  \overset{iid}{\sim} Ber(\theta)\)</span> 라고 할때 아래를 풀어보자.</p>
+<ol type="1">
+<li><span class="math inline">\(P(X_1=0 ~|~ \theta=0.1)\)</span></li>
+<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.2)\)</span></li>
+<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.3)\)</span></li>
+<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.4)\)</span></li>
+<li><span class="math inline">\(P(X_1=1,X_2=0 ~|~ \theta=0.4)\)</span></li>
+<li><span class="math inline">\(P(X_1+X_2=0 ~|~ \theta=0.5)\)</span></li>
+<li><span class="math inline">\(P(X_1+X_2\geq 0 ~|~ \theta=0.5)\)</span></li>
+<li><span class="math inline">\(P(\max(X_1,X_2)=1 ~|~ \theta=0.5)\)</span></li>
+<li><span class="math inline">\(P(\bar{X}=\frac{1}{2} ~|~ \theta=0.5)\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code># 약속2</code> – 연속확률변수 <span class="math inline">\(X\)</span>의 확률밀도함수가 <span class="math inline">\(f_X\)</span>라고 하자. <span class="math inline">\(f_X(x|\theta=\theta_0)\)</span>이라는 의미는 모수가 <span class="math inline">\(\theta_0\)</span>이라고 가정하였을 경우 <span class="math inline">\(x\)</span>에서의 확률밀도함수값을 의미한다.</p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span> 라고 할때 아래를 풀어보자. (힌트: 정규분포의 pdf는 <span class="math inline">\(f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span>임.)</p>
+<ol type="1">
+<li><span class="math inline">\(f_X(0 | \mu=0, \sigma=1)\)</span></li>
+<li><span class="math inline">\(f_X(0 | \mu=1, \sigma=1)\)</span></li>
+<li><span class="math inline">\(f_X(0 | \mu=0, \sigma=2)\)</span></li>
+</ol>
+<p><code>(풀이)</code></p>
+<p>손으로는 못푸니까 계산기를 이용합시다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># 1번</span></span>
+<span id="cb19-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3989423</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># 2번</span></span>
+<span id="cb21-2"><a></a>mu<span class="ot">=</span><span class="dv">1</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2419707</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># 3번</span></span>
+<span id="cb23-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">2</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1994711</code></pre>
+</div>
+</div>
+<p>Note: 1-2, 1-3간의 크기비교는 계산기를 가지고 있지 않아도 할 수 있습니다.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3>가능도</h3>
+<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 에서 관측한 관측치가 <span class="math inline">\(x_1=0, x_2=1\)</span> 이라고 하자.</p>
+<ul>
+<li><span class="math inline">\(\theta=0.5\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.25\)</span>이고</li>
+<li><span class="math inline">\(\theta=0.1\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.09\)</span>이다.</li>
+</ul>
+<p>그렇지만 이것이</p>
+<ul>
+<li><span class="math inline">\(\theta=0.5\)</span>일 확률이 <span class="math inline">\(0.25\)</span>이고</li>
+<li><span class="math inline">\(\theta=0.1\)</span>일 확률이 <span class="math inline">\(0.09\)</span>이라는</li>
+</ul>
+<p>의미는 아니다.</p>
+</section>
+<section class="slide level2">
+
+<p>사실 “<span class="math inline">\(\theta=0.5\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.25\)</span>”라는 표현은 정확하긴 하지만 길고 복잡하다. 그래서 적당한 용어 <code>OOO</code>를 정의해서</p>
+<ul>
+<li><span class="math inline">\(\theta=0.5\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.25\)</span>이고</li>
+<li><span class="math inline">\(\theta=0.5\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.25\)</span>이고</li>
+</ul>
+<p>와 같이 표현하고 싶다. 여기에서 <code>OOO</code>에 해당하는 용어가 “가능도(likelihood)”이다. 가능도의 일반적인 정의는 아래와 같다.</p>
+<p><code>정의1</code> –</p>
+<p>가능도 <span class="math inline">\(L(\theta|x)\)</span>는 관측된 데이터 <span class="math inline">\(x\)</span>가 주어졌을 때, 모수 <span class="math inline">\(\theta\)</span>의 그럴듯한 정도를 수치화 한 것으로, 다음과 같이 정의된다:</p>
+<ul>
+<li>이산형 확률변수: <span class="math inline">\(L(\theta|x) = P(X=x|\theta)\)</span></li>
+<li>연속형 확률변수: <span class="math inline">\(L(\theta|x) = f_X(x|\theta)\)</span></li>
+</ul>
 
 
 </section>
@@ -364,6 +701,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
