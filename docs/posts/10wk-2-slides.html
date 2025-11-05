@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="최규빈">
-  <meta name="dcterms.date" content="2025-11-04">
-  <title>IAB-BS2025 – 10wk-1: 가능도 (3) – 확률과 가능도</title>
+  <meta name="dcterms.date" content="2025-11-06">
+  <title>IAB-BS2025 – 10wk-2: 가능도 (4) – 최대가능도추정1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,7 +195,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">10wk-1: 가능도 (3) – 확률과 가능도</h1>
+  <h1 class="title">10wk-2: 가능도 (4) – 최대가능도추정1</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -205,353 +205,419 @@
 </div>
 </div>
 
-  <p class="date">2025-11-04</p>
+  <p class="date">2025-11-06</p>
 </section>
 <section class="slide level2">
 
 <h3>강의영상</h3>
-<iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-yPBZNdfaf3ywYJQoY9VzBQ&amp;si=g1Gl-3Jj_po2Tx1d" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section>
 <section class="slide level2">
 
-<h3>복습: 피셔의 문제의식</h3>
-<p>피셔는 1922년 그의 논문 “On the Mathematical Foundations of Theoretical Statistics”에서 혼란이 발생하는 원인을 아래와 같이 주장하였다.</p>
-<ol type="1">
-<li>용어가 불분명해서 그렇다. (즉 순전히 언어적인 혼란이다)</li>
-<li>“확률”이라는 개념을 너무 남발해서 그렇다. (역확률)</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3>확률과 가능도</h3>
-<p><code># 예제1</code></p>
-<p>앞면이 나오는 확률을 알 수 없는 동전을 2번 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<h3>의문: 가능도라는 건 그냥 말장난 아닌가?</h3>
+<p><strong>일견 그렇게 보일 수 있는 이유</strong></p>
 <ul>
-<li><span class="math inline">\(x_1=0\)</span></li>
-<li><span class="math inline">\(x_2=1\)</span></li>
+<li>Fisher의 1922년 논문은 개념적으로 단순해 보임</li>
+<li>확률과 가능도의 구분이 수식적으로는 동일해 보임</li>
+<li>단지 관점의 차이로만 보일 수 있음</li>
 </ul>
-<p>앞면이 나오는 확률이 0.5였다고 생각하는 것이 타당한가? 아니면 앞면이 나오는 확률이 0.1이었다고 생각하는 것이 타당한가?</p>
 </section>
 <section class="slide level2">
 
-<p>(풀이)</p>
-<p><span class="math inline">\(x_1=0,x_2=1\)</span>는 <span class="math inline">\(Ber(\theta)\)</span>에서 얻은 실현치라고 가정하자. 만약에 <span class="math inline">\(\theta=0.5\)</span>였다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
+<p><strong>하지만 이는 중요한 패러다임의 전환이다</strong></p>
+<ul>
+<li>수학적 엄밀성: 가능도는 관측된 데이터를 고정하고 모수 공간에서의 함수로 취급함으로써, 추정 문제를 최적화 문제로 명확히 정식화</li>
+<li>일관된 추론 체계: 최대가능도추정(MLE)은 큰 표본에서 일치성(consistency), 점근적 정규성(asymptotic normality), 효율성(efficiency) 등의 바람직한 통계적 성질을 갖춘다</li>
+<li>실용적 유용성: 복잡한 모형(회귀분석, GLM, 시계열, 생존분석 등)에서 일관되게 적용 가능한 추정 원리를 제공</li>
+<li>현대 통계학의 기초: 가능도 원리는 베이지안 추론, 정보이론, 모형선택(AIC, BIC) 등 현대 통계학의 핵심 개념들의 토대가 됨</li>
+</ul>
+<p>단순히 “말장난”이 아니라, 통계적 추론을 위한 강력하고 범용적인 수학적 프레임워크를 제공한 것이 Fisher의 공헌이다.</p>
+</section>
+<section class="slide level2">
+
+<h3>최대가능도 추정</h3>
+<p><code># 예제1</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
+</ul>
+<p>이때 가능도함수는 아래와 같이 정의된다.</p>
+<p><span class="math display">\[L(\theta|data) = \mathbb{P}(data|\theta)\]</span></p>
+<ul>
+<li>만약에 <span class="math inline">\(\theta=0.1\)</span> 이었다면 가능도는 <span class="math inline">\(L(\theta|data) = 0.9^5 \times 0.1^5\)</span> 이다.</li>
+<li>만약에 <span class="math inline">\(\theta=\star\)</span> 이었다면 가능도는 <span class="math inline">\(L(\theta|data) = (1-\star)^5 \times \star^5\)</span>와 같이 계산될 것이다.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>따라서 가능도함수 <span class="math inline">\(L(\theta)=L(\theta|data)\)</span>는 아래와 일반화 할 수 있다.</p>
+<p><span class="math display">\[L(\theta) = (1-\theta)^5 \theta^5\]</span></p>
+<p>몇개의 점에서 가능도함수값을 계산하면 아래와 같다.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
+<th style="text-align: center;">0.1</th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.3</th>
+<th style="text-align: center;">0.4</th>
+<th style="text-align: center;">0.5</th>
+<th style="text-align: center;">0.6</th>
+<th style="text-align: center;">0.7</th>
+<th style="text-align: center;">0.8</th>
+<th style="text-align: center;">0.9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(L(\theta)\)</span></td>
+<td style="text-align: center;">0.0001</td>
+<td style="text-align: center;">0.0003</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0082</td>
+<td style="text-align: center;">0.0098</td>
+<td style="text-align: center;">0.0082</td>
+<td style="text-align: center;">0.0010</td>
+<td style="text-align: center;">0.0003</td>
+<td style="text-align: center;">0.0001</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>(<span class="math inline">\(\theta=0.1\)</span> vs <span class="math inline">\(\theta=0.2\)</span>): 어떠한 사람의 주장이 더 그럴듯하게 들리는가?</li>
+<li>(<span class="math inline">\(\theta=0.2\)</span> vs <span class="math inline">\(\theta=0.5\)</span>): 어떠한 사람의 주장이 더 그럴듯하게 들리는가?</li>
+<li><span class="math inline">\(\theta=0.5\)</span> 라고 주장하는 사람을 이길 수 있는 사람이 있을까?</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>더 많은 가능도함수 값을 조사하여 그림을 그려보자.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.25</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>theta <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span><span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb1-2"><a></a>likelihood <span class="ot">=</span> (<span class="dv">1</span><span class="sc">-</span>theta)<span class="sc">^</span><span class="dv">5</span> <span class="sc">*</span> theta<span class="sc">^</span><span class="dv">5</span></span>
+<span id="cb1-3"><a></a><span class="fu">plot</span>(theta,likelihood)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
-</div>
-<p>만약에 <span class="math inline">\(\theta=0.1\)</span>이었다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fl">0.9</span><span class="sc">*</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09</code></pre>
-</div>
-</div>
-<p><span class="math inline">\(0.25&gt;0.09\)</span> 이므로 <span class="math inline">\(\theta=0.5\)</span>라고 생각하는 것이 더 타당해보인다.</p>
-<blockquote>
-<p>질문: <span class="math inline">\(0.25\)</span>를 <span class="math inline">\(\theta=0.5\)</span>일 확률, <span class="math inline">\(0.09\)</span>를 <span class="math inline">\(\theta=0.1\)</span>일 확률로 해석하는건 어떨까? 타당한 용어일까?</p>
-</blockquote>
+<img data-src="10wk-2_files/figure-revealjs/unnamed-chunk-1-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림1: 예제1의 <span class="math inline">\(L(\theta)\)</span>를 나타내는 산점도. 육안으로 파악하였을 경우는 대충 <span class="math inline">\(\theta=0.5\)</span> 근처에서 최대값을 가지는 것 처럼 보인다.</p></section>
+<section class="slide level2">
+
+<p>결론: 동전을 던져서 결과가 아래와 같이 나왔다면</p>
+<ul>
+<li>data = (0, 1, 0, 0, 1, 1, 1, 0, 1, 0)</li>
+</ul>
+<p>동전을 던져서 앞면이 나올 확률은 <span class="math inline">\(\theta=0.5\)</span>라고 추정할 수 있다. 왜냐하면 가능도함수 <span class="math inline">\(L(\theta)\)</span>가 <span class="math inline">\(\theta\)</span>에서 최대값을 가지니까. 따라서 이 문제의 경우 <span class="math inline">\(\theta\)</span>에 대한 추정치는 <span class="math inline">\(\hat{\theta}=0.5\)</span>라고 볼 수 있다.</p>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<p><code># 정의</code> – 모수에 대한 추정치는 모수 그 자체 (흔히 <span class="math inline">\(\theta\)</span>로 표기하는)와 구분짓기 위해서 <span class="math inline">\(\hat{\theta}\)</span> 같은 기호로 사용한다. 즉</p>
+<p><span class="math display">\[\hat{\theta} = 0.5 \Leftrightarrow \text{``$\theta=0.5$로 추정''}\]</span></p>
+<p>이다.</p>
 </section>
 <section class="slide level2">
 
 <div class="callout callout-none no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>퀴즈</strong></p>
+<p><strong>의문</strong></p>
 </div>
 <div class="callout-content">
-<p><code>1</code>. <span class="math inline">\(x_1=0\)</span>, <span class="math inline">\(x_2=1\)</span>은 진실세계의 정보인가? 아니면 데이터세계의 정보인가?</p>
-<p><code>2</code>. <span class="math inline">\(\bar{x}=\frac{x_1+x_2}{2}=0.5\)</span>를 표현할 수 있는 용어는 (1) 표본평균 (2) 모평균 (3) 평균</p>
-<p><code>3</code>. 문제를 보고 <span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span>를 떠올렸다. 이러한 과정을 무엇이라고 하는가?</p>
-<p><code>4</code>. <span class="math inline">\(\theta\)</span>를 표현할 수 있는 용어는? (a) 모평균 (b) 표본평균 (c) 평균 (d) 모수</p>
-<p><code>5</code>. <span class="math inline">\(x_1,x_2\)</span>의 값을 바탕으로 <span class="math inline">\(\theta\)</span>의 구체적인 값을 산정하는 과정을 무엇이라고 하나? (a) 추정 (b) 모수추정 (c) 모평균의 추정</p>
+<p>이 예제를 다 살펴보면 사실 이런 의문이 들죠.. 어차피 <span class="math display">\[\bar{x}=\frac{0+1+0+0+1+1+1+0+1+0}{10}=0.5\]</span>니까 당연히 <span class="math inline">\(\theta=0.5\)</span>라고 주장해야 하는것 아니냐고..</p>
 </div>
 </div>
 </div>
-<p><code>#</code></p>
 </section>
 <section class="slide level2">
 
-<p><code># 예제2</code> – 예제1과 같은상황</p>
-<p>앞면이 나오는 확률을 알 수 없는 동전을 2번 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<p><code># 예제2</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 7번 던져서 아래와 같이 나왔다고 하자.</p>
 <ul>
-<li><span class="math inline">\(x_1=0\)</span></li>
-<li><span class="math inline">\(x_2=1\)</span></li>
+<li>data: 0, 1, 0, 0, 1, 1, 1</li>
 </ul>
-<p>아래와 같은 용어가 성립가능할까?</p>
-<ul>
-<li><span class="math inline">\(P(\theta=0.5)=0.5 \times 0.5 = 0.25\)</span></li>
-<li><span class="math inline">\(P(\theta=0.1)=0.1 \times 0.9 = 0.09\)</span></li>
-</ul>
-<p><code>(풀이1)</code></p>
-<p>성립한다고 치자. 그렇다면 아래와 같은 확률들도 정의할 수 있어야 한다.</p>
-<ul>
-<li><span class="math inline">\(P(\theta=0.51)\)</span>, <span class="math inline">\(P(\theta=0.52)\)</span>, <span class="math inline">\(P(\theta=0.53)\)</span>, <span class="math inline">\(P(\theta=0.54)\)</span>, <span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(P(\theta=0.49)\)</span>, <span class="math inline">\(P(\theta=0.48)\)</span>, <span class="math inline">\(P(\theta=0.47)\)</span>, <span class="math inline">\(P(\theta=0.46)\)</span>, <span class="math inline">\(\dots\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(<span class="fl">0.51</span><span class="sc">*</span><span class="fl">0.49</span>); <span class="fu">print</span>(<span class="fl">0.52</span><span class="sc">*</span><span class="fl">0.48</span>); <span class="fu">print</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span>); <span class="fu">print</span>(<span class="fl">0.54</span><span class="sc">*</span><span class="fl">0.46</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2499</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2496</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2491</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2484</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">print</span>(<span class="fl">0.49</span><span class="sc">*</span><span class="fl">0.51</span>); <span class="fu">print</span>(<span class="fl">0.48</span><span class="sc">*</span><span class="fl">0.52</span>); <span class="fu">print</span>(<span class="fl">0.47</span><span class="sc">*</span><span class="fl">0.53</span>); <span class="fu">print</span>(<span class="fl">0.46</span><span class="sc">*</span><span class="fl">0.54</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2499</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2496</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2491</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2484</code></pre>
-</div>
-</div>
-<p>저 위의 숫자들을 모두 더하면 아래와 같음.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(<span class="fl">0.2499</span> <span class="sc">+</span> <span class="fl">0.2496</span> <span class="sc">+</span> <span class="fl">0.2491</span> <span class="sc">+</span> <span class="fl">0.2484</span>)<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.994</code></pre>
-</div>
-</div>
-<p>1이 넘네? (모순)</p>
-</section>
-<section class="slide level2">
-
-<p><code>(피셔의생각1)</code></p>
-<p>진실의 세계에서 데이터의 세계로 넘어갈때만 “확률”이라는 개념이 적용된다. 즉 확률은 반드시 아래와 같은 개념으로만 사용되어야 한다.</p>
-<p><span class="math display">\[\text{진실의 세계} \overset{P}{\Longrightarrow} \text{데이터의 세계}\]</span></p>
-<p>즉 우리는 <span class="math inline">\(\theta=0.5\)</span>를 고정한뒤</p>
-<p><span class="math display">\[P(X_1=x_1, X_2=x_2)=P(X_1=0, X_2=1)=0.25\]</span></p>
-<p>라고 쓰는 것은 허용할 수 있지만 <span class="math inline">\(x_1=0, x_2=1\)</span>을 고정한 뒤</p>
-<p><span class="math display">\[P(\theta=0.5)=0.25\]</span></p>
-<p>라고 쓰는 건 용납불가능하다.</p>
-</section>
-<section class="slide level2">
-
-<p><code>(피셔의생각2)</code></p>
-<p>확률은 반복가능한 대상에 대해서만 적용가능하다. 왜냐하면 확률은 상대빈도의 극한이기 때문이다. 예를들어 <span class="math inline">\(x_1, x_2\)</span>은 반복적으로 관찰가능한 대상이므로 <span class="math display">\[P(X_1=x_1, X_2=x_2)\]</span>와 같은 표현은 성립한다. 예를들어 <span class="math inline">\(P(X_1=0, X_2=1)=0.25\)</span>라는 의미는 아래와 같은 관측을 많이하면 대충 <span class="math inline">\(x_1=0, x_2=1\)</span>이 나올 상대빈도가 <span class="math inline">\(0.25\)</span>정도 된다는 뜻이다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb17-2"><a></a>  <span class="fu">print</span>(<span class="fu">rbinom</span>(<span class="dv">2</span>, <span class="dv">1</span>,<span class="fl">0.5</span>))</span>
-<span id="cb17-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0 1
-[1] 1 0
-[1] 1 0
-[1] 1 0
-[1] 0 0
-[1] 0 1
-[1] 0 0
-[1] 0 0
-[1] 1 0
-[1] 1 0</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>그렇디만 <span class="math inline">\(P(\theta=0.5)=0.25\)</span>는 다르다. 이는 상대빈도의 극한으로 해석할 수 없다. <span class="math inline">\(\theta=0.5\)</span>는 추정해야할 대상이지 (진실공간의 정보이지) 반복관측가능한 대상이 아니다 (데이터공간의 정보가 아니다).</p>
-<blockquote>
-<p>빈도주의: 확률은 상대빈도의 극한으로 해석할 때 의미가 있다. <span class="math inline">\((\star\star\star)\)</span></p>
-</blockquote>
-<p><code>#</code></p>
-</section>
-<section class="slide level2">
-
-<h3>Notation: <span class="math inline">\(P(X=x | \theta=\theta_0), f(x|\theta=\theta_0)\)</span></h3>
-<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(0.5)\)</span> 일때 <span class="math inline">\(P(X_1=x_1,X_2=x_2)\)</span>는 좀 더 명확하게 아래와 같이 쓸 수 있다.</p>
-<p><span class="math display">\[P(X_1=x_1, X_2=x_2 | \theta= 0.5)\]</span></p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>원래 <span class="math inline">\(P\)</span>가 <span class="math inline">\(\theta\)</span>에 의존함을 강조하고 싶을때는 “<span class="math inline">\(P\)</span>” 대신에 “<span class="math inline">\(P_{\theta}\)</span>”와 같이 쓰기도 한다고 했잖아요? 그 연장선에서</p>
-<ol type="1">
-<li><span class="math inline">\(P(X_1=0, X_2=1)\)</span></li>
-<li><span class="math inline">\(P_{\theta}(X_1=0, X_2=1)\)</span></li>
-</ol>
-<p>와 같은 표현은 사실 혼용해서 사용합니다. 만약에 <span class="math inline">\(\theta=0.5\)</span>일 경우는 1은 그대로 <span class="math inline">\(P(X_1=0, X_2=1)\)</span>로 쓰면되지만 2의 경우는 <span class="math inline">\(P_{0.5}(X_1=0,X_2=1)\)</span>와 같이 쓰기 좀 어색하죠? 그래서 아래와 같이 사용합니다.</p>
-<ul>
-<li><span class="math inline">\(P_{\theta}(X_1=0, X_2=1)\)</span>. 단, <span class="math inline">\(\theta=0.5\)</span>.</li>
-<li><span class="math inline">\(P(X_1=0, X_2=1 | \theta = 0.5)\)</span>.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>이를 좀 더 일반화하면 아래와 같은 기호약속을 할 수 있다.</p>
-<p><code># 약속1</code> – <span class="math inline">\(X \sim P_{\theta}\)</span> 일때 <span class="math inline">\(P(X=x|\theta=\theta_0)\)</span>은 모수가 <span class="math inline">\(\theta_0\)</span> 라고 가정하였을 경우 관측치 <span class="math inline">\(X=x\)</span>를 얻을 확률을 의미한다.</p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><span class="math inline">\(X_1,X_2  \overset{iid}{\sim} Ber(\theta)\)</span> 라고 할때 아래를 풀어보자.</p>
-<ol type="1">
-<li><span class="math inline">\(P(X_1=0 ~|~ \theta=0.1)\)</span></li>
-<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.2)\)</span></li>
-<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.3)\)</span></li>
-<li><span class="math inline">\(P(X_1=0,X_2=1 ~|~ \theta=0.4)\)</span></li>
-<li><span class="math inline">\(P(X_1=1,X_2=0 ~|~ \theta=0.4)\)</span></li>
-<li><span class="math inline">\(P(X_1+X_2=0 ~|~ \theta=0.5)\)</span></li>
-<li><span class="math inline">\(P(X_1+X_2\geq 0 ~|~ \theta=0.5)\)</span></li>
-<li><span class="math inline">\(P(\max(X_1,X_2)=1 ~|~ \theta=0.5)\)</span></li>
-<li><span class="math inline">\(P(\bar{X}=\frac{1}{2} ~|~ \theta=0.5)\)</span></li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p><code># 약속2</code> – 연속확률변수 <span class="math inline">\(X\)</span>의 확률밀도함수가 <span class="math inline">\(f_X\)</span>라고 하자. <span class="math inline">\(f_X(x|\theta=\theta_0)\)</span>이라는 의미는 모수가 <span class="math inline">\(\theta_0\)</span>이라고 가정하였을 경우 <span class="math inline">\(x\)</span>에서의 확률밀도함수값을 의미한다.</p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span> 라고 할때 아래를 풀어보자. (힌트: 정규분포의 pdf는 <span class="math inline">\(f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)</span>임.)</p>
-<ol type="1">
-<li><span class="math inline">\(f_X(0 | \mu=0, \sigma=1)\)</span></li>
-<li><span class="math inline">\(f_X(0 | \mu=1, \sigma=1)\)</span></li>
-<li><span class="math inline">\(f_X(0 | \mu=0, \sigma=2)\)</span></li>
-</ol>
+<p>이 경우는 동전을 던져서 앞면이 나올 확률 <span class="math inline">\(\theta\)</span>를 어떻게 추정하는게 맞을까?</p>
 <p><code>(풀이)</code></p>
-<p>손으로는 못푸니까 계산기를 이용합시다.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># 1번</span></span>
-<span id="cb19-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>theta <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span><span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb2-2"><a></a>likelihood <span class="ot">=</span> (<span class="dv">1</span><span class="sc">-</span>theta)<span class="sc">^</span><span class="dv">3</span> <span class="sc">*</span> theta<span class="sc">^</span><span class="dv">4</span></span>
+<span id="cb2-3"><a></a><span class="fu">plot</span>(theta,likelihood)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="10wk-2_files/figure-revealjs/unnamed-chunk-2-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림2: 예제2의 <span class="math inline">\(L(\theta)\)</span>를 나타내는 산점도. 육안으로 파악하였을 경우는 대충 <span class="math inline">\(\theta=0.6\)</span> 근처에서 최대값을 가지는 것 처럼 보인다.</p></section>
+<section class="slide level2">
+
+<p>최대값을 엄밀하게 조사하기 위해서 아래를 구해보자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3989423</code></pre>
+<pre><code>  [1] 9.702990e-09 1.505907e-07 7.392651e-07 2.264924e-06 5.358594e-06
+  [6] 1.076437e-05 1.931261e-05 3.189506e-05 4.944179e-05 7.290000e-05
+ [11] 1.032145e-04 1.413100e-04 1.880750e-04 2.443473e-04 3.109008e-04
+ [16] 3.884345e-04 4.775622e-04 5.788041e-04 6.925792e-04 8.192000e-04
+ [21] 9.588672e-04 1.111667e-03 1.277567e-03 1.456417e-03 1.647949e-03
+ [26] 1.851776e-03 2.067396e-03 2.294191e-03 2.531436e-03 2.778300e-03
+ [31] 3.033850e-03 3.297058e-03 3.566812e-03 3.841913e-03 4.121091e-03
+ [36] 4.403013e-03 4.686283e-03 4.969463e-03 5.251072e-03 5.529600e-03
+ [41] 5.803520e-03 6.071292e-03 6.331380e-03 6.582256e-03 6.822415e-03
+ [46] 7.050381e-03 7.264723e-03 7.464058e-03 7.647066e-03 7.812500e-03
+ [51] 7.959191e-03 8.086062e-03 8.192134e-03 8.276535e-03 8.338507e-03
+ [56] 8.377417e-03 8.392760e-03 8.384166e-03 8.351406e-03 8.294400e-03
+ [61] 8.213214e-03 8.108071e-03 7.979347e-03 7.827578e-03 7.653455e-03
+ [66] 7.457830e-03 7.241708e-03 7.006249e-03 6.752762e-03 6.482700e-03
+ [71] 6.197655e-03 5.899349e-03 5.589626e-03 5.270441e-03 4.943848e-03
+ [76] 4.611987e-03 4.277070e-03 3.941363e-03 3.607167e-03 3.276800e-03
+ [81] 2.952575e-03 2.636774e-03 2.331627e-03 2.039281e-03 1.761771e-03
+ [86] 1.500990e-03 1.258656e-03 1.036274e-03 8.350992e-04 6.561000e-04
+ [91] 4.999115e-04 3.667932e-04 2.565818e-04 1.686418e-04 1.018133e-04
+ [96] 5.435818e-05 2.390291e-05 7.378945e-06 9.605960e-07 0.000000e+00</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># 2번</span></span>
-<span id="cb21-2"><a></a>mu<span class="ot">=</span><span class="dv">1</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">max</span>(likelihood) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2419707</code></pre>
+<pre><code>[1] 0.00839276</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># 3번</span></span>
-<span id="cb23-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">2</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">which.max</span>(likelihood)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1994711</code></pre>
-</div>
-</div>
-<p>Note: 1-2, 1-3간의 크기비교는 계산기를 가지고 있지 않아도 할 수 있습니다.</p>
-</div>
+<pre><code>[1] 57</code></pre>
 </div>
 </div>
 </section>
 <section class="slide level2">
 
-<h3>가능도</h3>
-<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 에서 관측한 관측치가 <span class="math inline">\(x_1=0, x_2=1\)</span> 이라고 하자.</p>
-<ul>
-<li><span class="math inline">\(\theta=0.5\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.25\)</span>이고</li>
-<li><span class="math inline">\(\theta=0.1\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.09\)</span>이다.</li>
-</ul>
-<p>그렇지만 이것이</p>
-<ul>
-<li><span class="math inline">\(\theta=0.5\)</span>일 확률이 <span class="math inline">\(0.25\)</span>이고</li>
-<li><span class="math inline">\(\theta=0.1\)</span>일 확률이 <span class="math inline">\(0.09\)</span>이라는</li>
-</ul>
-<p>의미는 아니다.</p>
+<p><code>likelihood</code>는 여기에서 길이가 100인 벡터이고 (칸이 100개 있는 array), 100개의 값 중에서 최대값은 0.00839276이다. 그리고 최대값은 100칸중 57번째 칸에 위치하여 있다.</p>
+<p>그런데 사실 <code>likelihood</code>는 아래와 같은 <code>theta</code>에 대응하여 구해진 숫자이다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14 0.15
+ [16] 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.30
+ [31] 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.40 0.41 0.42 0.43 0.44 0.45
+ [46] 0.46 0.47 0.48 0.49 0.50 0.51 0.52 0.53 0.54 0.55 0.56 0.57 0.58 0.59 0.60
+ [61] 0.61 0.62 0.63 0.64 0.65 0.66 0.67 0.68 0.69 0.70 0.71 0.72 0.73 0.74 0.75
+ [76] 0.76 0.77 0.78 0.79 0.80 0.81 0.82 0.83 0.84 0.85 0.86 0.87 0.88 0.89 0.90
+ [91] 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1.00</code></pre>
+</div>
+</div>
+<p>따라서 <code>theta=0.57</code>에서 likelihood가 최대화된다고 볼 수 있다. 이 숫자는 우리가 가지는 직관적인 숫자</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="dv">4</span><span class="sc">/</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5714286</code></pre>
+</div>
+</div>
+<p>와 비슷하다.</p>
+<p><code>#</code></p>
 </section>
 <section class="slide level2">
 
-<p>사실 “<span class="math inline">\(\theta=0.5\)</span>라면 이러한 관측치를 얻을 확률이 <span class="math inline">\(0.25\)</span>”라는 표현은 정확하긴 하지만 길고 복잡하다. 그래서 적당한 용어 <code>OOO</code>를 정의해서</p>
-<ul>
-<li><span class="math inline">\(\theta=0.5\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.25\)</span>이고</li>
-<li><span class="math inline">\(\theta=0.1\)</span>일 <code>OOO</code>가 <span class="math inline">\(0.09\)</span>이고</li>
-</ul>
-<p>와 같이 표현하고 싶다. 여기에서 <code>OOO</code>에 해당하는 용어가 “가능도(likelihood)”이다. 가능도의 일반적인 정의는 아래와 같다.</p>
-<p><code>정의1</code> – 가능도와 가능도함수</p>
-<p>가능도 <span class="math inline">\(L(\theta|x)\)</span>는 관측된 데이터 <span class="math inline">\(x\)</span>가 주어졌을 때, 모수 <span class="math inline">\(\theta\)</span>의 그럴듯한 정도를 수치화 하여 측정한 것으로, 다음과 같이 정의된다:</p>
-<ul>
-<li>이산형 확률변수: <span class="math inline">\(L(\theta|x) = P(X=x|\theta)\)</span></li>
-<li>연속형 확률변수: <span class="math inline">\(L(\theta|x) = f_X(x|\theta)\)</span></li>
-</ul>
-<p>여기에서 <span class="math inline">\(L(\theta|x)\)</span>는 간단히 <span class="math inline">\(L(\theta)\)</span>라고 표현하기도 하며 이를 <span class="math inline">\(\theta\)</span>에 대한 가능도함수라고 한다.</p>
+<p><code># 예제3</code></p>
+<p>정규분포에서 아래와 같은 데이터를 관측하였다고 하자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -1.4805676  1.5771695 -0.9567445 -0.9200052 -1.9976421 -0.2722960
+ [7] -0.3153487 -0.6282552 -0.1064639  0.4280148</code></pre>
+</div>
+</div>
+<p>정규분포의 평균과 분산을 추정하라.</p>
+<p><code>(풀이)</code></p>
+<p>정규분포의 pdf는 아래와 같다.</p>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span></p>
 </section>
 <section class="slide level2">
 
-<p>가능도라는 용어에 익숙해지기 위해서 아래의 문제를 풀어보자.</p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 라고 하자.</p>
-<ol type="1">
-<li><span class="math inline">\(L(0.5 | x_1=0, x_2=1)=???\)</span></li>
-<li><span class="math inline">\(L(0.3 | x_1=0, x_2=1)=???\)</span></li>
-<li><span class="math inline">\(L(0.5 | x_1+x_2=1)=???\)</span></li>
-<li><span class="math inline">\(L(0.5 | \bar{x}=0.5)=???\)</span></li>
-<li><span class="math inline">\(L(0.5 | \bar{x}=0.4)=???\)</span></li>
-<li><span class="math inline">\(L(0.5 | \bar{x}=0)=???\)</span></li>
-<li><span class="math inline">\(L(\theta | \bar{x}=0.5)=???\)</span></li>
-<li><span class="math inline">\(L(\theta | \bar{x}=0.4)=???\)</span></li>
-<li><span class="math inline">\(L(\theta | \bar{x}=0)=???\)</span></li>
-</ol>
+<p>가능도함수는 아래와 같이 정의된다. <span class="math display">\[L(\theta|data) = f(data|\theta)\]</span></p>
+<p>여기에서 <span class="math inline">\(\theta = \mu,\sigma^2\)</span> 이므로 가능도함수는 아래와 같이 된다.</p>
+<p><span class="math display">\[L(\mu,\sigma^2|data) = f(data|\mu,\sigma^2)\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><span class="math inline">\(data = (-1.4805676, \dots, 0.4280148)\)</span> 에 대하여 정리하면 아래와 같다.</p>
+<p><span class="math display">\[L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
+<p><span class="math inline">\((\mu, \sigma^2)=(0,1)\)</span>에 대한 가능도함수값은 아래와 같이 계산할 수 있다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.13332324 0.11501758 0.25243070 0.26128504 0.05424603 0.38442326
+ [7] 0.37959099 0.32749226 0.39668776 0.36402349</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">prod</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.786165e-07</code></pre>
 </div>
 </div>
 </section>
 <section class="slide level2">
 
-<h3>가능도와 확률의 차이</h3>
-<ol type="1">
-<li>총합이 1이라는 보장이 없다.<sup>1</sup></li>
-<li>서로소인 집합 <span class="math inline">\(A,B\)</span>에 대한 확률의 공리 <span class="math display">\[P(A \cup B)=P(A)+P(B)\]</span>가 성립하지 않는다. (가능도는 점 단위로만 정의가능하다)</li>
-</ol>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><span class="math inline">\(X_1,X_2 \overset{iid}{\sim} Ber(\theta)\)</span> 에서 관측치 <span class="math inline">\(x_1=0, x_2=1\)</span>을 얻었다고 하자. 아래와 같은 표현은 불가능하다.</p>
-<ul>
-<li><span class="math inline">\(L(\theta \in \{0.5, 0.49\}) = L(0.5) + L(0.49)\)</span></li>
-<li><span class="math inline">\(L(\theta \in [0,1]) &gt; L(0.5)\)</span></li>
-<li><span class="math inline">\(L(\theta &lt; 0) = 0\)</span></li>
-</ul>
-</div>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="math inline">\(\int L(\theta|x) d\theta \neq 1\)</span></p></li></ol></aside></section>
+<p>몇개의 <span class="math inline">\(\mu\)</span>와 몇개의 <span class="math inline">\(\sigma^2\)</span> 에 대한 가능도값을 구하면 아래와 같다.</p>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=0.9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\sigma^2=1.2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.7\)</span></td>
+<td style="text-align: center;">8.0e-07</td>
+<td style="text-align: center;">8.6e-07</td>
+<td style="text-align: center;">8.6e-07</td>
+<td style="text-align: center;">8.2e-07</td>
+<td style="text-align: center;">7.7e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.6\)</span></td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.7e-07</td>
+<td style="text-align: center;">8.9e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.5\)</span></td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.2e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.6e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.4\)</span></td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.1e-06</td>
+<td style="text-align: center;">1.0e-06</td>
+<td style="text-align: center;">9.4e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.3\)</span></td>
+<td style="text-align: center;">9.4e-07</td>
+<td style="text-align: center;">9.9e-07</td>
+<td style="text-align: center;">9.8e-07</td>
+<td style="text-align: center;">9.3e-07</td>
+<td style="text-align: center;">8.5e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.2\)</span></td>
+<td style="text-align: center;">7.1e-07</td>
+<td style="text-align: center;">7.8e-07</td>
+<td style="text-align: center;">7.9e-07</td>
+<td style="text-align: center;">7.6e-07</td>
+<td style="text-align: center;">7.1e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=-0.1\)</span></td>
+<td style="text-align: center;">4.8e-07</td>
+<td style="text-align: center;">5.5e-07</td>
+<td style="text-align: center;">5.7e-07</td>
+<td style="text-align: center;">5.7e-07</td>
+<td style="text-align: center;">5.5e-07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.0\)</span></td>
+<td style="text-align: center;">2.9e-07</td>
+<td style="text-align: center;">3.4e-07</td>
+<td style="text-align: center;">3.8e-07</td>
+<td style="text-align: center;">3.9e-07</td>
+<td style="text-align: center;">3.9e-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu=0.1\)</span></td>
+<td style="text-align: center;">1.5e-07</td>
+<td style="text-align: center;">1.9e-07</td>
+<td style="text-align: center;">2.3e-07</td>
+<td style="text-align: center;">2.4e-07</td>
+<td style="text-align: center;">2.5e-07</td>
+</tr>
+</tbody>
+</table>
+<p>대략적으로 <span class="math inline">\(\sigma^2=0.9\)</span> <span class="math inline">\(\mu=-0.5\)</span> 근처에서 최대값을 가지는 듯 하다.</p>
+</section>
 <section class="slide level2">
 
-<h3>그 예제</h3>
-<p><code>08wk-1 예제</code> – 아래를 관찰하자.</p>
+<p>이를 그림으로 그려보자.</p>
 
-<img data-src="10wk-1_files/figure-revealjs/unnamed-chunk-7-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림2: 3000개의 점으로 구성된 산점도</p></section>
+<img data-src="10wk-2_files/figure-revealjs/unnamed-chunk-9-1.png" width="768" class="r-stretch quarto-figure-center"><p class="caption">그림3: 예제3의 가능도함수 <span class="math inline">\(L(\mu, \sigma^2)\)</span>의 곡면</p></section>
 <section class="slide level2">
 
-<p>다음 중 그림을 아래와 같이 묘사했다고 하자. (<span class="math inline">\(\sigma_x=\sigma_y=1\)</span>로 알려져있다고 가정하자.)</p>
-<ol type="1">
-<li><span class="math inline">\(x\)</span>축의 평균은 2이다.</li>
-<li><span class="math inline">\(y\)</span>축의 평균은 3이다.</li>
-<li>평균은 <span class="math inline">\((2,3)\)</span>이다.</li>
-<li>평균은 어딘가에 있다. 즉 평균은 <span class="math inline">\((x_0,y_0)\)</span> 인데 <span class="math inline">\(x_0 \in \mathbb{R}, y_0 \in \mathbb{R}\)</span>.</li>
-</ol>
-<p>이는 아래와 같이 서술한것과 같다.</p>
-<ol type="1">
-<li><span class="math inline">\(L(\mu_x=2,\mu_y \in \mathbb{R})\)</span></li>
-<li><span class="math inline">\(L(\mu_x\in \mathbb{R} ,\mu_y=3)\)</span></li>
-<li><span class="math inline">\(L(\mu_x=2,\mu_y=3)\)</span></li>
-<li><span class="math inline">\(L(\mu_x\in \mathbb{R} ,\mu_y \in \mathbb{R})\)</span></li>
-</ol>
+<p>역시 표로 얻은 직관과 비슷하다. 따라서 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>을 대략적으로 <span class="math inline">\(-0.5\)</span>, <span class="math inline">\(0.9\)</span>로 추정하는 것이 바람직해보인다. 이는 우리의 직관과 대략적으로 일치한다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.4672139</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">sd</span>(x) <span class="co"># 이게 약간 달라보이는 것은 기분탓일까?? </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.000657</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p><code># 예제4</code></p>
+<p>분산이 1인 정규분포에서 아래와 같은 데이터를 관측하였다고 하자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -1.4805676  1.5771695 -0.9567445 -0.9200052 -1.9976421 -0.2722960
+ [7] -0.3153487 -0.6282552 -0.1064639  0.4280148</code></pre>
+</div>
+</div>
+<p>정규분포의 평균을 추정하라.</p>
+</section>
+<section class="slide level2">
+
+<p><code>(풀이)</code></p>
+<p>정규분포의 pdf는 아래와 같다.</p>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span></p>
+<p>가능도함수는 아래와 같이 정의된다.</p>
+<p><span class="math display">\[L(\theta|data) = f(data|\theta)\]</span></p>
+<p>여기에서 <span class="math inline">\(\theta\)</span>는 정규분포의 모평균으로 생각해야 한다. (원래는 <span class="math inline">\(\theta=(\mu,\sigma^2)\)</span>이고 <span class="math inline">\(L(\theta|data)\)</span>는 원래 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma\)</span> 모두에 영향받는 함수이겠지만, 이 문제에서는 <span class="math inline">\(\sigma=1\)</span>으로 고정되었으므로 <span class="math inline">\(L(\theta)\)</span>역시 <span class="math inline">\(\mu\)</span>에만 영향받는 함수가 된다.) 따라서 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[L(\mu|data) = f(data|\mu)\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>정리하면 아래와 같다.</p>
+<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2}}\]</span></p>
+<p>그래프를 그리면 아래와 같다.</p>
+
+<img data-src="10wk-2_files/figure-revealjs/unnamed-chunk-14-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림4: 예제4의 <span class="math inline">\(L(\mu)\)</span>를 나타내는 곡선. <span class="math inline">\(\mu=-0.5\)</span>와 <span class="math inline">\(\mu=-0.4\)</span> 사이에서 최대값이 있는듯하다.</p></section>
+<section class="slide level2">
+
+<p>대략적으로 <span class="math inline">\(\mu\)</span>는 -0.4xx 와 같은 값으로 추정하면 맞을것 같다. 그리고 이는 우리의 직관과 일치한다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.4672139</code></pre>
+</div>
+</div>
 
 
 </section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
