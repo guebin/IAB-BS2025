@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2025-11-06">
 
-<title>IAB기초통계 (2025) – IAB-BS2025</title>
+<title>11wk-1: 최대가능도추정 (2) – IAB-BS2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b7eda2101a7a109d5067cba531cf9672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-45a984b55c978f8c4117b5b9aec951d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7eda2101a7a109d5067cba531cf9672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45a984b55c978f8c4117b5b9aec951d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +104,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing-html .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing-html'] = new List('listing-listing-html', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
+<style>
+table {
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>    
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -129,18 +142,18 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="styles.scss">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.scss">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">IAB-BS2025</span>
     </a>
   </div>
@@ -168,25 +181,35 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">IAB기초통계 (2025)</h1>
+<h1 class="title">11wk-1: 최대가능도추정 (2)</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -196,234 +219,204 @@ window.Quarto = {
 </header>
 
 
-<p><strong>질문하는 방법</strong></p>
-<ul>
-<li>카카오톡: <a href="http://pf.kakao.com/_txeIFG/chat">질문하러 가기</a></li>
-<li>이메일: <a href="mailto:guebin@jbnu.ac.kr" class="email">guebin@jbnu.ac.kr</a></li>
-<li>직접방문: 자연과학대학 본관 205호</li>
-<li>Zoom: <em>카카오톡이나 이메일로 미리 시간을 정할 것</em></li>
-<li>LMS쪽지: <a href="https://ieilms.jbnu.ac.kr/" class="uri">https://ieilms.jbnu.ac.kr/</a></li>
-</ul>
-<p><strong>강의노트</strong></p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">HTML</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">슬라이드</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="listing-listing-html" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
+<section id="강의영상" class="level3">
+<h3 class="anchored" data-anchor-id="강의영상">강의영상</h3>
+<hr>
+</section>
+<section id="최대가능도추정-손으로만" class="level3">
+<h3 class="anchored" data-anchor-id="최대가능도추정-손으로만">최대가능도추정 (손으로만)</h3>
+<p><code># 예비학습</code></p>
+<p>아래를 관찰하자.</p>
+<table class="caption-top table">
 <thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-<th>
-Author
-</th>
-
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\{f(x)\}^5\)</span></th>
 </tr>
 </thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1762354800000" data-listing-file-modified-sort="1762808460675" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="932" data-listing-title-sort="10wk-2: 최대가능도추정 (1)" data-listing-filename-sort="10wk-2.qmd">
-<td>
-<span class="listing-date">Nov 6, 2025</span>
-</td>
-<td>
-<a href="./posts/10wk-2.html" class="title listing-title">10wk-2: 최대가능도추정 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0.1231</td>
+<td style="text-align: center;">??</td>
 </tr>
-
-<tr data-index="1" data-listing-date-sort="1762354800000" data-listing-file-modified-sort="1762823485527" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598" data-listing-title-sort="11wk-1: 최대가능도추정 (2)" data-listing-filename-sort="11wk-1.ipynb">
-<td>
-<span class="listing-date">Nov 6, 2025</span>
-</td>
-<td>
-<a href="./posts/11wk-1.html" class="title listing-title">11wk-1: 최대가능도추정 (2)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tr class="even">
+<td style="text-align: center;">-0.2342</td>
+<td style="text-align: center;">??</td>
 </tr>
-
-<tr data-index="2" data-listing-date-sort="1762182000000" data-listing-file-modified-sort="1762808349486" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="883" data-listing-title-sort="10wk-1: 확률과 가능도" data-listing-filename-sort="10wk-1.qmd">
-<td>
-<span class="listing-date">Nov 4, 2025</span>
-</td>
-<td>
-<a href="./posts/10wk-1.html" class="title listing-title">10wk-1: 확률과 가능도</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tr class="odd">
+<td style="text-align: center;">0.3555</td>
+<td style="text-align: center;">??</td>
 </tr>
-
-<tr data-index="3" data-listing-date-sort="1761577200000" data-listing-file-modified-sort="1761877791000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="470" data-listing-title-sort="중간고사 (2025.10.28)" data-listing-filename-sort="mid.qmd">
-<td>
-<span class="listing-date">Oct 28, 2025</span>
-</td>
-<td>
-<a href="./posts/mid.html" class="title listing-title">중간고사 (2025.10.28)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1761145200000" data-listing-file-modified-sort="1762808343961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="977" data-listing-title-sort="08wk-2: 확률변수와 분포" data-listing-filename-sort="08wk-2.qmd">
-<td>
-<span class="listing-date">Oct 23, 2025</span>
-</td>
-<td>
-<a href="./posts/08wk-2.html" class="title listing-title">08wk-2: 확률변수와 분포</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1760886000000" data-listing-file-modified-sort="1762808339140" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="849" data-listing-title-sort="08wk-1: 진실의 세계와 데이터의 세계" data-listing-filename-sort="08wk-1.qmd">
-<td>
-<span class="listing-date">Oct 20, 2025</span>
-</td>
-<td>
-<a href="./posts/08wk-1.html" class="title listing-title">08wk-1: 진실의 세계와 데이터의 세계</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-date-sort="1758726000000" data-listing-file-modified-sort="1762175856000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="34" data-listing-word-count-sort="6636" data-listing-title-sort="A2 - AI 기반 데이터 사이언스" data-listing-filename-sort="A2.ipynb">
-<td>
-<span class="listing-date">Sep 25, 2025</span>
-</td>
-<td>
-<a href="./posts/A2.html" class="title listing-title">A2 - AI 기반 데이터 사이언스</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-listing-date-sort="1758121200000" data-listing-file-modified-sort="1762175950000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1827" data-listing-title-sort="A1 - Chat GPT시대의 코딩공부" data-listing-filename-sort="A1.qmd">
-<td>
-<span class="listing-date">Sep 18, 2025</span>
-</td>
-<td>
-<a href="./posts/A1.html" class="title listing-title">A1 - Chat GPT시대의 코딩공부</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="8" data-listing-date-sort="1757948400000" data-listing-file-modified-sort="1761158038091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="637" data-listing-title-sort="03wk-1: 카디널리티 (2)" data-listing-filename-sort="03wk-1.qmd">
-<td>
-<span class="listing-date">Sep 16, 2025</span>
-</td>
-<td>
-<a href="./posts/03wk-1.html" class="title listing-title">03wk-1: 카디널리티 (2)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="9" data-listing-date-sort="1757516400000" data-listing-file-modified-sort="1761610860000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="372" data-listing-title-sort="HW-1 (2024.09.11)" data-listing-filename-sort="hw01.qmd">
-<td>
-<span class="listing-date">Sep 11, 2025</span>
-</td>
-<td>
-<a href="./posts/hw01.html" class="title listing-title">HW-1 (2024.09.11)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="10" data-listing-date-sort="1757516400000" data-listing-file-modified-sort="1761610534000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="609" data-listing-title-sort="02wk-2: 카디널리티 (1)" data-listing-filename-sort="02wk-2.qmd">
-<td>
-<span class="listing-date">Sep 11, 2025</span>
-</td>
-<td>
-<a href="./posts/02wk-2.html" class="title listing-title">02wk-2: 카디널리티 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="11" data-listing-date-sort="1757343600000" data-listing-file-modified-sort="1760940101000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="982" data-listing-title-sort="02wk-1: 수학과의 표현, 귀류법과 일반화" data-listing-filename-sort="02wk-1.qmd">
-<td>
-<span class="listing-date">Sep 9, 2025</span>
-</td>
-<td>
-<a href="./posts/02wk-1.html" class="title listing-title">02wk-1: 수학과의 표현, 귀류법과 일반화</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="12" data-listing-date-sort="1756738800000" data-listing-file-modified-sort="1760940097000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268" data-listing-title-sort="01wk-1: 확률을 정의하는 것은 쉬운 일인가?" data-listing-filename-sort="01wk-2.qmd">
-<td>
-<span class="listing-date">Sep 2, 2025</span>
-</td>
-<td>
-<a href="./posts/01wk-2.html" class="title listing-title">01wk-1: 확률을 정의하는 것은 쉬운 일인가?</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>각 강의노트의 슬라이드 버전을 확인할 수 있습니다.</p>
+<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
+<p><code>#</code></p>
+<hr>
+<p><code># 예비학습</code></p>
+<p><span class="math inline">\(f(x)&gt;0\)</span>일때 <span class="math inline">\(f(x)\)</span>를 최대로 만드는 <span class="math inline">\(x\)</span>값은 <span class="math inline">\(\log f(x)\)</span> 역시 최대로 만든다.</p>
+<p>(이유?)</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\log(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1.3</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11.2</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">??</td>
+</tr>
+</tbody>
+</table>
+<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
+<p><code>#</code></p>
+<hr>
+<p><code># 예제1</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
 <ul>
-<li><a href="posts/10wk-2-slides.html">10wk-2: 가능도 (4) – 최대가능도 추정 1</a></li>
-<li><a href="posts/10wk-1-slides.html">10wk-1: 가능도 (3) – 확률과 가능도</a></li>
-<li><a href="posts/08wk-2-slides.html">08wk-2: 가능도 (2) – 확률변수와 분포</a></li>
-<li><a href="posts/08wk-1-slides.html">08wk-1: 가능도 (1) – 진실의 세계와 데이터의 세계</a></li>
-<li><a href="posts/A2-slides.html">A2: AI 기반 데이터 사이언스</a></li>
-<li><a href="posts/A1-slides.html">A1: Chat GPT 시대에서의 코딩공부</a></li>
-<li><a href="posts/03wk-1-slides.html">03wk-1: 카디널리티 (2)</a></li>
-<li><a href="posts/02wk-2-slides.html">02wk-2: 카디널리티 (1)</a></li>
-<li><a href="posts/02wk-1-slides.html">02wk-1: 수학과의 표현, 귀류법과 일반화</a></li>
-<li><a href="posts/01wk-2-slides.html">01wk-2: 확률을 정의하는 것은 쉬운 일인가?</a></li>
+<li>data: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
 </ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^5 (1-\theta)^5\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p>가능도 함수는</p>
+<p><span class="math display">\[L(\theta)=\{\theta(1-\theta)\}^5\]</span></p>
+<p>이고 <span class="math inline">\(\theta(1-\theta)\)</span>를 최대화 하는 값이 곧 <span class="math inline">\(L(\theta)\)</span>를 최대화한다. 그런데 <span class="math inline">\(\theta(1-\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대값을 가지므로 가능도함수를 최대화하는 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{2}\)</span>이라 할 수 있다.</p>
+<hr>
+<p><code># 예제2</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 7번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0, 1, 1, 1</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^4 (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<hr>
+<p>(풀이)</p>
+<p><span class="math inline">\(L(\theta)=\theta \times \{\theta(1-\theta)\}^3\)</span>로 표현할 수 있다. 여기에서 편의상</p>
+<ul>
+<li><span class="math inline">\(A = \theta\)</span></li>
+<li><span class="math inline">\(B = \{\theta(1-\theta)\}^3\)</span></li>
+</ul>
+<p>이라고 놓자. <span class="math inline">\(L(\theta)\)</span>를 최대화하기 위해서 <span class="math inline">\(A\)</span>입장에서는 <span class="math inline">\(\theta=1\)</span>이었으면 좋겠는데 <span class="math inline">\(B\)</span>입장에서는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이었으면 좋겠다. 의견이 일치하지 않아서 투표를 하고 싶은데 <span class="math inline">\(A\)</span>는 비유적으로 말하면 한명의 의견이 반영된것이고 <span class="math inline">\(B\)</span>는 6명의 의견이 반영된 것이라 해석할 수 있다. 따라서 아래와 같이 해석해야 적당하다.</p>
+<p><span class="math display">\[\frac{1}{7} \times 1 + \frac{6}{7} \times \frac{1}{2} = \frac{4}{7}\]</span></p>
+<hr>
+<p><code># 예제3</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 4번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0,</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p>두명은 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이 합리적이라 생각하지만 두명은 <span class="math inline">\(\theta=0\)</span>이 합리적이라 생각한다. 따라서 <span class="math inline">\(\theta=\frac{\frac{1}{2}+0}{2}=\frac{1}{4}\)</span>이 되어야겠다.</p>
+<hr>
+<p>(풀이2) – 미분좋아하면 미분을 써도된다.</p>
+<ul>
+<li><span class="math inline">\(L(\theta)=\theta (1-\theta)^3= \theta - 3\theta^2 + 3\theta^3 - \theta^4\)</span></li>
+<li><span class="math inline">\(L'(\theta)=1-6\theta+9\theta^2-4\theta^3\)</span></li>
+</ul>
+<p><span class="math inline">\(L'(\theta)=0\)</span>을 풀면, <span class="math inline">\(L'(\theta)=-(4\theta^3-9\theta^2+6\theta-1)=-(\theta-1)^2(4\theta-1)\)</span>. 따라서 <span class="math inline">\(L'(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{4}, 1\)</span>에서 극값을 가진다. 개형을 그려보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>에서 함수가 최대화된다.</p>
+<hr>
+<p>(풀이3) – 통계학과에서는 보통 풀이2보다는 로그+미분을 쓴다.</p>
+<ul>
+<li><span class="math inline">\(\log L(\theta)=l(\theta) = \log\theta + 3\log(1-\theta)\)</span></li>
+<li><span class="math inline">\(l'(\theta)=\frac{1}{\theta}-\frac{3}{1-\theta}\)</span></li>
+<li><span class="math inline">\(l''(\theta) = -\frac{1}{\theta^2} - \frac{3}{(1-\theta)^2} &lt; 0\)</span></li>
+</ul>
+<p>그래프의 개형 따질 필요 없이 <span class="math inline">\(l''(\theta)&lt;0\)</span>이면 concave함수이고 따라서 극값=최대값이다. 이제 <span class="math inline">\(l'(\theta)=0\)</span>을 풀어보자. 풀어보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>이 정리된다.</p>
+<hr>
+<p><code># 예제4</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: <span class="math inline">\((x_1,\dots,x_{10})=(0, 1, 0, 0, 1, 1, 1, 0, 1, 0)\)</span></li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(x_1,\dots,x_{10}\)</span>에 대응하는 수식으로 표현하라.</p>
+<p>(풀이) 가능도함수는 아래와 같다.</p>
+<p><span class="math display">\[L(\theta|data)=P(data|\theta)=P(X_1=x_1)\times \dots \times P(X_{10}=x_{10})\]</span></p>
+<hr>
+<p>그런데</p>
+<ul>
+<li><span class="math inline">\(P(X_1=x_1)=(1-\theta)^{1-x_1}\theta^{x_1} \overset{x_1=0}{\Longrightarrow} P(X_1=0)=1-\theta\)</span></li>
+<li><span class="math inline">\(P(X_2=x_2)=(1-\theta)^{1-x_2}\theta^{x_2} \overset{x_2=1}{\Longrightarrow} P(X_2=1)=\theta\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(P(X_{10}=x_{10})=(1-\theta)^{1-x_{10}}\theta^{x_{10}} \overset{x_{10}=0}{\Longrightarrow} P(X_{10}=0)=1-\theta\)</span></li>
+</ul>
+<p>이다. 따라서 정리하면</p>
+<ul>
+<li><span class="math inline">\(L(\theta|data)=(1-\theta)^{10-(x_1+\dots+x_{10})}  \times \theta^{(x_1+\dots+x_{10})} \overset{data=(0,1,\dots,0)}{\Longrightarrow} (1-\theta)^5 \theta^5\)</span></li>
+</ul>
+<hr>
+<p>위의 논의가 <span class="math inline">\(10\)</span>개의 data가 아닌 일반적인 <span class="math inline">\(n\)</span>개의 data에서도 성립하므로, 좀 더 일반적으로는</p>
+<p><span class="math display">\[X_1,\dots,X_{10} \overset{iid}{\sim} Ber(\theta) \Rightarrow L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
+<p>와 같이 쓸 수 있다.</p>
+<p><code>#</code></p>
+<hr>
+<p><code># 예제5</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 n번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: <span class="math inline">\(x_1,\dots,x_n\)</span></li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 서술하라.</p>
+<hr>
+<p>(풀이1) 가능도함수는 아래와 같다.</p>
+<p><span class="math display">\[L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
+<p>뒷면이 <span class="math inline">\(n_0\)</span>나오고 앞면이 <span class="math inline">\(n_1\)</span>나왔다고 하자. (주의: <span class="math inline">\(n_0+n_1=n\)</span> 이고, <span class="math inline">\(n_1=\sum_i x_i\)</span>임.)</p>
+<p><strong>(case1: <span class="math inline">\(n_0&lt;n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
+<p><span class="math display">\[\frac{1}{2} \times \frac{2n_0}{n} + 1 \times \frac{n-2n_0}{n}=\frac{n-n_0}{n}=\frac{n_1}{n}\]</span></p>
+<p>에서 최대값을 가진다. 그런데 <span class="math inline">\(n_1 = \sum x_i\)</span>임을 이용하면 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}x_i=\bar{x}\)</span>에서 최대값을 가진다.</p>
+<hr>
+<p><strong>(case2: <span class="math inline">\(n_0&gt;n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
+<p><span class="math display">\[\frac{1}{2} \times \frac{2n_1}{n} + 0 \times \frac{n-2n_1}{n}=\frac{n_1}{n}\]</span></p>
+<p>에서 최대값을 가진다. 앞의경우랑 같다! 따라서 이 경우도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다라고 볼 수 있다.</p>
+<hr>
+<p><strong>(case3: <span class="math inline">\(n_0=n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대화가 된다. 그런데 이 경우 <span class="math inline">\(\bar{x}=\frac{1}{2}\)</span>이므로 이때도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다고 볼 수 있다.</p>
+<blockquote class="blockquote">
+<p>결론: <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 이라면</p>
+<ol type="1">
+<li>우도함수는 항상 <span class="math inline">\(L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\)</span> 이런 모양을 가지고,</li>
+<li>우도함수는 <span class="math inline">\(\theta=\bar{x}\)</span>에서 최대값을 가진다.</li>
+</ol>
+<p>따라서 <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 에서 <span class="math inline">\(\theta\)</span>를 최대가능도 기법으로 추정하기 위해서는 <span class="math inline">\(\bar{x}\)</span>를 쓰면 된다. (이렇게 당연한 결론을 꼭 이렇게 한참 설명해야하는것일까?)</p>
+</blockquote>
+<hr>
+<p><code># 예제6</code></p>
+<p>분산이 1인 정규분포에서 아래와 같은 데이터를 관찰했다고 가정하자.</p>
+<div id="a352a4ad" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="op">-</span><span class="fl">1.4805676</span>,  <span class="fl">1.5771695</span>, <span class="fl">0.9567445</span>, <span class="op">-</span><span class="fl">0.9200052</span>, <span class="op">-</span><span class="fl">1.9976421</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="op">-</span><span class="fl">0.2722960</span>, <span class="op">-</span><span class="fl">0.3153487</span>, <span class="op">-</span><span class="fl">0.6282552</span>, <span class="op">-</span><span class="fl">0.1064639</span>,  <span class="fl">0.4280148</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
+<p>최대가능도기법으로 평균을 추정하라.</p>
+<p><code>(풀이)</code></p>
+<p>가능도함수는 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2}}\]</span></p>
+<p>좀 더 일반적으로는 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_1-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
+<hr>
+<p>좀 더 정리하면 아래와 같은 꼴로 나타낼 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\left(\frac{1}{\sqrt{2\pi}}\right)^{10} e^{-\frac{(x_1-\mu)^2}{2} - \dots -\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
+<p>따라서 <span class="math inline">\(L(\mu)\)</span>를 최대화하는 일은 사실 아래의 함수를 최대화하는 일과 같다.</p>
+<p><span class="math display">\[\left(-\frac{(x_1-\mu)^2}{2}\right)+  \dots + \left(-\frac{(x_{10}-\mu)^2}{2}\right)\]</span></p>
+<p>따라서 <span class="math inline">\(\mu=\frac{x_1+\dots+x_n}{n}=\bar{x}\)</span>에서 최대값을 가진다. (약간 점프가 있죠? 좋아하는 방식대로 답을 도출해보세요)</p>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

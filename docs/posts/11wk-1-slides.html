@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.7.24">
 
   <meta name="author" content="최규빈">
-  <meta name="dcterms.date" content="2025-10-20">
-  <title>IAB-BS2025 – 08wk-1: 진실의 세계와 데이터의 세계</title>
+  <meta name="dcterms.date" content="2025-11-06">
+  <title>IAB-BS2025 – 11wk-1: 최대가능도추정 (2)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -196,7 +196,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">08wk-1: 진실의 세계와 데이터의 세계</h1>
+  <h1 class="title">11wk-1: 최대가능도추정 (2)</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -206,354 +206,239 @@
 </div>
 </div>
 
-  <p class="date">2025-10-20</p>
+  <p class="date">2025-11-06</p>
 </section>
 <section class="slide level2">
 
 <h3>강의영상</h3>
-<iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-z4ZMi7jz6p1YZtZhVfav6u&amp;si=YOq4LmLzFQhKrmKD" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </section>
 <section class="slide level2">
 
-<h3>도입</h3>
-<p><code>예제1</code> – 엑스노트</p>
+<h3>최대가능도추정 (손으로만)</h3>
+<p><code># 예비학습</code></p>
+<p>아래를 관찰하자.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\{f(x)\}^5\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0.1231</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-0.2342</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.3555</td>
+<td style="text-align: center;">??</td>
+</tr>
+</tbody>
+</table>
+<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
 
-<img data-src="figs/08wk-1-1.png" class="r-stretch quarto-figure-center"><p class="caption">그림1: 엑스노트 X300의 광고</p><blockquote>
-<p>reference: 201x년 김용대 교수님 수업을 들으며 착안한 예제..</p>
+<p><code># 예비학습</code></p>
+<p><span class="math inline">\(f(x)&gt;0\)</span>일때 <span class="math inline">\(f(x)\)</span>를 최대로 만드는 <span class="math inline">\(x\)</span>값은 <span class="math inline">\(\log f(x)\)</span> 역시 최대로 만든다.</p>
+<p>(이유?)</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\log(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1.3</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.8</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11.2</td>
+<td style="text-align: center;">??</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">??</td>
+</tr>
+</tbody>
+</table>
+<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제1</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^5 (1-\theta)^5\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p>가능도 함수는</p>
+<p><span class="math display">\[L(\theta)=\{\theta(1-\theta)\}^5\]</span></p>
+<p>이고 <span class="math inline">\(\theta(1-\theta)\)</span>를 최대화 하는 값이 곧 <span class="math inline">\(L(\theta)\)</span>를 최대화한다. 그런데 <span class="math inline">\(\theta(1-\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대값을 가지므로 가능도함수를 최대화하는 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{2}\)</span>이라 할 수 있다.</p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제2</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 7번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0, 1, 1, 1</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^4 (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+</section>
+<section class="slide level2">
+
+<p>(풀이)</p>
+<p><span class="math inline">\(L(\theta)=\theta \times \{\theta(1-\theta)\}^3\)</span>로 표현할 수 있다. 여기에서 편의상</p>
+<ul>
+<li><span class="math inline">\(A = \theta\)</span></li>
+<li><span class="math inline">\(B = \{\theta(1-\theta)\}^3\)</span></li>
+</ul>
+<p>이라고 놓자. <span class="math inline">\(L(\theta)\)</span>를 최대화하기 위해서 <span class="math inline">\(A\)</span>입장에서는 <span class="math inline">\(\theta=1\)</span>이었으면 좋겠는데 <span class="math inline">\(B\)</span>입장에서는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이었으면 좋겠다. 의견이 일치하지 않아서 투표를 하고 싶은데 <span class="math inline">\(A\)</span>는 비유적으로 말하면 한명의 의견이 반영된것이고 <span class="math inline">\(B\)</span>는 6명의 의견이 반영된 것이라 해석할 수 있다. 따라서 아래와 같이 해석해야 적당하다.</p>
+<p><span class="math display">\[\frac{1}{7} \times 1 + \frac{6}{7} \times \frac{1}{2} = \frac{4}{7}\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제3</code></p>
+<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 4번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: 0, 1, 0, 0,</li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)=\theta (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
+<p>(풀이)</p>
+<p>두명은 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이 합리적이라 생각하지만 두명은 <span class="math inline">\(\theta=0\)</span>이 합리적이라 생각한다. 따라서 <span class="math inline">\(\theta=\frac{\frac{1}{2}+0}{2}=\frac{1}{4}\)</span>이 되어야겠다.</p>
+</section>
+<section class="slide level2">
+
+<p>(풀이2) – 미분좋아하면 미분을 써도된다.</p>
+<ul>
+<li><span class="math inline">\(L(\theta)=\theta (1-\theta)^3= \theta - 3\theta^2 + 3\theta^3 - \theta^4\)</span></li>
+<li><span class="math inline">\(L'(\theta)=1-6\theta+9\theta^2-4\theta^3\)</span></li>
+</ul>
+<p><span class="math inline">\(L'(\theta)=0\)</span>을 풀면, <span class="math inline">\(L'(\theta)=-(4\theta^3-9\theta^2+6\theta-1)=-(\theta-1)^2(4\theta-1)\)</span>. 따라서 <span class="math inline">\(L'(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{4}, 1\)</span>에서 극값을 가진다. 개형을 그려보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>에서 함수가 최대화된다.</p>
+</section>
+<section class="slide level2">
+
+<p>(풀이3) – 통계학과에서는 보통 풀이2보다는 로그+미분을 쓴다.</p>
+<ul>
+<li><span class="math inline">\(\log L(\theta)=l(\theta) = \log\theta + 3\log(1-\theta)\)</span></li>
+<li><span class="math inline">\(l'(\theta)=\frac{1}{\theta}-\frac{3}{1-\theta}\)</span></li>
+<li><span class="math inline">\(l''(\theta) = -\frac{1}{\theta^2} - \frac{3}{(1-\theta)^2} &lt; 0\)</span></li>
+</ul>
+<p>그래프의 개형 따질 필요 없이 <span class="math inline">\(l''(\theta)&lt;0\)</span>이면 concave함수이고 따라서 극값=최대값이다. 이제 <span class="math inline">\(l'(\theta)=0\)</span>을 풀어보자. 풀어보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>이 정리된다.</p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제4</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: <span class="math inline">\((x_1,\dots,x_{10})=(0, 1, 0, 0, 1, 1, 1, 0, 1, 0)\)</span></li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(x_1,\dots,x_{10}\)</span>에 대응하는 수식으로 표현하라.</p>
+<p>(풀이) 가능도함수는 아래와 같다.</p>
+<p><span class="math display">\[L(\theta|data)=P(data|\theta)=P(X_1=x_1)\times \dots \times P(X_{10}=x_{10})\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>그런데</p>
+<ul>
+<li><span class="math inline">\(P(X_1=x_1)=(1-\theta)^{1-x_1}\theta^{x_1} \overset{x_1=0}{\Longrightarrow} P(X_1=0)=1-\theta\)</span></li>
+<li><span class="math inline">\(P(X_2=x_2)=(1-\theta)^{1-x_2}\theta^{x_2} \overset{x_2=1}{\Longrightarrow} P(X_2=1)=\theta\)</span></li>
+<li><span class="math inline">\(\dots\)</span></li>
+<li><span class="math inline">\(P(X_{10}=x_{10})=(1-\theta)^{1-x_{10}}\theta^{x_{10}} \overset{x_{10}=0}{\Longrightarrow} P(X_{10}=0)=1-\theta\)</span></li>
+</ul>
+<p>이다. 따라서 정리하면</p>
+<ul>
+<li><span class="math inline">\(L(\theta|data)=(1-\theta)^{10-(x_1+\dots+x_{10})}  \times \theta^{(x_1+\dots+x_{10})} \overset{data=(0,1,\dots,0)}{\Longrightarrow} (1-\theta)^5 \theta^5\)</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>위의 논의가 <span class="math inline">\(10\)</span>개의 data가 아닌 일반적인 <span class="math inline">\(n\)</span>개의 data에서도 성립하므로, 좀 더 일반적으로는</p>
+<p><span class="math display">\[X_1,\dots,X_{10} \overset{iid}{\sim} Ber(\theta) \Rightarrow L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
+<p>와 같이 쓸 수 있다.</p>
+<p><code>#</code></p>
+</section>
+<section class="slide level2">
+
+<p><code># 예제5</code></p>
+<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 n번 던져서 아래와 같이 나왔다고 하자.</p>
+<ul>
+<li>data: <span class="math inline">\(x_1,\dots,x_n\)</span></li>
+</ul>
+<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 서술하라.</p>
+</section>
+<section class="slide level2">
+
+<p>(풀이1) 가능도함수는 아래와 같다.</p>
+<p><span class="math display">\[L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
+<p>뒷면이 <span class="math inline">\(n_0\)</span>나오고 앞면이 <span class="math inline">\(n_1\)</span>나왔다고 하자. (주의: <span class="math inline">\(n_0+n_1=n\)</span> 이고, <span class="math inline">\(n_1=\sum_i x_i\)</span>임.)</p>
+<p><strong>(case1: <span class="math inline">\(n_0&lt;n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
+<p><span class="math display">\[\frac{1}{2} \times \frac{2n_0}{n} + 1 \times \frac{n-2n_0}{n}=\frac{n-n_0}{n}=\frac{n_1}{n}\]</span></p>
+<p>에서 최대값을 가진다. 그런데 <span class="math inline">\(n_1 = \sum x_i\)</span>임을 이용하면 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}x_i=\bar{x}\)</span>에서 최대값을 가진다.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>(case2: <span class="math inline">\(n_0&gt;n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
+<p><span class="math display">\[\frac{1}{2} \times \frac{2n_1}{n} + 0 \times \frac{n-2n_1}{n}=\frac{n_1}{n}\]</span></p>
+<p>에서 최대값을 가진다. 앞의경우랑 같다! 따라서 이 경우도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다라고 볼 수 있다.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>(case3: <span class="math inline">\(n_0=n_1\)</span>)</strong></p>
+<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대화가 된다. 그런데 이 경우 <span class="math inline">\(\bar{x}=\frac{1}{2}\)</span>이므로 이때도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다고 볼 수 있다.</p>
+<blockquote>
+<p>결론: <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 이라면</p>
+<ol type="1">
+<li>우도함수는 항상 <span class="math inline">\(L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\)</span> 이런 모양을 가지고,</li>
+<li>우도함수는 <span class="math inline">\(\theta=\bar{x}\)</span>에서 최대값을 가진다.</li>
+</ol>
+<p>따라서 <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 에서 <span class="math inline">\(\theta\)</span>를 최대가능도 기법으로 추정하기 위해서는 <span class="math inline">\(\bar{x}\)</span>를 쓰면 된다. (이렇게 당연한 결론을 꼭 이렇게 한참 설명해야하는것일까?)</p>
 </blockquote>
 </section>
 <section class="slide level2">
 
-<p>앞의 그림을 가장 적절히 설명한 진술이 무엇이라고 생각하는가?</p>
-<ol type="1">
-<li>신민아가 고층빌딩에서 엑스노트를 벽면유리에 테잎을 붙여 프리젠테이션을 하고 있다.</li>
-<li>젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.</li>
-<li>여성이 프리젠테이션을 하고 있다.</li>
-</ol>
+<p><code># 예제6</code></p>
+<p>분산이 1인 정규분포에서 아래와 같은 데이터를 관찰했다고 가정하자.</p>
+<div id="a352a4ad" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>x <span class="op">=</span> [<span class="op">-</span><span class="fl">1.4805676</span>,  <span class="fl">1.5771695</span>, <span class="fl">0.9567445</span>, <span class="op">-</span><span class="fl">0.9200052</span>, <span class="op">-</span><span class="fl">1.9976421</span>, </span>
+<span id="cb1-2"><a></a>     <span class="op">-</span><span class="fl">0.2722960</span>, <span class="op">-</span><span class="fl">0.3153487</span>, <span class="op">-</span><span class="fl">0.6282552</span>, <span class="op">-</span><span class="fl">0.1064639</span>,  <span class="fl">0.4280148</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>최대가능도기법으로 평균을 추정하라.</p>
+<p><code>(풀이)</code></p>
+<p>가능도함수는 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2}}\]</span></p>
+<p>좀 더 일반적으로는 아래와 같이 쓸 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_1-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
 </section>
 <section class="slide level2">
 
-<p>이제 아래의 진술이 맞을 “확률”을 생각해보자. 1,2,3중에 어떠한 문장이 참일 확률이 가장 높은가?</p>
-<ol type="1">
-<li>신민아가 고층빌딩에서 엑스노트를 활용해 프리젠테이션을 하고 있다.</li>
-<li>젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.</li>
-<li>여성이 프리젠테이션을 하고 있다.</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<p><code>예제2</code> – 아래의 그림을 관찰하자.</p>
-
-<img data-src="08wk-1_files/figure-revealjs/unnamed-chunk-1-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림2: 3000개의 점으로 구성된 산점도</p></section>
-<section class="slide level2">
-
-<p>다음 중 그림을 가장 잘 묘사한 것은?</p>
-<ol type="1">
-<li><span class="math inline">\(x\)</span>축의 평균은 2이다.</li>
-<li><span class="math inline">\(y\)</span>축의 평균은 3이다.</li>
-<li>평균은 <span class="math inline">\((2,3)\)</span>이다.</li>
-<li>평균은 어딘가에 있다. 즉 평균은 <span class="math inline">\((x_0,y_0)\)</span> 인데 <span class="math inline">\(x_0 \in \mathbb{R}, y_0 \in \mathbb{R}\)</span>.</li>
-</ol>
-<p>진술 1-4가 맞을 확률은?</p>
-</section>
-<section class="slide level2">
-
-<p>왜 이러한 혼란이 생기는가? 피셔는 1922년 그의 논문 “On the Mathematical Foundations of Theoretical Statistics”에서 혼란이 발생하는 원인을 아래와 같이 주장하였다.</p>
-<ol type="1">
-<li>용어가 불분명해서 그렇다. (즉 순전히 언어적인 혼란이다)</li>
-<li>“확률”이라는 개념을 너무 남발해서 그렇다. (역확률)</li>
-</ol>
-</section>
-<section class="slide level2">
-
-<h3>모수 vs 추정치</h3>
-<p>용어가 불분명하다는 것이 무슨 의미일까?</p>
-<p><code>예제1</code> – 애매한 언어</p>
-<ul>
-<li><p>질문1: 공평한 동전을 던진다고 가정하자. 동전을 던저서 나오는 앞면이 나오면 <span class="math inline">\(X=0\)</span>이라고 하고 뒷면이 나오면 <span class="math inline">\(X=1\)</span>이라고 하자. <span class="math inline">\(X\)</span>의 평균은 얼마인가?</p></li>
-<li><p>질문2: 동전을 5번 던져서 <span class="math inline">\((0,1,0,0,1)\)</span>을 얻었다고 하자. 평균이 얼마인가?</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>-</code> 사람들은 알고 싶지만 오직 추정만 할 수 있는 참값(모수)과 추정 방법을 통해 도출된 값(추정치) 모두에 대해 같은 이름을 사용하는 관습이 있다.</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 13%">
-<col style="width: 43%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>구분</th>
-<th>진실의 세계</th>
-<th>데이터의 세계</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>성격</td>
-<td>알고 싶지만 오직 추정만 할 수 있는 참값 (true value)</td>
-<td>추정 방법을 통해 도출된 특정 값 (particular value at which we happen to arrive)</td>
-</tr>
-<tr class="even">
-<td>용어</td>
-<td>모수 (parameter)</td>
-<td>추정치 (estimate)</td>
-</tr>
-<tr class="odd">
-<td>평균</td>
-<td>모평균 <span class="math inline">\(\mu\)</span></td>
-<td>표본평균 <span class="math inline">\(\bar{x}\)</span></td>
-</tr>
-<tr class="even">
-<td>표준편차</td>
-<td>모표준편차 <span class="math inline">\(\sigma\)</span></td>
-<td>표본표준편차 <span class="math inline">\(s\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2">
-
-<p><code>고등학교 과정 복습</code></p>
-<p><code>-</code> 베르누이 시행 (Bernoulli Trial)</p>
-<ul>
-<li>결과가 “성공(1)” 또는 “실패(0)” 두 가지만 나오는 실험</li>
-<li>성공 확률을 <span class="math inline">\(p\)</span>라고 하면, 실패 확률은 <span class="math inline">\(1-p\)</span></li>
-<li>예: 동전 던지기 (앞면=성공, 뒷면=실패), 제품 검사 (양품=성공, 불량품=실패)</li>
-</ul>
-<p><code>-</code> 확률변수 (Random Variable)</p>
-<ul>
-<li>확률 실험의 결과를 숫자로 대응시키는 함수</li>
-<li>베르누이 시행에서: <span class="math inline">\(X = 1\)</span> (성공), <span class="math inline">\(X = 0\)</span> (실패)</li>
-<li>확률변수 <span class="math inline">\(X\)</span>가 베르누이 분포를 따른다는 표기: <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> 또는 <span class="math inline">\(X \sim B(p)\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>-</code> 독립 (Independence)</p>
-<ul>
-<li>두 확률변수 <span class="math inline">\(X_1, X_2\)</span>가 독립: 한 변수의 결과가 다른 변수에 영향을 주지 않음</li>
-<li>수학적 정의: <span class="math inline">\(P(X_1=x_1, X_2=x_2) = P(X_1=x_1) \cdot P(X_2=x_2)\)</span></li>
-<li>예: 첫 번째 동전 던지기 결과가 두 번째 동전 던지기에 영향을 주지 않음</li>
-</ul>
-<p><code>-</code> i.i.d. (independent and identically distributed)</p>
-<ul>
-<li><strong>독립 (independent)</strong>: 확률변수들이 서로 독립</li>
-<li><strong>동일한 분포 (identically distributed)</strong>: 모든 확률변수가 같은 분포를 따름</li>
-<li>표기: <span class="math inline">\(X_1, X_2, \ldots, X_n \overset{iid}{\sim} \text{Bernoulli}(p)\)</span></li>
-<li>의미: <span class="math inline">\(n\)</span>개의 확률변수가 모두 베르누이<span class="math inline">\((p)\)</span>를 따르며, 서로 독립적임</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>-</code> 모평균 (Population Mean)</p>
-<ul>
-<li>확률변수 <span class="math inline">\(X\)</span>의 기댓값 (expected value)</li>
-<li>표기: <span class="math inline">\(\mu = \mathbb{E}[X]\)</span></li>
-<li>의미: 진실의 세계에서 이론적으로 계산되는 평균값</li>
-<li>베르누이 분포의 경우: <span class="math inline">\(\mu = \mathbb{E}(X) = p\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>-</code> 실현치 (Realization) – data</p>
-<ul>
-<li>확률변수를 (실험 혹은 시뮬레이션을 통해) 관측하여 얻은 구체적인 실제값</li>
-<li>표기: <span class="math inline">\(x_1, x_2, \dots, x_n\)</span> (소문자)</li>
-<li>예: 동전을 5번 던져서 <span class="math inline">\((0,1,0,0,1)\)</span>을 얻음</li>
-</ul>
-<p><code>-</code> 표본평균 (Sample Mean)</p>
-<ul>
-<li>관측치들의 산술평균</li>
-<li>표기: <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\)</span> (소문자)</li>
-<li>의미: 데이터의 세계에서 실제로 계산되는 평균값</li>
-<li>예: <span class="math inline">\((0,1,0,0,1)\)</span>의 표본평균은 <span class="math inline">\(\bar{x} = \frac{0+1+0+0+1}{5} = 0.4\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>예제1</code> – 명확한 언어</p>
-<ul>
-<li><p>질문1: <span class="math inline">\(p=0.5\)</span>인 베르누이 시행을 상상하자.<sup>1</sup> <span class="math inline">\(X\sim B(p)\)</span> 일때 모평균 <span class="math inline">\(\mathbb{E}(X)\)</span>는 얼마인가?<sup>2</sup></p></li>
-<li><p>질문2: <span class="math inline">\(X_1,\dots,X_5 \overset{i.i.d.}{\sim}B(0.5)\)</span>의 관측값이 <span class="math display">\[(x_1,x_2,x_3,x_4,x_5)=(0,1,0,0,1)\]</span>일때 표본평균 <span class="math inline">\(\bar{x}=\frac{1}{5}\sum_{i=1}^{5}x_i\)</span>는 얼마인가?</p></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>공평한 동전을 던진다고 가정하자.</p></li><li id="fn2"><p>동전을 던저서 나오는 앞면이 나오면 <span class="math inline">\(X=0\)</span>이라고 하고 뒷면이 나오면 <span class="math inline">\(X=1\)</span>이라고 하자. <span class="math inline">\(X\)</span>의 평균은 얼마인가?</p></li></ol></aside></section>
-<section class="slide level2">
-
-<p><code>예제2</code> – 애매한 언어</p>
-<p>평균이 0이고 표준편차가 1이 정규분포가 있다고 하자. 아래는 이러한 정규분포에 10개의 data를 뽑은 결과이다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-2"><a></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb1-3"><a></a>x </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
- [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197</code></pre>
-</div>
-</div>
-<p><code>x</code>의 평균은 아래와 같은 코드로 계산한다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.07462564</code></pre>
-</div>
-</div>
-<p><code>x</code>의 표준편차는 아래와 같이 계산한다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sd</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9537841</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p>만약에 정규분포에서 10개의 데이터가 아니라 더 많은 data를 얻는다면 어떻게 될까?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb7-2"><a></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
-<span id="cb7-3"><a></a><span class="fu">c</span>(<span class="fu">mean</span>(x), <span class="fu">sd</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.002371702  0.998636635</code></pre>
-</div>
-</div>
-<p>평균은 점점 평균에 가까워 질 것이고, 표준편차는 점점 표준편차에 가까워질 것이다. (뭐라는거야..??)</p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>아래의 표에서 ???의 값을 채워보자.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>진실의 세계</th>
-<th>데이터의 세계</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>모평균 <span class="math inline">\(\mu=???\)</span></td>
-<td>표본평균 <span class="math inline">\(\bar{x}=???\)</span></td>
-</tr>
-<tr class="even">
-<td>모표준편차 <span class="math inline">\(\sigma=???\)</span></td>
-<td>표본표준편차 <span class="math inline">\(s=???\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<p><code>예제3</code> – 베르누이</p>
-<p>아래의 상황을 가정하자.</p>
-<p><span class="math display">\[X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\]</span></p>
-<p>이로부터 데이터를 아래와 같이 얻었다고 하자.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-2"><a></a><span class="fu">rbinom</span>(<span class="dv">3</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0 1 0</code></pre>
-</div>
-</div>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">진실세계의 정보</th>
-<th style="text-align: center;">데이터세계의 정보</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(x_1,x_2,x_3 = (0,1,0)\)</span></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2">
-
-<p><code>예제4</code> – 이변량 정규분포</p>
-<p>이제 <span class="math inline">\(n=3000\)</span>에 대해서 아래의 상황을 생각하자.</p>
-<ul>
-<li><span class="math inline">\(X_1,\dots,X_n \overset{i.i.d}{\sim} N(2,1)\)</span></li>
-<li><span class="math inline">\(Y_1,\dots,Y_n \overset{i.i.d}{\sim} N(3,1)\)</span></li>
-<li><span class="math inline">\(X_i \perp Y_j,\quad \forall i,j \in \{1,2,\dots,n\}\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>그리고 아래의 코드를 활용하여 데이터를 얻었다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb11-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">3000</span>) <span class="sc">+</span> <span class="dv">2</span> </span>
-<span id="cb11-3"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">3000</span>) <span class="sc">+</span> <span class="dv">3</span></span>
-<span id="cb11-4"><a></a><span class="fu">plot</span>(x, y, <span class="at">cex=</span><span class="fl">0.5</span>, <span class="at">xlab=</span><span class="st">""</span>, <span class="at">ylab=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="08wk-1_files/figure-revealjs/unnamed-chunk-7-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">어??! 이 그림은??</p></section>
-<section class="slide level2">
-
-<p>이 경우 진실의 세계와 데이터의 세계는 아래와 같이 생각할 수 있다.</p>
-
-<img data-src="figs/08wk-1-2.png" class="r-stretch quarto-figure-center"><p class="caption">그림3: 진실의 세계와 데이터의 세계</p></section>
-<section class="slide level2">
-
-<p><code>-</code> 통찰1: 진실의 세계에서 데이터의 세계로 넘어가기 위해서는 관측이 필요하다.</p>
-<p><code>-</code> 통찰2: 진실의 세계에서 데이터의 세계로 넘어갈때만 “확률”이라는 개념이 적용된다. 즉 확률은 반드시 아래와 같은 개념으로만 사용되어야 한다.<sup>1</sup></p>
-<p><span class="math display">\[\text{진실의 세계} \overset{P}{\Longrightarrow} \text{데이터의 세계}\]</span></p>
-<p><code>-</code> 통찰3: 데이터의 세계는 반복 관찰 가능하다.</p>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>베이지안 미안해요..</p></li></ol></aside></section>
-<section class="slide level2">
-
-<p><code>예제4</code> – 동전던지기</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;">진실세계의 정보</th>
-<th style="text-align: center;">데이터세계의 정보</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(x_1,x_2,x_3 = (0,1,0)\)</span></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<ul>
-<li>통찰1: 진실세계의 정보에서 데이터세계의 정보를 얻기 위해서는 반드시 관측이 필요하다.</li>
-<li>통찰2: 진실세계의 정보에서 데이터세계의 정보는 확률적으로 얻어진다. (주어진 예시에서는 1/8의 확률로 얻어짐)</li>
-<li>통찰3: 데이터세계의 정보는 (관측행위를 되풀이하여) 반복측정 가능하다.
-<ul>
-<li>예를들어 관측행위를 되풀이하여 <span class="math inline">\((x_1,x_2,x_3)=(0,0,0)\)</span> 을 얻을수도 있고</li>
-<li><span class="math inline">\((x_1,x_2,x_3)=(0,1,1)\)</span> 을 얻을수도 있음.</li>
-</ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p><code>예제5</code> – 신민아 배우님..</p>
-
-<img data-src="figs/08wk-1-3.png" class="r-stretch quarto-figure-center"><p class="caption">그림4: 엑스노트, 진실세계의 정보와 데이터세계의 정보</p><ul>
-<li>통찰1: 진실세계의 정보에서 데이터세계의 정보를 얻기 위해서는 관측이 필요</li>
-<li>통찰2: 진실세계의 정보에서 데이터세계의 정보는 확률적으로 얻어짐</li>
-<li>통찰3: 데이터세계의 정보는 반복측정 가능</li>
-</ul>
+<p>좀 더 정리하면 아래와 같은 꼴로 나타낼 수 있다.</p>
+<p><span class="math display">\[L(\mu)=\left(\frac{1}{\sqrt{2\pi}}\right)^{10} e^{-\frac{(x_1-\mu)^2}{2} - \dots -\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
+<p>따라서 <span class="math inline">\(L(\mu)\)</span>를 최대화하는 일은 사실 아래의 함수를 최대화하는 일과 같다.</p>
+<p><span class="math display">\[\left(-\frac{(x_1-\mu)^2}{2}\right)+  \dots + \left(-\frac{(x_{10}-\mu)^2}{2}\right)\]</span></p>
+<p>따라서 <span class="math inline">\(\mu=\frac{x_1+\dots+x_n}{n}=\bar{x}\)</span>에서 최대값을 가진다. (약간 점프가 있죠? 좋아하는 방식대로 답을 도출해보세요)</p>
 
 
 </section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -771,44 +656,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
