@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -77,6 +112,35 @@ table {
 }
 </style>    
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="../styles.scss">
@@ -157,6 +221,191 @@ table {
 
 <section id="강의영상" class="level3">
 <h3 class="anchored" data-anchor-id="강의영상">강의영상</h3>
+<div id="01172a16" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># y{{&lt;video &gt;}}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="imports" class="level3">
+<h3 class="anchored" data-anchor-id="imports">Imports</h3>
+<div id="0f76ab7d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="잘하는-추정이란" class="level3">
+<h3 class="anchored" data-anchor-id="잘하는-추정이란">잘하는 추정이란?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.kdnuggets.com/wp-content/uploads/arya_biasvariance_tradeoff_5.png" class="img-fluid figure-img"></p>
+<figcaption>그림1: 솜씨좋은 사격사?</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>ref: <a href="https://www.kdnuggets.com/2022/08/biasvariance-tradeoff.html" class="uri">https://www.kdnuggets.com/2022/08/biasvariance-tradeoff.html</a></p>
+</blockquote>
+<hr>
+<p><code># 예제1</code></p>
+<p>아래와 같은 데이터를 관찰하자.</p>
+<div id="3d391cb7" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림2: <span class="math inline">\(data=(x_i,y_i)\)</span>의 산점도</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>중심을 추정하는 문제를 고려하자.</p>
+<ul>
+<li>A: 지금보니까 x,y의 평균은 모두 0 근처에 있는것 같지 않아? 굳이 극단적인 값을 고려할 필요는 없겠어. 그러니까 데이터중 상위 10%와 하위 10$를 잘라서 버린후 남은값들의 평균을 구하는건 어떄?</li>
+<li>B: 머리아프게 굳이? 그냥 평균으로 추정하는건 어때?</li>
+</ul>
+<p>누구의 말이 더 합리적일까?</p>
+<hr>
+<p><code>-</code> 아이디어: A의 방식으로 추정한 1000결과를 가져오고, B의 방식으로 추정한 1000개의 결과를 가져와서 비교해보자.</p>
+<div id="ee91e411" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    x.sort()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    y.sort()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>]),np.mean(y[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>])])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<div id="82fc51f3" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - percentile -&gt; mean"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림3: A방식, B방식으로 추정한 결과 // B가 좀 더 우수해보인다.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><code>#</code></p>
+<hr>
+<p><code># 예제2</code></p>
+<p>다시 아래와 같은 데이터를 상상하자.</p>
+<div id="bca90c77" class="cell" data-execution_count="155">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>중심을 추정하는 문제를 고려하자.</p>
+<ul>
+<li>A: 중앙값 한번 써보는게 어때?</li>
+<li>B: 그냥 평균으로 추정하는게 젤 좋다니까?</li>
+</ul>
+<p>누구의 말이 더 합리적일까?</p>
+<hr>
+<div id="a1be7a48" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.median(x),np.median(y)])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - median"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림4: A방식, B방식으로 추정한 결과 // 역시 평균기법인 B가 더 우수해보인다.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><code># 예제3</code></p>
+<p>이제 아래와 같은 데이터를 상상하자.</p>
+<div id="b152546a" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림5: <span class="math inline">\(data=(x_i,y_i)\)</span>의 산점도, <span class="math inline">\(x_i,y_i\)</span> 모두 0~1사이의 숫자를 (같은확률로) 뽑은것이다.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>중심을 추정하는 문제를 고려하자.</p>
+<ul>
+<li>A: 그냥 평균으로 추정하는게 젤 좋음. 그러니까 <span class="math inline">\((\bar{x},\bar{y})\)</span>로 추정하는게 제일 좋아.</li>
+<li>B: 난 좀 특이하게 하고 싶어. <span class="math inline">\(x\)</span>중에서 가장 작은 값과 큰값을 뽑고 평균을 구해. 그리고 <span class="math inline">\(y\)</span>에서 가장 작은값과 큰 값을 뽑고 평균을 구할거야. 그러니까 나는 <span class="math display">\[\left(\frac{\min(x)+\max(x)}{2}, \frac{\min(y)+\max(y)}{2}\right)\]</span> 로 추정하는게 좋을 것 같아.</li>
+</ul>
+<p>누구의 말이 더 합리적일까?</p>
+<hr>
+<div id="79322df3" class="cell" data-execution_count="182">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x),np.mean(y)])</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    B.append([(<span class="bu">min</span>(x)<span class="op">+</span><span class="bu">max</span>(x))<span class="op">/</span><span class="dv">2</span>,(<span class="bu">min</span>(y)<span class="op">+</span><span class="bu">max</span>(y))<span class="op">/</span><span class="dv">2</span>])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - $(</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">,</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{y}</span><span class="st">)$"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - $</span><span class="ch">\\</span><span class="st">left(</span><span class="ch">\\</span><span class="st">frac{min(x)+max(x)}</span><span class="sc">{2}</span><span class="st">,</span><span class="ch">\\</span><span class="st">frac{min(y)+max(y)}</span><span class="sc">{2}</span><span class="ch">\\</span><span class="st">right)$"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="11wk-2_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림4: A방식, B방식으로 추정한 결과</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><code>-</code> 놀라운점</p>
+<ol type="1">
+<li>차이가 왜이렇게 많이남?</li>
+<li>주황색은 모양이 왜저래?</li>
+</ol>
+<p><code>-</code> 피셔의주장</p>
+<ul>
+<li>아무 생각 없이 (분포를 고려하지 않고) 무조건 직관적인 Method of Moments Estimation (MME) 방식으로 추정하는건 최선의 결과를 가져오지 못한다.</li>
+<li>만약 MME방식이 잘 동작했다면 그건 운이 좋아서 그렇다. <em>(“적률법의 통계량들이 정규 곡선 근처에서 100% 효율로 수렴하는 이유는, 정규 곡선을 맞추는 데 있어 처음 두 적률이 <strong>마침</strong> 최적 통계량(optimum statistics)이기 때문이다”, “정규 곡선 주변에서 적률법의 높은 효율성은 Pearson 곡선 형태를 지정하는 공식과 적률법이 최대 우도 해법을 제공하는 곡선 시스템(4차 지수 곡선)이 일치하기 때문에 발생한다”)</em></li>
+</ul>
 
 
 </section>
