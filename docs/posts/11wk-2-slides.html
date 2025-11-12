@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.7.24">
 
   <meta name="author" content="최규빈">
-  <meta name="dcterms.date" content="2025-11-11">
-  <title>IAB-BS2025 – 11wk-1: 최대가능도추정 (3)</title>
+  <meta name="dcterms.date" content="2025-11-13">
+  <title>IAB-BS2025 – 11wk-2: 최대가능도추정 (3)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,72 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-73944be72d012cdc639efe8d02592198.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -196,7 +130,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">11wk-1: 최대가능도추정 (3)</h1>
+  <h1 class="title">11wk-2: 최대가능도추정 (3)</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -206,242 +140,11 @@
 </div>
 </div>
 
-  <p class="date">2025-11-11</p>
+  <p class="date">2025-11-13</p>
 </section>
 <section class="slide level2">
 
 <h3>강의영상</h3>
-</section>
-<section class="slide level2">
-
-<h3>최대가능도추정 (손으로만)</h3>
-<p><code># 예비학습</code></p>
-<p>아래를 관찰하자.</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\{f(x)\}^5\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0.1231</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-0.2342</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.3555</td>
-<td style="text-align: center;">??</td>
-</tr>
-</tbody>
-</table>
-<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
-<p><code>#</code></p>
-</section>
-<section class="slide level2">
-
-<p><code># 예비학습</code></p>
-<p><span class="math inline">\(f(x)&gt;0\)</span>일때 <span class="math inline">\(f(x)\)</span>를 최대로 만드는 <span class="math inline">\(x\)</span>값은 <span class="math inline">\(\log f(x)\)</span> 역시 최대로 만든다.</p>
-<p>(이유?)</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(f(x)\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\log(f(x))\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1.3</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2.3</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.8</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">11.2</td>
-<td style="text-align: center;">??</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.01</td>
-<td style="text-align: center;">??</td>
-</tr>
-</tbody>
-</table>
-<p>??의 값 중 에서 가장 큰값은? 그 다음 큰 값은??</p>
-<p><code>#</code></p>
-</section>
-<section class="slide level2">
-
-<p><code># 예제1</code></p>
-<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
-<ul>
-<li>data: 0, 1, 0, 0, 1, 1, 1, 0, 1, 0</li>
-</ul>
-<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^5 (1-\theta)^5\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
-<p>(풀이)</p>
-<p>가능도 함수는</p>
-<p><span class="math display">\[L(\theta)=\{\theta(1-\theta)\}^5\]</span></p>
-<p>이고 <span class="math inline">\(\theta(1-\theta)\)</span>를 최대화 하는 값이 곧 <span class="math inline">\(L(\theta)\)</span>를 최대화한다. 그런데 <span class="math inline">\(\theta(1-\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대값을 가지므로 가능도함수를 최대화하는 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{2}\)</span>이라 할 수 있다.</p>
-</section>
-<section class="slide level2">
-
-<p><code># 예제2</code></p>
-<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 7번 던져서 아래와 같이 나왔다고 하자.</p>
-<ul>
-<li>data: 0, 1, 0, 0, 1, 1, 1</li>
-</ul>
-<p>가능도함수 <span class="math inline">\(L(\theta)=\theta^4 (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
-</section>
-<section class="slide level2">
-
-<p>(풀이)</p>
-<p><span class="math inline">\(L(\theta)=\theta \times \{\theta(1-\theta)\}^3\)</span>로 표현할 수 있다. 여기에서 편의상</p>
-<ul>
-<li><span class="math inline">\(A = \theta\)</span></li>
-<li><span class="math inline">\(B = \{\theta(1-\theta)\}^3\)</span></li>
-</ul>
-<p>이라고 놓자. <span class="math inline">\(L(\theta)\)</span>를 최대화하기 위해서 <span class="math inline">\(A\)</span>입장에서는 <span class="math inline">\(\theta=1\)</span>이었으면 좋겠는데 <span class="math inline">\(B\)</span>입장에서는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이었으면 좋겠다. 의견이 일치하지 않아서 투표를 하고 싶은데 <span class="math inline">\(A\)</span>는 비유적으로 말하면 한명의 의견이 반영된것이고 <span class="math inline">\(B\)</span>는 6명의 의견이 반영된 것이라 해석할 수 있다. 따라서 아래와 같이 해석해야 적당하다.</p>
-<p><span class="math display">\[\frac{1}{7} \times 1 + \frac{6}{7} \times \frac{1}{2} = \frac{4}{7}\]</span></p>
-</section>
-<section class="slide level2">
-
-<p><code># 예제3</code></p>
-<p>앞면이 나올 확률이 <span class="math inline">\(\theta\)</span>인 동전을 4번 던져서 아래와 같이 나왔다고 하자.</p>
-<ul>
-<li>data: 0, 1, 0, 0,</li>
-</ul>
-<p>가능도함수 <span class="math inline">\(L(\theta)=\theta (1-\theta)^3\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 계산하라.</p>
-<p>(풀이)</p>
-<p>두명은 <span class="math inline">\(\theta=\frac{1}{2}\)</span>이 합리적이라 생각하지만 두명은 <span class="math inline">\(\theta=0\)</span>이 합리적이라 생각한다. 따라서 <span class="math inline">\(\theta=\frac{\frac{1}{2}+0}{2}=\frac{1}{4}\)</span>이 되어야겠다.</p>
-</section>
-<section class="slide level2">
-
-<p>(풀이2) – 미분좋아하면 미분을 써도된다.</p>
-<ul>
-<li><span class="math inline">\(L(\theta)=\theta (1-\theta)^3= \theta - 3\theta^2 + 3\theta^3 - \theta^4\)</span></li>
-<li><span class="math inline">\(L'(\theta)=1-6\theta+9\theta^2-4\theta^3\)</span></li>
-</ul>
-<p><span class="math inline">\(L'(\theta)=0\)</span>을 풀면, <span class="math inline">\(L'(\theta)=-(4\theta^3-9\theta^2+6\theta-1)=-(\theta-1)^2(4\theta-1)\)</span>. 따라서 <span class="math inline">\(L'(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{4}, 1\)</span>에서 극값을 가진다. 개형을 그려보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>에서 함수가 최대화된다.</p>
-</section>
-<section class="slide level2">
-
-<p>(풀이3) – 통계학과에서는 보통 풀이2보다는 로그+미분을 쓴다.</p>
-<ul>
-<li><span class="math inline">\(\log L(\theta)=l(\theta) = \log\theta + 3\log(1-\theta)\)</span></li>
-<li><span class="math inline">\(l'(\theta)=\frac{1}{\theta}-\frac{3}{1-\theta}\)</span></li>
-<li><span class="math inline">\(l''(\theta) = -\frac{1}{\theta^2} - \frac{3}{(1-\theta)^2} &lt; 0\)</span></li>
-</ul>
-<p>그래프의 개형 따질 필요 없이 <span class="math inline">\(l''(\theta)&lt;0\)</span>이면 concave함수이고 따라서 극값=최대값이다. 이제 <span class="math inline">\(l'(\theta)=0\)</span>을 풀어보자. 풀어보면 <span class="math inline">\(\theta=\frac{1}{4}\)</span>이 정리된다.</p>
-</section>
-<section class="slide level2">
-
-<p><code># 예제4</code></p>
-<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 10번 던져서 아래와 같이 나왔다고 하자.</p>
-<ul>
-<li>data: <span class="math inline">\((x_1,\dots,x_{10})=(0, 1, 0, 0, 1, 1, 1, 0, 1, 0)\)</span></li>
-</ul>
-<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(x_1,\dots,x_{10}\)</span>에 대응하는 수식으로 표현하라.</p>
-<p>(풀이) 가능도함수는 아래와 같다.</p>
-<p><span class="math display">\[L(\theta|data)=P(data|\theta)=P(X_1=x_1)\times \dots \times P(X_{10}=x_{10})\]</span></p>
-</section>
-<section class="slide level2">
-
-<p>그런데</p>
-<ul>
-<li><span class="math inline">\(P(X_1=x_1)=(1-\theta)^{1-x_1}\theta^{x_1} \overset{x_1=0}{\Longrightarrow} P(X_1=0)=1-\theta\)</span></li>
-<li><span class="math inline">\(P(X_2=x_2)=(1-\theta)^{1-x_2}\theta^{x_2} \overset{x_2=1}{\Longrightarrow} P(X_2=1)=\theta\)</span></li>
-<li><span class="math inline">\(\dots\)</span></li>
-<li><span class="math inline">\(P(X_{10}=x_{10})=(1-\theta)^{1-x_{10}}\theta^{x_{10}} \overset{x_{10}=0}{\Longrightarrow} P(X_{10}=0)=1-\theta\)</span></li>
-</ul>
-<p>이다. 따라서 정리하면</p>
-<ul>
-<li><span class="math inline">\(L(\theta|data)=(1-\theta)^{10-(x_1+\dots+x_{10})}  \times \theta^{(x_1+\dots+x_{10})} \overset{data=(0,1,\dots,0)}{\Longrightarrow} (1-\theta)^5 \theta^5\)</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<p>위의 논의가 <span class="math inline">\(10\)</span>개의 data가 아닌 일반적인 <span class="math inline">\(n\)</span>개의 data에서도 성립하므로, 좀 더 일반적으로는</p>
-<p><span class="math display">\[X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta) \Rightarrow L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
-<p>와 같이 쓸 수 있다.</p>
-<p><code>#</code></p>
-</section>
-<section class="slide level2">
-
-<p><code># 예제5</code></p>
-<p>앞면이 확률이 <span class="math inline">\(\theta\)</span>인 동전을 n번 던져서 아래와 같이 나왔다고 하자.</p>
-<ul>
-<li>data: <span class="math inline">\(x_1,\dots,x_n\)</span></li>
-</ul>
-<p>가능도함수 <span class="math inline">\(L(\theta)\)</span>를 최대화하는 <span class="math inline">\(\theta\)</span>를 서술하라.</p>
-</section>
-<section class="slide level2">
-
-<p>(풀이1) 가능도함수는 아래와 같다.</p>
-<p><span class="math display">\[L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\]</span></p>
-<p>뒷면이 <span class="math inline">\(n_0\)</span>나오고 앞면이 <span class="math inline">\(n_1\)</span>나왔다고 하자. (주의: <span class="math inline">\(n_0+n_1=n\)</span> 이고, <span class="math inline">\(n_1=\sum_i x_i\)</span>임.)</p>
-<p><strong>(case1: <span class="math inline">\(n_0&lt;n_1\)</span>)</strong></p>
-<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
-<p><span class="math display">\[\frac{1}{2} \times \frac{2n_0}{n} + 1 \times \frac{n-2n_0}{n}=\frac{n-n_0}{n}=\frac{n_1}{n}\]</span></p>
-<p>에서 최대값을 가진다. 그런데 <span class="math inline">\(n_1 = \sum x_i\)</span>임을 이용하면 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{1}{n}\sum_{i=1}^{n}x_i=\bar{x}\)</span>에서 최대값을 가진다.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>(case2: <span class="math inline">\(n_0&gt;n_1\)</span>)</strong></p>
-<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는</p>
-<p><span class="math display">\[\frac{1}{2} \times \frac{2n_1}{n} + 0 \times \frac{n-2n_1}{n}=\frac{n_1}{n}\]</span></p>
-<p>에서 최대값을 가진다. 앞의경우랑 같다! 따라서 이 경우도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다라고 볼 수 있다.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>(case3: <span class="math inline">\(n_0=n_1\)</span>)</strong></p>
-<p>가능도 함수 <span class="math inline">\(L(\theta)\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대화가 된다. 그런데 이 경우 <span class="math inline">\(\bar{x}=\frac{1}{2}\)</span>이므로 이때도 <span class="math inline">\(\theta=\bar{x}\)</span>에서 <span class="math inline">\(L(\theta)\)</span>가 최대값을 가진다고 볼 수 있다.</p>
-<blockquote>
-<p>결론: <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 이라면</p>
-<ol type="1">
-<li>우도함수는 항상 <span class="math inline">\(L(\theta)=(1-\theta)^{n-\sum x_i} \times \theta^{\sum x_i}\)</span> 이런 모양을 가지고,</li>
-<li>우도함수는 <span class="math inline">\(\theta=\bar{x}\)</span>에서 최대값을 가진다.</li>
-</ol>
-<p>따라서 <span class="math inline">\(X_1,\dots,X_{n} \overset{iid}{\sim} Ber(\theta)\)</span> 에서 <span class="math inline">\(\theta\)</span>를 최대가능도 기법으로 추정하기 위해서는 <span class="math inline">\(\bar{x}\)</span>를 쓰면 된다. (이렇게 당연한 결론을 꼭 이렇게 한참 설명해야하는것일까?)</p>
-</blockquote>
-</section>
-<section class="slide level2">
-
-<p><code># 예제6</code></p>
-<p>분산이 1인 정규분포에서 아래와 같은 데이터를 관찰했다고 가정하자.</p>
-<div id="a352a4ad" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>x <span class="op">=</span> [<span class="op">-</span><span class="fl">1.4805676</span>,  <span class="fl">1.5771695</span>, <span class="fl">0.9567445</span>, <span class="op">-</span><span class="fl">0.9200052</span>, <span class="op">-</span><span class="fl">1.9976421</span>, </span>
-<span id="cb1-2"><a></a>     <span class="op">-</span><span class="fl">0.2722960</span>, <span class="op">-</span><span class="fl">0.3153487</span>, <span class="op">-</span><span class="fl">0.6282552</span>, <span class="op">-</span><span class="fl">0.1064639</span>,  <span class="fl">0.4280148</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>최대가능도기법으로 평균을 추정하라.</p>
-<p><code>(풀이)</code></p>
-<p>가능도함수는 아래와 같이 쓸 수 있다.</p>
-<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2}}\]</span></p>
-<p>좀 더 일반적으로는 아래와 같이 쓸 수 있다.</p>
-<p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_1-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
-</section>
-<section class="slide level2">
-
-<p>좀 더 정리하면 아래와 같은 꼴로 나타낼 수 있다.</p>
-<p><span class="math display">\[L(\mu)=\left(\frac{1}{\sqrt{2\pi}}\right)^{10} e^{-\frac{(x_1-\mu)^2}{2} - \dots -\frac{(x_{10}-\mu)^2}{2}}\]</span></p>
-<p>따라서 <span class="math inline">\(L(\mu)\)</span>를 최대화하는 일은 사실 아래의 함수를 최대화하는 일과 같다.</p>
-<p><span class="math display">\[\left(-\frac{(x_1-\mu)^2}{2}\right)+  \dots + \left(-\frac{(x_{10}-\mu)^2}{2}\right)\]</span></p>
-<p>따라서 <span class="math inline">\(\mu=\frac{x_1+\dots+x_n}{n}=\bar{x}\)</span>에서 최대값을 가진다. (약간 점프가 있죠? 좋아하는 방식대로 답을 도출해보세요) 따라서</p>
-<div id="1f900a63" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="bu">sum</span>(x)<span class="op">/</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>-0.27586499</code></pre>
-</div>
-</div>
 
 
 </section>
