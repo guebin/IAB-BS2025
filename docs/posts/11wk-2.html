@@ -221,16 +221,14 @@ window.Quarto = {
 
 <section id="강의영상" class="level3">
 <h3 class="anchored" data-anchor-id="강의영상">강의영상</h3>
-<div id="01172a16" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># y{{&lt;video &gt;}}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-x9J2lltwa_uYKXEvecA5ne&amp;si=ZFXQ19M4FVY8Clhe" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <hr>
 </section>
 <section id="imports" class="level3">
 <h3 class="anchored" data-anchor-id="imports">Imports</h3>
 <div id="0f76ab7d" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -249,15 +247,15 @@ window.Quarto = {
 <p><code># 예제1</code></p>
 <p>아래와 같은 데이터를 관찰하자.</p>
 <div id="3d391cb7" class="cell" data-execution_count="154">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>그림2: <span class="math inline">\(data=(x_i,y_i)\)</span>의 산점도</figcaption>
 </figure>
 </div>
@@ -273,28 +271,28 @@ window.Quarto = {
 <hr>
 <p><code>-</code> 아이디어: A의 방식으로 추정한 1000결과를 가져오고, B의 방식으로 추정한 1000개의 결과를 가져와서 비교해보자.</p>
 <div id="ee91e411" class="cell" data-execution_count="141">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    x.sort()</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    y.sort()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>]),np.mean(y[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>])])</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    x.sort()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    y.sort()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>]),np.mean(y[<span class="dv">10</span>:<span class="op">-</span><span class="dv">10</span>])])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <div id="82fc51f3" class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - percentile -&gt; mean"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - percentile -&gt; mean"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>그림3: A방식, B방식으로 추정한 결과 // B가 좀 더 우수해보인다.</figcaption>
 </figure>
 </div>
@@ -308,7 +306,7 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>.</figcaption>
 </figure>
 </div>
@@ -322,24 +320,24 @@ window.Quarto = {
 <p>누구의 말이 더 합리적일까?</p>
 <hr>
 <div id="a1be7a48" class="cell" data-execution_count="156">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.median(x),np.median(y)])</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - median"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.median(x),np.median(y)])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    B.append([np.mean(x),np.mean(y)])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - median"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - mean"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>그림4: A방식, B방식으로 추정한 결과 // 역시 평균기법인 B가 더 우수해보인다.</figcaption>
 </figure>
 </div>
@@ -349,15 +347,15 @@ window.Quarto = {
 <p><code># 예제3</code></p>
 <p>이제 아래와 같은 데이터를 상상하자.</p>
 <div id="b152546a" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ok'</span>,label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">data=</span><span class="kw">(</span><span class="vs">x_i,y_i</span><span class="kw">)</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>그림5: <span class="math inline">\(data=(x_i,y_i)\)</span>의 산점도, <span class="math inline">\(x_i,y_i\)</span> 모두 0~1사이의 숫자를 (같은확률로) 뽑은것이다.</figcaption>
 </figure>
 </div>
@@ -372,24 +370,24 @@ window.Quarto = {
 <p>누구의 말이 더 합리적일까?</p>
 <hr>
 <div id="79322df3" class="cell" data-execution_count="182">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x),np.mean(y)])</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    B.append([(<span class="bu">min</span>(x)<span class="op">+</span><span class="bu">max</span>(x))<span class="op">/</span><span class="dv">2</span>,(<span class="bu">min</span>(y)<span class="op">+</span><span class="bu">max</span>(y))<span class="op">/</span><span class="dv">2</span>])</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - $(</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">,</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{y}</span><span class="st">)$"</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - $</span><span class="ch">\\</span><span class="st">left(</span><span class="ch">\\</span><span class="st">frac{min(x)+max(x)}</span><span class="sc">{2}</span><span class="st">,</span><span class="ch">\\</span><span class="st">frac{min(y)+max(y)}</span><span class="sc">{2}</span><span class="ch">\\</span><span class="st">right)$"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [] </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [] </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.random.uniform(size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    A.append([np.mean(x),np.mean(y)])</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    B.append([(<span class="bu">min</span>(x)<span class="op">+</span><span class="bu">max</span>(x))<span class="op">/</span><span class="dv">2</span>,(<span class="bu">min</span>(y)<span class="op">+</span><span class="bu">max</span>(y))<span class="op">/</span><span class="dv">2</span>])</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array(A)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array(B)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.plot(A[:,<span class="dv">0</span>],A[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"A - $(</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">,</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{y}</span><span class="st">)$"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.plot(B[:,<span class="dv">0</span>],B[:,<span class="dv">1</span>],<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.1</span>,label<span class="op">=</span><span class="st">"B - $</span><span class="ch">\\</span><span class="st">left(</span><span class="ch">\\</span><span class="st">frac{min(x)+max(x)}</span><span class="sc">{2}</span><span class="st">,</span><span class="ch">\\</span><span class="st">frac{min(y)+max(y)}</span><span class="sc">{2}</span><span class="ch">\\</span><span class="st">right)$"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="11wk-2_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="11wk-2_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 <figcaption>그림4: A방식, B방식으로 추정한 결과</figcaption>
 </figure>
 </div>
