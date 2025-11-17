@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2025-10-23">
+<meta name="dcterms.date" content="2025-10-21">
 
-<title>08wk-2: 확률변수와 분포 – IAB-BS2025</title>
+<title>08wk-1: 진실의 세계와 데이터의 세계 (Python, 참고자료) – IAB-BS2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -190,7 +190,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">08wk-2: 확률변수와 분포</h1>
+<h1 class="title">08wk-1: 진실의 세계와 데이터의 세계 (Python, 참고자료)</h1>
 </div>
 
 
@@ -207,7 +207,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2025</p>
+      <p class="date">October 21, 2025</p>
     </div>
   </div>
   
@@ -226,436 +226,334 @@ window.Quarto = {
 </ul>
 <hr>
 </section>
-<section id="이산형확률변수의-분포" class="level3">
-<h3 class="anchored" data-anchor-id="이산형확률변수의-분포">이산형확률변수의 분포</h3>
-<p><code># 예제1</code> – 확률분포표</p>
-<p>아래를 가정하자. <span class="math display">\[X \sim Bernoulli(0.5)\]</span></p>
-<p>이 경우 <span class="math inline">\(P(X=x)\)</span>는 아래와 같은 표로 정리할 수 있다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.5</td>
-</tr>
-</tbody>
-</table>
-<p>이러한 표를 확률분포표라고 한다.</p>
-<hr>
-<p>확률분포표는 아래와 같은 함수로 표현할수도 있다.</p>
-<p><span class="math display">\[f_X(x)= \begin{cases} 0.5 &amp; x=0 \\ 0.5 &amp; x=1 \\ 0 &amp; o.w. \end{cases}
-\]</span></p>
-<p>그림으로는 아래와 같이 표현가능하다. 이러한 함수를 확률질량함수(pmf)라고 부른다.</p>
-<div class="cell">
-<div class="cell-output-display">
+<section id="도입" class="level3">
+<h3 class="anchored" data-anchor-id="도입">도입</h3>
+<p><code>예제1</code> – 엑스노트</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="08wk-2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption>Figure: 베르누이분포의 확률질량함수</figcaption>
+<p><img src="figs/08wk-1-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림1: 엑스노트 X300의 광고</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>reference: 201x년 김용대 교수님 수업을 들으며 착안한 예제..</p>
+</blockquote>
+<hr>
+<p>앞의 그림을 가장 적절히 설명한 진술이 무엇이라고 생각하는가?</p>
+<ol type="1">
+<li>신민아가 고층빌딩에서 엑스노트를 벽면유리에 테잎을 붙여 프리젠테이션을 하고 있다.</li>
+<li>젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.</li>
+<li>여성이 프리젠테이션을 하고 있다.</li>
+</ol>
+<hr>
+<p>이제 아래의 진술이 맞을 “확률”을 생각해보자. 1,2,3중에 어떠한 문장이 참일 확률이 가장 높은가?</p>
+<ol type="1">
+<li>신민아가 고층빌딩에서 엑스노트를 활용해 프리젠테이션을 하고 있다.</li>
+<li>젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.</li>
+<li>여성이 프리젠테이션을 하고 있다.</li>
+</ol>
+<hr>
+<p><code>예제2</code> – 아래의 그림을 관찰하자.</p>
+<div id="0b454910" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08wk-1-python_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림2: 3000개의 점으로 구성된 산점도</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <hr>
-<p>이 함수는 아래와 같은 히스토그램의 극한을 이용하여 상상할 수도 있다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">3000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x,<span class="at">breaks=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08wk-2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption>Figure: 베르누이분포의 히스토그램</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p>다음 중 그림을 가장 잘 묘사한 것은?</p>
+<ol type="1">
+<li><span class="math inline">\(x\)</span>축의 평균은 2이다.</li>
+<li><span class="math inline">\(y\)</span>축의 평균은 3이다.</li>
+<li>평균은 <span class="math inline">\((2,3)\)</span>이다.</li>
+<li>평균은 어딘가에 있다. 즉 평균은 <span class="math inline">\((x_0,y_0)\)</span> 인데 <span class="math inline">\(x_0 \in \mathbb{R}, y_0 \in \mathbb{R}\)</span>.</li>
+</ol>
+<p>진술 1-4가 맞을 확률은?</p>
 <hr>
-<p><code># 생각해볼점</code> – 아래의 확률분포표는 <span class="math inline">\(Bernoulli(0.5)\)</span>를 완전히 특정한다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.5</td>
-</tr>
-</tbody>
-</table>
-<p>따라서 확률분포표를 주는 경우는 <span class="math inline">\(Bernoulli(0.5)\)</span>임을 굳이 명시하지 않아도 좋겠다. 따라서 <span class="math inline">\(X \sim Bernoulli(0.5)\)</span>를 아래와 같이 써도 무방하다.</p>
-<blockquote class="blockquote">
-<p><span class="math display">\[X \sim P\]</span></p>
-<p>단, <span class="math inline">\(P(X=x)\)</span>는 아래의 표와 같이 정의된다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.5</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<hr>
-<p>좀 더 일반적으로 <span class="math inline">\(X \sim Bernoulli(\theta)\)</span> 는 아래와 같이 표현할 수 있다.</p>
-<blockquote class="blockquote">
-<p><span class="math display">\[X \sim P\]</span></p>
-<p>단, <span class="math inline">\(P(X=x)\)</span>는 아래의 표와 같이 정의된다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1-\theta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<hr>
-<p>또는 좀 더 명시적으로 <span class="math inline">\(X \sim Bernoulli(\theta)\)</span> 를 아래와 같이 표현할 수 있다.</p>
-<blockquote class="blockquote">
-<p><span class="math display">\[X \sim P_\theta\]</span></p>
-<p>단, <span class="math inline">\(P_\theta(X=x)\)</span>는 아래의 표와 같이 정의된다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P_\theta(X=x)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1-\theta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p><code>#</code></p>
+<p>왜 이러한 혼란이 생기는가? 피셔는 1922년 그의 논문 “On the Mathematical Foundations of Theoretical Statistics”에서 혼란이 발생하는 원인을 아래와 같이 주장하였다.</p>
+<ol type="1">
+<li>용어가 불분명해서 그렇다. (즉 순전히 언어적인 혼란이다)</li>
+<li>“확률”이라는 개념을 너무 남발해서 그렇다. (역확률)</li>
+</ol>
 <hr>
 </section>
-<section id="연속형확률변수의-분포" class="level3">
-<h3 class="anchored" data-anchor-id="연속형확률변수의-분포">연속형확률변수의 분포</h3>
-<p><code>예제2</code></p>
-<p>아래를 가정하자.</p>
-<p><span class="math display">\[X \sim N(0,1)\]</span></p>
-<p>여기에 대응하는 확률분포표는 무엇일까? <span class="math inline">\(X\)</span>의 범위가 무한대이므로 표를 만들 수 없다.</p>
-<hr>
-<p>그렇지만 히스토그램은 그릴 수 있다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">3000</span>,<span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08wk-2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption>Figure: 정규분포의 히스토그램</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<hr>
-<p>베루누이의 경우 히스토그램의 극한을 이용하여 확률분포표를 상상할 수 있었는데, 이 경우도 저 히스토그램의 극한을 이용하여 확률밀도함수(pdf)를 상상할 수 있다.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08wk-2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="576"></p>
-<figcaption>Figure: 표준정규분포의 확률밀도함수</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="중간정리" class="level3">
-<h3 class="anchored" data-anchor-id="중간정리">중간정리</h3>
-<p><code>-</code> 여기에서 확률분포표로 정의되는 <span class="math inline">\(P\)</span>는 데이터를 만들어내는 규칙을 의미한다고 볼 수 있다. 즉 진실공간의 정보이다. 그래서 종종 추정의 대상이 되기도 한다. 또한 “데이터를 만드는 방법을 정리한 정보” 라고 해석하기도 한다.</p>
-<p><code>-</code> 진실세계의 모든 정보를 안다는 것은 우리가 데이터를 생성하기 위해 필요한 모든 정보를 알고 있다는 말과 동일하다.</p>
-<p><code>-</code> <span class="math inline">\(P\)</span>는 <span class="math inline">\(X\)</span>가 가질수 있는 값의 범위를 정의한다는 (놓치기 쉬운) 사실도 주목하자. 예를들어 <span class="math inline">\(P(X=x)\)</span>는 아래의 표와 같이 정의한다고 가정하자.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1-\theta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>이는 <span class="math inline">\(X\)</span>가 가질 수 있는 값이 0과 1임을 의미한다. (<span class="math inline">\(X\)</span>의 support가 <span class="math inline">\(\{0,1\}\)</span>이라고 표현하기도 함)</p>
-<hr>
-<p><code>-</code> <span class="math inline">\(P\)</span>를 정의하는 방식은 매우 다양하다. 예를들어 아래와 같은 확률분포표를 고려하자.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">-1</th>
-<th style="text-align: center;">1023</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.2</td>
-<td style="text-align: center;">0.3</td>
-</tr>
-</tbody>
-</table>
-<p>이것은 시행을 해서 얻은 결과가 0일 확률이 0.5이고 -1일 확률이 0.2이고 1023일 확률이 0.3이라는 의미이다.</p>
-<p><code>-</code> 일부의 <span class="math inline">\(P\)</span>는 사람들이 자주 애용하는 편인데 그런 경우 이름을 붙이는 것이 편리하다는 생각을 하였다. 예를들어 아래와 같은 분포는 사람들이 관심이 있는 편인데</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.5</td>
-</tr>
-</tbody>
-</table>
-<p>이러한 분포는 사람들이 베르누이라고 부른다.</p>
-<hr>
-<p><code>-</code> 아래와 같은 분포도 사람들이 종종 관심이 있다. (공평한 동전을 두번던져서 앞면이 몇번나오는지를 세면 된다)</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-<th style="text-align: center;">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.25</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.25</td>
-</tr>
-</tbody>
-</table>
-<p>따라서 이러한 분포에도 이름이 붙어있는데 이것을 이항분포라고 한다.</p>
-<p><code>-</code> 아래와 같은 분포도 이항분포라 부른다. (공평한 동전을 5번 던져서 앞면이 몇번 나오는지 세어본다고 상상하자)</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-<th style="text-align: center;">2</th>
-<th style="text-align: center;">3</th>
-<th style="text-align: center;">4</th>
-<th style="text-align: center;">5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.03125</td>
-<td style="text-align: center;">0.15625</td>
-<td style="text-align: center;">0.3125</td>
-<td style="text-align: center;">0.3125</td>
-<td style="text-align: center;">0.15625</td>
-<td style="text-align: center;">0.03125</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p><code>-</code> 네임드분포는 종종 한두개의 숫자로 특정지을 수 있다. 예를들어 베르누이 분포는</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">???</td>
-<td style="text-align: center;">???</td>
-</tr>
-</tbody>
-</table>
-<p>의 형태를 가지는데 <span class="math inline">\(P(X=1)\)</span>에 대응하는 숫자만 특정한다면 나머지는 자동으로 정해진다.</p>
-<p><code>-</code> 아래와 같은 분포는</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-<th style="text-align: center;">2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.25</td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.25</td>
-</tr>
-</tbody>
-</table>
-<p>분포를 특정하기 위해 최소 2개의 숫자를 정해야할 것 처럼 보인다. 하지만 이항분포가 독립적인 베르누이 시행을 결합하여 얻은 결과란 사실을 캐치하면 이것 역시 하나의 숫자로 분포를 특정할 수 있음을 알게 된다.</p>
-<hr>
-<p><code>-</code> 분포를 특정하는데 필요한 숫자를 모수라 한다. 일반적으로 모수는 <span class="math inline">\(\theta\)</span>라는 기호를 사용한다. 그렇지만 모수가 특별한 의미를 가짐을 강조하면 <span class="math inline">\(\theta\)</span>대신에 다른기호를 쓰기도 한다. (예를들면 <span class="math inline">\(p\)</span>)</p>
-<p><code>-</code> 모수는 1개일수도 있고 여러개일 수도 있다. 예를들어 이항분포는 2개의 모수를 가진다.</p>
-<p><span class="math display">\[X \sim Binomial(n,p)\]</span></p>
-<p><code>-</code> 이항분포에서 난수를 생성하는 R코드는 아래와같다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>,<span class="dv">5</span>,<span class="fl">0.5</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 1 2 3 4 2 2 5 3 3 3 3 3 2 2 1 3 5 1 3 3 4 3 3 1 2 3 2 3 1 4 2 3 3 1 1 4 2
- [38] 1 3 2 4 3 3 5 1 1 2 3 3 2 2 5 2 4 2 1 4 2 1 2 3 3 2 2 2 0 3 2 3 4 3 2 2 1
- [75] 2 2 4 0 2 0 2 2 1 2 1 2 3 4 3 1 4 4 1 0 1 4 2 2 5 1</code></pre>
-</div>
-</div>
-<p>이것은 <span class="math inline">\(Binomial(5,0.5)\)</span> 에서 100개의 난수를 뽑는 코드이다.</p>
-<hr>
-<p><code>-</code> 베르누이분포는 <span class="math inline">\(n=1\)</span>인 이항분포라 할 수 있다. 따라서 성공확률이 0.5인 베르누이 분포에서 100개의 난수를 뽄느 R코드는 아래와 같다. (베르누이분포를 )</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 1 0 0 0 1 1 0 0 1 0 0 0 0 1 0 1 0 1 0 0 0
- [38] 1 1 1 1 1 0 1 0 0 0 1 0 1 0 0 1 0 1 0 0 1 1 0 1 0 0 0 1 0 0 0 1 1 1 0 0 1
- [75] 0 0 0 1 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 0 0 1 1 1</code></pre>
-</div>
-</div>
-<hr>
-<p><code>-</code> 두 확률변수 <span class="math inline">\(X\)</span>와 <span class="math inline">\(Y\)</span>의 분포가 같다라는 것을 기호로 <span class="math inline">\(X \overset{d}{=} Y\)</span>라고 표현하기도 한다.</p>
-<p><code>-</code> 만약에</p>
+<section id="모수-vs-추정치" class="level3">
+<h3 class="anchored" data-anchor-id="모수-vs-추정치">모수 vs 추정치</h3>
+<p>용어가 불분명하다는 것이 무슨 의미일까?</p>
+<p><code>예제1</code> – 애매한 언어</p>
 <ul>
-<li><span class="math inline">\(X_1,X_2\overset{iid}{\sim} Bernoulli(p)\)</span></li>
-<li><span class="math inline">\(Y \sim Binomial(n,p)\)</span></li>
+<li><p>질문1: 공평한 동전을 던진다고 가정하자. 동전을 던저서 나오는 앞면이 나오면 <span class="math inline">\(X=0\)</span>이라고 하고 뒷면이 나오면 <span class="math inline">\(X=1\)</span>이라고 하자. <span class="math inline">\(X\)</span>의 평균은 얼마인가?</p></li>
+<li><p>질문2: 동전을 5번 던져서 <span class="math inline">\((0,1,0,0,1)\)</span>을 얻었다고 하자. 평균이 얼마인가?</p></li>
 </ul>
-<p>이면 <span class="math inline">\(X_1+X_2 \overset{d}{=} Y\)</span>가 성립한다.</p>
 <hr>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">3000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">3000</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">3000</span>,<span class="dv">2</span>,<span class="fl">0.5</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x1<span class="sc">+</span>x2,<span class="at">breaks=</span><span class="dv">100</span>) </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y,<span class="at">breaks=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+<p><code>-</code> 사람들은 알고 싶지만 오직 추정만 할 수 있는 참값(모수)과 추정 방법을 통해 도출된 값(추정치) 모두에 대해 같은 이름을 사용하는 관습이 있다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 43%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>진실의 세계</th>
+<th>데이터의 세계</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>성격</td>
+<td>알고 싶지만 오직 추정만 할 수 있는 참값 (true value)</td>
+<td>추정 방법을 통해 도출된 특정 값 (particular value at which we happen to arrive)</td>
+</tr>
+<tr class="even">
+<td>용어</td>
+<td>모수 (parameter)</td>
+<td>추정치 (estimate)</td>
+</tr>
+<tr class="odd">
+<td>평균</td>
+<td>모평균 <span class="math inline">\(\mu\)</span></td>
+<td>표본평균 <span class="math inline">\(\bar{x}\)</span></td>
+</tr>
+<tr class="even">
+<td>표준편차</td>
+<td>모표준편차 <span class="math inline">\(\sigma\)</span></td>
+<td>표본표준편차 <span class="math inline">\(s\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>고등학교 과정 복습</code></p>
+<p><code>-</code> 베르누이 시행 (Bernoulli Trial)</p>
+<ul>
+<li>결과가 “성공(1)” 또는 “실패(0)” 두 가지만 나오는 실험</li>
+<li>성공 확률을 <span class="math inline">\(p\)</span>라고 하면, 실패 확률은 <span class="math inline">\(1-p\)</span></li>
+<li>예: 동전 던지기 (앞면=성공, 뒷면=실패), 제품 검사 (양품=성공, 불량품=실패)</li>
+</ul>
+<p><code>-</code> 확률변수 (Random Variable)</p>
+<ul>
+<li>확률 실험의 결과를 숫자로 대응시키는 함수</li>
+<li>베르누이 시행에서: <span class="math inline">\(X = 1\)</span> (성공), <span class="math inline">\(X = 0\)</span> (실패)</li>
+<li>확률변수 <span class="math inline">\(X\)</span>가 베르누이 분포를 따른다는 표기: <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> 또는 <span class="math inline">\(X \sim B(p)\)</span></li>
+</ul>
+<hr>
+<p><code>-</code> 독립 (Independence)</p>
+<ul>
+<li>두 확률변수 <span class="math inline">\(X_1, X_2\)</span>가 독립: 한 변수의 결과가 다른 변수에 영향을 주지 않음</li>
+<li>수학적 정의: <span class="math inline">\(P(X_1=x_1, X_2=x_2) = P(X_1=x_1) \cdot P(X_2=x_2)\)</span></li>
+<li>예: 첫 번째 동전 던지기 결과가 두 번째 동전 던지기에 영향을 주지 않음</li>
+</ul>
+<p><code>-</code> i.i.d. (independent and identically distributed)</p>
+<ul>
+<li><strong>독립 (independent)</strong>: 확률변수들이 서로 독립</li>
+<li><strong>동일한 분포 (identically distributed)</strong>: 모든 확률변수가 같은 분포를 따름</li>
+<li>표기: <span class="math inline">\(X_1, X_2, \ldots, X_n \overset{iid}{\sim} \text{Bernoulli}(p)\)</span></li>
+<li>의미: <span class="math inline">\(n\)</span>개의 확률변수가 모두 베르누이<span class="math inline">\((p)\)</span>를 따르며, 서로 독립적임</li>
+</ul>
+<hr>
+<p><code>-</code> 모평균 (Population Mean)</p>
+<ul>
+<li>확률변수 <span class="math inline">\(X\)</span>의 기댓값 (expected value)</li>
+<li>표기: <span class="math inline">\(\mu = \mathbb{E}[X]\)</span></li>
+<li>의미: 진실의 세계에서 이론적으로 계산되는 평균값</li>
+<li>베르누이 분포의 경우: <span class="math inline">\(\mu = \mathbb{E}(X) = p\)</span></li>
+</ul>
+<hr>
+<p><code>-</code> 실현치 (Realization) – data</p>
+<ul>
+<li>확률변수를 (실험 혹은 시뮬레이션을 통해) 관측하여 얻은 구체적인 실제값</li>
+<li>표기: <span class="math inline">\(x_1, x_2, \dots, x_n\)</span> (소문자)</li>
+<li>예: 동전을 5번 던져서 <span class="math inline">\((0,1,0,0,1)\)</span>을 얻음</li>
+</ul>
+<p><code>-</code> 표본평균 (Sample Mean)</p>
+<ul>
+<li>관측치들의 산술평균</li>
+<li>표기: <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\)</span> (소문자)</li>
+<li>의미: 데이터의 세계에서 실제로 계산되는 평균값</li>
+<li>예: <span class="math inline">\((0,1,0,0,1)\)</span>의 표본평균은 <span class="math inline">\(\bar{x} = \frac{0+1+0+0+1}{5} = 0.4\)</span></li>
+</ul>
+<hr>
+<p><code>예제1</code> – 명확한 언어</p>
+<ul>
+<li><p>질문1: <span class="math inline">\(p=0.5\)</span>인 베르누이 시행을 상상하자.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">\(X\sim B(p)\)</span> 일때 모평균 <span class="math inline">\(\mathbb{E}(X)\)</span>는 얼마인가?<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p></li>
+<li><p>질문2: <span class="math inline">\(X_1,\dots,X_5 \overset{i.i.d.}{\sim}B(0.5)\)</span>의 관측값이 <span class="math display">\[(x_1,x_2,x_3,x_4,x_5)=(0,1,0,0,1)\]</span>일때 표본평균 <span class="math inline">\(\bar{x}=\frac{1}{5}\sum_{i=1}^{5}x_i\)</span>는 얼마인가?</p></li>
+</ul>
+<hr>
+<p><code>예제2</code> – 애매한 언어</p>
+<p>평균이 0이고 표준편차가 1이 정규분포가 있다고 하자. 아래는 이러한 정규분포에 10개의 data를 뽑은 결과이다.</p>
+<div id="c601811e" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R의 set.seed(123); rnorm(10)과 동일한 데이터 사용</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pd.read_csv(<span class="st">'data_seed123_n10.csv'</span>)[<span class="st">'x'</span>].values</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>array([-0.56047565, -0.23017749,  1.55870831,  0.07050839,  0.12928774,
+        1.71506499,  0.46091621, -1.26506123, -0.68685285, -0.44566197])</code></pre>
+</div>
+</div>
+<p><code>x</code>의 평균은 아래와 같은 코드로 계산한다.</p>
+<div id="23fcbab7" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.mean(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>0.07462564409716173</code></pre>
+</div>
+</div>
+<p><code>x</code>의 표준편차는 아래와 같이 계산한다.</p>
+<div id="cf2d377f" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.std(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>0.9048389987740345</code></pre>
+</div>
+</div>
+<hr>
+<p>만약에 정규분포에서 10개의 데이터가 아니라 더 많은 data를 얻는다면 어떻게 될까?</p>
+<div id="f3e3e2ec" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">10000</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>np.mean(x).item(), np.std(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>(0.009711892291595955, 0.9981138545901475)</code></pre>
+</div>
+</div>
+<p>평균은 점점 평균에 가까워 질 것이고, 표준편차는 점점 표준편차에 가까워질 것이다. (뭐라는거야..??)</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>아래의 표에서 ???의 값을 채워보자.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>진실의 세계</th>
+<th>데이터의 세계</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>모평균 <span class="math inline">\(\mu=???\)</span></td>
+<td>표본평균 <span class="math inline">\(\bar{x}=???\)</span></td>
+</tr>
+<tr class="even">
+<td>모표준편차 <span class="math inline">\(\sigma=???\)</span></td>
+<td>표본표준편차 <span class="math inline">\(s=???\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+<p><code>예제3</code> – 베르누이</p>
+<p>아래의 상황을 가정하자.</p>
+<p><span class="math display">\[X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\]</span></p>
+<p>이로부터 데이터를 아래와 같이 얻었다고 하자.</p>
+<div id="5cea0f1f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R의 set.seed(123); rbinom(3,1,0.5)와 동일한 결과</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>array([0, 1, 0])</code></pre>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">진실세계의 정보</th>
+<th style="text-align: center;">데이터세계의 정보</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x_1,x_2,x_3 = (0,1,0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><code>예제4</code> – 이변량 정규분포</p>
+<p>이제 <span class="math inline">\(n=3000\)</span>에 대해서 아래의 상황을 생각하자.</p>
+<ul>
+<li><span class="math inline">\(X_1,\dots,X_n \overset{i.i.d}{\sim} N(2,1)\)</span></li>
+<li><span class="math inline">\(Y_1,\dots,Y_n \overset{i.i.d}{\sim} N(3,1)\)</span></li>
+<li><span class="math inline">\(X_i \perp Y_j,\quad \forall i,j \in \{1,2,\dots,n\}\)</span></li>
+</ul>
+<hr>
+<p>그리고 아래의 코드를 활용하여 데이터를 얻었다.</p>
+<div id="0bda4d27" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R의 set.seed(123); x=rnorm(3000)+2; y=rnorm(3000)+3 과 동일한 데이터 사용</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'scatter_data_seed123.csv'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> data[<span class="st">'x'</span>].values</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">'y'</span>].values</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, <span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="08wk-2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="08wk-1-python_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>어??! 이 그림은??</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <hr>
-<p><code>-</code> 같은 이름의 분포라 할지라도 다른 확률분포표를 가지는 경우가 있다. 예를들면 아래는 모두 베르누이라 부른다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.3</td>
-<td style="text-align: center;">0.7</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P(X=x)\)</span></td>
-<td style="text-align: center;">0.5</td>
-<td style="text-align: center;">0.5</td>
-</tr>
-</tbody>
-</table>
-<p>그렇지만 같은 이름을 가지고 같은 모수값을 가진다면 분포는 하나로 특정된다.</p>
+<p>이 경우 진실의 세계와 데이터의 세계는 아래와 같이 생각할 수 있다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/08wk-1-2.png" class="img-fluid figure-img"></p>
+<figcaption>그림3: 진실의 세계와 데이터의 세계</figcaption>
+</figure>
+</div>
 <hr>
-<p><code>-</code> 네임드분포를 잘 정의해두면 편리하다. 왜냐하면</p>
-<blockquote class="blockquote">
-<p><span class="math display">\[X \sim P_\theta\]</span></p>
-<p>단, <span class="math inline">\(P_\theta(X=x)\)</span>는 아래의 표와 같이 정의된다.</p>
+<p><code>-</code> 통찰1: 진실의 세계에서 데이터의 세계로 넘어가기 위해서는 관측이 필요하다.</p>
+<p><code>-</code> 통찰2: 진실의 세계에서 데이터의 세계로 넘어갈때만 “확률”이라는 개념이 적용된다. 즉 확률은 반드시 아래와 같은 개념으로만 사용되어야 한다.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><span class="math display">\[\text{진실의 세계} \overset{P}{\Longrightarrow} \text{데이터의 세계}\]</span></p>
+<p><code>-</code> 통찰3: 데이터의 세계는 반복 관찰 가능하다.</p>
+<hr>
+<p><code>예제4</code> – 동전던지기</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
-<th style="text-align: center;">0</th>
-<th style="text-align: center;">1</th>
+<th style="text-align: center;">진실세계의 정보</th>
+<th style="text-align: center;">데이터세계의 정보</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(P_\theta(X=x)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(1-\theta\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\theta\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x_1,x_2,x_3 = (0,1,0)\)</span></td>
 </tr>
 </tbody>
 </table>
-</blockquote>
-<p>라고 정의해야 할 일을 <span class="math inline">\(X \sim Bernoulli(\theta)\)</span>라고 간단히 정의할 수 있기 때문이다.</p>
+<p><br></p>
+<ul>
+<li>통찰1: 진실세계의 정보에서 데이터세계의 정보를 얻기 위해서는 반드시 관측이 필요하다.</li>
+<li>통찰2: 진실세계의 정보에서 데이터세계의 정보는 확률적으로 얻어진다. (주어진 예시에서는 1/8의 확률로 얻어짐)</li>
+<li>통찰3: 데이터세계의 정보는 (관측행위를 되풀이하여) 반복측정 가능하다.
+<ul>
+<li>예를들어 관측행위를 되풀이하여 <span class="math inline">\((x_1,x_2,x_3)=(0,0,0)\)</span> 을 얻을수도 있고</li>
+<li><span class="math inline">\((x_1,x_2,x_3)=(0,1,1)\)</span> 을 얻을수도 있음.</li>
+</ul></li>
+</ul>
 <hr>
-<p><code>-</code> 주어진 데이터를 관찰하며 “이 데이터는 이러이러한 규칙으로 만들어진 것 같아” 라고 상상하며 데이터를 만드는 부분을 역으로 추정하는 문제를 상상하자. 데이터가 만들어지는 규칙을 전반적으로 상상하는 과정을 모델링이라고 한다. 예를들어 관측한 <span class="math inline">\(n\)</span>개의 데이터가 정규분포에서 나왔다고 상상한다면 이는 아래와 같이 모델링을 한 것이다.</p>
-<p><span class="math display">\[X_1,\dots,X_n \sim N(\mu,\sigma^2)\]</span></p>
-<p>모델링을 통해 상상한 규칙을 구체화하는 과정에서 어떠한 숫자들을 특정해야 한다면, 그걸 추정하고자 할텐데, 이러한 행위를 모수추정이라고 한다 (위의 예시에서는 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>를 특정하면된다).</p>
-<p><code>-</code> <span class="math inline">\(X \sim P_{\theta}\)</span> 라고 표현한다는 것은 <span class="math inline">\(\theta\)</span>라는 숫자만 알고 있다면 진실세계의 정도를 모두 특정할 수 있다는 것을 의미한다. 이러한 경우를 모수적 모델링(parametric modeling)이라고 부른다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><code>예제5</code> – 신민아 배우님..</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/08wk-1-3.png" class="img-fluid figure-img"></p>
+<figcaption>그림4: 엑스노트, 진실세계의 정보와 데이터세계의 정보</figcaption>
+</figure>
+</div>
+<ul>
+<li>통찰1: 진실세계의 정보에서 데이터세계의 정보를 얻기 위해서는 관측이 필요</li>
+<li>통찰2: 진실세계의 정보에서 데이터세계의 정보는 확률적으로 얻어짐</li>
+<li>통찰3: 데이터세계의 정보는 반복측정 가능</li>
+</ul>
 
 
 </section>
@@ -664,7 +562,9 @@ window.Quarto = {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>반면 특정한 숫자만을 이용하여 <span class="math inline">\(P\)</span>를 알 수 없다면 <span class="math inline">\(X \sim P\)</span> 라고만 간단히 표현하면 된다. 이러한 경우는 비모수적 모델링(nonparametric modeling)이라고 부른다.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>공평한 동전을 던진다고 가정하자.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>동전을 던저서 나오는 앞면이 나오면 <span class="math inline">\(X=0\)</span>이라고 하고 뒷면이 나오면 <span class="math inline">\(X=1\)</span>이라고 하자. <span class="math inline">\(X\)</span>의 평균은 얼마인가?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>베이지안 미안해요..<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

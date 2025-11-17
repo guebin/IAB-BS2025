@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.7.24">
 
   <meta name="author" content="최규빈">
-  <meta name="dcterms.date" content="2025-11-04">
-  <title>IAB-BS2025 – 10wk-1: 확률과 가능도</title>
+  <meta name="dcterms.date" content="2025-11-05">
+  <title>IAB-BS2025 – 10wk-1: 확률과 가능도 (Python, 참고자료)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -196,7 +196,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">10wk-1: 확률과 가능도</h1>
+  <h1 class="title">10wk-1: 확률과 가능도 (Python, 참고자료)</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -206,12 +206,14 @@
 </div>
 </div>
 
-  <p class="date">2025-11-04</p>
+  <p class="date">2025-11-05</p>
 </section>
 <section class="slide level2">
 
 <h3>강의영상</h3>
-<iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-yPBZNdfaf3ywYJQoY9VzBQ&amp;si=g1Gl-3Jj_po2Tx1d" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<ul>
+<li>본 강의노트로는 강의를 하지 않음.</li>
+</ul>
 </section>
 <section class="slide level2">
 
@@ -237,17 +239,17 @@
 
 <p>(풀이)</p>
 <p><span class="math inline">\(x_1=0,x_2=1\)</span>는 <span class="math inline">\(Ber(\theta)\)</span>에서 얻은 실현치라고 가정하자. 만약에 <span class="math inline">\(\theta=0.5\)</span>였다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.25</code></pre>
+<div id="af98b9a0" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="fl">0.5</span><span class="op">*</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0.25</code></pre>
 </div>
 </div>
 <p>만약에 <span class="math inline">\(\theta=0.1\)</span>이었다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fl">0.9</span><span class="sc">*</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09</code></pre>
+<div id="2c37735d" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="fl">0.9</span><span class="op">*</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>0.09000000000000001</code></pre>
 </div>
 </div>
 <p><span class="math inline">\(0.25&gt;0.09\)</span> 이므로 <span class="math inline">\(\theta=0.5\)</span>라고 생각하는 것이 더 타당해보인다.</p>
@@ -295,39 +297,25 @@
 </section>
 <section class="slide level2">
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">print</span>(<span class="fl">0.51</span><span class="sc">*</span><span class="fl">0.49</span>); <span class="fu">print</span>(<span class="fl">0.52</span><span class="sc">*</span><span class="fl">0.48</span>); <span class="fu">print</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span>); <span class="fu">print</span>(<span class="fl">0.54</span><span class="sc">*</span><span class="fl">0.46</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4e2ddf81" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">print</span>(<span class="fl">0.51</span><span class="op">*</span><span class="fl">0.49</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.52</span><span class="op">*</span><span class="fl">0.48</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.53</span><span class="op">*</span><span class="fl">0.47</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.54</span><span class="op">*</span><span class="fl">0.46</span>)</span>
+<span id="cb5-2"><a></a><span class="bu">print</span>(<span class="fl">0.49</span><span class="op">*</span><span class="fl">0.51</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.48</span><span class="op">*</span><span class="fl">0.52</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.47</span><span class="op">*</span><span class="fl">0.53</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.46</span><span class="op">*</span><span class="fl">0.54</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2499</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2496</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2491</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2484</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">print</span>(<span class="fl">0.49</span><span class="sc">*</span><span class="fl">0.51</span>); <span class="fu">print</span>(<span class="fl">0.48</span><span class="sc">*</span><span class="fl">0.52</span>); <span class="fu">print</span>(<span class="fl">0.47</span><span class="sc">*</span><span class="fl">0.53</span>); <span class="fu">print</span>(<span class="fl">0.46</span><span class="sc">*</span><span class="fl">0.54</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2499</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2496</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2491</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2484</code></pre>
+<pre><code>0.2499
+0.2496
+0.2491
+0.24840000000000004
+0.2499
+0.2496
+0.2491
+0.24840000000000004</code></pre>
 </div>
 </div>
 <p>저 위의 숫자들을 모두 더하면 아래와 같음.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>(<span class="fl">0.2499</span> <span class="sc">+</span> <span class="fl">0.2496</span> <span class="sc">+</span> <span class="fl">0.2491</span> <span class="sc">+</span> <span class="fl">0.2484</span>)<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.994</code></pre>
+<div id="2ac1fdd4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>(<span class="fl">0.2499</span> <span class="op">+</span> <span class="fl">0.2496</span> <span class="op">+</span> <span class="fl">0.2491</span> <span class="op">+</span> <span class="fl">0.2484</span>)<span class="op">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>1.9939999999999998</code></pre>
 </div>
 </div>
 <p>1이 넘네? (모순)</p>
@@ -347,21 +335,20 @@
 
 <p><code>(피셔의생각2)</code></p>
 <p>확률은 반복가능한 대상에 대해서만 적용가능하다. 왜냐하면 확률은 상대빈도의 극한이기 때문이다. 예를들어 <span class="math inline">\(x_1, x_2\)</span>은 반복적으로 관찰가능한 대상이므로 <span class="math display">\[P(X_1=x_1, X_2=x_2)\]</span>와 같은 표현은 성립한다. 예를들어 <span class="math inline">\(P(X_1=0, X_2=1)=0.25\)</span>라는 의미는 아래와 같은 관측을 많이하면 대충 <span class="math inline">\(x_1=0, x_2=1\)</span>이 나올 상대빈도가 <span class="math inline">\(0.25\)</span>정도 된다는 뜻이다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>){</span>
-<span id="cb17-2"><a></a>  <span class="fu">print</span>(<span class="fu">rbinom</span>(<span class="dv">2</span>, <span class="dv">1</span>,<span class="fl">0.5</span>))</span>
-<span id="cb17-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0004779b" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb9-2"><a></a>    <span class="bu">print</span>(np.random.binomial(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 0
-[1] 0 0
-[1] 1 1
-[1] 1 0
-[1] 1 0
-[1] 0 0
-[1] 1 0
-[1] 1 0
-[1] 1 1
-[1] 1 1</code></pre>
+<pre><code>[1 1]
+[0 0]
+[1 0]
+[0 0]
+[0 0]
+[0 1]
+[0 0]
+[1 0]
+[0 0]
+[0 0]</code></pre>
 </div>
 </div>
 </section>
@@ -432,21 +419,17 @@
 </ol>
 <p><code>(풀이)</code></p>
 <p>손으로는 못푸니까 계산기를 이용합시다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># 1번</span></span>
-<span id="cb19-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="59bb5518" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># 1번</span></span>
+<span id="cb11-2"><a></a>mu<span class="op">=</span><span class="dv">0</span><span class="op">;</span> sigma<span class="op">=</span><span class="dv">1</span><span class="op">;</span> x<span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="bu">print</span>(<span class="dv">1</span><span class="op">/</span>(sigma<span class="op">*</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi))<span class="op">*</span>np.exp(<span class="op">-</span>(x<span class="op">-</span>mu)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>sigma<span class="op">**</span><span class="dv">2</span>)))</span>
+<span id="cb11-3"><a></a><span class="co"># 2번</span></span>
+<span id="cb11-4"><a></a>mu<span class="op">=</span><span class="dv">1</span><span class="op">;</span> sigma<span class="op">=</span><span class="dv">1</span><span class="op">;</span> x<span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="bu">print</span>(<span class="dv">1</span><span class="op">/</span>(sigma<span class="op">*</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi))<span class="op">*</span>np.exp(<span class="op">-</span>(x<span class="op">-</span>mu)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>sigma<span class="op">**</span><span class="dv">2</span>)))</span>
+<span id="cb11-5"><a></a><span class="co"># 3번</span></span>
+<span id="cb11-6"><a></a>mu<span class="op">=</span><span class="dv">0</span><span class="op">;</span> sigma<span class="op">=</span><span class="dv">2</span><span class="op">;</span> x<span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="bu">print</span>(<span class="dv">1</span><span class="op">/</span>(sigma<span class="op">*</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi))<span class="op">*</span>np.exp(<span class="op">-</span>(x<span class="op">-</span>mu)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>sigma<span class="op">**</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3989423</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># 2번</span></span>
-<span id="cb21-2"><a></a>mu<span class="ot">=</span><span class="dv">1</span>;sigma<span class="ot">=</span><span class="dv">1</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2419707</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># 3번</span></span>
-<span id="cb23-2"><a></a>mu<span class="ot">=</span><span class="dv">0</span>;sigma<span class="ot">=</span><span class="dv">2</span>; x<span class="ot">=</span><span class="dv">0</span>; <span class="fu">print</span>(<span class="dv">1</span><span class="sc">/</span>(sigma<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>pi))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1994711</code></pre>
+<pre><code>0.3989422804014327
+0.24197072451914337
+0.19947114020071635</code></pre>
 </div>
 </div>
 <p>Note: 1-2, 1-3간의 크기비교는 계산기를 가지고 있지 않아도 할 수 있습니다.</p>
@@ -532,7 +515,7 @@
 <h3>그 예제</h3>
 <p><code>08wk-1 예제</code> – 아래를 관찰하자.</p>
 
-<img data-src="10wk-1_files/figure-revealjs/unnamed-chunk-7-1.png" width="576" class="r-stretch quarto-figure-center"><p class="caption">그림2: 3000개의 점으로 구성된 산점도</p></section>
+<img data-src="10wk-1-python_files/figure-revealjs/cell-9-output-1.png" class="r-stretch quarto-figure-center"><p class="caption">그림2: 3000개의 점으로 구성된 산점도</p></section>
 <section class="slide level2">
 
 <p>다음 중 그림을 아래와 같이 묘사했다고 하자. (<span class="math inline">\(\sigma_x=\sigma_y=1\)</span>로 알려져있다고 가정하자.)</p>
@@ -770,44 +753,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
