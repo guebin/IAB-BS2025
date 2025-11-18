@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2025-11-17">
+
+<title>12wk-2: 최대가능도추정 (4) – IAB-BS2025</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-b7eda2101a7a109d5067cba531cf9672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-45a984b55c978f8c4117b5b9aec951d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+table {
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+</style>    
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.scss">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">IAB-BS2025</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/IAB-BS2025"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">12wk-2: 최대가능도추정 (4)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 17, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="강의영상" class="level3">
+<h3 class="anchored" data-anchor-id="강의영상">강의영상</h3>
+<hr>
+</section>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<p><code>예제1</code></p>
+<p>공평한 동전을 5회 던져서 아래와 같은 결과를 얻었다고 하자.</p>
+<ul>
+<li><span class="math inline">\(0, 1, 0, 0, 1\)</span></li>
+</ul>
+<p>실패확률을 추정하라.</p>
+<p><code>(풀이)</code> – MLE에 기초한풀이</p>
+<p><span class="math inline">\(X_1,X_2,\dots,X_n \sim Ber(\theta)\)</span> 에서 MLE에 의한 <span class="math inline">\(\theta\)</span>의 추정값은 <span class="math inline">\(\frac{2}{5}\)</span>이므로 (왜?) 성공확률 <span class="math inline">\(\theta\)</span>는 <span class="math inline">\(\frac{2}{5}\)</span>로 추정할 수 있다. 실패할확률은 <span class="math inline">\(1-\theta\)</span>인데, <span class="math inline">\(\theta\)</span>의 값을 이미 <span class="math inline">\(\frac{2}{5}\)</span>로 추정했으므로 실패할확률의 추정값은 <span class="math inline">\(1-\frac{2}{5}=\frac{3}{5}\)</span>이라고 할 수 있다.</p>
+<hr>
+<p><code>-</code> 개념: MLE에 기반한 추정법은 아래와 같다.</p>
+<ol type="1">
+<li>모수를 MLE로 추정한다</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다.</li>
+</ol>
+<hr>
+<p><code>-</code> 이 논리로 위의 예제를 다시 해석하면 아래와 같다.</p>
+<ol type="1">
+<li>모수를 추정한다: 베르누이 분포 <span class="math inline">\(Ber(\theta)\)</span>의 모수는 성공확률 <span class="math inline">\(\theta\)</span>이며, <span class="math inline">\(\theta\)</span>의 추정값은 <span class="math inline">\(\frac{2}{5}\)</span> 이다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다: 추정의 대상은 실패확률이다. 그런데 “<span class="math inline">\(실패확률=1-\theta\)</span>”라는 관계가 있는데 이것이 추정의 대상과 모수와의 함수관계이다.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다: 우리가 1에서 얻은 추정값은 <span class="math inline">\(\frac{2}{5}\)</span>이다. 2에서 얻은 함수관계는 <span class="math display">\[추정의대상=실패확률=1-\theta\]</span>이다. 1에서 얻은 <span class="math inline">\(\theta\)</span>에 대한 추정값 <span class="math inline">\(\frac{2}{5}\)</span>를 위의 <span class="math inline">\(\theta\)</span>자리에 plugin하면 <span class="math inline">\(실패확률=\frac{3}{5}\)</span>를 얻는다.</li>
+</ol>
+<hr>
+<p><code>-</code> 주의(고급내용): 3의 과정을 수식으로 표현하면 아래와 같다.</p>
+<p><span class="math display">\[\widehat{실패확률}^{MLE}=\widehat{1-\theta}^{MLE}=1-\hat{\theta}^{MLE}\]</span></p>
+<p>이러한 논리전개는 언뜻 당연해보이지만 사실 당연한건 아니다. 아래와 같은 사실은</p>
+<p><span class="math display">\[\widehat{1-\theta}^{MLE}=1-\hat{\theta}^{MLE}\]</span></p>
+<p>일반적인 추정법에는 성립하지 않는다. 오직 MLE에서만 이러한 논리전개가 가능함. (MLE가 가진 좋은 성질임)</p>
+<hr>
+<p><code>예제2</code></p>
+<p>아래에서</p>
+<p><span class="math display">\[X \sim N(\mu,1)\]</span></p>
+<p>얻은 10개의 샘플이 다음과 같다고 하자.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] -0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
+ [7]  0.46091621 -1.26506123 -0.68685285 -0.44566197</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(\mathbb{E}(X^2)\)</span>을 추정하라.</p>
+<p><code>(참고)</code></p>
+<ul>
+<li>진실세계의정보: <span class="math inline">\(\mathbb{E}(X), \mathbb{E}(X^2)\)</span></li>
+<li>데이터세계의정보: <span class="math inline">\(\bar{x}\)</span></li>
+</ul>
+<hr>
+<p><code>(풀이)</code></p>
+<p>언뜻 생각하면 아래와 같이 추정해야 할 것 같다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8243026</code></pre>
+</div>
+</div>
+<p>그런데 <span class="math display">\[\mathbb{E}(X^2)=\big\{\mathbb{E}(X)\big\}^2+\mathbb{V}(X)\]</span></p>
+<p>임을 고려하면 아래와 같이 추정하는것도 말이 되는 것 같다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.005569</code></pre>
+</div>
+</div>
+<p>두 값은 얼추 비슷하지만 완전히 같지는 않다. 둘다 타당한 추정법인것 같은데 무엇이 더 올바른 추정일까?</p>
+<hr>
+<p><strong>분석</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    A[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(x<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    B[i] <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(A,<span class="at">col=</span><span class="st">'red'</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(B,<span class="at">col=</span><span class="st">'blue'</span>,<span class="at">xlab=</span><span class="st">""</span>,<span class="at">ylab=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12wk-1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>그림1: 추정의비교, 빨간색은 <span class="math inline">\(\text{mean}(x^2)\)</span>, 파란색은 <span class="math inline">\(1+\text{mean}(x)^2\)</span>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>비교한 결과 방법A와 방법B중에서는 방법B가 더 우수하다는 생각이 든다.</p>
+<ul>
+<li>방법A: <span class="math inline">\(\text{mean}(x^2)=\bar{x^2}\)</span></li>
+<li>방법B: <span class="math inline">\(1+\text{mean}(x)^2=1+\bar{x}^2\)</span></li>
+</ul>
+<p>왜 그럴까? 사실 방법B는 최대가능도방법의 원리로 추정된 값이기 때문이다.</p>
+<ol type="1">
+<li>모수를 MLE로 추정한다: 정규분포의 모수는 <span class="math inline">\(N(\mu,\sigma^2)\)</span>인데, <span class="math inline">\(\sigma=1\)</span>로 주어졌으므로 추정할 필요가 없고, <span class="math inline">\(\mu\)</span>를 추정하면 <span class="math inline">\(\bar{x}\)</span>이다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다: <span class="math inline">\(\mathbb{V}(X)=\mathbb{E}(X^2)-\{\mathbb{E}(X)\}^2\)</span>의 관계가 있으므로 추정의 대상은 <span class="math inline">\(\mathbb{E}(X^2)=\sigma^2+\mu^2\)</span>와 같이 표현할 수 있음. 그런데 <span class="math inline">\(\sigma^2=1\)</span>이 주어졌으므로 “<span class="math inline">\(추정의대상=\mathbb{E}(X^2)=1+\mu^2\)</span>” 의 관계가 있음.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다: 따라서 <span class="math display">\[{\mathbb{E}(X^2)}의 추정값 = 1+\bar{x}^2\]</span></li>
+</ol>
+<hr>
+</section>
+<section id="균등분포" class="level3">
+<h3 class="anchored" data-anchor-id="균등분포">균등분포</h3>
+<p>구간 <span class="math inline">\((a,b)\)</span>에서 임의의 난수를 뽑는 실험을 상상하자. 이러한 실험은 아래와 같이 표현할 수 있다. <span class="math display">\[X \sim U(a,b)\]</span></p>
+<p>여기에서 <span class="math inline">\(U\)</span>는 uniform의 약자이다. 히스토그램을 그려보자. (이때 <span class="math inline">\(a=1, b=2\)</span>를 가정함)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12wk-1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>그림2: 균등분포의 히스토그램</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p>히스토그램의 극한을 상상하고 pdf의 수식을 쓰면 아래와 같다.</p>
+<p><span class="math display">\[f_X(x)=\frac{1}{b-a}, \quad a \leq x \leq b\]</span></p>
+<p>수식을 좀 더 정리하면 아래와 같다.</p>
+<p><span class="math display">\[f_X(x)=\frac{1}{b-a}I(a \leq x \leq b)\]</span></p>
+<p>여기에서 <span class="math inline">\(I(a \leq x \leq b)=\begin{cases} 1 &amp; a \leq x \leq b \\ 0 &amp; o.w. \end{cases}\)</span> 이다. 이제 아래와 같은 관측치를 얻은 상황에서 <code>x</code>의 중심 <span class="math inline">\(\mathbb{E}(X)\)</span>를 추정하는 문제를 고려하자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span><span class="dv">10</span>, <span class="at">min=</span><span class="dv">1</span>,<span class="at">max=</span><span class="dv">2</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.287578 1.788305 1.408977 1.883017 1.940467 1.045556 1.528105 1.892419
+ [9] 1.551435 1.456615</code></pre>
+</div>
+</div>
+<hr>
+<p><code>(1)</code> 가능도함수를 구하라.</p>
+<p><code>(풀이)</code></p>
+<p>가능도함수의 수식은 아래와 같다. <span class="math display">\[L(\theta|data)=f(data|\theta)\]</span></p>
+<p>여기에서 <span class="math inline">\(\theta = (a,b)\)</span> 이다. 그런데</p>
+<ul>
+<li><span class="math inline">\(f(data|\theta) = f(x_1,\dots,x_{10}|\theta)=f(x_1|\theta)\dots f(x_{10}|\theta)\)</span></li>
+<li><span class="math inline">\(f(x_1|\theta) = \frac{1}{b-a}I(a\leq x_1 \leq b)=\frac{1}{b-a}I(a\leq x_1)I(x_1\leq b)\)</span></li>
+</ul>
+<p>이므로 가능도 함수는 아래와 같다.</p>
+<p><span class="math display">\[L(a,b)=\frac{1}{(b-a)^{10}}\times I(a\leq x_1)\dots I(a \leq x_n)\times I(x_1\leq b)\dots I(x_n\leq b)\]</span></p>
+<hr>
+<p>가능도 함수를 정의하기전에</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span><span class="fl">1.2</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b<span class="ot">=</span><span class="fl">1.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>주어진 <span class="math inline">\(a,b\)</span>에 대한 아래의 값들을 조사하여보자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>((b<span class="sc">-</span>a)<span class="sc">^</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.9049e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1.287578 1.788305 1.408977 1.883017 1.940467 1.045556 1.528105 1.892419
+ [9] 1.551435 1.456615</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(a<span class="sc">&lt;=</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x<span class="sc">&lt;=</span>b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+</div>
+</div>
+<p>가능도함수는 아래와 같이 정의된다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>likelihood <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span>(b<span class="sc">-</span>a)<span class="sc">^</span><span class="dv">10</span> <span class="sc">*</span> <span class="fu">prod</span>(a<span class="sc">&lt;=</span>x) <span class="sc">*</span> <span class="fu">prod</span>(x<span class="sc">&lt;=</span>b)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<hr>
+<p><code>(2)</code> 가능도함수의 특징을 살펴보자.</p>
+<p>(풀이)</p>
+<ul>
+<li>가능도함수는 항상 양수임</li>
+<li>가능도가 0이 안나올라면 <span class="math inline">\(a\)</span>는 <span class="math inline">\(1.045556\)</span>보다 작아야하고, <span class="math inline">\(b\)</span>는 <span class="math inline">\(1.940467\)</span>보다 커야함.</li>
+</ul>
+<hr>
+<p><code>(3)</code> 가능도함수의 값을 표로 정리하자.</p>
+<p>(풀이)</p>
+<p><span class="math inline">\(L(a,b)\)</span>에 대한 값을 조사하여 표를 만들어보면 아래와 같다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.5\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=1.8\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=2.1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=2.4\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=2.7\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(b=3\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=0\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">6.00e-04</td>
+<td style="text-align: center;">1.58e-04</td>
+<td style="text-align: center;">4.86e-05</td>
+<td style="text-align: center;">1.69e-05</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a=0.3\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">2.80e-03</td>
+<td style="text-align: center;">6.00e-04</td>
+<td style="text-align: center;">1.58e-04</td>
+<td style="text-align: center;">4.86e-05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=0.6\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">1.73e-02</td>
+<td style="text-align: center;">2.80e-03</td>
+<td style="text-align: center;">6.00e-04</td>
+<td style="text-align: center;">1.58e-04</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a=0.9\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">1.62e-01</td>
+<td style="text-align: center;">1.73e-02</td>
+<td style="text-align: center;">2.80e-03</td>
+<td style="text-align: center;">6.00e-04</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a=1.2\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(a=1.5\)</span></td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+<td style="text-align: center;">0.00e+00</td>
+</tr>
+</tbody>
+</table>
+<p>표를보면 <span class="math inline">\((a,b)=(0.9, 2.1)\)</span>에서 최대값을 가지는 듯 하다.</p>
+<hr>
+<p><code>(4)</code> 가능도함의 그림을 그려보자.</p>
+<p>(풀이)</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12wk-1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
+<figcaption>그림3: <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>에 대한 likelihood 함수의 3D plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\((a,b)=(1.1,1.9)\)</span> 에서 최대값을 가지는 것 같다.</p>
+<hr>
+<p><code>(5)</code> 이론적인 MLE를 구하라.</p>
+<p>(풀이)</p>
+<p>가능도함수의 수식은 아래와 같다. <span class="math display">\[L(a,b)=\frac{1}{(b-a)^{10}}\times I(a\leq x_1)\dots I(a \leq x_n)\times I(x_1\leq b)\dots I(x_n\leq b)\]</span></p>
+<p>그런데</p>
+<ul>
+<li><span class="math inline">\(I(a\leq x_1)\dots I(a \leq x_n) = I(a \leq \min(x_1,\dots,x_n))\)</span></li>
+<li><span class="math inline">\(I(x_1\leq b)\dots I(x_n\leq b)= I(\max(x_1,\dots,x_n)\leq b)\)</span></li>
+</ul>
+<p>이고</p>
+<hr>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">min</span>(x)); <span class="fu">print</span>(<span class="fu">max</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.045556</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.940467</code></pre>
+</div>
+</div>
+<p>이므로</p>
+<ul>
+<li><span class="math inline">\(I(a\leq x_1)\dots I(a \leq x_n) = I(a \leq \min(x_1,\dots,x_n))=I(a\leq 1.045556)\)</span></li>
+<li><span class="math inline">\(I(x_1\leq b)\dots I(x_n\leq b)= I(\max(x_1,\dots,x_n)\leq b)=I(1.940467 \leq b)\)</span></li>
+</ul>
+<p>와 같이 정리된다. 따라서 가능도함수는 아래와 같다.</p>
+<p><span class="math display">\[L(a,b)=\frac{1}{(b-a)^{10}}\times I(a\leq 1.045556)\times I(1.940467 \leq b)\]</span></p>
+<p>수식을 살펴보면 (1) <span class="math inline">\(a\leq 1.045556\)</span> 이고 <span class="math inline">\(b\geq 1.940467\)</span>일 경우만 가능도함수는 <span class="math inline">\(0\)</span>이 아닌 값을 가지고 (2) 그 값은 <span class="math inline">\((b-a)\)</span>값이 작을수록 최대가 되므로 <span class="math display">\[(a,b)=(1.045556,1.940467)\]</span>에서 이론적인 최대값을 가진다.</p>
+<hr>
+<p>이 결과는 일반화될 수 있으므로 아래와 같이 정리가능하다.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(X_1,\dots,X_n \overset{iid}{\sim} U(a,b)\)</span> 일때 가능도함수는 아래와 같고 <span class="math display">\[L(a,b)=\frac{1}{(b-a)^n}\times I(a \leq \min(data)) \times I(\max(data)\leq b)\]</span> <span class="math inline">\(a,b\)</span>를 최대가능도추정법으로 추정하면 각각 아래와 같다.</p>
+<ul>
+<li><span class="math inline">\(a의 추정값 = \min(data)\)</span></li>
+<li><span class="math inline">\(b의 추정값 = \max(data)\)</span></li>
+</ul>
+</blockquote>
+<hr>
+<p><code>(6)</code> <span class="math inline">\(\mathbb{E}(X)\)</span>의 값을 추정하라. (최대가능도추정법을 사용할 것)</p>
+<p>(풀이)</p>
+<p>아래를 다시 따르면 된다.</p>
+<ol type="1">
+<li>모수를 MLE로 추정한다.</li>
+<li>추정의 대상과 모수와의 함수관계를 파악한다.</li>
+<li>1에서 얻은 추정값을 2에서 얻은 함수관계에 대입한다.</li>
+</ol>
+<p><code>1</code>. 균등분포의 모수는 <span class="math inline">\(a,b\)</span>이고 이를 각각 추정한 결과는 <span class="math inline">\(\min(data)\)</span>, <span class="math inline">\(\max(data)\)</span>이다.</p>
+<p><code>2</code>. 추정의대상은 <span class="math inline">\(X\)</span>의 평균인데 이 값은 (직관적으로) <span class="math display">\[\mathbb{E}(X)=\frac{a+b}{2}\]</span> 와 같이 계산할 수 있다.</p>
+<p><code>3</code>. 따라서 평균의 추정값은 <span class="math inline">\(\frac{\min(data)+\max(data)}{2}\)</span>로 계산할 수 있다.</p>
+<hr>
+<p>이제 11wk-2의 <code>예제3</code>(마지막 예제)의 결과를 다시 살펴보자. 왜 중심을 추론할때 양 극단값만 고려하면 충분한지 이해가 되는가?</p>
+<hr>
+<p><code>-</code> 결론</p>
+<ul>
+<li>MLE는 데이터분석에서 가장 유용한 추정방법이라 할 수는 없지만 (사람마다 취향이 있으니까요?)</li>
+<li>꽤 유용하고 많은 분야에서 의미있게 사용된다.</li>
+<li>특히 기존에 사용되었던 MME (평균으로 해결하자는 주의) 와 비교해서는 성능이 좋다고 알려져있다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>불편성에서만 조금 밀리고, 일치성/최소분산성등의 성질에서 동등하거나 우의에 있음<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
