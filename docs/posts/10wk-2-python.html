@@ -311,7 +311,7 @@ window.Quarto = {
 </ul>
 <hr>
 <p>더 많은 가능도함수 값을 조사하여 그림을 그려보자.</p>
-<div id="5a42a89a" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="2">
+<div id="10fcde67" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">101</span>) <span class="op">/</span> <span class="dv">100</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>theta)<span class="op">**</span><span class="dv">5</span> <span class="op">*</span> theta<span class="op">**</span><span class="dv">5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.plot(theta, likelihood, <span class="st">'o'</span>)</span>
@@ -360,7 +360,7 @@ window.Quarto = {
 </ul>
 <p>이 경우는 동전을 던져서 앞면이 나올 확률 <span class="math inline">\(\theta\)</span>를 어떻게 추정하는게 맞을까?</p>
 <p><code>(풀이)</code></p>
-<div id="852eced8" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="3">
+<div id="7250eb82" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">101</span>) <span class="op">/</span> <span class="dv">100</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>theta)<span class="op">**</span><span class="dv">3</span> <span class="op">*</span> theta<span class="op">**</span><span class="dv">4</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.plot(theta, likelihood, <span class="st">'o'</span>)</span>
@@ -378,20 +378,20 @@ window.Quarto = {
 </div>
 <hr>
 <p>최대값을 엄밀하게 조사하기 위해서 아래를 구해보자.</p>
-<div id="68448c77" class="cell" data-execution_count="4">
+<div id="df33be96" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>likelihood</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">max</span>(likelihood)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>np.argmax(likelihood) <span class="op">+</span> <span class="dv">1</span>  <span class="co"># R의 which.max는 1-indexed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>np.int64(57)</code></pre>
 </div>
 </div>
 <hr>
 <p><code>likelihood</code>는 여기에서 길이가 100인 벡터이고 (칸이 100개 있는 array), 100개의 값 중에서 최대값은 0.00839276이다. 그리고 최대값은 100칸중 57번째 칸에 위치하여 있다.</p>
 <p>그런데 사실 <code>likelihood</code>는 아래와 같은 <code>theta</code>에 대응하여 구해진 숫자이다.</p>
-<div id="6bca1db0" class="cell" data-execution_count="5">
+<div id="0d06ac50" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>theta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>array([0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 , 0.11,
        0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2 , 0.21, 0.22,
        0.23, 0.24, 0.25, 0.26, 0.27, 0.28, 0.29, 0.3 , 0.31, 0.32, 0.33,
@@ -405,9 +405,9 @@ window.Quarto = {
 </div>
 </div>
 <p>따라서 <code>theta=0.57</code>에서 likelihood가 최대화된다고 볼 수 있다. 이 숫자는 우리가 가지는 직관적인 숫자</p>
-<div id="0a0367cf" class="cell" data-execution_count="6">
+<div id="b0114f22" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="op">/</span><span class="dv">7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.5714285714285714</code></pre>
 </div>
 </div>
@@ -416,15 +416,15 @@ window.Quarto = {
 <hr>
 <p><code># 예제3</code></p>
 <p>정규분포에서 아래와 같은 데이터를 관측하였다고 하자.</p>
-<div id="263a3b13" class="cell" data-execution_count="7">
+<div id="fb833efa" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R의 set.seed(12); rnorm(10)과 동일한 데이터 사용</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">1.48056759491936</span>, <span class="fl">1.57716947155863</span>, <span class="op">-</span><span class="fl">0.956744479084268</span>, <span class="op">-</span><span class="fl">0.920005247558641</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="op">-</span><span class="fl">1.99764209693134</span>, <span class="op">-</span><span class="fl">0.27229604424923</span>, <span class="op">-</span><span class="fl">0.315348711467784</span>, <span class="op">-</span><span class="fl">0.628255236517537</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="op">-</span><span class="fl">0.106463884872094</span>, <span class="fl">0.428014802202354</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="bea76aa0" class="cell" data-execution_count="8">
+<div id="0f56be19" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([-1.48056759,  1.57716947, -0.95674448, -0.92000525, -1.9976421 ,
        -0.27229604, -0.31534871, -0.62825524, -0.10646388,  0.4280148 ])</code></pre>
 </div>
@@ -441,10 +441,10 @@ window.Quarto = {
 <p><span class="math inline">\(data = (-1.4805676, \dots, 0.4280148)\)</span> 에 대하여 정리하면 아래와 같다.</p>
 <p><span class="math display">\[L(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2\sigma^2}}\times\dots\times\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2\sigma^2}}\]</span></p>
 <p><span class="math inline">\((\mu, \sigma^2)=(0,1)\)</span>에 대한 가능도함수값은 아래와 같이 계산할 수 있다.</p>
-<div id="85359c60" class="cell" data-execution_count="9">
+<div id="82dc00b3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="op">/</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi) <span class="op">*</span> np.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.prod(<span class="dv">1</span><span class="op">/</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi) <span class="op">*</span> np.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>np.float64(3.786165013462234e-07)</code></pre>
 </div>
 </div>
@@ -547,7 +547,7 @@ window.Quarto = {
 <p>대략적으로 <span class="math inline">\(\sigma^2=0.9\)</span> <span class="math inline">\(\mu=-0.5\)</span> 근처에서 최대값을 가지는 듯 하다.</p>
 <hr>
 <p>이를 그림으로 그려보자.</p>
-<div id="8c94dec9" class="cell" data-fig-height="7" data-fig-width="8" data-execution_count="10">
+<div id="fc412b1b" class="cell" data-fig-height="7" data-fig-width="8" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>최대가능도 추정값: μ = -0.47, σ² = 0.91</code></pre>
 </div>
@@ -562,30 +562,30 @@ window.Quarto = {
 </div>
 <hr>
 <p>역시 표로 얻은 직관과 비슷하다. 따라서 <span class="math inline">\(\mu\)</span>와 <span class="math inline">\(\sigma^2\)</span>을 대략적으로 <span class="math inline">\(-0.5\)</span>, <span class="math inline">\(0.9\)</span>로 추정하는 것이 바람직해보인다. 이는 우리의 직관과 대략적으로 일치한다.</p>
-<div id="725117a1" class="cell" data-execution_count="11">
+<div id="85a90c5e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>np.float64(-0.46721390218392694)</code></pre>
 </div>
 </div>
-<div id="09b81417" class="cell" data-execution_count="12">
+<div id="aa04dd65" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>np.std(x, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># 이게 약간 달라보이는 것은 기분탓일까??</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="76">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>np.float64(1.0006567321217192)</code></pre>
 </div>
 </div>
 <hr>
 <p><code># 예제4</code></p>
 <p>분산이 1인 정규분포에서 아래와 같은 데이터를 관측하였다고 하자.</p>
-<div id="9db0d3eb" class="cell" data-execution_count="13">
+<div id="a8fcde8c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R의 set.seed(12); rnorm(10)과 동일한 데이터 사용</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">1.48056759491936</span>, <span class="fl">1.57716947155863</span>, <span class="op">-</span><span class="fl">0.956744479084268</span>, <span class="op">-</span><span class="fl">0.920005247558641</span>,</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>              <span class="op">-</span><span class="fl">1.99764209693134</span>, <span class="op">-</span><span class="fl">0.27229604424923</span>, <span class="op">-</span><span class="fl">0.315348711467784</span>, <span class="op">-</span><span class="fl">0.628255236517537</span>,</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>              <span class="op">-</span><span class="fl">0.106463884872094</span>, <span class="fl">0.428014802202354</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3c5fed3b" class="cell" data-execution_count="14">
+<div id="5546e5aa" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>array([-1.48056759,  1.57716947, -0.95674448, -0.92000525, -1.9976421 ,
        -0.27229604, -0.31534871, -0.62825524, -0.10646388,  0.4280148 ])</code></pre>
 </div>
@@ -603,7 +603,7 @@ window.Quarto = {
 <p>정리하면 아래와 같다.</p>
 <p><span class="math display">\[L(\mu)=\frac{1}{\sqrt{2\pi}} e^{-\frac{(-1.4805676-\mu)^2}{2}}\times\dots\times\frac{1}{\sqrt{2\pi}} e^{-\frac{(0.4280148-\mu)^2}{2}}\]</span></p>
 <p>그래프를 그리면 아래와 같다.</p>
-<div id="0a422888" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="15">
+<div id="f03fc484" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -615,9 +615,9 @@ window.Quarto = {
 </div>
 <hr>
 <p>대략적으로 <span class="math inline">\(\mu\)</span>는 -0.4xx 와 같은 값으로 추정하면 맞을것 같다. 그리고 이는 우리의 직관과 일치한다.</p>
-<div id="a8ffb3e1" class="cell" data-execution_count="16">
+<div id="0b046d6e" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="80">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>np.float64(-0.46721390218392694)</code></pre>
 </div>
 </div>
