@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2025-11-18">
 
-<title>12wk-2: 최대가능도추정 (4) (Python, 참고자료) – IAB-BS2025</title>
+<title>12wk-1: 최대가능도추정 (4) (Python, 참고자료) – IAB-BS2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -190,7 +190,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">12wk-2: 최대가능도추정 (4) (Python, 참고자료)</h1>
+<h1 class="title">12wk-1: 최대가능도추정 (4) (Python, 참고자료)</h1>
 </div>
 
 
@@ -259,7 +259,7 @@ window.Quarto = {
 <p>아래에서</p>
 <p><span class="math display">\[X \sim N(\mu,1)\]</span></p>
 <p>얻은 10개의 샘플이 다음과 같다고 하자.</p>
-<div id="5605c451" class="cell" data-execution_count="2">
+<div id="fa526346" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>[-0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
   0.46091621 -1.26506123 -0.68685285 -0.44566197]</code></pre>
@@ -274,24 +274,24 @@ window.Quarto = {
 <hr>
 <p><code>(풀이)</code></p>
 <p>언뜻 생각하면 아래와 같이 추정해야 할 것 같다.</p>
-<div id="10edca5e" class="cell" data-execution_count="3">
+<div id="ab580e11" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.mean(x<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>np.float64(0.8243025996854358)</code></pre>
 </div>
 </div>
 <p>그런데 <span class="math display">\[\mathbb{E}(X^2)=\big\{\mathbb{E}(X)\big\}^2+\mathbb{V}(X)\]</span></p>
 <p>임을 고려하면 아래와 같이 추정하는것도 말이 되는 것 같다.</p>
-<div id="b9862439" class="cell" data-execution_count="4">
+<div id="1e506944" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.mean(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>np.float64(1.005568986891666)</code></pre>
 </div>
 </div>
 <p>두 값은 얼추 비슷하지만 완전히 같지는 않다. 둘다 타당한 추정법인것 같은데 무엇이 더 올바른 추정일까?</p>
 <hr>
 <p><strong>분석</strong></p>
-<div id="52cff37b" class="cell" data-execution_count="5">
+<div id="e8f16ad3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> []</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> []</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
@@ -330,7 +330,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="균등분포">균등분포</h3>
 <p>구간 <span class="math inline">\((a,b)\)</span>에서 임의의 난수를 뽑는 실험을 상상하자. 이러한 실험은 아래와 같이 표현할 수 있다. <span class="math display">\[X \sim U(a,b)\]</span></p>
 <p>여기에서 <span class="math inline">\(U\)</span>는 uniform의 약자이다. 히스토그램을 그려보자. (이때 <span class="math inline">\(a=1, b=2\)</span>를 가정함)</p>
-<div id="9e51553f" class="cell" data-execution_count="6">
+<div id="164e1aed" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -346,11 +346,11 @@ window.Quarto = {
 <p>수식을 좀 더 정리하면 아래와 같다.</p>
 <p><span class="math display">\[f_X(x)=\frac{1}{b-a}I(a \leq x \leq b)\]</span></p>
 <p>여기에서 <span class="math inline">\(I(a \leq x \leq b)=\begin{cases} 1 &amp; a \leq x \leq b \\ 0 &amp; o.w. \end{cases}\)</span> 이다. 이제 아래와 같은 관측치를 얻은 상황에서 <code>x</code>의 중심 <span class="math inline">\(\mathbb{E}(X)\)</span>를 추정하는 문제를 고려하자.</p>
-<div id="59cf890f" class="cell" data-execution_count="7">
+<div id="5c685524" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">1.287578</span>, <span class="fl">1.788305</span>, <span class="fl">1.408977</span>, <span class="fl">1.883017</span>, <span class="fl">1.940467</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>              <span class="fl">1.045556</span>, <span class="fl">1.528105</span>, <span class="fl">1.892419</span>, <span class="fl">1.551435</span>, <span class="fl">1.456615</span>])</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>array([1.287578, 1.788305, 1.408977, 1.883017, 1.940467, 1.045556,
        1.528105, 1.892419, 1.551435, 1.456615])</code></pre>
 </div>
@@ -368,12 +368,12 @@ window.Quarto = {
 <p><span class="math display">\[L(a,b)=\frac{1}{(b-a)^{10}}\times I(a\leq x_1)\dots I(a \leq x_n)\times I(x_1\leq b)\dots I(x_n\leq b)\]</span></p>
 <hr>
 <p>가능도 함수를 정의하기전에</p>
-<div id="31d2dfef" class="cell" data-execution_count="8">
+<div id="6f8447c4" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">1.2</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">1.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>주어진 <span class="math inline">\(a,b\)</span>에 대한 아래의 값들을 조사하여보자.</p>
-<div id="f6152fbb" class="cell" data-execution_count="9">
+<div id="652a85a4" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((b<span class="op">-</span>a)<span class="op">**</span><span class="dv">10</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">&lt;=</span> x)</span>
@@ -387,10 +387,10 @@ window.Quarto = {
 </div>
 </div>
 <p>가능도함수는 아래와 같이 정의된다.</p>
-<div id="d35f8737" class="cell" data-execution_count="10">
+<div id="5d58f722" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>likelihood <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(b<span class="op">-</span>a)<span class="op">**</span><span class="dv">10</span> <span class="op">*</span> np.prod(a <span class="op">&lt;=</span> x) <span class="op">*</span> np.prod(x <span class="op">&lt;=</span> b)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>np.float64(0.0)</code></pre>
 </div>
 </div>
@@ -487,7 +487,7 @@ window.Quarto = {
 <hr>
 <p><code>(4)</code> 가능도함의 그림을 그려보자.</p>
 <p>(풀이)</p>
-<div id="e1402414" class="cell" data-execution_count="11">
+<div id="a5857bd3" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -509,7 +509,7 @@ window.Quarto = {
 </ul>
 <p>이고</p>
 <hr>
-<div id="3599bfae" class="cell" data-execution_count="12">
+<div id="4a6cf725" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">min</span>(x))<span class="op">;</span> <span class="bu">print</span>(np.<span class="bu">max</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.045556
