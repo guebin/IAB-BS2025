@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a37c72dd2dbac68997fcdc15a3622e78.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.24">
+
+  <meta name="author" content="최규빈">
+  <meta name="dcterms.date" content="2025-11-25">
+  <title>IAB-BS2025 – 13wk-1: 연습문제 (1)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-73944be72d012cdc639efe8d02592198.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">13wk-1: 연습문제 (1)</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+최규빈 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-11-25</p>
+</section>
+<section class="slide level2">
+
+<h3>역확률</h3>
+<p><code>1</code>. 다음은 08wk-1의 엑스노트 광고 그림(예제1)을 통해 통계학적 개념의 혼란을 논의하는 학생들의 대화이다. 피셔(R. A. Fisher)의 통계학 이론의 기초 주장에 근거하여, 대화에 내포된 통계적 혼란에 대한 비판으로 적절한 진술을 모두 고르시오.</p>
+<ul>
+<li>학생 A: 광고 그림(데이터)이 주어졌을 때, ’신민아가 엑스노트를 활용해 프리젠테이션을 하고 있다’는 진술(1번)이 ’여성이 프리젠테이션을 하고 있다’는 진술(3번)보다 훨씬 더 구체적으로 관찰된 사실을 묘사하고 있어. 따라서 1번 진술이 가장 정확한 설명이라고 생각해.</li>
+<li>학생 B: 설명의 ’정확성’과 ’확률’은 구분해야 해. 우리가 그림이 참일 ’확률’을 따진다면, 가장 범위가 넓고 포괄적인 3번 진술이 참일 확률이 가장 높지. 1번 진술이 참이 되기 위해서는 신민아, 고층빌딩, 엑스노트 등 모든 구체적인 조건이 맞아야 하니까 확률은 가장 낮아.</li>
+<li>학생 C: 나는 A와 B의 주장이 충돌하는 이유가 피셔가 지적한 확률에 대한 혼란 때문이라고 봐. 이 예제에서 우리는 이미 데이터의 세계에 해당하는 그림을 관측한 상태인데, 그 상황에서 ’참일 확률이 높은 진술’을 묻는 질문 자체가 잘못된 방향성을 내포하고 있어.</li>
+<li>학생 D: C의 말대로, 피셔는 ’진실의 세계’에서 ’데이터의 세계’로 넘어갈 때만 “확률”이라는 개념이 적용되어야 한다고 생각했어. 이 예시처럼 데이터가 고정된 상황에서 그 데이터를 만들어냈을 ’진실’이나 ’모델’에 대해 확률을 부여하는 것은 적절하지 않아.</li>
+</ul>
+<p><code>2</code>. 다음은 베르누이 시행의 관측치 <span class="math inline">\((x_i)\)</span>를 통해 모수를 해석하는 과정에서 학생들이 나눈 대화이다. <span class="math inline">\(X_1, X_2, X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span>가 주어져 있으며, 실제 관측값은 <span class="math inline">\((0, 1, 0)\)</span>이다. 피셔의 관점에 의하여, 확률 개념 적용의 오류를 가장 잘 비판하고 있는 진술을 고르시오.</p>
+<ul>
+<li>학생 A: 우리가 얻은 관측치 <span class="math inline">\((0,1,0)\)</span>을 보면, 동전이 공평하다는 가정 <span class="math inline">\(p = 0.5\)</span>가 틀렸을 확률이 얼마나 되는지 계산해야 하지 않을까?</li>
+<li>학생 B: 피셔의 통찰에 따르면, 확률은 진실의 세계가 주어졌을 때 관측 데이터가 나타날 가능성을 측정하는 데 사용해야 한다. 따라서 <span class="math inline">\(p = 0.5\)</span>가 참이라면, 관측치 <span class="math inline">\((0,1,0)\)</span>이 나올 확률은 <span class="math inline">\(0.5 \times 0.5 \times 0.5 = \frac{1}{8}\)</span>.</li>
+<li>학생 C: B의 설명이 맞다면, A처럼 ’진실세계의 정보가 틀렸을 확률’을 묻는 것은 확률의 방향성을 거꾸로 적용하는 셈이다.</li>
+<li>학생 D: 난 A의 말이 더 자연스러운 것 같아. 이미 데이터를 봤으니까, 이 데이터를 기준으로 <span class="math inline">\(p\)</span>가 0.5가 아닐 확률도 당연히 계산할 수 있어야 하지 않을까?</li>
+</ul>
+<h3>평균과 평균</h3>
+<p>문제 배경: 피셔(R. A. Fisher)는 통계학의 기본적인 혼란이 용어가 불분명해서 발생한다고 지적했으며, 특히 참값과 도출된 특정 값에 같은 이름을 붙이는 관습을 비판했다.</p>
+<p><code>1</code>. 피셔가 같은 이름을 사용하는 관습이 혼란을 야기한다고 지적한 통계적 쌍은 다음 중 무엇인가?</p>
+<ul>
+<li>A: 확률변수 <span class="math inline">\(X\)</span>와 확률분포 <span class="math inline">\(P\)</span></li>
+<li>B: 모수와 추정치</li>
+<li>C: 독립 (Independence)과 동일한 분포 (Identically Distributed)</li>
+<li>D: 실현치 (Realization)와 관측 행위 (Observation)</li>
+</ul>
+<p><code>2</code>. 어떤 확률변수 <span class="math inline">\(X\)</span>가 성공 확률 <span class="math inline">\(p=0.5\)</span>인 베르누이 분포(<span class="math inline">\(X \sim \text{Bernoulli}(0.5)\)</span>)를 따른다고 가정하자. 여기서 <span class="math inline">\(X\)</span>는 성공(1) 또는 실패(0)의 결과를 숫자로 대응시키는 함수이다. 이 확률변수 <span class="math inline">\(X\)</span>의 모평균 <span class="math inline">\(\mathbb{E}(X)\)</span> (기댓값)은 얼마인가?</p>
+<p><code>3</code>. 1의 분포를 따르는 시행을 5번 반복하여 <span class="math inline">\(\{0, 1, 0, 0, 1\}\)</span>이라는 구체적인 실현치(<span class="math inline">\(x_1, \dots, x_5\)</span>)를 얻었다고 하자. 이 관측값들의 산술평균인 표본평균 <span class="math inline">\(\bar{x}\)</span>은 얼마인가?</p>
+<p><code>4</code>. 다음 중 통계학에서 모수의 성격을 가장 정확하게 설명하는 진술은 무엇인가?</p>
+<ul>
+<li>A: 관측치들의 산술평균으로, 표본에서 실제로 계산되는 값이다.</li>
+<li>B: 추정 방법을 통해 도출된 특정 값이다.</li>
+<li>C: 모집단의 분포를 특정하며, 알고 싶지만 오직 추정만 할 수 있는 참값이다.</li>
+<li>D: 확률변수를 관측하여 얻은 구체적인 실제값(실현치)들의 집합이다.</li>
+</ul>
+<p><code>5</code>. 성공 확률 <span class="math inline">\(p=0.5\)</span>인 베르누이 분포 <span class="math inline">\(X \sim Bernoulli(0.5)\)</span>가 있다고 가정하자. 5번의 시행을 통해 관측값 <span class="math inline">\(\{0,1,0,0,1\}\)</span>을 얻었을 때, 모평균 <span class="math inline">\(E(X)\)</span>와 이 관측값들의 표본평균 <span class="math inline">\(\bar{x}\)</span>에 대한 설명으로 옳은 것은?</p>
+<ul>
+<li>A: 모평균은 0.5이며 (모수), 표본평균은 0.4이다 (추정치).</li>
+<li>B: 모평균은 0.4이며, 표본평균은 0.5이다.</li>
+<li>C: 모평균과 표본평균은 같은 개념이므로 항상 0.5로 일치해야 한다.</li>
+<li>D: 모평균 <span class="math inline">\(E(X)\)</span>는 표본평균 <span class="math inline">\(\bar{x}\)</span>를 추정하기 위해 사용되는 참값이다.</li>
+</ul>
+<p><code>6</code>. 다음문항의 참/거짓을 판단하라.</p>
+<ul>
+<li>모수는 표본에서 계산된 값이고, 추정치는 모집단의 참값이다.</li>
+<li>데이터에서 계산한 평균값은 모수이다.</li>
+<li><span class="math inline">\(X \sim \text{Bernoulli}(0.5)\)</span>에서 한 번 시행하여 얻은 값 1은 실현치이다.</li>
+<li>실현치는 시행할 때마다 달라질 수 있지만, 확률변수의 분포는 변하지 않는다.</li>
+<li>CSV 파일에 저장된 키 데이터 168, 175, 182는 확률변수의 실현치로 볼 수 있다.</li>
+<li>표본평균은 분포를 모르더라도 구할 수 있다.</li>
+<li>표본평균과 모평균은 항상 같은 값을 가진다.</li>
+<li>동일한 분포에서 서로 다른 표본을 추출하면, 각 표본의 표본평균은 서로 다를 수 있다.</li>
+<li>모평균 <span class="math inline">\(\mathbb{E}(X)\)</span>를 계산하려면 반드시 관측 데이터가 필요하다.</li>
+<li>추정치는 표본이 달라지면 함께 달라지지만, 모수는 고정된 값이다.</li>
+<li>모평균을 알면 표본평균도 자동으로 알 수 있다.</li>
+<li>동전을 100번 던져 앞면이 48번 나왔다면, 48/100은 앞면이 나올 확률 <span class="math inline">\(p\)</span>의 추정치이다.</li>
+<li>추정치가 모수와 다르다면 추정 방법이 잘못된 것이다.</li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
