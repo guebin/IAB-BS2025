@@ -670,11 +670,10 @@ Guebin Choi
 <span id="cb29-10"><a></a></span>
 <span id="cb29-11"><a></a><span class="co"># 조건으로 인덱싱</span></span>
 <span id="cb29-12"><a></a>x[x <span class="sc">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb29-13"><a></a>x[x <span class="sc">%%</span> <span class="dv">20</span> <span class="sc">==</span> <span class="dv">0</span>]    <span class="co"># 20의 배수: 20, 40</span></span>
-<span id="cb29-14"><a></a></span>
-<span id="cb29-15"><a></a><span class="co"># which() 활용</span></span>
-<span id="cb29-16"><a></a>idx <span class="ot">&lt;-</span> <span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">25</span>)  <span class="co"># 조건을 만족하는 인덱스: 3, 4, 5</span></span>
-<span id="cb29-17"><a></a>x[idx]                <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-13"><a></a></span>
+<span id="cb29-14"><a></a><span class="co"># which() 활용</span></span>
+<span id="cb29-15"><a></a>idx <span class="ot">&lt;-</span> <span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">25</span>)  <span class="co"># 조건을 만족하는 인덱스: 3, 4, 5</span></span>
+<span id="cb29-16"><a></a>x[idx]                <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-15-2">
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -691,11 +690,10 @@ Guebin Choi
 <span id="cb30-12"><a></a></span>
 <span id="cb30-13"><a></a><span class="co"># 조건으로 인덱싱</span></span>
 <span id="cb30-14"><a></a>x[x <span class="op">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb30-15"><a></a>x[x <span class="op">%</span> <span class="dv">20</span> <span class="op">==</span> <span class="dv">0</span>]     <span class="co"># 20의 배수: 20, 40</span></span>
-<span id="cb30-16"><a></a></span>
-<span id="cb30-17"><a></a><span class="co"># np.where() 활용</span></span>
-<span id="cb30-18"><a></a>idx <span class="op">=</span> np.where(x <span class="op">&gt;</span> <span class="dv">25</span>)[<span class="dv">0</span>]  <span class="co"># 조건을 만족하는 인덱스: 2, 3, 4</span></span>
-<span id="cb30-19"><a></a>x[idx]                      <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-15"><a></a></span>
+<span id="cb30-16"><a></a><span class="co"># np.where() 활용</span></span>
+<span id="cb30-17"><a></a>idx <span class="op">=</span> np.where(x <span class="op">&gt;</span> <span class="dv">25</span>)[<span class="dv">0</span>]  <span class="co"># 조건을 만족하는 인덱스: 2, 3, 4</span></span>
+<span id="cb30-18"><a></a>x[idx]                      <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -709,8 +707,8 @@ Guebin Choi
 <span id="cb31-2"><a></a>target <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
 <span id="cb31-3"><a></a></span>
 <span id="cb31-4"><a></a><span class="co"># 방법 1: which.min 사용</span></span>
-<span id="cb31-5"><a></a>diff <span class="ot">&lt;-</span> <span class="fu">abs</span>(x <span class="sc">-</span> target)</span>
-<span id="cb31-6"><a></a>idx <span class="ot">&lt;-</span> <span class="fu">which.min</span>(diff)</span>
+<span id="cb31-5"><a></a>dff <span class="ot">&lt;-</span> <span class="fu">abs</span>(x <span class="sc">-</span> target)</span>
+<span id="cb31-6"><a></a>idx <span class="ot">&lt;-</span> <span class="fu">which.min</span>(dff)</span>
 <span id="cb31-7"><a></a>x[idx]   <span class="co"># 0.47 (0.5와 가장 가까움)</span></span>
 <span id="cb31-8"><a></a></span>
 <span id="cb31-9"><a></a><span class="co"># 방법 2: 한 줄로</span></span>
@@ -723,8 +721,8 @@ Guebin Choi
 <span id="cb32-4"><a></a>target <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb32-5"><a></a></span>
 <span id="cb32-6"><a></a><span class="co"># 방법 1: argmin 사용</span></span>
-<span id="cb32-7"><a></a>diff <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> target)</span>
-<span id="cb32-8"><a></a>idx <span class="op">=</span> np.argmin(diff)</span>
+<span id="cb32-7"><a></a>dff <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> target)</span>
+<span id="cb32-8"><a></a>idx <span class="op">=</span> np.argmin(dff)</span>
 <span id="cb32-9"><a></a>x[idx]   <span class="co"># 0.47 (0.5와 가장 가까움)</span></span>
 <span id="cb32-10"><a></a></span>
 <span id="cb32-11"><a></a><span class="co"># 방법 2: 한 줄로</span></span>

@@ -679,11 +679,10 @@ table {
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 조건으로 인덱싱</span></span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">%%</span> <span class="dv">20</span> <span class="sc">==</span> <span class="dv">0</span>]    <span class="co"># 20의 배수: 20, 40</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># which() 활용</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">25</span>)  <span class="co"># 조건을 만족하는 인덱스: 3, 4, 5</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>x[idx]                <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co"># which() 활용</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">25</span>)  <span class="co"># 조건을 만족하는 인덱스: 3, 4, 5</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>x[idx]                <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-15-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-15-2-tab">
 <div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -700,11 +699,10 @@ table {
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 조건으로 인덱싱</span></span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>x[x <span class="op">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>x[x <span class="op">%</span> <span class="dv">20</span> <span class="op">==</span> <span class="dv">0</span>]     <span class="co"># 20의 배수: 20, 40</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="co"># np.where() 활용</span></span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.where(x <span class="op">&gt;</span> <span class="dv">25</span>)[<span class="dv">0</span>]  <span class="co"># 조건을 만족하는 인덱스: 2, 3, 4</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>x[idx]                      <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># np.where() 활용</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.where(x <span class="op">&gt;</span> <span class="dv">25</span>)[<span class="dv">0</span>]  <span class="co"># 조건을 만족하는 인덱스: 2, 3, 4</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>x[idx]                      <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -720,8 +718,8 @@ table {
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 방법 1: which.min 사용</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="fu">abs</span>(x <span class="sc">-</span> target)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">which.min</span>(diff)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>dff <span class="ot">&lt;-</span> <span class="fu">abs</span>(x <span class="sc">-</span> target)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">which.min</span>(dff)</span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>x[idx]   <span class="co"># 0.47 (0.5와 가장 가까움)</span></span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 방법 2: 한 줄로</span></span>
@@ -734,8 +732,8 @@ table {
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 방법 1: argmin 사용</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> target)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(diff)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>dff <span class="op">=</span> np.<span class="bu">abs</span>(x <span class="op">-</span> target)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argmin(dff)</span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>x[idx]   <span class="co"># 0.47 (0.5와 가장 가까움)</span></span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 방법 2: 한 줄로</span></span>
