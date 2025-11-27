@@ -669,11 +669,7 @@
 <span id="cb29-9"><a></a>x[mask]            <span class="co"># TRUE인 위치의 원소: 10, 30, 50</span></span>
 <span id="cb29-10"><a></a></span>
 <span id="cb29-11"><a></a><span class="co"># 조건으로 인덱싱</span></span>
-<span id="cb29-12"><a></a>x[x <span class="sc">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb29-13"><a></a></span>
-<span id="cb29-14"><a></a><span class="co"># which() 활용</span></span>
-<span id="cb29-15"><a></a>idx <span class="ot">&lt;-</span> <span class="fu">which</span>(x <span class="sc">&gt;</span> <span class="dv">25</span>)  <span class="co"># 조건을 만족하는 인덱스: 3, 4, 5</span></span>
-<span id="cb29-16"><a></a>x[idx]                <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-12"><a></a>x[x <span class="sc">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-15-2">
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -689,11 +685,7 @@
 <span id="cb30-11"><a></a>x[mask]            <span class="co"># True인 위치의 원소: 10, 30, 50</span></span>
 <span id="cb30-12"><a></a></span>
 <span id="cb30-13"><a></a><span class="co"># 조건으로 인덱싱</span></span>
-<span id="cb30-14"><a></a>x[x <span class="op">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span>
-<span id="cb30-15"><a></a></span>
-<span id="cb30-16"><a></a><span class="co"># np.where() 활용</span></span>
-<span id="cb30-17"><a></a>idx <span class="op">=</span> np.where(x <span class="op">&gt;</span> <span class="dv">25</span>)[<span class="dv">0</span>]  <span class="co"># 조건을 만족하는 인덱스: 2, 3, 4</span></span>
-<span id="cb30-18"><a></a>x[idx]                      <span class="co"># 해당 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-14"><a></a>x[x <span class="op">&gt;</span> <span class="dv">25</span>]          <span class="co"># 25보다 큰 원소: 30, 40, 50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

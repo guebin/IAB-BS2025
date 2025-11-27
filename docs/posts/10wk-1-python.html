@@ -247,16 +247,16 @@ window.Quarto = {
 <hr>
 <p>(풀이)</p>
 <p><span class="math inline">\(x_1=0,x_2=1\)</span>는 <span class="math inline">\(Ber(\theta)\)</span>에서 얻은 실현치라고 가정하자. 만약에 <span class="math inline">\(\theta=0.5\)</span>였다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
-<div id="d0965207" class="cell" data-execution_count="2">
+<div id="47d54e66" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.5</span><span class="op">*</span><span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>0.25</code></pre>
 </div>
 </div>
 <p>만약에 <span class="math inline">\(\theta=0.1\)</span>이었다면 이러한 실현치를 얻을 확률은 아래와 같다.</p>
-<div id="a99deb22" class="cell" data-execution_count="3">
+<div id="847c66ca" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.9</span><span class="op">*</span><span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>0.09000000000000001</code></pre>
 </div>
 </div>
@@ -302,7 +302,7 @@ window.Quarto = {
 <li><span class="math inline">\(P(\theta=0.49)\)</span>, <span class="math inline">\(P(\theta=0.48)\)</span>, <span class="math inline">\(P(\theta=0.47)\)</span>, <span class="math inline">\(P(\theta=0.46)\)</span>, <span class="math inline">\(\dots\)</span></li>
 </ul>
 <hr>
-<div id="9b9da622" class="cell" data-execution_count="4">
+<div id="670dabcf" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">0.51</span><span class="op">*</span><span class="fl">0.49</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.52</span><span class="op">*</span><span class="fl">0.48</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.53</span><span class="op">*</span><span class="fl">0.47</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.54</span><span class="op">*</span><span class="fl">0.46</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="fl">0.49</span><span class="op">*</span><span class="fl">0.51</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.48</span><span class="op">*</span><span class="fl">0.52</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.47</span><span class="op">*</span><span class="fl">0.53</span>)<span class="op">;</span> <span class="bu">print</span>(<span class="fl">0.46</span><span class="op">*</span><span class="fl">0.54</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -317,9 +317,9 @@ window.Quarto = {
 </div>
 </div>
 <p>저 위의 숫자들을 모두 더하면 아래와 같음.</p>
-<div id="c974a9d6" class="cell" data-execution_count="5">
+<div id="fe27e94a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">0.2499</span> <span class="op">+</span> <span class="fl">0.2496</span> <span class="op">+</span> <span class="fl">0.2491</span> <span class="op">+</span> <span class="fl">0.2484</span>)<span class="op">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>1.9939999999999998</code></pre>
 </div>
 </div>
@@ -336,20 +336,20 @@ window.Quarto = {
 <hr>
 <p><code>(피셔의생각2)</code></p>
 <p>확률은 반복가능한 대상에 대해서만 적용가능하다. 왜냐하면 확률은 상대빈도의 극한이기 때문이다. 예를들어 <span class="math inline">\(x_1, x_2\)</span>은 반복적으로 관찰가능한 대상이므로 <span class="math display">\[P(X_1=x_1, X_2=x_2)\]</span>와 같은 표현은 성립한다. 예를들어 <span class="math inline">\(P(X_1=0, X_2=1)=0.25\)</span>라는 의미는 아래와 같은 관측을 많이하면 대충 <span class="math inline">\(x_1=0, x_2=1\)</span>이 나올 상대빈도가 <span class="math inline">\(0.25\)</span>정도 된다는 뜻이다.</p>
-<div id="197c626c" class="cell" data-execution_count="6">
+<div id="deb83a9b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(np.random.binomial(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[0 1]
+<pre><code>[1 0]
+[1 1]
+[1 1]
 [1 0]
 [1 1]
+[1 1]
 [0 1]
-[1 0]
-[0 1]
-[1 0]
-[0 1]
-[1 0]
-[1 0]</code></pre>
+[1 1]
+[1 1]
+[0 1]</code></pre>
 </div>
 </div>
 <hr>
@@ -423,7 +423,7 @@ window.Quarto = {
 </ol>
 <p><code>(풀이)</code></p>
 <p>손으로는 못푸니까 계산기를 이용합시다.</p>
-<div id="18faecb0" class="cell" data-execution_count="7">
+<div id="99e79dd6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1번</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mu<span class="op">=</span><span class="dv">0</span><span class="op">;</span> sigma<span class="op">=</span><span class="dv">1</span><span class="op">;</span> x<span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="bu">print</span>(<span class="dv">1</span><span class="op">/</span>(sigma<span class="op">*</span>np.sqrt(<span class="dv">2</span><span class="op">*</span>np.pi))<span class="op">*</span>np.exp(<span class="op">-</span>(x<span class="op">-</span>mu)<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>sigma<span class="op">**</span><span class="dv">2</span>)))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2번</span></span>
@@ -520,7 +520,7 @@ window.Quarto = {
 <section id="그-예제" class="level3">
 <h3 class="anchored" data-anchor-id="그-예제">그 예제</h3>
 <p><code>08wk-1 예제</code> – 아래를 관찰하자.</p>
-<div id="5e0aee8e" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="8">
+<div id="24d9c928" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

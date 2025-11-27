@@ -386,26 +386,26 @@
 
 <p><code>예제2</code> – 애매한 언어</p>
 <p>평균이 0이고 표준편차가 1이 정규분포가 있다고 하자. 아래는 이러한 정규분포에 10개의 data를 뽑은 결과이다.</p>
-<div id="2aea560e" class="cell" data-execution_count="3">
+<div id="2b7e2c4b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb1-2"><a></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb1-3"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array([-1.0856306 ,  0.99734545,  0.2829785 , -1.50629471, -0.57860025,
         1.65143654, -2.42667924, -0.42891263,  1.26593626, -0.8667404 ])</code></pre>
 </div>
 </div>
 <p><code>x</code>의 평균은 아래와 같은 코드로 계산한다.</p>
-<div id="e72e09a3" class="cell" data-execution_count="4">
+<div id="b87ca1ce" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>np.mean(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>-0.26951611032632805</code></pre>
 </div>
 </div>
 <p><code>x</code>의 표준편차는 아래와 같이 계산한다.</p>
-<div id="7ac02b79" class="cell" data-execution_count="5">
+<div id="267301ad" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>np.std(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>1.236304801499023</code></pre>
 </div>
 </div>
@@ -413,11 +413,11 @@
 <section class="slide level2">
 
 <p>만약에 정규분포에서 10개의 데이터가 아니라 더 많은 data를 얻는다면 어떻게 될까?</p>
-<div id="944e8f5e" class="cell" data-execution_count="6">
+<div id="26c4dffe" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb7-2"><a></a>x <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">10000</span>)</span>
 <span id="cb7-3"><a></a>np.mean(x).item(), np.std(x).item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>(0.009711892291595955, 0.9981138545901475)</code></pre>
 </div>
 </div>
@@ -460,7 +460,7 @@
 <p>아래의 상황을 가정하자.</p>
 <p><span class="math display">\[X_1,X_2,X_3 \overset{i.i.d.}{\sim} B(0.5)\]</span></p>
 <p>이로부터 데이터를 아래와 같이 얻었다고 하자.</p>
-<div id="b1426c72" class="cell" data-execution_count="7">
+<div id="698f1556" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>np.random.seed(<span class="dv">1234</span>)</span>
 <span id="cb9-2"><a></a>x <span class="op">=</span> np.random.binomial(n<span class="op">=</span><span class="dv">1</span>, p<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -492,7 +492,7 @@
 <section class="slide level2">
 
 <p>그리고 아래의 코드를 활용하여 데이터를 얻었다.</p>
-<div id="331c5732" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="8">
+<div id="86e76d70" class="cell" data-fig-height="5" data-fig-width="6" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb10-2"><a></a>x <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">1</span>, size<span class="op">=</span><span class="dv">3000</span>)</span>
 <span id="cb10-3"><a></a>y <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">1</span>, size<span class="op">=</span><span class="dv">3000</span>)</span>
