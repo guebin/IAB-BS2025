@@ -257,7 +257,7 @@
 <p>아래에서</p>
 <p><span class="math display">\[X \sim N(\mu,1)\]</span></p>
 <p>얻은 10개의 샘플이 다음과 같다고 하자.</p>
-<div id="e39fcf01" class="cell" data-execution_count="2">
+<div id="d3d74827" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>[-0.56047565 -0.23017749  1.55870831  0.07050839  0.12928774  1.71506499
   0.46091621 -1.26506123 -0.68685285 -0.44566197]</code></pre>
@@ -274,7 +274,7 @@
 
 <p><code>(풀이)</code></p>
 <p>언뜻 생각하면 아래와 같이 추정해야 할 것 같다.</p>
-<div id="89a755a0" class="cell" data-execution_count="3">
+<div id="43fe72d2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>np.mean(x<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>np.float64(0.8243025996854358)</code></pre>
@@ -282,7 +282,7 @@
 </div>
 <p>그런데 <span class="math display">\[\mathbb{E}(X^2)=\big\{\mathbb{E}(X)\big\}^2+\mathbb{V}(X)\]</span></p>
 <p>임을 고려하면 아래와 같이 추정하는것도 말이 되는 것 같다.</p>
-<div id="13c8c13c" class="cell" data-execution_count="4">
+<div id="40a42c44" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>np.mean(x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>np.float64(1.005568986891666)</code></pre>
@@ -293,7 +293,7 @@
 <section class="slide level2">
 
 <p><strong>분석</strong></p>
-<div id="91787460" class="cell" data-execution_count="5">
+<div id="b048dd12" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>A <span class="op">=</span> []</span>
 <span id="cb6-2"><a></a>B <span class="op">=</span> []</span>
 <span id="cb6-3"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
@@ -336,7 +336,7 @@
 <p>수식을 좀 더 정리하면 아래와 같다.</p>
 <p><span class="math display">\[f_X(x)=\frac{1}{b-a}I(a \leq x \leq b)\]</span></p>
 <p>여기에서 <span class="math inline">\(I(a \leq x \leq b)=\begin{cases} 1 &amp; a \leq x \leq b \\ 0 &amp; o.w. \end{cases}\)</span> 이다. 이제 아래와 같은 관측치를 얻은 상황에서 <code>x</code>의 중심 <span class="math inline">\(\mathbb{E}(X)\)</span>를 추정하는 문제를 고려하자.</p>
-<div id="d6c19988" class="cell" data-execution_count="7">
+<div id="bd4f2797" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>x <span class="op">=</span> np.array([<span class="fl">1.287578</span>, <span class="fl">1.788305</span>, <span class="fl">1.408977</span>, <span class="fl">1.883017</span>, <span class="fl">1.940467</span>,</span>
 <span id="cb7-2"><a></a>              <span class="fl">1.045556</span>, <span class="fl">1.528105</span>, <span class="fl">1.892419</span>, <span class="fl">1.551435</span>, <span class="fl">1.456615</span>])</span>
 <span id="cb7-3"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -362,12 +362,12 @@
 <section class="slide level2">
 
 <p>가능도 함수를 정의하기전에</p>
-<div id="b1ed4394" class="cell" data-execution_count="8">
+<div id="bcb8775c" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>a <span class="op">=</span> <span class="fl">1.2</span></span>
 <span id="cb9-2"><a></a>b <span class="op">=</span> <span class="fl">1.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>주어진 <span class="math inline">\(a,b\)</span>에 대한 아래의 값들을 조사하여보자.</p>
-<div id="c0ee96d4" class="cell" data-execution_count="9">
+<div id="6246fe82" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="bu">print</span>((b<span class="op">-</span>a)<span class="op">**</span><span class="dv">10</span>)</span>
 <span id="cb10-2"><a></a><span class="bu">print</span>(x)</span>
 <span id="cb10-3"><a></a><span class="bu">print</span>(a <span class="op">&lt;=</span> x)</span>
@@ -381,7 +381,7 @@
 </div>
 </div>
 <p>가능도함수는 아래와 같이 정의된다.</p>
-<div id="d0f45bff" class="cell" data-execution_count="10">
+<div id="d21f7333" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>likelihood <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(b<span class="op">-</span>a)<span class="op">**</span><span class="dv">10</span> <span class="op">*</span> np.prod(a <span class="op">&lt;=</span> x) <span class="op">*</span> np.prod(x <span class="op">&lt;=</span> b)</span>
 <span id="cb12-2"><a></a>likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -504,7 +504,7 @@
 </section>
 <section class="slide level2">
 
-<div id="72fa5e9c" class="cell" data-execution_count="12">
+<div id="5cfa2b0e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="bu">print</span>(np.<span class="bu">min</span>(x))<span class="op">;</span> <span class="bu">print</span>(np.<span class="bu">max</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.045556
