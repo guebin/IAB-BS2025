@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2025-11-25">
+<meta name="dcterms.date" content="2025-12-04">
 
-<title>14wk-1: 연습문제 (3) – IAB-BS2025</title>
+<title>14wk-2: 연습문제 (4) – IAB-BS2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">14wk-1: 연습문제 (3)</h1>
+<h1 class="title">14wk-2: 연습문제 (4)</h1>
 </div>
 
 
@@ -172,7 +172,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 25, 2025</p>
+      <p class="date">December 4, 2025</p>
     </div>
   </div>
   
@@ -184,114 +184,191 @@ window.Quarto = {
 </header>
 
 
-<section id="최대가가능도" class="level3">
-<h3 class="anchored" data-anchor-id="최대가가능도">최대가가능도</h3>
-<p><code>1</code>. 동전을 던져 얻은 3회의 실험결과가 아래와 같다고 하자.</p>
-<pre><code>0 1 0 </code></pre>
-<p>1이 나올 확률 <span class="math inline">\(\theta\)</span>를 최대가능도 기법으로 추정하고자 한다.</p>
-<p><code>(1)</code> <span class="math inline">\(L(0.1)\)</span>의 값과 <span class="math inline">\(L(0.9)\)</span>의 값을 구하라.</p>
-<p><code>(2)</code> 아래의 확률분포표를 채우라.</p>
+<section id="mle-기반-추정" class="level3">
+<h3 class="anchored" data-anchor-id="mle-기반-추정">MLE 기반 추정</h3>
+<hr>
+<p><code>1</code>. 아래는 정규분포 <span class="math inline">\(N(0,1)\)</span>에서 중심 <span class="math inline">\(\mu=0\)</span>을 추정하는 시뮬레이션 결과이다. (단, <span class="math inline">\(n=100\)</span>, <span class="math inline">\(m=10000\)</span>)</p>
+<ul>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(x_1, \ldots, x_{n}\)</span>을 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_x\)</span>를 계산</li>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(y_1, \ldots, y_{n}\)</span>을 독립적으로 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_y\)</span>를 계산</li>
+<li>위 과정을 <span class="math inline">\(m\)</span>번 반복하여 <span class="math inline">\((\hat\mu_x, \hat\mu_y)\)</span>를 산점도로 표시 (따라서 점은 각 방식별로 <span class="math inline">\(m\)</span>개씩 있음)</li>
+</ul>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline">\(\theta\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(L(\theta) = \theta(1-\theta)^2\)</span></th>
+<th style="text-align: center;">방식</th>
+<th style="text-align: left;">추정량</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">0.495</td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">A (파란색)</td>
+<td style="text-align: left;">상위 10%, 하위 10%를 제외한 후 평균 (trimmed mean)</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">0.496</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.497</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.498</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.499</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.500</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.501</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.502</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.503</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">0.504</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">0.505</td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">B (주황색)</td>
+<td style="text-align: left;">표본평균 <span class="math inline">\(\bar{x}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p><code>(3)</code> <span class="math inline">\(L(\theta)\)</span>를 확률로 해석할 수 없는 이유를 (2)의 결과를 통하여 설명하라.</p>
-<p><code>(4)</code> <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(\theta\)</span>와 관련된 수식으로 표현하라.</p>
-<p><code>(5)</code> <span class="math inline">\(L(\theta)\)</span>를 최대화하는 값을 이론적으로 구하라. 즉 성공확률을 최대가능도방법으로 추정하라.</p>
-<p><code>(6)</code> 실패확률을 최대가능도방법으로 추정하라.</p>
-<p><code>(6)</code> 모분산을 최대가능도방법으로 추정하라.</p>
-<blockquote class="blockquote">
-<p>힌트: 베르누이분포의 모분산은 <span class="math inline">\(\mathbb{V}(X)=\theta(1-\theta)\)</span>으로 알려져 있음.**</p>
-</blockquote>
-<p><code>(7)</code> 모표준편차를 최대가능도방법으로 추정하라.</p>
-<p><code>(8)</code> 1이 나올때까지 기대시행수를 최대가능도방법으로 추정하라.</p>
-<blockquote class="blockquote">
-<p>힌트: 동전을 1이 나올 때까지 반복해서 던진다고 하자.</p>
+<div class="quarto-layout-panel" data-layout="[[1,1]]">
+<div class="quarto-layout-row">
+<div id="7638221e" class="cell quarto-layout-cell" data-execution_count="2" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14wk-2_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>그림을 해석한 것으로 옳은 것을 모두 고르라.</strong></p>
+<ol type="1">
+<li>A방식은 MLE에 근거한 방식이다.</li>
+<li>B방식은 MLE에 근거한 방식이다.</li>
+<li>B방식이 A방식보다 더 효율적이다. 왜냐하면 분포와 상관없이 항상 표본평균으로 모평균을 추정하는 것이 합리적이기 때문이다.</li>
+<li><span class="math inline">\(n\)</span>이 커진다면 두 방식 모두 <span class="math inline">\(m\)</span>개의 점들이 점점 중앙으로 몰리게 될 것이다.</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+<p><code>2</code>. 아래는 정규분포 <span class="math inline">\(N(0,1)\)</span>에서 중심 <span class="math inline">\(\mu=0\)</span>을 추정하는 시뮬레이션 결과이다. (단, <span class="math inline">\(n=100\)</span>, <span class="math inline">\(m=10000\)</span>)</p>
 <ul>
-<li><code>0 0 0 1</code> <span class="math inline">\(\to\)</span> 4번째에 처음 1이 나옴 (시행수 = 4)</li>
-<li><code>0 1</code> <span class="math inline">\(\to\)</span> 2번째에 처음 1이 나옴 (시행수 = 2)</li>
-<li><code>1</code> <span class="math inline">\(\to\)</span> 1번째에 바로 1이 나옴 (시행수 = 1)</li>
-<li><code>0 0 0 0 0 0 1</code> <span class="math inline">\(\to\)</span> 7번째에 처음 1이 나옴 (시행수 = 7)</li>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(x_1, \ldots, x_{n}\)</span>을 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_x\)</span>를 계산</li>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(y_1, \ldots, y_{n}\)</span>을 독립적으로 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_y\)</span>를 계산</li>
+<li>위 과정을 <span class="math inline">\(m\)</span>번 반복하여 <span class="math inline">\((\hat\mu_x, \hat\mu_y)\)</span>를 산점도로 표시 (따라서 점은 각 방식별로 <span class="math inline">\(m\)</span>개씩 있음)</li>
 </ul>
-<p>이러한 “첫 성공까지의 시행수”를 <span class="math inline">\(Y\)</span>라 하면 <span class="math inline">\(E[Y] = 1/\theta\)</span>로 알려져 있다. (기하분포)</p>
-</blockquote>
-<p><code>2</code>. <span class="math inline">\(X_1,\dots,X_4 \overset{iid}{\sim} U(0,\theta)\)</span>를 관측한 결과가 아래와 같다고 하자.</p>
-<pre><code>0.1 0.2 0.6 0.85</code></pre>
-<p><code>(1)</code> <span class="math inline">\(L(0.8)\)</span>, <span class="math inline">\(L(0.9)\)</span>, <span class="math inline">\(L(1.0)\)</span>의 값을 구하라.</p>
-<p><code>(2)</code> (1)의 결과로 볼때 <span class="math inline">\(\theta\)</span>는 0.8, 0.9, 1.0 중 어떠한 값으로 추정하는게 가장 합리적인가? (이유도 쓸것)</p>
-<p><code>(3)</code> <span class="math inline">\(L(\theta)\)</span>를 최대화하는 값을 이론적으로 계산하라.</p>
-<p><code>(4)</code> 모평균을 최대가능도방법으로 추정하라.</p>
-<p><code>(5)</code> 이 분포의 모분산을 최대가능방법으로 추정하라.</p>
-<blockquote class="blockquote">
-<p>힌트: <span class="math inline">\(X \sim U(0,\theta)\)</span>일때, <span class="math inline">\(V(X)=\theta^2/12\)</span>로 알려져 있다.</p>
-</blockquote>
-<p><code>3</code>. <span class="math inline">\(X_1, X_2 \overset{iid}{\sim} N(\theta, 1)\)</span>을 관측한 결과가 아래와 같다고 하자. (분산 <span class="math inline">\(\sigma^2=1\)</span>은 알려져 있음)</p>
-<pre><code>2.1, 2.5</code></pre>
-<p><code>(1)</code> <span class="math inline">\(L(\theta)\)</span>를 <span class="math inline">\(\theta\)</span>와 관련된 수식으로 표현하라.</p>
-<p><code>(2)</code> <span class="math inline">\(L(2.1)\)</span>, <span class="math inline">\(L(2.3)\)</span>, <span class="math inline">\(L(2.5)\)</span>의 값을 구하라.</p>
-<blockquote class="blockquote">
-<p>힌트: <span class="math inline">\(X \sim N(\mu, 1)\)</span>일 때, <span class="math inline">\(f(x) = \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{(x-\mu)^2}{2}\right)\)</span></p>
-</blockquote>
-<p><code>(3)</code> (2)의 결과로 판단하면 최대가능도방법의 관점에서 <span class="math inline">\(\theta\)</span>가 2.1, 2.3, 2.5중 어떠한 값이라고 추정하는것이 가장 타당한가? (이유도 쓸 것)</p>
-<p><code>(4)</code> <span class="math inline">\(L(\theta)\)</span>의 값을 최대화하는 <span class="math inline">\(\theta\)</span>를 이론적으로 구하라.</p>
-<p><code>(5)</code> <span class="math inline">\(E[X^2]\)</span>을 최대가능도방법으로 추정하라.</p>
-<blockquote class="blockquote">
-<p>힌트: <span class="math inline">\(X \sim N(\theta, 1)\)</span>일 때, <span class="math inline">\(E[X^2] = \theta^2 + 1\)</span></p>
-</blockquote>
-<p><code>(6)</code> <span class="math inline">\(E[(X-1)^2]\)</span>을 최대가능도방법으로 추정하라.</p>
-<blockquote class="blockquote">
-<p>힌트: <span class="math inline">\(E[(X-1)^2] = \text{Var}(X) + (E[X]-1)^2 = 1 + (\theta - 1)^2\)</span></p>
-</blockquote>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">방식</th>
+<th style="text-align: left;">추정량</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A (파란색)</td>
+<td style="text-align: left;">중앙값 (median)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B (주황색)</td>
+<td style="text-align: left;">표본평균 (mean)</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-layout-panel" data-layout="[[1,1]]">
+<div class="quarto-layout-row">
+<div id="b0923a4f" class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14wk-2_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>그림을 해석한 것으로 옳은 것을 모두 고르라.</strong></p>
+<ol type="1">
+<li>이 경우 중앙값에 의한 추정이 MLE에 근거한 추정법이다.</li>
+<li>이 경우 표본평균에 의한 추정이 MLE에 근거한 추정법이다.</li>
+<li><span class="math inline">\(n\)</span>이 작을 때는 평균이 더 효율적이지만, <span class="math inline">\(n\)</span>이 커지면 중앙값이 더 효율적이 된다.</li>
+<li>정규분포에서 중앙값과 평균은 항상 동일한 추정값을 가진다.</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+<p><code>3</code>. 아래는 <strong>균등분포 <span class="math inline">\(U(0,1)\)</span></strong>에서 중심 <span class="math inline">\(\mathbb{E}(X)=0.5\)</span>를 추정하는 시뮬레이션 결과이다. (단, <span class="math inline">\(n=100\)</span>, <span class="math inline">\(m=10000\)</span>)</p>
+<ul>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(x_1, \ldots, x_{n}\)</span>을 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_x\)</span>를 계산</li>
+<li><span class="math inline">\(n\)</span>개의 샘플 <span class="math inline">\(y_1, \ldots, y_{n}\)</span>을 독립적으로 추출하여 A방식과 B방식으로 각각 <span class="math inline">\(\hat\mu_y\)</span>를 계산</li>
+<li>위 과정을 <span class="math inline">\(m\)</span>번 반복하여 <span class="math inline">\((\hat\mu_x, \hat\mu_y)\)</span>를 산점도로 표시 (따라서 점은 각 방식별로 <span class="math inline">\(m\)</span>개씩 있음)</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">방식</th>
+<th style="text-align: left;">추정량</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A (파란색)</td>
+<td style="text-align: left;">표본평균 <span class="math inline">\(\bar{x}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B (주황색)</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{\min(x)+\max(x)}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-layout-panel" data-layout="[[1,1]]">
+<div class="quarto-layout-row">
+<div id="79184573" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14wk-2_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>그림에 대한 해석으로 옳은 것을 모두 고르라.</strong></p>
+<ol type="1">
+<li>A방식이 MLE에 근거한 추정법이다.</li>
+<li>B방식이 MLE에 근거한 추정법이다.</li>
+<li>그림에서는 B방식에 근거한 추정법이 더 우수해 보이는데, 이는 <span class="math inline">\(n\)</span>이 작아서 생기는 특별한 현상이고, <span class="math inline">\(n\)</span>이 커진다면 점점 표본평균에 근거한 추정법이 더 우세해진다.</li>
+<li>그림에서는 B방식에 근거한 추정법이 더 우수해보이는데, 이는 표본평균으로 모평균을 추정하는 것이 항상 최선은 아닐수도 있음을 의미한다.</li>
+</ol>
+</div>
+</div>
+</div>
+<hr>
+<p><code>4</code>. 문제 3의 그림에서 주황색 점들의 분포 모양과 파란색 점들의 분포 모양에 대한 설명으로 올바른 것을 모두 고르시오.</p>
+<ol type="1">
+<li>주황색과 파란색 점들의 분포 모양이 다른 이유는 <span class="math inline">\(n\)</span>이 적기 때문이다.</li>
+<li>주황색 점들이 파란색 점들처럼 원형이 아니라 사각형에 가까운 이유는 <span class="math inline">\(\min\)</span>, <span class="math inline">\(\max\)</span>에 중심극한정리가 성립하지 않기 때문이다.</li>
+<li><span class="math inline">\(n\)</span>이 커지면 주황색 점들도 파란색 점들과 같은 모향이 된다.</li>
+<li><span class="math inline">\(n\)</span>이 커지면 파란색 점들도 주황색 점들과 같은 모향이 된다</li>
+</ol>
+<hr>
+<p><code>5</code>. 피셔(Fisher)의 MLE에 대한 주장으로 <strong>틀린 것</strong>은?</p>
+<ol type="1">
+<li>분포를 고려하지 않고 무조건 표본평균을 사용하는 것은 최선이 아닐 수 있다.</li>
+<li>정규분포에서 적률법(MME)과 MLE가 일치하는 것은 우연이다.</li>
+<li>균등분포에서 표본평균이 중심의 MLE이다.</li>
+<li>MLE는 분포의 특성을 고려하여 최적의 추정량을 찾는다.</li>
+</ol>
+<hr>
+<p><code>6</code>. <span class="math inline">\(X \sim N(\mu, 1)\)</span>에서 10개의 샘플을 얻었다. <span class="math inline">\(\mathbb{E}(X^2)\)</span>를 추정하는 두 방법을 비교한다.</p>
+<ul>
+<li><strong>A방식</strong>: <span class="math inline">\(\overline{x^2}\)</span> (표본 제곱의 평균)</li>
+<li><strong>B방식</strong>: <span class="math inline">\(1 + \bar{x}^2\)</span></li>
+</ul>
+<div id="e28a7f1a" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="14wk-2_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>그림6: 제곱의 평균에 대한 추정의 비교</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>방법 A와 B중 MLE에 근거한 방식이 무엇인가? (이유도 쓸 것) MLE에 근거한 방식과 그렇지 않은 방식에 대하여 추정의 효율을 비교하라.</p>
+<hr>
+<p><code>7</code>. 균등분포 <span class="math inline">\(U(a,b)\)</span>의 가능도함수는 다음과 같다: <span class="math display">\[L(a,b)=\frac{1}{(b-a)^n} \times I(a \leq \min(data)) \times I(\max(data) \leq b)\]</span></p>
+<p><strong>이 가능도함수에 대한 설명으로 틀린 것은?</strong></p>
+<ol type="1">
+<li><span class="math inline">\(a &gt; \min(data)\)</span>이면 가능도는 0이다</li>
+<li><span class="math inline">\(b &lt; \max(data)\)</span>이면 가능도는 0이다</li>
+<li><span class="math inline">\((b-a)\)</span>가 클수록 가능도가 커진다</li>
+<li><span class="math inline">\(a=\min(data)\)</span>, <span class="math inline">\(b=\max(data)\)</span>일 때 가능도가 최대이다</li>
+</ol>
 
 
 </section>
