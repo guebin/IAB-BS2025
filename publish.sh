@@ -8,7 +8,7 @@ rm -rf docs/ .quarto
 
 # Use start.sh approach - render individual files
 echo "🌐 Rendering index.qmd..."
-quarto render index.qmd --to html
+uv run quarto render index.qmd --to html
 
 # Check if index build was successful
 if [ $? -ne 0 ]; then
@@ -26,7 +26,7 @@ for file in *.ipynb *.qmd; do
         echo "   📄 Processing $filename..."
         
         # Render HTML version first
-        quarto render "$file" --to html
+        uv run quarto render "$file" --to html
         
         # Check if render was successful
         if [ $? -ne 0 ]; then
@@ -45,8 +45,8 @@ for file in *.ipynb *.qmd; do
             cp -r "../docs/posts/${filename}_files/figure-html" "../docs/posts/${filename}_files/figure-html-backup"
         fi
         
-        # Render Reveal.js version  
-        quarto render "$file" --to revealjs
+        # Render Reveal.js version
+        uv run quarto render "$file" --to revealjs
         
         # Check if render was successful  
         if [ $? -ne 0 ]; then

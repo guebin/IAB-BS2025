@@ -1,0 +1,12 @@
+{
+  "hash": "dac2ca81eb88a33b1d9be583d91bcd0b",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: 'test'\nauthor: 최규빈\ndate: 11/06/2025\ncrossref:\n  fig-title: \"\"\n  fig-prefix: \"\"\n---\n\n### 강의영상\n\n::: {#5f874c63 .cell execution_count=1}\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\narray([1, 2, 3])\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "test2_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

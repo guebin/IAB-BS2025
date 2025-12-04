@@ -34,6 +34,15 @@ title-block-banner: false
 
 각 강의노트의 슬라이드 버전을 확인할 수 있습니다.
 
+- [12wk-1: 최대가능도 추정 (4)](posts/12wk-1-slides.html)
+- [11wk-2: 최대가능도 추정 (3)](posts/11wk-2-slides.html)
+- [11wk-1: 최대가능도 추정 (2)](posts/11wk-1-slides.html)
+- [10wk-2: 최대가능도 추정 (1)](posts/10wk-2-slides.html)
+- [10wk-1: 확률과 가능도](posts/10wk-1-slides.html)
+- [08wk-2: 확률변수와 분포](posts/08wk-2-slides.html)
+- [08wk-1: 진실의 세계와 데이터의 세계](posts/08wk-1-slides.html)
+- [A2: AI 기반 데이터 사이언스](posts/A2-slides.html)
+- [A1: Chat GPT 시대에서의 코딩공부](posts/A1-slides.html)
 - [03wk-1: 카디널리티 (2)](posts/03wk-1-slides.html)
 - [02wk-2: 카디널리티 (1)](posts/02wk-2-slides.html)
 - [02wk-1: 수학과의 표현, 귀류법과 일반화](posts/02wk-1-slides.html)

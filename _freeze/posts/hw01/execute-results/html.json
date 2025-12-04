@@ -1,0 +1,12 @@
+{
+  "hash": "d372ee64da22aa13e23dbfcf59642dd2",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: HW-1 (2024.09.11)\nauthor: 최규빈\ndate: 09/11/2025\nreference-location: margin\ncitation-location: margin\ncap-location: margin\ncomments: false\ndraft: false\nformat: html\njupyter: python3\n---\n\n\n## 1. 바늘이 하나 있는 시계\n\n우리는 단순한 시계 하나를 생각해볼 수 있다. 이 시계에는 바늘이 하나 있고, 이 바늘을 무작위로 돌렸을 때, 바늘이 시계에서 어떤 위치에 멈추게 될 확률을 계산하는 상황을 상상해보자.\n\n여기서 시계의 위치를 **각도**로 나타낸다. 시계의 각도는 $0$에서 $2\\pi$ 사이로 표현된다. 즉, 시계바늘이 12시를 가리킬 때는 각도가 $0$이고, 시계바늘이 시계 방향으로 6시를 가리킬 때는 각도가 $\\pi$이다. 이 문제에서 전체 각도 공간을 **sample space** $\\Omega$로 정의한다. $\\Omega = [0, 2\\pi)$는 시계의 모든 각도를 나타내는 구간이다. \n\n\n시계바늘이 $0$부터 $2\\pi$ 사이의 각도를 랜덤하게 가리킨다고 가정할 때, 우리는 특정 각도 범위 $\\Omega^*$에 바늘이 있을 확률을 아래와 같이 계산할 수 있다. \n\n$$\nP(\\Omega^*) = \\frac{m(\\Omega^*)}{2\\pi}\n$$\n\n여기에서 $m$는 길이를 재는 함수이다. 길이를 재는 함수 $m$에 대하여 아래와 같은 약속을 하자. \n\n- 약속1: 구간 $(a,b)$의 길이는 $b-a$이다. 즉 $m((a,b))=b-a$ 이다. \n- 약속2:  한 점의 길이는 0이다. \n- 약속3:  점을 무한히 합치면 선이 되는것 처럼, 점의 길이를 무한히 합치면 0이 아니라 0보다 큰 어떠한 수가 된다. \n- 약속4:  구간 $(a,b)$사이의 모든 유리수의 길이는 $\\frac{b-a}{2}$ 이다. \n\n이와 같은 방식으로 길이를 잰다면 확률을 정의함에 있어서 모순이 일어나지 않는가? 모순이 일어나지 않으면 모순이 없다고 답을 쓰고 모순이 일어난다면 모순이 일어나는 이유를 설명하라. \n\n## 2. 기호의 표현\n\n`(1)` 아래의 명제를 읽고 참 거짓을 판단하라. \n\n> 단, 이 문제에서 $\\mathbb{N}$는 자연수의 집합 $\\mathbb{N}_{even}$은 짝수의 집합을 의미한다. \n\n- $a+b \\in \\mathbb{N}, \\forall a,b \\in \\mathbb{N}$\n- $a-b \\in \\mathbb{N}, \\forall a,b \\in \\mathbb{N}$ \n- $k \\in \\mathbb{N} \\Rightarrow 2k \\in \\mathbb{N}_{even}$\n- $\\forall m \\in \\mathbb{N}_{even}~ \\exists k \\in \\mathbb{N}$ such that $2k=m$. \n\n`(2)` 아래가 의미하는 바를 한국어로 자연스럽게 작성하라.\n\n> 단, 이 문제에서 $\\mathbb{N}$은 자연수의 집합, $\\mathbb{N}_{even}$은 짝수의 집합, $\\mathbb{N}_{odd}$는 홀수의 집합, 그리고 $\\mathbb{Q}^+$는 양의 유리수 집합을 의미한다.\n\n\n- $a \\in \\mathbb{N}_{even}, b \\in \\mathbb{N}_{odd} \\Rightarrow a \\times b \\in \\mathbb{N}_{even}$\n- $\\forall q \\in \\mathbb{Q}^+~ \\exists m, n \\in \\mathbb{N}$ such that $q = \\frac{n}{m}$.\n\n\n\n## 3. 전단사함수 \n\n`(1)` 함수 $f$는 $X = \\{1,2,3,4\\}$ 에서 $Y = \\{1,2,3,4\\}$ 로 매핑되며, 매핑은 다음과 같다:\n\n- $f(1) = 1$\n- $f(2) = 1$\n- $f(3) = 2$\n- $f(4) = 2$\n\n이 함수가 전사인지 아닌지, 단사인지 아닌지 판단하고 판단의 근거를 설명하라. \n\n`(2)` 함수 $f$는 $X = \\{1,2,3,4\\}$ 에서 $Y = \\{1,2\\}$ 로 매핑되며, 매핑은 다음과 같다:\n\n- $f(1) = 1$\n- $f(2) = 1$\n- $f(3) = 2$\n- $f(4) = 2$\n\n이 함수가 전사인지 아닌지, 단사인지 아닌지 판단하고 판단의 근거를 설명하라. \n\n##  4. 카디널리티 \n\n짝수들의 집합 $\\mathbb{N}_{even}$ 와 홀수들의 집합 $\\mathbb{N}_{odd}$ 의 카디널리티가 동일함을 보여라. \n\n",
+    "supporting": [
+      "hw01_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

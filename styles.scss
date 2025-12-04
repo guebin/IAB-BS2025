@@ -62,40 +62,6 @@ $text-color: #555;
     }
   }
 
-  /* 코드 블록 스타일 */
-  pre {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1em;
-    margin: 1em 0;
-    font-size: 0.8em;
-  }
-
-  /* 인라인 코드 */
-  code {
-    background-color: rgba(255, 111, 97, 0.05) !important;
-    padding: 0.15em 0.3em !important;
-    border-radius: 4px !important;
-    font-size: 0.85em !important;
-    color: rgba(255, 111, 97, 0.9) !important;
-    border: 1px solid rgba(255, 111, 97, 0.2) !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.01em !important;
-  }
-
-  /* 더 강한 선택자로 인라인 코드 스타일링 */
-  p code, li code, div code, span code {
-    background-color: rgba(255, 111, 97, 0.05) !important;
-    padding: 0.15em 0.3em !important;
-    border-radius: 4px !important;
-    font-size: 0.85em !important;
-    color: rgba(255, 111, 97, 0.9) !important;
-    border: 1px solid rgba(255, 111, 97, 0.2) !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.01em !important;
-  }
-
   /* 최강 선택자 - RevealJS 전용 */
   .reveal .slides section p code,
   .reveal .slides section li code,

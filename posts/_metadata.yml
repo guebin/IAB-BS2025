@@ -8,17 +8,23 @@ execute:
 # Enable banner style title blocks
 title-block-banner: false
 
-# comments: 
-#   utterances: 
-#     repo: guebin/AP2025
-
 bibliography: ref.bib
 
 format:
   html:
     toc: false
     format-links: false
+    code-line-numbers: false
+    header-includes: |
+      <style>
+      table {
+        width: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      </style>    
   revealjs:
+    smaller: true
     theme: [default, ../styles.scss]
     incremental: false
     slide-number: true
@@ -27,3 +33,9 @@ format:
     preview-links: auto
     chalkboard: true
     multiplex: false
+    link-citations: true
+    suppress-bibliography: false
+    citeproc: true
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"

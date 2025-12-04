@@ -1,0 +1,520 @@
+---
+title: "A3 - R과 Python 문법 정리"
+author: "최규빈"
+date: "2025-11-24"
+format: html
+---
+
+[R사용하기](https://colab.research.google.com/notebook#create=true&language=r)
+
+[Python사용하기](https://colab.research.google.com/notebook#create=true&language=python)
+
+{{<video https://youtu.be/playlist?list=PLQqh36zP38-ygV1aXJMtJVw5cWbhheaDy&si=E4CZvRTTVsHSlr4v>}}
+
+### 출력 (print)
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- 10
+print(x)
+```
+
+#### Python
+```python
+x = 10
+print(x)
+```
+
+:::
+
+### 세미콜론 (;)
+
+세미콜론은 한 줄에 여러 문장을 작성할 때 사용합니다.
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 한 줄에 여러 문장 작성
+mu <- 0; sigma <- 1; x <- 0
+
+# 위 코드는 아래와 동일
+mu <- 0
+sigma <- 1
+x <- 0
+```
+
+#### Python
+```python
+# 한 줄에 여러 문장 작성
+mu = 0; sigma = 1; x = 0
+
+# 위 코드는 아래와 동일
+mu = 0
+sigma = 1
+x = 0
+```
+
+:::
+
+### 사칙연산
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 기본 사칙연산
+3 + 2   # 덧셈
+3 - 2   # 뺄셈
+3 * 2   # 곱셈
+3 / 2   # 나눗셈
+3 ^ 2   # 거듭제곱
+3 %% 2  # 나머지
+3 %/% 2 # 몫
+
+# 예제: 정규분포 PDF 계산
+mu <- 0; sigma <- 1; x <- 0
+print(1/(sigma*sqrt(2*pi))*exp(-(x-mu)^2/(2*sigma^2)))
+```
+
+#### Python
+```python
+import numpy as np
+
+# 기본 사칙연산
+3 + 2   # 덧셈
+3 - 2   # 뺄셈
+3 * 2   # 곱셈
+3 / 2   # 나눗셈
+3 ** 2  # 거듭제곱
+3 % 2   # 나머지
+3 // 2  # 몫
+
+# 예제: 정규분포 PDF 계산
+mu = 0; sigma = 1; x = 0
+print(1/(sigma*np.sqrt(2*np.pi))*np.exp(-(x-mu)**2/(2*sigma**2)))
+```
+
+:::
+
+### 난수생성
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 시드 고정
+set.seed(123)
+
+# 정규분포: N(mean, sd)
+x <- rnorm(100, mean=0, sd=1)
+
+# 이항분포: B(n, p)
+y <- rbinom(100, size=10, prob=0.5)
+
+# 균등분포: U(min, max)
+z <- runif(100, min=0, max=1)
+```
+
+#### Python
+```python
+import numpy as np
+
+# 시드 고정
+np.random.seed(123)
+
+# 정규분포: N(mean, sd)
+x = np.random.normal(loc=0, scale=1, size=100)
+
+# 이항분포: B(n, p)
+y = np.random.binomial(n=10, p=0.5, size=100)
+
+# 균등분포: U(min, max)
+z = np.random.uniform(low=0, high=1, size=100)
+```
+
+:::
+
+### 히스토그램
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- rnorm(1000)
+hist(x, breaks=30)
+```
+
+#### Python
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.normal(size=1000)
+plt.hist(x, bins=30)
+```
+
+:::
+
+### 산점도 (Scatter Plot)
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- rnorm(100)
+y <- x + rnorm(100, sd=0.5)
+plot(x, y)
+```
+
+#### Python
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.random.normal(size=100)
+y = x + np.random.normal(scale=0.5, size=100)
+plt.plot(x, y, 'o')
+```
+
+:::
+
+
+### 통계량 계산
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- c(1, 3, 5, 7, 9, 2, 4, 6, 8, 10)
+
+mean(x)      # 평균
+sd(x)        # 표준편차
+sum(x)       # 합계
+max(x)       # 최대값
+min(x)       # 최소값
+which.max(x) # 최대값의 인덱스
+which.min(x) # 최소값의 인덱스
+length(x)    # 길이
+```
+
+#### Python
+```python
+import numpy as np
+
+x = np.array([1, 3, 5, 7, 9, 2, 4, 6, 8, 10])
+
+np.mean(x)      # 평균
+np.std(x, ddof=1)  # 표준편차 (표본)
+np.sum(x)       # 합계
+np.max(x)       # 최대값
+np.min(x)       # 최소값
+np.argmax(x)    # 최대값의 인덱스
+np.argmin(x)    # 최소값의 인덱스
+len(x)          # 길이
+```
+
+:::
+
+### 벡터/배열 선언
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 벡터 생성
+x <- c(1, 2, 3, 4, 5)
+
+# 연속된 숫자
+y <- 1:10
+
+# 반복
+w <- rep(0, 10)
+
+# 예제: theta 벡터
+theta <- 1:100/100
+likelihood <- (1-theta)^5 * theta^5
+plot(theta, likelihood, type="l")
+```
+
+#### Python
+```python
+import numpy as np
+
+# 배열 생성
+x = np.array([1, 2, 3, 4, 5])
+
+# 연속된 숫자
+y = np.arange(1, 11)
+
+# 반복
+w = np.zeros(10)
+
+# 예제: theta 벡터
+theta = np.arange(1, 101) / 100
+likelihood = (1-theta)**5 * theta**5
+plt.plot(theta, likelihood)
+plt.show()
+```
+
+:::
+
+### 함수 정의
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 함수 정의
+my_func <- function(x, y) {
+  result <- x + y
+  return(result)
+}
+
+# 함수 호출
+my_func(3, 5)
+```
+
+#### Python
+```python
+# 함수 정의
+def my_func(x, y):
+    result = x + y
+    return result
+
+# 함수 호출
+my_func(3, 5)
+```
+
+:::
+
+### 반복문
+
+::: {.panel-tabset}
+
+#### R
+```r
+# for 반복문
+for (i in 1:5) {
+  print(i)
+}
+```
+
+#### Python
+```python
+# 리스트 순회
+x = [1,2,3,4,5]
+for val in x:
+    print(val)
+```
+
+:::
+
+### 행렬 및 열/행 선택
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 행렬 생성
+A <- matrix(1:12, nrow=3, ncol=4, byrow=TRUE)
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3    4
+# [2,]    5    6    7    8
+# [3,]    9   10   11   12
+
+# 인덱싱 (1부터 시작)
+A[1, 2]      # 1행 2열: 2
+A[1, ]       # 1행 전체
+A[, 2]       # 2열 전체
+A[1:2, ]     # 1~2행
+A[, 2:3]     # 2~3열
+```
+
+#### Python
+```python
+import numpy as np
+
+# 행렬 생성
+A = np.array(
+  [[ 1,  2,  3,  4],
+  [ 5,  6,  7,  8],
+  [ 9, 10, 11, 12]]
+)
+
+# 인덱싱 (0부터 시작)
+A[0, 1]      # 0행 1열: 2
+A[0, :]      # 0행 전체
+A[:, 1]      # 1열 전체
+A[0:2, :]    # 0~1행
+A[:, 1:3]    # 1~2열
+```
+:::
+
+### 원소추가
+
+::: {.panel-tabset}
+
+#### R
+```r
+A <- matrix(nrow=10000, ncol=2)
+B <- matrix(nrow=10000, ncol=2)
+for (i in 1:10000) {
+    x <- rnorm(100)
+    y <- rnorm(100)
+    #---#
+    A[i,] <- c(median(x), median(y))
+    B[i,] <- c(mean(x), mean(y))
+}
+
+plot(A[,1], A[,2], pch=19, col=rgb(0,0,1,0.1), xlab="", ylab="",
+     xlim=range(c(A[,1], B[,1])), ylim=range(c(A[,2], B[,2])))
+points(B[,1], B[,2], pch=19, col=rgb(1,0.5,0,0.1))
+legend("topright", legend=c("A - median", "B - mean"), 
+       col=c(rgb(0,0,1,0.5), rgb(1,0.5,0,0.5)), pch=19)
+```
+
+#### Python
+```python
+A = [] 
+B = [] 
+for i in range(10000):
+    x = np.random.normal(size=100)
+    y = np.random.normal(size=100)
+    #---#
+    x.sort()
+    y.sort()
+    A.append([np.mean(x[10:-10]),np.mean(y[10:-10])])
+    B.append([np.mean(x),np.mean(y)])
+A = np.array(A)
+B = np.array(B)
+```
+:::
+
+
+### True/False를 1/0으로 해석
+
+논리값(True/False)은 숫자 연산에서 1/0으로 자동 변환.
+
+::: {.panel-tabset}
+
+#### R
+```r
+# 논리값의 합
+x <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+sum(x)    # TRUE의 개수: 3
+mean(x)   # TRUE의 비율: 0.6
+
+# 조건의 개수 세기
+data <- c(3, 7, 2, 9, 5, 1, 8)
+sum(data > 5)   # 5보다 큰 원소의 개수: 3
+mean(data > 5)  # 5보다 큰 원소의 비율: 약 0.43
+
+# 산술 연산
+TRUE + TRUE   # 2
+TRUE * 5      # 5
+FALSE + 1     # 1
+```
+
+#### Python
+```python
+import numpy as np
+
+# 논리값의 합
+x = np.array([True, False, True, True, False])
+np.sum(x)    # True의 개수: 3
+np.mean(x)   # True의 비율: 0.6
+
+# 조건의 개수 세기
+data = np.array([3, 7, 2, 9, 5, 1, 8])
+np.sum(data > 5)   # 5보다 큰 원소의 개수: 3
+np.mean(data > 5)  # 5보다 큰 원소의 비율: 약 0.43
+
+# 산술 연산
+True + True   # 2
+True * 5      # 5
+False + 1     # 1
+```
+
+:::
+
+### 인덱싱
+
+정수 배열이나 논리 배열을 사용하여 원소를 선택.
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- c(10, 20, 30, 40, 50)
+
+# 정수 벡터로 인덱싱
+x[c(1, 3, 5)]      # 1, 3, 5번째 원소: 10, 30, 50
+x[c(2, 4)]         # 2, 4번째 원소: 20, 40
+
+# 논리 벡터로 인덱싱
+mask <- c(TRUE, FALSE, TRUE, FALSE, TRUE)
+x[mask]            # TRUE인 위치의 원소: 10, 30, 50
+
+# 조건으로 인덱싱
+x[x > 25]          # 25보다 큰 원소: 30, 40, 50
+```
+
+#### Python
+```python
+import numpy as np
+
+x = np.array([10, 20, 30, 40, 50])
+
+# 정수 배열로 인덱싱
+x[[0, 2, 4]]       # 0, 2, 4번째 원소: 10, 30, 50
+x[[1, 3]]          # 1, 3번째 원소: 20, 40
+
+# 논리 배열로 인덱싱
+mask = np.array([True, False, True, False, True])
+x[mask]            # True인 위치의 원소: 10, 30, 50
+
+# 조건으로 인덱싱
+x[x > 25]          # 25보다 큰 원소: 30, 40, 50
+```
+
+:::
+
+### 특정 값과 가장 가까운 원소 찾기
+
+벡터에서 목표값(예: 0.5)과 가장 차이가 적은 원소를 찾습니다.
+
+::: {.panel-tabset}
+
+#### R
+```r
+x <- c(0.1, 0.3, 0.47, 0.8, 0.52, 0.9)
+target <- 0.5
+
+# 방법 1: which.min 사용
+dff <- abs(x - target)
+idx <- which.min(dff)
+x[idx]   # 0.47 (0.5와 가장 가까움)
+
+# 방법 2: 한 줄로
+x[which.min(abs(x - target))]
+```
+
+#### Python
+```python
+import numpy as np
+
+x = np.array([0.1, 0.3, 0.47, 0.8, 0.52, 0.9])
+target = 0.5
+
+# 방법 1: argmin 사용
+dff = np.abs(x - target)
+idx = np.argmin(dff)
+x[idx]   # 0.47 (0.5와 가장 가까움)
+
+# 방법 2: 한 줄로
+x[np.argmin(np.abs(x - target))]
+```
+:::
