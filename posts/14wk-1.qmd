@@ -1,12 +1,14 @@
 ---
 title: '14wk-1: 연습문제 (3)'
 author: 최규빈
-date: 11/25/2025
+date: 12/02/2025
 crossref:
   fig-title: ""
   fig-prefix: ""
 format: html
 ---
+
+{{<video https://youtu.be/playlist?list=PLQqh36zP38-y9TU6BvdP6R9xbUXKONpNh&si=UC04IhB8ldJoylbu>}}
 
 ### 최대가가능도
 

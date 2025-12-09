@@ -8,6 +8,8 @@ crossref:
 format: html
 ---
 
+{{<video https://youtu.be/playlist?list=PLQqh36zP38-yUzCj7u22oL7xxVXtQfI-V&si=g2r71FYddl-yg5UU>}}
+
 ### MLE 기반 추정
 
 ```{python}
