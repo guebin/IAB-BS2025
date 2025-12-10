@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2025-11-25">
+<meta name="dcterms.date" content="2025-12-11">
 
-<title>13wk-1: 연습문제 (1) – IAB-BS2025</title>
+<title>15wk-2: 연습문제 (6) – IAB-BS2025</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,7 +154,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">13wk-1: 연습문제 (1)</h1>
+<h1 class="title">15wk-2: 연습문제 (6)</h1>
 </div>
 
 
@@ -171,7 +171,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 25, 2025</p>
+      <p class="date">December 11, 2025</p>
     </div>
   </div>
   
@@ -183,81 +183,31 @@ window.Quarto = {
 </header>
 
 
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-xAZzFGybmsWNwvF0DQu4S9&amp;si=TWb2mwM5yOrQC_ix" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<section id="역확률" class="level3">
-<h3 class="anchored" data-anchor-id="역확률">역확률</h3>
-<p><code>1</code>. 다음은 08wk-1의 엑스노트 광고에 대한 진술이다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figs/08wk-1-1.png" class="img-fluid figure-img"></p>
-<figcaption>그림1: 엑스노트 X300의 광고</figcaption>
-</figure>
-</div>
+<p><code>1</code>. 다음을 읽고 O/X 를 판단하라.</p>
 <ol type="1">
-<li>신민아가 고층빌딩에서 엑스노트를 벽면유리에 테잎을 붙여 프리젠테이션을 하고 있다.</li>
-<li>젋은여성이 노트북을 활용하여 프리젠테이션을 하고 있다.</li>
-<li>여성이 프리젠테이션을 하고 있다.</li>
+<li><span class="math inline">\(I(x \leq 2)I(-3 \leq x)=I(-3 \leq x\leq 2)\)</span></li>
+<li><span class="math inline">\(I(x \leq 2)I(x \leq 3)=I(x \leq 2)\)</span></li>
+<li><span class="math inline">\(I(x_1 \leq k)I(x_2\leq k) = I(\max(x_1,x_2) \leq k)\)</span></li>
+<li><span class="math inline">\(I(x \geq a)I(x \leq b) = I(a \leq x \leq b)\)</span> (단, <span class="math inline">\(a &lt; b\)</span>)</li>
+<li><span class="math inline">\(I(x &lt; 5)I(x &lt; 2)I(x &lt; 7) = I(x &lt; 2)\)</span></li>
+<li><span class="math inline">\(I(x_1 \geq k)I(x_2 \geq k) = I(\min(x_1, x_2) \geq k)\)</span></li>
+<li><span class="math inline">\(1 - I(x &gt; a) = I(x \leq a)\)</span></li>
+<li><span class="math inline">\(I(x &gt; a) \cdot I(x &gt; b) = I(x &gt; \max(a,b))\)</span></li>
+<li><span class="math inline">\(I(x_1 \leq k) \times \dots \times I(x_n \leq k)= I(\max(x_1, \ldots, x_n) \leq k)\)</span></li>
 </ol>
-<p>아래는 위의 그림(예제1)을 통해 통계학적 개념의 혼란을 논의하는 학생들의 대화이다. 피셔(R. A. Fisher)의 이론에 근거했을 때, 적절한 진술을 모두 고르시오.</p>
-<ul>
-<li>학생 A: 광고 그림(데이터)이 주어졌을 때, ’신민아가 엑스노트를 활용해 프리젠테이션을 하고 있다’는 진술(1번)이 ’여성이 프리젠테이션을 하고 있다’는 진술(3번)보다 훨씬 더 구체적으로 관찰된 사실을 묘사하고 있어. 따라서 1번 진술이 가장 정확한 설명이라고 생각해.</li>
-<li>학생 B: 설명의 ’정확성’과 ’확률’은 구분해야 해. 우리가 그림이 참일 ’확률’을 따진다면, 가장 범위가 넓고 포괄적인 3번 진술이 참일 확률이 가장 높지. 1번 진술이 참이 되기 위해서는 신민아, 고층빌딩, 엑스노트 등 모든 구체적인 조건이 맞아야 하니까 확률은 가장 낮아.</li>
-<li>학생 C: 나는 A와 B의 주장이 충돌하는 이유가 피셔가 지적한 확률에 대한 혼란 때문이라고 봐. 이 예제에서 우리는 이미 데이터의 세계에 해당하는 그림을 관측한 상태인데, 그 상황에서 ’참일 확률이 높은 진술’을 묻는 질문 자체가 잘못된 방향성을 내포하고 있어.</li>
-<li>학생 D: C의 말대로, 피셔는 ’진실의 세계’에서 ’데이터의 세계’로 넘어갈 때만 “확률”이라는 개념이 적용되어야 한다고 생각했어. 이 예시처럼 데이터가 고정된 상황에서 그 데이터를 만들어냈을 ’진실’이나 ’모델’에 대해 확률을 부여하는 것은 적절하지 않아.</li>
-</ul>
-<p><code>2</code>. 다음은 베르누이 시행의 관측치 <span class="math inline">\((x_i)\)</span>를 통해 모수를 해석하는 과정에서 학생들이 나눈 대화이다. <span class="math inline">\(X_1, X_2, X_3 \overset{i.i.d.}{\sim} B(0.5)\)</span>가 주어져 있으며, 실제 관측값은 <span class="math inline">\((0, 1, 0)\)</span>이다. 피셔(R. A. Fisher)의 관점에 의하여, 확률 개념 적용의 오류를 가장 잘 비판하고 있는 진술을 고르시오.</p>
-<ul>
-<li>학생 A: 우리가 얻은 관측치 <span class="math inline">\((0,1,0)\)</span>을 보면, 동전이 공평하다는 가정 <span class="math inline">\(p = 0.5\)</span>가 틀렸을 확률이 얼마나 되는지 계산해야 하지 않을까?</li>
-<li>학생 B: 피셔의 통찰에 따르면, 확률은 진실의 세계가 주어졌을 때 관측 데이터가 나타날 가능성을 측정하는 데 사용해야 한다. 따라서 <span class="math inline">\(p = 0.5\)</span>가 참이라면, 관측치 <span class="math inline">\((0,1,0)\)</span>이 나올 확률은 <span class="math inline">\(0.5 \times 0.5 \times 0.5 = \frac{1}{8}\)</span>.</li>
-<li>학생 C: B의 설명이 맞다면, A처럼 ’진실세계의 정보가 틀렸을 확률’을 묻는 것은 확률의 방향성을 거꾸로 적용하는 셈이다.</li>
-<li>학생 D: 난 A의 말이 더 자연스러운 것 같아. 이미 데이터를 봤으니까, 이 데이터를 기준으로 <span class="math inline">\(p\)</span>가 0.5가 아닐 확률도 당연히 계산할 수 있어야 하지 않을까?</li>
-</ul>
-</section>
-<section id="평균과-평균" class="level3">
-<h3 class="anchored" data-anchor-id="평균과-평균">평균과 평균?</h3>
-<p>문제 배경: 피셔(R. A. Fisher)는 통계학의 기본적인 혼란이 용어가 불분명해서 발생한다고 지적했으며, 특히 참값과 도출된 특정 값에 같은 이름을 붙이는 관습을 비판했다.</p>
-<p><code>1</code>. 피셔가 같은 이름을 사용하는 관습이 혼란을 야기한다고 지적한 통계적 쌍은 다음 중 무엇인가?</p>
-<ul>
-<li>A: 확률변수 <span class="math inline">\(X\)</span>와 확률분포 <span class="math inline">\(P\)</span></li>
-<li>B: 모수와 추정치</li>
-<li>C: 독립 (Independence)과 동일한 분포 (Identically Distributed)</li>
-<li>D: 실현치 (Realization)와 관측 행위 (Observation)</li>
-</ul>
-<p><code>2</code>. 어떤 확률변수 <span class="math inline">\(X\)</span>가 성공 확률 <span class="math inline">\(p=0.5\)</span>인 베르누이 분포(<span class="math inline">\(X \sim \text{Bernoulli}(0.5)\)</span>)를 따른다고 가정하자. 여기서 <span class="math inline">\(X\)</span>는 성공(1) 또는 실패(0)의 결과를 숫자로 대응시키는 함수이다. 이 확률변수 <span class="math inline">\(X\)</span>의 모평균 <span class="math inline">\(\mathbb{E}(X)\)</span> (기댓값)은 얼마인가?</p>
-<p><code>3</code>. 1의 분포를 따르는 시행을 5번 반복하여 <span class="math inline">\(\{0, 1, 0, 0, 1\}\)</span>이라는 구체적인 실현치(<span class="math inline">\(x_1, \dots, x_5\)</span>)를 얻었다고 하자. 이 관측값들의 산술평균인 표본평균 <span class="math inline">\(\bar{x}\)</span>은 얼마인가?</p>
-<p><code>4</code>. 다음 중 통계학에서 모수의 성격을 가장 정확하게 설명하는 진술은 무엇인가?</p>
-<ul>
-<li>A: 관측치들의 산술평균으로, 표본에서 실제로 계산되는 값이다.</li>
-<li>B: 추정 방법을 통해 도출된 특정 값이다.</li>
-<li>C: 모집단의 분포를 특정하며, 알고 싶지만 오직 추정만 할 수 있는 참값이다.</li>
-<li>D: 확률변수를 관측하여 얻은 구체적인 실제값(실현치)들의 집합이다.</li>
-</ul>
-<p><code>5</code>. 성공 확률 <span class="math inline">\(p=0.5\)</span>인 베르누이 분포 <span class="math inline">\(X \sim Bernoulli(0.5)\)</span>가 있다고 가정하자. 5번의 시행을 통해 관측값 <span class="math inline">\(\{0,1,0,0,1\}\)</span>을 얻었을 때, 모평균 <span class="math inline">\(E(X)\)</span>와 이 관측값들의 표본평균 <span class="math inline">\(\bar{x}\)</span>에 대한 설명으로 옳은 것은?</p>
-<ul>
-<li>A: 모평균은 0.5이며 (모수), 표본평균은 0.4이다 (추정치).</li>
-<li>B: 모평균은 0.4이며, 표본평균은 0.5이다.</li>
-<li>C: 모평균과 표본평균은 같은 개념이므로 항상 0.5로 일치해야 한다.</li>
-<li>D: 모평균 <span class="math inline">\(E(X)\)</span>는 표본평균 <span class="math inline">\(\bar{x}\)</span>를 추정하기 위해 사용되는 참값이다.</li>
-</ul>
-<p><code>6</code>. 다음문항의 참/거짓을 판단하라.</p>
-<ul>
-<li>모수는 표본에서 계산된 값이고, 추정치는 모집단의 참값이다.</li>
-<li>데이터에서 계산한 평균값은 모수이다.</li>
-<li><span class="math inline">\(X \sim \text{Bernoulli}(0.5)\)</span>에서 한 번 시행하여 얻은 값 1은 실현치이다.</li>
-<li>실현치는 시행할 때마다 달라질 수 있지만, 확률변수의 분포는 변하지 않는다.</li>
-<li>CSV 파일에 저장된 키 데이터 168, 175, 182는 확률변수의 실현치로 볼 수 있다.</li>
-<li>표본평균은 분포를 모르더라도 구할 수 있다.</li>
-<li>표본평균과 모평균은 항상 같은 값을 가진다.</li>
-<li>동일한 분포에서 서로 다른 표본을 추출하면, 각 표본의 표본평균은 서로 다를 수 있다.</li>
-<li>모평균 <span class="math inline">\(\mathbb{E}(X)\)</span>를 계산하려면 반드시 관측 데이터가 필요하다.</li>
-<li>추정치는 표본이 달라지면 함께 달라지지만, 모수는 고정된 값이다.</li>
-<li>모평균을 알면 표본평균도 자동으로 알 수 있다.</li>
-<li>동전을 100번 던져 앞면이 48번 나왔다면, 48/100은 앞면이 나올 확률 <span class="math inline">\(p\)</span>의 추정치이다.</li>
-<li>추정치가 모수와 다르다면 추정 방법이 잘못된 것이다.</li>
-</ul>
+<p><code>2</code>. 다음을 읽고 O/X 를 판단하라.</p>
+<ol type="1">
+<li><span class="math inline">\(\theta^2(1-\theta)^2\)</span>는 <span class="math inline">\(\theta=\frac{1}{2}\)</span>에서 최대값을 가진다.</li>
+<li><span class="math inline">\(\exp\left(-(1-\theta)^2-(2-\theta)^2-(3-\theta)^2\right)\)</span>는 <span class="math inline">\(\theta=2\)</span>에서 최대값을 가진다.</li>
+<li><span class="math inline">\(\frac{1}{(b-a)^2}I(a&lt;x_1&lt;b)I(a&lt;x_2&lt;b)\)</span>를 최대화는 <span class="math inline">\((a,b)\)</span>의 값은 <span class="math inline">\(a=\min(x_1,x_2)\)</span>, <span class="math inline">\(b=\max(x_1,x_2)\)</span>이다.</li>
+<li><span class="math inline">\(\frac{1}{b^3}I(0\leq x_1\leq b)I(0 \leq x_2\leq b)I(0\leq x_3\leq b)\)</span>를 최대화는 <span class="math inline">\(b\)</span>의 값은 <span class="math inline">\(b=\max(x_1,x_2,x_3)\)</span>이다.</li>
+<li><span class="math inline">\(\frac{1}{(5-a)^2}I(a&lt;x_1&lt;5)I(a&lt;x_2&lt;5)\)</span>를 최대화는 <span class="math inline">\((a,b)\)</span>의 값은 <span class="math inline">\(a=\min(x_1,x_2)\)</span>, <span class="math inline">\(b=\max(x_1,x_2)\)</span>이다.</li>
+<li><span class="math inline">\(\exp\left(-\theta^2-(4-\theta)^2\right)\)</span>는 <span class="math inline">\(\theta=2\)</span>에서 최대값을 가진다.</li>
+<li><span class="math inline">\(\exp\left(-(1-\theta)^2-(3-\theta)^2-(6-\theta)^2\right)\)</span>는 <span class="math inline">\(\theta=5\)</span>에서 최대값을 가진다.</li>
+<li><span class="math inline">\(-(1-\theta)^2-(3-\theta)^2-(6-\theta)^2\)</span>은 <span class="math inline">\(\theta=5\)</span>에서 최대값을 가진다.</li>
+</ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
