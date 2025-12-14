@@ -202,7 +202,7 @@ table {
 
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="82147635" class="cell" data-execution_count="1">
+<div id="82147635" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -266,7 +266,7 @@ table {
 <p>The Titanic dataset is commonly provided as a CSV file named titanic.csv, and can be obtained from various sources such as Kaggle, the seaborn package, or scikit-learn. We can load this data using the pandas library in Python.</p>
 <hr>
 <p>The Titanic data can be loaded as follows:</p>
-<div id="bfc1c9ed" class="cell" data-execution_count="56">
+<div id="bfc1c9ed" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"titanic.csv"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -473,7 +473,7 @@ table {
 <p>This allows users to import structured data in table format and perform various kinds of analysis on it.</p>
 <hr>
 <p>When working with data in pandas,the very first thing to check after loading a dataset is its overall structure. The most basic command used for this purpose is:</p>
-<div id="b0482b4d" class="cell" data-execution_count="4">
+<div id="b0482b4d" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(891, 12)</code></pre>
@@ -481,7 +481,7 @@ table {
 </div>
 <p>Running this code returns the output (891, 12), which indicates that the DataFrame contains 891 rows and 12 columns. In this context, each row represents a single observation — in this case, an individual passenger on the Titanic. Each column represents a variable that describes a certain feature of the passenger, such as Age, Sex, Pclass, or Survived.</p>
 <p>To explicitly show what variables are included in the dataset, it is helpful to inspect the column names directly. This can be done using the following command:</p>
-<div id="ace9364c" class="cell" data-execution_count="5">
+<div id="ace9364c" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
@@ -602,7 +602,7 @@ Note
 <section id="sample-observations-from-the-titanic-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="sample-observations-from-the-titanic-dataset">Sample Observations from the Titanic Dataset</h2>
 <p>After loading the data, it is a good practice to print a few rows to understand how the dataset is structured.</p>
-<div id="d89b1356" class="cell" data-execution_count="6">
+<div id="d89b1356" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -697,7 +697,7 @@ Note
 <p>By separating our data this way, we can simulate how our model would behave in real-world scenarios — predicting survival outcomes for passengers it hasn’t seen before. In practice, we can use the <code>train_test_split()</code> function from <code>sklearn</code>.</p>
 <hr>
 <p>In our case, we used <code>train_test_split(df, test_size=0.3, random_state=42)</code> to split the Titanic dataset. This means that 70% of the data (712 passengers) is used for training, while the remaining 30% (179 passengers) is reserved for testing.</p>
-<div id="ff0ad940" class="cell" data-execution_count="7">
+<div id="ff0ad940" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_train, df_test <span class="op">=</span> train_test_split(df, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_test <span class="op">=</span> df_test.drop([<span class="st">"Survived"</span>],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -723,7 +723,7 @@ Code Explanation
 </div>
 <hr>
 <p>To confirm that the data has been properly split, we can check the shape of each DataFrame using the following command:</p>
-<div id="0af82bad" class="cell" data-execution_count="8">
+<div id="0af82bad" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.shape, df_train.shape, df_test.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>((891, 12), (712, 12), (179, 11))</code></pre>
@@ -738,7 +738,7 @@ Code Explanation
 <hr>
 <p>After splitting the data using <code>train_test_split()</code>, we can check the first few rows of each subset to verify how the data was divided.</p>
 <p>For instance, when we look at <code>df_train[:2]</code>, we can see that the first two rows of the training set correspond to rows with original indices 331 and 733 from the full dataset df.</p>
-<div id="4b983c61" class="cell" data-execution_count="9">
+<div id="4b983c61" class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_train[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -800,7 +800,7 @@ Code Explanation
 </div>
 </div>
 <p>Similarly, <code>df_test[:2]</code> shows rows from the original dataset with indices 709 and 439.</p>
-<div id="d5c01dfe" class="cell" data-execution_count="10">
+<div id="d5c01dfe" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -868,7 +868,7 @@ Code Explanation
 </div>
 <hr>
 <p>We assume that the observed data consists of <code>df_train</code> and <code>df_test</code>. We use df_train for training. The goal of training is to correctly predict the survival status when given new data like <code>df_test</code>. If we have studied <code>df_train</code> carefully, we should be able to guess whether the following two passengers survived or not.</p>
-<div id="66c14c52" class="cell" data-execution_count="11">
+<div id="66c14c52" class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -970,7 +970,7 @@ Code Explanation
 </div>
 <hr>
 <p>Answer revealed… (Though in practice, we wouldn’t actually know the answer)</p>
-<div id="723cb010" class="cell" data-execution_count="12">
+<div id="723cb010" class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.iloc[df_test[:<span class="dv">5</span>].index]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1124,7 +1124,7 @@ Code Explanation
 <p>Let’s turn to the data to explore this further.</p>
 <hr>
 <p>To analyze the impact of gender on survival outcomes, we use the following code to compute survival rates by sex.</p>
-<div id="1c299573" class="cell" data-execution_count="13">
+<div id="1c299573" class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby(<span class="st">"Sex"</span>)[<span class="st">'Survived'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;pandas.core.groupby.generic.SeriesGroupBy object at 0x730eecb44210&gt;</code></pre>
@@ -1158,11 +1158,11 @@ Code Explanation
 <p>In other words, just knowing the passenger’s gender already gives us a strong signal about their likelihood of survival. A variable like this, with a clear split in outcomes, can be very useful in building predictive models. Based on this result, we can try a simple rule-based prediction: Predict that all females survived (1), and all males did not survive (0). Let’s test how accurate this strategy actually is.</p>
 <hr>
 <p>In this analysis, the goal is to predict survival status. The variable we are trying to predict is called the response variable (or dependent variable), which in this case is:</p>
-<div id="b9aa2818" class="cell" data-execution_count="14">
+<div id="b9aa2818" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This gives us a vector of length 179 containing actual survival outcomes from the test set: 0 means the passenger did not survive, and 1 means they did. On the other hand, the variable we use to make predictions is called the explanatory variable (or independent variable). Here, we use the Sex column and apply a simple rule:</p>
-<div id="5e8c38ca" class="cell" data-execution_count="15">
+<div id="5e8c38ca" class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This creates a Boolean vector that predicts survival based on whether the passenger is female. So in summary:</p>
@@ -1172,7 +1172,7 @@ Code Explanation
 </ul>
 <hr>
 <p>By comparing <code>yhat_test</code> and <code>y_test</code> using <code>(yhat_test == y_test).mean()</code>, we calculate the accuracy of our prediction, which tells us how informative the Sex variable is for predicting survival.</p>
-<div id="6d1f5a46" class="cell" data-execution_count="16">
+<div id="6d1f5a46" class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.782123</code></pre>
@@ -1188,14 +1188,14 @@ Code Explanation
 <p><a href="https://www.youtube.com/watch?v=W0kURU_2H3c" class="uri">https://www.youtube.com/watch?v=W0kURU_2H3c</a></p>
 <hr>
 <p>The overall survival rate among all passengers was only about 37.6%, meaning that less than half of the people on board survived the disaster.</p>
-<div id="eb740031" class="cell" data-execution_count="17">
+<div id="eb740031" class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_train[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.376404</code></pre>
 </div>
 </div>
 <p>But what about children?</p>
-<div id="13e4684c" class="cell" data-execution_count="18">
+<div id="13e4684c" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_train.query(<span class="st">"Age &lt;10"</span>)[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.603774</code></pre>
@@ -1266,12 +1266,12 @@ Code Explanation
 <li>If the passenger is female, predict that they survived.</li>
 <li>If the passenger is under 10 years old, also predict that they survived.</li>
 </ul>
-<div id="40fadd35" class="cell" data-execution_count="20">
+<div id="40fadd35" class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">|</span> (df_test[<span class="st">'Age'</span>] <span class="op">&lt;</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s compare <code>y_test</code> and <code>yhat_test</code> to evaluate the prediction accuracy:</p>
-<div id="d0ee1ef9" class="cell" data-execution_count="21">
+<div id="d0ee1ef9" class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.787709</code></pre>
@@ -1281,7 +1281,7 @@ Code Explanation
 <hr>
 <p>The improvement isn’t as dramatic as one might expect. Why is that?</p>
 <p>It turns out that there aren’t many passengers under the age of 10 in the test set. The only time our prediction rule changes (compared to using gender alone) is when a passenger is male and under 10 — but such cases are rare. If we check the data:</p>
-<div id="738e719d" class="cell" data-execution_count="22">
+<div id="738e719d" class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_test.query(<span class="st">"Sex == 'male' and Age &lt; 10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1365,7 +1365,7 @@ Code Explanation
 <p>Let’s explore the data further to find out.</p>
 <hr>
 <p>This code calculates the average survival rate by passenger class (Pclass):</p>
-<div id="c1906d2e" class="cell" data-execution_count="23">
+<div id="c1906d2e" class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby(<span class="st">"Pclass"</span>)[<span class="st">'Survived'</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1410,7 +1410,7 @@ Code Explanation
 <p>In other words, passengers in higher classes had a much better chance of survival. This aligns with scenes from the movie, where first-class passengers were often prioritized during evacuation. The data suggests that passenger class (Pclass) is a strong explanatory variable when predicting survival on the Titanic.</p>
 <hr>
 <p>The prediction based solely on passenger class (predicting survival if Pclass == 1) achieves an accuracy of approximately 70.4%.</p>
-<div id="7f2b69a8" class="cell" data-execution_count="24">
+<div id="7f2b69a8" class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df.iloc[df_test.index][<span class="st">'Survived'</span>]</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">1</span>) </span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1422,7 +1422,7 @@ Code Explanation
 <p>This suggests that gender is a stronger explanatory variable than passenger class when it comes to predicting survival on the Titanic. In other words, knowing someone’s gender gives us more predictive power than knowing their ticket class alone.</p>
 <hr>
 <p>Could we consider both gender and passenger class together? Doing so may reveal more detailed and accurate survival patterns.</p>
-<div id="32d8dfb7" class="cell" data-execution_count="25">
+<div id="32d8dfb7" class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_train.groupby([<span class="st">"Sex"</span>,<span class="st">"Pclass"</span>])[<span class="st">"Survived"</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1494,7 +1494,7 @@ Code Explanation
 </blockquote>
 <hr>
 <p>Here’s how we can implement this in code:</p>
-<div id="02f4b542" class="cell" data-execution_count="26">
+<div id="02f4b542" class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> ((df_test[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">&amp;</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">&lt;</span><span class="dv">3</span>))</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>(y_test<span class="op">==</span>yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1523,7 +1523,7 @@ Code Explanation
 <p>That’s a real possibility — and it’s a fundamental challenge in any kind of predictive modeling. If a rule seems effective in training but doesn’t generalize well, then applying it to unseen data may lead to worse performance, not better.</p>
 <hr>
 <p>Let’s revisit the training environment — specifically, the df_train dataset. Previously, we applied a simple rule based only on gender, which gave us the following result:</p>
-<div id="dee934f3" class="cell" data-execution_count="27">
+<div id="dee934f3" class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_train[<span class="st">'Survived'</span>]</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>yhat <span class="op">=</span> (df_train[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) </span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>(y <span class="op">==</span> yhat ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1532,7 +1532,7 @@ Code Explanation
 </div>
 </div>
 <p>This gave an accuracy of 0.787921. Now, what happens when we consider both gender and class?</p>
-<div id="8107ad9a" class="cell" data-execution_count="28">
+<div id="8107ad9a" class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="op">=</span> ((df_train[<span class="st">'Sex'</span>]  <span class="op">==</span> <span class="st">"female"</span>) <span class="op">&amp;</span> (df_train[<span class="st">'Pclass'</span>] <span class="op">&lt;</span><span class="dv">3</span>))</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>(y <span class="op">==</span> yhat ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1547,7 +1547,7 @@ Code Explanation
 <li>The newer rule predicts they did not survive.</li>
 </ul>
 <p>And the justification for the new rule comes from this survival rate:</p>
-<div id="b7620e9e" class="cell" data-execution_count="29">
+<div id="b7620e9e" class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df_train.query(<span class="st">"Sex == 'female' and Pclass ==3"</span>)[<span class="st">'Survived'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.486957</code></pre>
@@ -1556,7 +1556,7 @@ Code Explanation
 <p>That result — 0.486957 — should make us a little uneasy. What if that number had been something like 0.499999? Can we confidently say that 3rd-class females were more likely to die than survive?</p>
 <hr>
 <p>To help us better understand the issue, let’s create a hypothetical DataFrame called <code>df_test_full</code>:</p>
-<div id="6b42f879" class="cell" data-execution_count="30">
+<div id="6b42f879" class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_test_full <span class="op">=</span> df.iloc[df_test.index]</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df_test_full[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1634,7 +1634,7 @@ Code Explanation
 </div>
 </div>
 <p>This dataset contains the same passengers as df_test, in the same order — but with one key difference: it also includes the actual Survived values for each passenger.</p>
-<div id="f9b35ff8" class="cell" data-execution_count="31">
+<div id="f9b35ff8" class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1708,7 +1708,7 @@ Code Explanation
 </div>
 <hr>
 <p>Let’s take a look at how the survival rates break down by gender and passenger class in the test set using <code>df_test_full</code></p>
-<div id="06bbb306" class="cell" data-execution_count="32">
+<div id="06bbb306" class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_test_full.groupby([<span class="st">"Sex"</span>,<span class="st">"Pclass"</span>])[<span class="st">"Survived"</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1793,7 +1793,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <hr>
 <p>To move beyond manual rule-making, we now turn to decision trees — a model that can automatically learn patterns from data. To maintain continuity with our previous approach, we will again use Sex and Pclass as our explanatory variables.</p>
 <p>However, since machine learning algorithms cannot directly handle text or categorical variables, we must first preprocess the data into a numeric format that the model can understand. For this, we use the <code>get_dummies()</code> function from the pandas library:</p>
-<div id="56343bc3" class="cell" data-execution_count="33">
+<div id="56343bc3" class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[[<span class="st">'Sex'</span>,<span class="st">'Pclass'</span>]])</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>X[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1856,7 +1856,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>By converting the categorical Sex column into binary features, the model can handle this data numerically. The Pclass column remains unchanged since it is already numeric.</p>
 <hr>
 <p>Now let’s prepare the rest of the data for training and evaluation:</p>
-<div id="50f75d15" class="cell" data-execution_count="34">
+<div id="50f75d15" class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[[<span class="st">'Sex'</span>,<span class="st">'Pclass'</span>]])</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_train[<span class="st">'Survived'</span>]</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> df[<span class="st">'Survived'</span>][df_test.index]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1882,19 +1882,19 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>In summary, a decision tree is like a smart version of 20 Questions: it figures out what questions to ask based on the data, and uses the answers to make accurate predictions.</p>
 <hr>
 <p>Now let’s take a look at how to use a decision tree in Python. The code below creates a decision tree model with default settings:</p>
-<div id="0a4aea56" class="cell" data-execution_count="35">
+<div id="0a4aea56" class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The DecisionTreeClassifier model object works primarily through two key methods: <code>fit()</code> and <code>predict()</code>. The <code>.fit(X, y)</code> method is used to train the model by learning patterns in the data. It takes the input features X and the corresponding target labels y, and builds a tree structure that splits the data based on conditions like “Is the passenger female?” or “Is the ticket class 1st class?” The goal is to find the best questions (or splits) that help classify the target variable as accurately as possible. Once the model is trained, the <code>.predict(X_test)</code> method can be used to make predictions on new data. For each row in X_test, the model follows the learned decision rules down the tree to arrive at a prediction, such as whether a passenger survived or not. In short, <code>.fit()</code> builds the decision rules from training data, and <code>.predict()</code> applies those rules to make predictions.</p>
 <hr>
 <p>Let’s now take a look at the code below. It is used to train the model and make predictions on the test data:</p>
-<div id="c61a11df" class="cell" data-execution_count="36">
+<div id="c61a11df" class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>model.fit(X,y) </span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The first line, <code>model.fit(X, y)</code>, trains the DecisionTreeClassifier model using the training data. The second line, <code>model.predict(X_test)</code>, uses the trained model to predict survival for each passenger in the test set. By running this code, we get the model’s predictions automatically based on the patterns it learned from the training data.</p>
 <p>Let’s now take a look at the accuracy of the survival predictions made by the Decision Tree model:</p>
-<div id="3ad7d873" class="cell" data-execution_count="37">
+<div id="3ad7d873" class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>(yhat_test <span class="op">==</span> y_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.765363</code></pre>
@@ -1902,7 +1902,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 <hr>
 <p>The result is 0.765363 — and interestingly, it’s exactly the same as the accuracy from this simple rule-based prediction:</p>
-<div id="6d7fb5a2" class="cell" data-execution_count="38">
+<div id="6d7fb5a2" class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> (df_test[<span class="st">'Sex'</span>] <span class="op">==</span> <span class="st">'female'</span>) <span class="op">&amp;</span> (df_test[<span class="st">'Pclass'</span>] <span class="op">&lt;</span> <span class="dv">3</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> yhat_test).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1917,7 +1917,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>In other words, instead of inventing new rules through complex computation, the model is making good use of meaningful patterns already present in the data.</p>
 <hr>
 <p>Now, let’s take things a step further and consider all available features. We can inspect the column names using:</p>
-<div id="d72c8152" class="cell" data-execution_count="39">
+<div id="d72c8152" class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Index(['PassengerId', 'Survived', 'Pclass', 'Name', 'Sex', 'Age', 'SibSp',
@@ -1926,12 +1926,12 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 </div>
 <p>This gives us a list of variables such as “PassengerId”, “Pclass”, “Name”, “Sex”, “Age”, “SibSp”, “Parch”, “Ticket”, “Fare”, “Cabin”, and “Embarked”. Since “Survived” is the target variable we’re trying to predict, we’ll exclude it from the list of features used for training. So, our final list of features will be:</p>
-<div id="ba960c96" class="cell" data-execution_count="40">
+<div id="ba960c96" class="cell">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"PassengerId"</span>, <span class="st">"Pclass"</span>, <span class="st">"Name"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Ticket"</span>, <span class="st">"Fare"</span>, <span class="st">"Cabin"</span>, <span class="st">"Embarked"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <p>Now let’s include all these features in the model. Because some of them are categorical variables, we need to preprocess them using one-hot encoding. We can do this with the following code:</p>
-<div id="eb4cd6b0" class="cell" data-execution_count="41">
+<div id="eb4cd6b0" class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2014,7 +2014,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Now, here’s the problem: these exact names appear only in the training set. They don’t exist in the test set, so when we apply the same code to <code>df_test</code>, those columns are missing — which causes a mismatch in the number of features between training and test data.</p>
 <hr>
 <p>Let’s look at the result of our preprocessing:</p>
-<div id="62e4121d" class="cell" data-execution_count="43">
+<div id="62e4121d" class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(X.columns), <span class="bu">len</span>(X_test.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2025,12 +2025,12 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>See the problem? The training set ended up with 1398 columns, while the test set has only 401 columns. This is because the <code>get_dummies()</code> function creates columns based on the unique values present in each dataset. For example, if a name or ticket appears only in the training set, <code>get_dummies()</code> will create a column for it — but that column will be missing in the test set, leading to a mismatch. As a result, the model cannot be trained and tested on data with different structures, which is why the error occurs. To fix this, we’ll need to ensure that both <code>X</code> and <code>X_test</code> have the same columns.</p>
 <hr>
 <p>Now, we’ll select the features to use as follows:</p>
-<div id="8efa0d0d" class="cell" data-execution_count="44">
+<div id="8efa0d0d" class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"PassengerId"</span>, <span class="st">"Pclass"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Fare"</span>, <span class="st">"Embarked"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The excluded features are Name, Ticket, and Cabin. These columns typically contain highly unique or overly specific values. If we apply <code>get_dummies()</code> to them, the resulting feature sets in the training and test data may end up with mismatched columns. This mismatch would cause errors during model training or prediction, so we exclude them.</p>
 <p>Now let’s apply one-hot encoding using the code below:</p>
-<div id="cb972606" class="cell" data-execution_count="45">
+<div id="cb972606" class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(X.columns), <span class="bu">len</span>(X_test.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2041,7 +2041,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>As you can see, both datasets now have exactly 11 columns. With the data properly aligned, we’re finally ready to train the model!</p>
 <hr>
 <p>Now it’s time to apply a machine learning model.</p>
-<div id="899af85f" class="cell" data-execution_count="46">
+<div id="899af85f" class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> DecisionTreeClassifier(random_state<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>yhat_test <span class="op">=</span> model.predict(X_test)</span>
@@ -2051,7 +2051,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 </div>
 </div>
 <p>The result is in — the model yields an accuracy of 0.73. But the outcome feels disappointing. Despite considering all available variables, the model fails to outperform the following simple rule:</p>
-<div id="9581278e" class="cell" data-execution_count="47">
+<div id="9581278e" class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> (df_test[<span class="st">'Sex'</span>]<span class="op">==</span><span class="st">"female"</span>)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.782123</code></pre>
@@ -2061,7 +2061,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <hr>
 <p>Why did this happen?</p>
 <p>It reminds us of an earlier observation: adding more variables to the model doesn’t always lead to better performance, especially when we started from the “Sex” variable alone.</p>
-<div id="88e17bf2" class="cell" data-execution_count="48">
+<div id="88e17bf2" class="cell">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>features</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>['PassengerId', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']</code></pre>
@@ -2073,7 +2073,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>Therefore, it’s reasonable to remove the PassengerId feature before retraining the model.</p>
 <hr>
 <p>We revised the feature list to exclude PassengerId and focused on more meaningful variables:</p>
-<div id="d1ee7fce" class="cell" data-execution_count="49">
+<div id="d1ee7fce" class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>features <span class="op">=</span> [<span class="st">"Pclass"</span>, <span class="st">"Sex"</span>, <span class="st">"Age"</span>, <span class="st">"SibSp"</span>, <span class="st">"Parch"</span>, <span class="st">"Fare"</span>, <span class="st">"Embarked"</span>]</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.get_dummies(df_train[features])</span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> pd.get_dummies(df_test[features])</span>
@@ -2129,7 +2129,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>It’s a great tool for quickly building high-quality models — and ideal for learners who want to focus on insights rather than low-level implementation.</p>
 <hr>
 <p>Prediction with AutoGluon begins with the following line of code:</p>
-<div id="db19b644" class="cell" data-execution_count="50">
+<div id="db19b644" class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>predictor <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20251103_124336"</code></pre>
@@ -2141,7 +2141,7 @@ Instead, we’ll use automated tools and machine learning algorithms to train mo
 <p>In short, TabularPredictor manages the entire process for tabular datasets — from training multiple models to picking the most effective strategy — with minimal code required.</p>
 <hr>
 <p>The next step is to train the model using AutoGluon:</p>
-<div id="53c434bb" class="cell" data-execution_count="51">
+<div id="53c434bb" class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>predictor.fit(df_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Verbosity: 2 (Standard Logging)
@@ -2304,7 +2304,7 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/c
 <p>It’s like launching an entire machine learning pipeline with just one command.</p>
 <hr>
 <p>Let’s take a look at the model leaderboard results:</p>
-<div id="23f7e3da" class="cell" data-execution_count="52">
+<div id="23f7e3da" class="cell">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>predictor.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2529,7 +2529,7 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/c
 <p>That’s why we consistently see tree-based models dominating AutoML leaderboards — they are fast, accurate, and robust for most practical applications in tabular data analysis.</p>
 <hr>
 <p>Now let’s check the final prediction result:</p>
-<div id="2b6b7fe8" class="cell" data-execution_count="53">
+<div id="2b6b7fe8" class="cell">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>(y_test <span class="op">==</span> predictor.predict(df_test)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>0.804469</code></pre>
@@ -2539,7 +2539,7 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/c
 <p>That’s a strong result — especially considering the minimal effort required.</p>
 <hr>
 <p>This time, we apply a bit of preprocessing by removing a few variables. We simply exclude PassengerId, Ticket, and Cabin, and retrain the model.</p>
-<div id="45ffcfdd" class="cell" data-execution_count="54">
+<div id="45ffcfdd" class="cell">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>df_train_preprocessed <span class="op">=</span> df_train.drop([<span class="st">'PassengerId'</span>,<span class="st">'Ticket'</span>,<span class="st">'Cabin'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>df_test_preprocessed <span class="op">=</span> df_test.drop([<span class="st">'PassengerId'</span>,<span class="st">'Ticket'</span>,<span class="st">'Cabin'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>predictor <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span>
@@ -2710,7 +2710,7 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/c
 <hr>
 <p>AutoGluon understands this. It doesn’t treat the Name column as a meaningless string. Instead, without any manual feature engineering, it applies simple natural language processing techniques under the hood to extract valuable features.</p>
 <p>For example, look at the following:</p>
-<div id="08408203" class="cell" data-execution_count="55">
+<div id="08408203" class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>df_test[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -2811,9 +2811,6 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("/home/c
 </div>
 </div>
 <p>When I saw the first observation, I predicted that the passenger would survive. Why? Because their name contained the word “Master”, which usually refers to young boys—typically under the age of 10. And as we know, young children had a much higher chance of survival.</p>
-<div id="cell-273" class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 
 </section>
